@@ -1,0 +1,422 @@
+---
+title: "Visualizing Iris Flowers"
+author: ""
+toc: true
+filters: 
+  - webr
+webr:
+  packages: ['tidyverse', 'scales']
+bibliography: iris-ref.bib
+---
+
+# Programming Activity Guide
+
+Please see (link webR activity) for a guide on how to interact with the different question types for the following activity.
+
+## Packages
+
+We'll use: **tidyverse** for majority of the activity and **scales** for pretty plot labels. These are ready to use for you in this activity!
+
+```{r}
+#| label: load-packages
+#| message: false
+#| warning: false
+library(tidyverse)
+library(scales)
+```
+
+```{r}
+#| echo: false
+
+library(tidyverse) # put in r file to r chunks have packages to use
+library(scales)
+library(ggeasy)
+library(gridExtra)
+
+```
+
+## The Data
+
+We will use the `iris` dataset for this activity. This dataset is pre-packaged for you to use in R [@fisher].
+
+The iris dataset contains four features (length and width of sepals and petals) of three species of Iris (Iris setosa, Iris virginica and Iris versicolor). A sepal is the outer parts of the flower (often green and leaf-like) that enclose a developing bud. The petal are parts of a flower that are the pollen producing part of the flower that are often conspicuously colored. The data were collected in 1936 at the Gaspé Peninsula, in Canada. The difference between sepals and petals can be seen below.
+
+![](images/iris.png){fig-align="center"}
+
+Let's first take a `glimpse` of our data set to become more familiar.
+
+```{webr-r}
+
+glimpse(iris)
+
+```
+
+How many rows and columns do we have in our dataset?
+
+<label>Answer:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+There are 5 columns and 150 rows in the `iris` dataset.
+:::
+
+## Visualizing data with `ggplot2`
+
+First, let's explore the variable `Petal.Length`. Add the following correct `geom` to make side-by-side boxplots of `Petal.Length` for each `Species`.
+
+```{webr-r}
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length)) + 
+  #add geom here
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+add `geom_boxplot()` to the following code above to create side-by-side boxplots of `Petal.Length` for each `Species`
+:::
+
+The code below takes your existing code, and colors each boxplot by `Species` using `fill =`. Change the `fill` to `color`. What happens? Why?
+
+```{webr-r}
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot()
+```
+
+<label>Answer:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+`fill =` fills in or changes the entire boxplot with color. `color =` changes the outline of your specific geom. The exception to this rule is the default shape for `geom_point`, where the default shape used for a scatterplot is a solid circle that will be filled in regardless if color or fill is used.
+:::
+
+## layering geoms
+
+You can layer more than one geom on your plot. Add an additional layer to your code to create the following plot seen below.
+
+```{r}
+#| echo: false
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot() + 
+  geom_point()
+```
+
+```{webr-r}
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot() 
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+A `+` sign needs to go after `geom_boxplot` to signify an additional layer of the ggplot. We can use `geom_point()` to recreate the plot above.
+:::
+
+Now, instead of using `geom_point`, use `geom_jitter`. How does the plot change? What is the difference between `geom_point` and `geom_jitter`?
+
+```{webr-r}
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot() 
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+The points are now more spread out on each of the three boxplots. `geom_jitter` jitters our observations adding a small amount of random noise to data. It is used to spread out points that would otherwise overlap.
+:::
+
+## labels + themes
+
+Any professional plot must have informative titles and labels. This can be accomplished using the `labs` function in R. Please add the following text to the plot:
+
+Title: Petal Length for each Species
+
+Y-axis: Petal Length in cm
+
+```{webr-r}
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot() + 
+  geom_jitter()
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot() + 
+  geom_jitter() + 
+  labs(
+  title = "Petal Length for each Species",
+  y = "Petal Length in cm"
+)
+```
+:::
+
+We can use `themes` to continue to make plots more professional looking. Themes control all non-data aesthetics of our plot (e.g., plot background color). There are many themes in R to choose from. A a lit of themes can be found [here](https://ggplot2.tidyverse.org/reference/ggtheme.html) .
+
+Explore the theme reference page and layer the following themes onto your plot:
+
+-- `theme_bw`
+
+-- `theme_light`
+
+-- `theme_minimal`
+
+Document what and what does not change.
+
+```{webr-r}
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot() + 
+  geom_jitter() + 
+  labs(
+  title = "Petal Length for each Species",
+  y = "Petal Length in cm"
+)
+```
+
+<label>Notes:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
+## Visualizing other variables
+
+Pick two variables (or more) from the `iris` dataset and make a visualization to visualize the relationship between the two variables. Along with your code and output, practice describing the relationship between your variables.
+
+```{webr-r}
+
+```
+
+<label>Notes:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
+::: {.callout-tip collapse="true"}
+## Example
+
+```{r}
+iris |>
+  ggplot(
+    aes(x = Petal.Width, y = Petal.Length, color = Species)) + 
+  geom_point() +
+  labs(
+  title = "Petal Length and Width by Species",
+  y = "Petal Length in cm",
+  x = "Petal Width in cm"
+) + 
+  theme_bw()
+```
+
+The relationship between petal length and width is strong, positive and linear for each of the three species in the iris data set. It appears that the species virginica has the largest petals while setosa has the smallest.
+:::
+
+# Quiz
+
+**Things to think about** 
+
+-- I'm writing code using the pipe. Do you plan on introducing the |> to Coursera students right away, or not? 
+
+-- I haven't put a lot of thought into the ordering of the questions, or how one question may inform another. I'm just getting drafts and ideas onto the page. 
+
+Use the following plot to answer questions 1, 2, 3 and 4.
+
+```{r}
+#| echo: false
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot() + 
+  geom_jitter(alpha = 0.3) + 
+  labs(
+  title = "Petal Length for each Species",
+  y = "Petal Length in cm"
+)
+```
+
+1.  In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted.
+
+2.  True or False: The points of the graph will become darker if we change `alpha` to equal 1.
+
+2b. Certain points on the graph are darker than others. Why? Justify your answer.
+
+3a. Is a legend necessary for the following plot?
+
+3b. Regardless of your answer above, please change arguments within `geom_boxplot` to remove the legend.
+
+```{webr-r}
+#| echo: false
+iris |>
+  ggplot(
+    aes(x = Species, y = Petal.Length, fill = Species)) + 
+  geom_boxplot() + 
+  geom_jitter() + 
+  labs(
+  title = "Petal Length for each Species",
+  y = "Petal Length in cm"
+)
+```
+
+4. Please edit the following code below in the `aes` so that the boxplots appear exactly as above, but horizontal instead of vertical. 
+
+```{r}
+#| eval: false
+iris |>
+  ggplot(
+    aes(#fill in code here)) + 
+  geom_boxplot() + 
+  geom_jitter(alpha = 0.3) + 
+  labs(
+  title = "Petal Length for each Species",
+  y = "Petal Length in cm"
+)
+```
+
+5.  Match the geom with the corresponding plot that the geom creates:
+
+| Geom           |
+|----------------|
+| `geom_density` |
+| `geom_boxplot` |
+| `geom_violin`  |
+| `geom_point`   |
+
+```{r}
+#| echo: false
+
+a <- mtcars |>
+  ggplot(
+    aes(x = disp)
+  ) + 
+  geom_density() + 
+  easy_remove_axes()
+
+b <- mtcars |>
+  mutate(vs = as.factor(vs)) |>
+  filter(vs == 1) |>
+  ggplot(
+    aes(x = as.factor(vs),  y = disp)
+  ) + 
+  geom_violin() + 
+  easy_remove_axes()
+
+c <- mtcars |>
+  mutate(vs = as.factor(vs)) |>
+  filter(vs == 1) |>
+  ggplot(
+    aes(x = as.factor(vs),  y = disp)
+  ) + 
+  geom_boxplot() + 
+  easy_remove_axes()
+
+d <- mtcars |>
+  ggplot(
+    aes(x = hp,  y = disp)
+  ) + 
+  geom_point() + 
+  easy_remove_axes()
+
+```
+
+```{r}
+#| echo: false
+
+grid.arrange(a,b,c,d, ncol=2)
+
+```
+
+6.  Based on the following visualization, determine if the each sentence are true or false:
+
+```{r}
+#| echo: false
+iris |>
+  ggplot(
+    aes(x = Sepal.Width)) + 
+  geom_histogram(binwidth = .18) + 
+  labs(
+  title = "Histogram of Sepal Width Across Species",
+  x = "Sepal Width"
+)
+```
+
+-- This histogram is *left skewed*
+
+-- This histogram is *unimodel*
+
+-- This histogram is *right skewed*
+
+7.  The appropriate geom to make a barplot is of *Species* is...
+
+```{r}
+#| eval: false
+
+iris |>
+  ggplot(
+    aes(x = Species)
+  ) + 
+  
+
+```
+
+a.  geom_bar()
+b.  geom_barplot()
+c.  geom_category()
+d.  geom_rod()
+
+
+8.  **True or False:** Using a barplot to graph numerical data can be misleading, and sacrifices a distributional representation of the data.
+
+
+9.  Please see the following code below. Select all options that violate the R code style guide.
+
+```{r}
+#| eval: false
+
+ggplot(data=iris,mapping=aes(x=Species,y=Sepal.Length,fill=Species))+geom_boxplot() +scale_fill_viridis_d()
+```
+
+a. data = & mapping = should always be removed from ggplot code
+b. needs to be spaces after separators, such as a comma
+c. The operators `|>` and `+` should always be the end of a line of code
+d. There should never be empty ()s after a function
+
+10. 
+
+
+
