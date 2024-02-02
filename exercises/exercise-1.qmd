@@ -1,5 +1,6 @@
 ---
 title: "Bechdel + Data Visualization"
+subtitle: "Module 1 - Ex 2"
 author: ""
 toc: true
 filters: 

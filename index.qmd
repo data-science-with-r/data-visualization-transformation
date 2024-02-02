@@ -1,0 +1,40 @@
+---
+title: "Data visualization and transformation"
+subtitle: "Data science with R - Course 1"
+author: "Mine Çetinkaya-Rundel + Elijah Meyer"
+listing:
+  - id: slides
+    contents: slides/*/*.qmd
+    type: table
+    fields: [title]
+    filter-ui: false
+    sort-ui: false
+  - id: code-alongs
+    contents: code-alongs/*.qmd
+    type: table
+    fields: [title]
+    filter-ui: false
+    sort-ui: false
+  - id: exercises
+    contents: exercises/*.qmd
+    type: table
+    fields: [title, subtitle]
+    sort: [subtitle]
+    filter-ui: false
+    sort-ui: false
+---
+
+## Slides
+
+:::{#slides}
+:::
+
+## Code alongs
+
+:::{#code-alongs}
+:::
+
+## Exercises
+
+:::{#exercises}
+:::

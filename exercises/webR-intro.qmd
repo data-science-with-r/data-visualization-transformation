@@ -1,5 +1,6 @@
 ---
 title: "Introduction to WebR"
+subtitle: "Module 3"
 author: ""
 toc: true
 filters: 
