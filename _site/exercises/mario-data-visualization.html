@@ -8,7 +8,7 @@
 
 <meta name="author" content="">
 
-<title>Data visualization and transformation - Bechdel + Data Visualization</title>
+<title>Data visualization and transformation - Mario Games + Data Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -776,9 +776,9 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#get-to-know-the-data" id="toc-get-to-know-the-data" class="nav-link" data-scroll-target="#get-to-know-the-data">Get to know the data</a></li>
   </ul></li>
-  <li><a href="#variables-of-interest" id="toc-variables-of-interest" class="nav-link" data-scroll-target="#variables-of-interest">Variables of Interest</a></li>
+  <li><a href="#variables-of-interest-update" id="toc-variables-of-interest-update" class="nav-link" data-scroll-target="#variables-of-interest-update">Variables of Interest (update)</a></li>
   <li><a href="#visualizing-data-with-ggplot2" id="toc-visualizing-data-with-ggplot2" class="nav-link" data-scroll-target="#visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code></a></li>
-  <li><a href="#gross-revenue-vs.-budget" id="toc-gross-revenue-vs.-budget" class="nav-link" data-scroll-target="#gross-revenue-vs.-budget">Gross revenue vs.&nbsp;budget</a>
+  <li><a href="#number-of-bids-vs.-total-price" id="toc-number-of-bids-vs.-total-price" class="nav-link" data-scroll-target="#number-of-bids-vs.-total-price">Number of bids vs.&nbsp;total price</a>
   <ul class="collapse">
   <li><a href="#step-1" id="toc-step-1" class="nav-link" data-scroll-target="#step-1">Step 1</a></li>
   <li><a href="#step-2" id="toc-step-2" class="nav-link" data-scroll-target="#step-2">Step 2</a></li>
@@ -941,7 +941,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bechdel + Data Visualization</h1>
+<h1 class="title">Mario Games + Data Visualization</h1>
 <p class="subtitle lead">Module 1 - Ex 1</p>
 </div>
 
@@ -1035,8 +1035,8 @@ await globalThis.webR.init();
 // Run R code without focusing on storing data.
 await globalThis.webR.evalRVoid(`
 download.file(
-  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/bechdel.csv",
-  "bechdel.csv"
+  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv",
+  "mariokart.csv"
 )
 `)
 </script>
@@ -1057,12 +1057,71 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `bechdel <- read.csv("bechdel.csv")`, 
+  `mario <- read.csv("mariokart.csv")`, 
   3);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>In this mini analysis we work with the data used in the FiveThirtyEight story titled <a href="https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/">“The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”</a>.</p>
-<p>This analysis is about the <a href="https://en.wikipedia.org/wiki/Bechdel_test">Bechdel test</a>, a measure of the representation of women in fiction.</p>
+<p>In this mini analysis we work with the data from the <em>openintro</em> package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:</p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>variable name</td>
+<td>description</td>
+</tr>
+<tr class="even">
+<td>id</td>
+<td>Auction ID assigned by Ebay.</td>
+</tr>
+<tr class="odd">
+<td>duration</td>
+<td>Auction length, in days</td>
+</tr>
+<tr class="even">
+<td>n_bids</td>
+<td>Number of bids</td>
+</tr>
+<tr class="odd">
+<td>cond</td>
+<td>Game condition, either <code>new</code> or <code>used</code></td>
+</tr>
+<tr class="even">
+<td>start_pr</td>
+<td>Start price of the auction</td>
+</tr>
+<tr class="odd">
+<td>ship_pr</td>
+<td>Shipping price</td>
+</tr>
+<tr class="even">
+<td>total_pr</td>
+<td>Total price, which equals the auction price plus the shipping price</td>
+</tr>
+<tr class="odd">
+<td>ship_sp</td>
+<td>Shipping speed or method</td>
+</tr>
+<tr class="even">
+<td>seller_rate</td>
+<td>The seller’s rating on Ebay. This is the number of positive ratings minus the number of negative ratings for the seller</td>
+</tr>
+<tr class="odd">
+<td>stock_photo</td>
+<td>Whether the auction feature photo was a stock photo or not, either <code>yes</code> or <code>no</code></td>
+</tr>
+<tr class="even">
+<td>wheels</td>
+<td>Number of Wii wheels included in the auction. These are steering wheel attachments to make it seem as though you are actually driving in the game.</td>
+</tr>
+<tr class="odd">
+<td>title</td>
+<td>The title of the auctions</td>
+</tr>
+</tbody>
+</table>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
 <p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. These are ready to use for you in this activity!</p>
@@ -1070,27 +1129,13 @@ qwebrCreateMonacoEditorInstance(
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>FOR MINE</strong> Do we need this note below? I modified it from the original AE, but it may not feel necessary for Coursera.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This a modified version of the <code>bechdel</code> dataset. It’s been modified to include some new variables derived from existing variables as well as to limit the scope of the data to movies released between 1990 and 2013. A link to the original dataset can be found <a href="https://github.com/fivethirtyeight/data/blob/master/bechdel/movies.csv">here</a></p>
-</div>
-</div>
 </section>
 <section id="get-to-know-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="get-to-know-the-data">Get to know the data</h3>
 <p><strong>Your Turn</strong>: We can use the <code>glimpse</code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
 <p>With your output, confirm that:</p>
-<p>– There are 1615 rows</p>
-<p>– There are 7 variables (columns) in the dataset</p>
+<p>– There are 143 rows</p>
+<p>– There are 12 variables (columns) in the dataset</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1101,7 +1146,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you receive the error <span style="color:red;">Error: object ‘bechdel’ not found</span>, go back and read in your data above.</p>
+<p>If you receive the error <span style="color:red;">Error: object ‘mario’ not found</span>, go back and read in your data above.</p>
 </div>
 </div>
 <div id="qwebr-insertion-location-4"></div>
@@ -1139,7 +1184,7 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `slice(bechdel, 1:5)`, 
+  `slice(mario, 1:5)`, 
   5);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1151,7 +1196,7 @@ qwebrCreateMonacoEditorInstance(
 <textarea rows="4" cols="50"></textarea>
 <p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1160,39 +1205,29 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Each observation represents a <strong>movie</strong>.</p>
+<p>Each observation represents a <strong>mario game</strong>.</p>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="variables-of-interest" class="level2">
-<h2 class="anchored" data-anchor-id="variables-of-interest">Variables of Interest</h2>
+<section id="variables-of-interest-update" class="level2">
+<h2 class="anchored" data-anchor-id="variables-of-interest-update">Variables of Interest (update)</h2>
 <p>The variables we’ll focus on are the following:</p>
 <ul>
-<li><code>budget_2013</code>: Budget in 2013 inflation adjusted dollars.</li>
-<li><code>gross_2013</code>: Gross (US and international combined) in 2013 inflation adjusted dollars.</li>
-<li><code>roi</code>: Return on investment, calculated as the ratio of the gross to budget.</li>
-<li><code>clean_test</code>: Bechdel test result:
-<ul>
-<li><code>ok</code> = passes test</li>
-<li><code>dubious</code></li>
-<li><code>men</code> = women only talk about men</li>
-<li><code>notalk</code> = women don’t talk to each other</li>
-<li><code>nowomen</code> = fewer than two women</li>
-</ul></li>
-<li><code>binary</code>: Bechdel Test PASS vs FAIL binary</li>
+<li><code>n_bids</code>: number of bids throughout the auction</li>
+<li><code>total_pr</code>: total price of game sold plus shipping in usd</li>
+<li><code>seller_rate</code>: The seller’s rating on Ebay</li>
+<li><code>cond</code>: Binary variable representing the condition of the video game</li>
 </ul>
-<p>We will also use the <code>year</code> of release in data prep and <code>title</code> of movie to take a deeper look at some outliers.</p>
-<p>There are a few other variables in the dataset, but we won’t be using them in this analysis.</p>
 </section>
 <section id="visualizing-data-with-ggplot2" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code></h2>
 <p><strong>Demo</strong>: <strong>ggplot2</strong> is the package and <code>ggplot()</code> is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!</p>
 <ul>
-<li><code>ggplot()</code> creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with <code>data = bechdel</code>, and run the following to create our base.</li>
+<li><code>ggplot()</code> creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with <code>data = mario</code>, and run the following to create our base.</li>
 </ul>
 <div id="qwebr-insertion-location-6"></div>
 <script type="module">
@@ -1209,7 +1244,7 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(data = bechdel)`, 
+  `ggplot(data = mario)`, 
   6);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1231,8 +1266,8 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(data = bechdel, 
-       mapping = aes(x = budget_2013, y = gross_2013))`, 
+  `ggplot(data = mario, 
+       mapping = aes(x = n_bids, y = total_pr))`, 
   7);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1254,8 +1289,8 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013))`, 
+  `ggplot(mario, 
+       aes(x = n_bids, y = total_pr))`, 
   8);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1276,14 +1311,14 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013)) +
+  `ggplot(mario, 
+       aes(x = n_bids, y = total_pr)) +
   # type geom_point() here!`, 
   9);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1292,16 +1327,13 @@ Expected Result
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1309,11 +1341,12 @@ Expected Result
 </div>
 </div>
 </div>
+<p><em>FOR MINE</em> Should we omit some data so people can see that R omits a warning and a plot? And then talk about it like below:</p>
 <p>Note that this results in a warning as well.</p>
 <p>This warning represents the number of observations that were removed because there were missing data!</p>
 </section>
-<section id="gross-revenue-vs.-budget" class="level2">
-<h2 class="anchored" data-anchor-id="gross-revenue-vs.-budget">Gross revenue vs.&nbsp;budget</h2>
+<section id="number-of-bids-vs.-total-price" class="level2">
+<h2 class="anchored" data-anchor-id="number-of-bids-vs.-total-price">Number of bids vs.&nbsp;total price</h2>
 <section id="step-1" class="level3">
 <h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
 <p><strong>Your Turn</strong>: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!</p>
@@ -1346,8 +1379,8 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013)) +
+ggplot(mario, 
+       aes(x = n_bids, y = total_pr)) +
   geom_point(color = "coral") `, 
   10);
 </script>
@@ -1372,15 +1405,15 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013)) +
+ggplot(mario, 
+       aes(x = n_bids, y = total_pr)) +
   geom_point(color = "coral") + 
   # insert code here`, 
   11);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1389,24 +1422,21 @@ Expected Result
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013))<span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"deepskyblue3"</span>) <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mario, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> n_bids, <span class="at">y =</span> total_pr))<span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"deepskyblue3"</span>) <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of bids"</span>, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total price ($)"</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Total bids vs price"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/plot-labels-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="mario-data-visualization_files/figure-html/plot-labels-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1425,7 +1455,7 @@ Expected Result
 <li>size</li>
 <li>alpha (transparency)</li>
 </ul>
-<p>Modify the plot below, so the <code>color</code> of the points is based on the variable <code>binary</code>, and make the size of your points based on <code>roi</code>.</p>
+<p>Modify the plot below, so the <code>color</code> of the points is based on the variable <code>cond</code>, and make the size of your points based on <code>seller_rate</code>.</p>
 <div id="qwebr-insertion-location-12"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1442,19 +1472,19 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013)) +
+ggplot(mario, 
+       aes(x = n_bids, y = total_pr)) +
   geom_point() + 
   labs(
-    x = "Budget (in 2013 $)", 
-    y = "Gross revenue (in 2013 $)", 
-    title = "Gross revenue vs. budget, by Bechdel test result"
+    x = "Number of bids", 
+    y = "Total price ($)", 
+    title = "Total bids vs price by condition and seller rating"
     )`, 
   12);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1463,25 +1493,22 @@ Expected Result
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> binary, <span class="at">size =</span> roi)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mario, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> n_bids, <span class="at">y =</span> total_pr,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> cond, <span class="at">size =</span> seller_rate)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of bids"</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total price ($)"</span>, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Total bids vs price by condition and seller rating"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/plot-aes-color-solution-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="mario-data-visualization_files/figure-html/plot-aes-color-solution-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1509,14 +1536,14 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013,
-           color = binary, size = roi)) +
+ggplot(mario, 
+       aes(x = n_bids, y = total_pr,
+           color = cond, size = seller_rate)) +
   geom_point(alpha = #insert 0.5 here) + 
   labs(
-    x = "Budget (in 2013 $)", 
-    y = "Gross revenue (in 2013 $)", 
-    title = "Gross revenue vs. budget, by Bechdel test result"
+    x = "Number of bids", 
+    y = "Total price ($)", 
+    title = "Total bids vs price by condition and seller rating"
     )`, 
   13);
 </script>
@@ -1524,7 +1551,7 @@ ggplot(bechdel,
 </section>
 <section id="step-5" class="level3">
 <h3 class="anchored" data-anchor-id="step-5">Step 5</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_wrap</code> to display the association between budget and gross for different values of <code>clean_test</code>.</p>
+<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_wrap</code> to display the association between budget and gross for different values of <code>stock_photo</code>.</p>
 <div id="qwebr-insertion-location-14"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1541,21 +1568,21 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
-  aes(x = budget_2013, y = gross_2013,
-    color = binary, size = roi)) +
+ggplot(mario, 
+  aes(x = n_bids, y = total_pr,
+    color = cond, size = seller_rate)) +
   geom_point(alpha = 0.5) + 
   facet_wrap(~#insert variable here) +
   labs(
-    x = "Budget (in 2013 $)", 
-    y = "Gross revenue (in 2013 $)", 
-    title = "Gross revenue vs. budget, by Bechdel test result"
+    x = "Number of bids", 
+    y = "Total price ($)", 
+    title = "Total bids vs price by condition and seller rating"
     )`, 
   14);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1564,26 +1591,23 @@ Expected Result
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi)) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> clean_test) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mario, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> n_bids, <span class="at">y =</span> total_pr,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> cond, <span class="at">size =</span> seller_rate)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> stock_photo) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of bids"</span>, </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total price ($)"</span>, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Total bids vs price by condition and seller rating"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/plot-facet-wrap-sol-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="mario-data-visualization_files/figure-html/plot-facet-wrap-sol-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1594,7 +1618,7 @@ Expected Result
 </section>
 <section id="step-6" class="level3">
 <h3 class="anchored" data-anchor-id="step-6">Step 6</h3>
-<p><strong>Demo</strong>: Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.</p>
+<p><strong>Demo</strong>: Below is a demonstration on how to improve your plot from the previous step by making the y scale more legible.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1605,7 +1629,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is done through the use of the <a href="https://scales.r-lib.org/"><strong>scales</strong></a> package, specifically the <code>scale_x_continuous()</code> and <code>scale_y_continuous()</code> functions.</p>
+<p>This is done through the use of the <a href="https://scales.r-lib.org/"><strong>scales</strong></a> package, specifically the <code>scale_x_continuous()</code> and <code>scale_y_continuous()</code> functions. Because we want to change the y-axis label, let’s demo the <code>scale_y_continuous()</code> function below.</p>
 </div>
 </div>
 <div id="qwebr-insertion-location-15"></div>
@@ -1624,17 +1648,16 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
-  aes(x = budget_2013, y = gross_2013,
-    color = binary, size = roi)) +
+ggplot(mario, 
+  aes(x = n_bids, y = total_pr,
+    color = cond, size = seller_rate)) +
   geom_point(alpha = 0.5) + 
-  facet_wrap(~clean_test) +
-  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +
-  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +
+  facet_wrap(~stock_photo) +
+  scale_y_continuous(labels = label_dollar()) +
   labs(
-    x = "Budget (in 2013 $)", 
-    y = "Gross revenue (in 2013 $)", 
-    title = "Gross revenue vs. budget, by Bechdel test result"
+    x = "Number of bids", 
+    y = "Total price ($)", 
+    title = "Total bids vs price by condition and seller rating"
     )`, 
   15);
 </script>
@@ -1645,7 +1668,7 @@ ggplot(bechdel,
 </section>
 <section id="step-7" class="level3">
 <h3 class="anchored" data-anchor-id="step-7">Step 7</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_grid</code> to display the association between budget and gross for different combinations of <code>clean_test</code> and <code>binary</code>. Comment on whether this was a useful update.</p>
+<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_grid</code> to display the association between budget and gross for different combinations of <code>stock_photo</code> and <code>cond</code>. Comment on whether you notice any additional patters that were harder to see before.</p>
 <div id="qwebr-insertion-location-16"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1662,41 +1685,23 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013,
-           color = binary, size = roi)) +
+ggplot(mario, 
+       aes(x = n_bids, y = total_pr,
+           color = cond, size = seller_rate)) +
   geom_point(alpha = 0.5) + 
-  facet_grid(#insert variable name1 ~ insert variable name2) +
-  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +
-  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +
+  facet_grid(stock_photo ~ cond) +
+  scale_y_continuous(labels = label_dollar()) +
   labs(
-    x = "Budget (in 2013 $)", 
-    y = "Gross revenue (in 2013 $)", 
-    title = "Gross revenue vs. budget, by Bechdel test result"
+    x = "Number of bids", 
+    y = "Total price ($)", 
+    title = "Total bids vs price by condition and seller rating"
     )`, 
   16);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Is this type of facet useful? Why or why not?</p>
-<p><label>Answer:</label> <br></p>
+<p><label>Notes:</label> <br></p>
 <textarea rows="4" cols="50"></textarea>
 <p><br><br></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This was not a useful update as one of the levels of <code>clean_test</code> maps directly to one of the levels of <code>binary</code>.</p>
-</div>
-</div>
-</div>
 </section>
 </section>
 </section>
@@ -1704,7 +1709,7 @@ Solution
 <h1>Quiz</h1>
 <p><strong>1 (dropdown question)</strong> The <code>|&gt;</code> operator in R represents the word (<em>then</em> | with | before | after)</p>
 <p><strong>2 (dropdown question)</strong> The formal name for a row is a(an) (<em>observational unit</em> | variable | input). Columns in our data set represent a(an) (observational unit | <em>variable</em> | input).</p>
-<p><strong>3 (multiple choice)</strong> Below is a table that has all columns and five rows from the bechdel dataset. This is also commonly refereed to as a …</p>
+<p><strong>3 (multiple choice)</strong> Below is a table that has all columns and five rows from the mario dataset. This is also commonly refereed to as a …</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/data-frame.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -1836,74 +1841,74 @@ Solution
 </ol>
 <p><strong>8 (Matching)</strong> Code style: Below is code that does not follow the <a href="https://style.tidyverse.org/">Tidyverse style guide</a>. Pick the correction option that changes the code to adhere to the style guide.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>drv,<span class="at">fill=</span>class))<span class="sc">+</span><span class="fu">geom_bar</span>() <span class="sc">+</span><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>drv,<span class="at">fill=</span>class))<span class="sc">+</span><span class="fu">geom_bar</span>() <span class="sc">+</span><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Options</strong></p>
 <ol type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class))<span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>()<span class="sc">+</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class))<span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>()<span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>9 (Matching)</strong> Reference the data set key above. Then, choose the selection that fills in the following <code>...</code> to make a scatterplot of cars’ with <code>miles per gallon</code> on the x-axis and their `weight below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ... , <span class="at">y =</span> ...) <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ... , <span class="at">y =</span> ...) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Options</strong></p>
 <ol type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg , <span class="at">y =</span> wt) <span class="sc">+</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg , <span class="at">y =</span> wt) <span class="sc">+</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt) <span class="sc">+</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>10 (Fill in blank)</strong> Should probably be moved up to question 1</p>
 <p>Might also just not have a question like this.</p>
-<p>Create side-by-side box plots of roi on the y-axis, and clean_test on the x-axis with the boxes are colored by binary. Be sure to include appropriate labels.</p>
+<p>Create side-by-side box plots of seller_rate on the y-axis, and clean_test on the x-axis with the boxes are colored by cond. Be sure to include appropriate labels.</p>
 <div id="qwebr-insertion-location-17"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1920,14 +1925,14 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
+ggplot(mario, 
        aes(x = ..., y = ..., color = ...)) +
   geom_...() +
   labs(
-    title = "Return on investment vs. Bechdel test result",
-    x = "Detailed Bechdel result",
+    title = "Return on investment vs. mario test result",
+    x = "Detailed mario result",
     y = "Return-on-investment (gross / budget)",
-    color = "Bechdel\\nresult"
+    color = "mario\\nresult"
     )`, 
   17);
 </script>
@@ -1949,14 +1954,14 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `
-ggplot(bechdel, 
-       aes(x = clean_test, y = roi, color = binary)) +
+ggplot(mario, 
+       aes(x = clean_test, y = seller_rate, color = cond)) +
   geom_boxplot() +
   labs(
-    title = "Return on investment vs. Bechdel test result",
-    x = "Detailed Bechdel result",
+    title = "Return on investment vs. mario test result",
+    x = "Detailed mario result",
     y = "Return-on-investment (gross / budget)",
-    color = "Bechdel\\nresult"
+    color = "mario\\nresult"
     )`, 
   18);
 </script>
@@ -1968,13 +1973,13 @@ ggplot(bechdel,
 <p>– I’ve put a <em>Notes</em> text box after the demo questions. Should every question have a notes box?</p>
 <p>– The original AE for 199 had an open ended question at the end that read: “What other improvements could we make to this plot?” Would you like to include something like this? I did not include it (yet), and figure it may be a little to exploratory for a programming activity, but maybe we do actually want it.</p>
 <p>– This AE also had a second section that had:</p>
-<pre><code>  - Create side-by-side box plots of roi by clean_test where the 
-  boxes are colored by binary.
+<pre><code>  - Create side-by-side box plots of seller_rate by clean_test where the 
+  boxes are colored by cond.
   
   - What are those movies with very high returns on investment?
   
   - Expand on your plot from the previous step to zoom in on movies 
-  with roi &lt; ___ to get a better view of how the medians across 
+  with seller_rate &lt; ___ to get a better view of how the medians across 
   the categories compare.
   </code></pre>
 <p>I’m under the impression that the last 2 questions are going to be beyond the scope of what Coursera students have learned, and did not include them. Thus, I also didn’t include the first question as it may feel out of place (I pitch it above as an assessment question). Do we want to do something with these? Do we want to include this as given code for the last 2 questions as a lead in for <code>dplyr</code> / introduce the <code>coord_cartesian</code> function?</p>
