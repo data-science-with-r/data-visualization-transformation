@@ -1,6 +1,6 @@
 ---
 title: "Introduction to WebR"
-subtitle: "Module 3"
+subtitle: "Module 1 - Course 1 - Lesson 1.2"
 author: ""
 toc: true
 filters: 
@@ -224,7 +224,3 @@ slice(mtcars, 1:3)
 
 
 In the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R.
-
-## Quiz
-
-Do we even need one? 
