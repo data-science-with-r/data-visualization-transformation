@@ -769,9 +769,7 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#programming-activity-guide" id="toc-programming-activity-guide" class="nav-link active" data-scroll-target="#programming-activity-guide">Programming Activity Guide</a>
-  <ul class="collapse">
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a>
   <ul class="collapse">
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#get-to-know-the-data" id="toc-get-to-know-the-data" class="nav-link" data-scroll-target="#get-to-know-the-data">Get to know the data</a></li>
@@ -787,7 +785,6 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
   <li><a href="#step-5" id="toc-step-5" class="nav-link" data-scroll-target="#step-5">Step 5</a></li>
   <li><a href="#step-6" id="toc-step-6" class="nav-link" data-scroll-target="#step-6">Step 6</a></li>
   <li><a href="#step-7" id="toc-step-7" class="nav-link" data-scroll-target="#step-7">Step 7</a></li>
-  </ul></li>
   </ul></li>
   <li><a href="#quiz" id="toc-quiz" class="nav-link" data-scroll-target="#quiz">Quiz</a></li>
   <li><a href="#questions-for-mine" id="toc-questions-for-mine" class="nav-link" data-scroll-target="#questions-for-mine">Questions for Mine</a></li>
@@ -942,7 +939,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Bechdel + Data Visualization</h1>
-<p class="subtitle lead">Module 1 - Ex 1</p>
+<p class="subtitle lead">Module 2 - Lesson 2.2 - Course 1</p>
 </div>
 
 
@@ -959,71 +956,30 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 </header>
 
 
-<section id="programming-activity-guide" class="level1">
-<h1>Programming Activity Guide</h1>
-<p>This activity is meant to provide an interactive environment for students to implement what they have learned from the videos. This activity allows you to write and run R-Code within the html document. Code chunks that allow you to do this look like:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Programming Activity Guide
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please reference the <code>webR-intro</code> activity for information on the different types of code chunks, questions, and how to save your work to reference later.</p>
+</div>
+</div>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.</p>
 <div id="qwebr-insertion-location-1"></div>
 <script type="module">
 // Retrieve the insertion point
 const currentDocumentLocation = document.getElementById("qwebr-insertion-location-1");
 
 // Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    1
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-# example interactive r-chunk`, 
-  1);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Sometimes, we provide code chunks that are not interactive, and will look like:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example r-chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>There will be a variety of question types throughout the document. Question types include the following:</p>
-<p>– <strong>Your Turn</strong>: These coding questions ask students to explore / edit / manipulate existing to code. These questions are followed with an <code>Expected Solutions</code> box so students can get immediate feedback</p>
-<p>– <strong>Demo</strong>: These coding questions have the solutions within them and allow the students to run the code and think critically about the output.</p>
-<p>Throughout the activity, you will see open text boxes. These text boxes will either be labeled <em>Answer</em> or <em>Notes</em>.</p>
-<pre><code>  - Answer: This prompts you to answer a short-answer question. These questions are followed by 
-  a `Solutions` tab to reveal the answer.
-  
-  - Notes: This provides a space to take notes to be referenced later. These are often gives 
-  after `Demo` questions. </code></pre>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Saving Your Work
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Your work does not automatically save.</strong></p>
-<p>For most browsers, the most efficient way to save your work is by using the <code>Print</code> feature. This may be useful if you want to come back and reference your work after it’s completed.</p>
-<p>– Right click anywhere on this html page</p>
-<p>– Select <code>Print...</code></p>
-<p>– Under the <code>Destination</code> tab, click <code>Save as PDF</code></p>
-<p>– Select a file on your computer you wish to save your work.</p>
-</div>
-</div>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.</p>
-<div id="qwebr-insertion-location-2"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-2");
-
-// Initalize an interactive element
 const initializedElement = qwebrCreateNonInteractiveSetupElement(
-    2
+    1
   );
 
 // Add the interactive element into the document scope
@@ -1042,14 +998,14 @@ download.file(
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
-<div id="qwebr-insertion-location-3"></div>
+<div id="qwebr-insertion-location-2"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-3");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-2");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    3
+    2
   );
 
 // Add the interactive element into the document scope
@@ -1058,7 +1014,7 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `bechdel <- read.csv("bechdel.csv")`, 
-  3);
+  2);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>In this mini analysis we work with the data used in the FiveThirtyEight story titled <a href="https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/">“The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”</a>.</p>
@@ -1067,8 +1023,8 @@ qwebrCreateMonacoEditorInstance(
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
 <p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. These are ready to use for you in this activity!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>FOR MINE</strong> Do we need this note below? I modified it from the original AE, but it may not feel necessary for Coursera.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -1104,6 +1060,26 @@ Warning
 <p>If you receive the error <span style="color:red;">Error: object ‘bechdel’ not found</span>, go back and read in your data above.</p>
 </div>
 </div>
+<div id="qwebr-insertion-location-3"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-3");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    3
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# add code here`, 
+  3);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Demo</strong>: We can use <code>slice</code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
 <div id="qwebr-insertion-location-4"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1119,28 +1095,8 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `# add code here`, 
-  4);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><strong>Demo</strong>: We can use <code>slice</code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
-<div id="qwebr-insertion-location-5"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-5");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    5
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
   `slice(bechdel, 1:5)`, 
-  5);
+  4);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><label>Notes:</label> <br></p>
@@ -1194,6 +1150,28 @@ Solution
 <ul>
 <li><code>ggplot()</code> creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with <code>data = bechdel</code>, and run the following to create our base.</li>
 </ul>
+<div id="qwebr-insertion-location-5"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-5");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    5
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `ggplot(data = bechdel)`, 
+  5);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<ul>
+<li>The <code>mapping</code> argument is paired with an aesthetic (<code>aes()</code>), which tells us how the variables in our data set should be mapped to the visual properties of the graph.</li>
+</ul>
 <div id="qwebr-insertion-location-6"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1209,12 +1187,13 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(data = bechdel)`, 
+  `ggplot(data = bechdel, 
+       mapping = aes(x = budget_2013, y = gross_2013))`, 
   6);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li>The <code>mapping</code> argument is paired with an aesthetic (<code>aes()</code>), which tells us how the variables in our data set should be mapped to the visual properties of the graph.</li>
+<li>As we previously mentioned, we often omit the names of the first two arguments in R functions. So you’ll often see this written as:</li>
 </ul>
 <div id="qwebr-insertion-location-7"></div>
 <script type="module">
@@ -1231,14 +1210,13 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(data = bechdel, 
-       mapping = aes(x = budget_2013, y = gross_2013))`, 
+  `ggplot(bechdel, 
+       aes(x = budget_2013, y = gross_2013))`, 
   7);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ul>
-<li>As we previously mentioned, we often omit the names of the first two arguments in R functions. So you’ll often see this written as:</li>
-</ul>
+<p>Note that the result is exactly the same.</p>
+<p><strong>Your Turn</strong>: The <code>geom_xx</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point</code>, which creates a plot where each observation is represented by a point.</p>
 <div id="qwebr-insertion-location-8"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1255,31 +1233,9 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013))`, 
-  8);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Note that the result is exactly the same.</p>
-<p><strong>Your Turn</strong>: The <code>geom_xx</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point</code>, which creates a plot where each observation is represented by a point.</p>
-<div id="qwebr-insertion-location-9"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-9");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    9
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
   # type geom_point() here!`, 
-  9);
+  8);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1301,7 +1257,7 @@ Expected Result
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="bechdel-data-visualization_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1330,6 +1286,32 @@ Tip
 <p>See <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a> for many color options you can use by name in R or use the <a href="https://en.wikipedia.org/wiki/Web_colors">hex code</a> for a color of your choice.</p>
 </div>
 </div>
+<div id="qwebr-insertion-location-9"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-9");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    9
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `
+ggplot(bechdel, 
+       aes(x = budget_2013, y = gross_2013)) +
+  geom_point(color = "coral") `, 
+  9);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</section>
+<section id="step-2" class="level3">
+<h3 class="anchored" data-anchor-id="step-2">Step 2</h3>
+<p><strong>Your Turn</strong>: Add labels for the title and x and y axes using <a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a>. Do this by modifying the existing code below.</p>
 <div id="qwebr-insertion-location-10"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1348,35 +1330,9 @@ qwebrCreateMonacoEditorInstance(
   `
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
-  geom_point(color = "coral") `, 
-  10);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="step-2" class="level3">
-<h3 class="anchored" data-anchor-id="step-2">Step 2</h3>
-<p><strong>Your Turn</strong>: Add labels for the title and x and y axes using <a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a>. Do this by modifying the existing code below.</p>
-<div id="qwebr-insertion-location-11"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-11");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    11
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013)) +
   geom_point(color = "coral") + 
   # insert code here`, 
-  11);
+  10);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1392,14 +1348,14 @@ Expected Result
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013))<span class="sc">+</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"deepskyblue3"</span>) <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget"</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013))<span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"deepskyblue3"</span>) <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
 </div>
@@ -1426,14 +1382,14 @@ Expected Result
 <li>alpha (transparency)</li>
 </ul>
 <p>Modify the plot below, so the <code>color</code> of the points is based on the variable <code>binary</code>, and make the size of your points based on <code>roi</code>.</p>
-<div id="qwebr-insertion-location-12"></div>
+<div id="qwebr-insertion-location-11"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-12");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-11");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    12
+    11
   );
 
 // Add the interactive element into the document scope
@@ -1450,7 +1406,7 @@ ggplot(bechdel,
     y = "Gross revenue (in 2013 $)", 
     title = "Gross revenue vs. budget, by Bechdel test result"
     )`, 
-  12);
+  11);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1466,15 +1422,15 @@ Expected Result
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> binary, <span class="at">size =</span> roi)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> binary, <span class="at">size =</span> roi)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
 </div>
@@ -1493,14 +1449,14 @@ Expected Result
 <section id="step-4" class="level3">
 <h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
 <p><strong>Your Turn</strong>: Expand on your plot from the previous step to make the transparency (<code>alpha</code>) of the points 0.5.</p>
-<div id="qwebr-insertion-location-13"></div>
+<div id="qwebr-insertion-location-12"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-13");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-12");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    13
+    12
   );
 
 // Add the interactive element into the document scope
@@ -1518,21 +1474,21 @@ ggplot(bechdel,
     y = "Gross revenue (in 2013 $)", 
     title = "Gross revenue vs. budget, by Bechdel test result"
     )`, 
-  13);
+  12);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="step-5" class="level3">
 <h3 class="anchored" data-anchor-id="step-5">Step 5</h3>
 <p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_wrap</code> to display the association between budget and gross for different values of <code>clean_test</code>.</p>
-<div id="qwebr-insertion-location-14"></div>
+<div id="qwebr-insertion-location-13"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-14");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-13");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    14
+    13
   );
 
 // Add the interactive element into the document scope
@@ -1551,7 +1507,7 @@ ggplot(bechdel,
     y = "Gross revenue (in 2013 $)", 
     title = "Gross revenue vs. budget, by Bechdel test result"
     )`, 
-  14);
+  13);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1567,16 +1523,16 @@ Expected Result
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi)) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> clean_test) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> clean_test) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
 </div>
@@ -1608,14 +1564,14 @@ Tip
 <p>This is done through the use of the <a href="https://scales.r-lib.org/"><strong>scales</strong></a> package, specifically the <code>scale_x_continuous()</code> and <code>scale_y_continuous()</code> functions.</p>
 </div>
 </div>
-<div id="qwebr-insertion-location-15"></div>
+<div id="qwebr-insertion-location-14"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-15");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-14");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    15
+    14
   );
 
 // Add the interactive element into the document scope
@@ -1636,7 +1592,7 @@ ggplot(bechdel,
     y = "Gross revenue (in 2013 $)", 
     title = "Gross revenue vs. budget, by Bechdel test result"
     )`, 
-  15);
+  14);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><label>Notes:</label> <br></p>
@@ -1646,14 +1602,14 @@ ggplot(bechdel,
 <section id="step-7" class="level3">
 <h3 class="anchored" data-anchor-id="step-7">Step 7</h3>
 <p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_grid</code> to display the association between budget and gross for different combinations of <code>clean_test</code> and <code>binary</code>. Comment on whether this was a useful update.</p>
-<div id="qwebr-insertion-location-16"></div>
+<div id="qwebr-insertion-location-15"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-16");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-15");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    16
+    15
   );
 
 // Add the interactive element into the document scope
@@ -1674,7 +1630,7 @@ ggplot(bechdel,
     y = "Gross revenue (in 2013 $)", 
     title = "Gross revenue vs. budget, by Bechdel test result"
     )`, 
-  16);
+  15);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Is this type of facet useful? Why or why not?</p>
@@ -1699,9 +1655,68 @@ Solution
 </div>
 </section>
 </section>
-</section>
 <section id="quiz" class="level1">
 <h1>Quiz</h1>
+<p><strong>1 (Fill in blank)</strong></p>
+<p>Should we have a question like this? Could also move this into the activity.</p>
+<p>Create side-by-side box plots of roi on the y-axis, and clean_test on the x-axis with the boxes are colored by binary. Be sure to include appropriate labels.</p>
+<div id="qwebr-insertion-location-16"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-16");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    16
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `
+ggplot(bechdel, 
+       aes(x = ..., y = ..., color = ...)) +
+  geom_...() +
+  labs(
+    title = "Return on investment vs. Bechdel test result",
+    x = "Detailed Bechdel result",
+    y = "Return-on-investment (gross / budget)",
+    color = "Bechdel\\nresult"
+    )`, 
+  16);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p><strong>Solution</strong></p>
+<div id="qwebr-insertion-location-17"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-17");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    17
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `
+ggplot(bechdel, 
+       aes(x = clean_test, y = roi, color = binary)) +
+  geom_boxplot() +
+  labs(
+    title = "Return on investment vs. Bechdel test result",
+    x = "Detailed Bechdel result",
+    y = "Return-on-investment (gross / budget)",
+    color = "Bechdel\\nresult"
+    )`, 
+  17);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><strong>1 (dropdown question)</strong> The <code>|&gt;</code> operator in R represents the word (<em>then</em> | with | before | after)</p>
 <p><strong>2 (dropdown question)</strong> The formal name for a row is a(an) (<em>observational unit</em> | variable | input). Columns in our data set represent a(an) (observational unit | <em>variable</em> | input).</p>
 <p><strong>3 (multiple choice)</strong> Below is a table that has all columns and five rows from the bechdel dataset. This is also commonly refereed to as a …</p>
@@ -1776,6 +1791,13 @@ Solution
 </ol>
 </div>
 </div>
+<p><strong>8 (multiple select)</strong> Tidying your data means…</p>
+<p><em>a</em>. storing it in a consistent form that matches the semantics of the dataset with how it is stored</p>
+<p><em>b</em>. storing it where each column is a variable and each row is an observation</p>
+<ol start="3" type="a">
+<li><p>cleaning your data so there are no missing observations</p></li>
+<li><p>making sure your data set has only quantitative values for analysis</p></li>
+</ol>
 <p>The next two questions will use the <code>mtcars</code> data set in R. A key to the data set can be found below:</p>
 <table class="table">
 <thead>
@@ -1827,157 +1849,79 @@ Solution
 </tr>
 </tbody>
 </table>
-<p><strong>8 (multiple select)</strong> Tidying your data means…</p>
-<p><em>a</em>. storing it in a consistent form that matches the semantics of the dataset with how it is stored</p>
-<p><em>b</em>. storing it where each column is a variable and each row is an observation</p>
-<ol start="3" type="a">
-<li><p>cleaning your data so there are no missing observations</p></li>
-<li><p>making sure your data set has only quantitative values for analysis</p></li>
-</ol>
-<p><strong>8 (Matching)</strong> Code style: Below is code that does not follow the <a href="https://style.tidyverse.org/">Tidyverse style guide</a>. Pick the correction option that changes the code to adhere to the style guide.</p>
+<p><strong>9 (Multiple choice)</strong> Code style: Below is code that does not follow the <a href="https://style.tidyverse.org/">Tidyverse style guide</a>. Pick the correction option that changes the code to adhere to the style guide.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>drv,<span class="at">fill=</span>class))<span class="sc">+</span><span class="fu">geom_bar</span>() <span class="sc">+</span><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>drv,<span class="at">fill=</span>class))<span class="sc">+</span><span class="fu">geom_bar</span>() <span class="sc">+</span><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Options</strong></p>
 <ol type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class))<span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>()<span class="sc">+</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class))<span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>()<span class="sc">+</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>9 (Matching)</strong> Reference the data set key above. Then, choose the selection that fills in the following <code>...</code> to make a scatterplot of cars’ with <code>miles per gallon</code> on the x-axis and their `weight below.</p>
+<p><strong>10 (Matching)</strong> Reference the data set key above. Then, choose the selection that fills in the following <code>...</code> to make a scatterplot of cars’ with <code>miles per gallon</code> on the x-axis and their `weight below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ... , <span class="at">y =</span> ...) <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ... , <span class="at">y =</span> ...) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Options</strong></p>
 <ol type="a">
+<li></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg , <span class="at">y =</span> wt) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="a">
 <li></li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg , <span class="at">y =</span> wt) <span class="sc">+</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt) <span class="sc">+</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt) <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="a">
 <li></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>10 (Fill in blank)</strong> Should probably be moved up to question 1</p>
-<p>Might also just not have a question like this.</p>
-<p>Create side-by-side box plots of roi on the y-axis, and clean_test on the x-axis with the boxes are colored by binary. Be sure to include appropriate labels.</p>
-<div id="qwebr-insertion-location-17"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-17");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    17
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
-       aes(x = ..., y = ..., color = ...)) +
-  geom_...() +
-  labs(
-    title = "Return on investment vs. Bechdel test result",
-    x = "Detailed Bechdel result",
-    y = "Return-on-investment (gross / budget)",
-    color = "Bechdel\\nresult"
-    )`, 
-  17);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><strong>Solution</strong></p>
-<div id="qwebr-insertion-location-18"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-18");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    18
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
-       aes(x = clean_test, y = roi, color = binary)) +
-  geom_boxplot() +
-  labs(
-    title = "Return on investment vs. Bechdel test result",
-    x = "Detailed Bechdel result",
-    y = "Return-on-investment (gross / budget)",
-    color = "Bechdel\\nresult"
-    )`, 
-  18);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 </section>
 <section id="questions-for-mine" class="level1">
 <h1>Questions for Mine</h1>
 <p>– Is the <strong>Your Turn</strong> / <strong>Demo</strong> questions clear / how do we feel about how I’ve indicated this within each question in the document?</p>
 <p>– I’ve put a <em>Notes</em> text box after the demo questions. Should every question have a notes box?</p>
 <p>– The original AE for 199 had an open ended question at the end that read: “What other improvements could we make to this plot?” Would you like to include something like this? I did not include it (yet), and figure it may be a little to exploratory for a programming activity, but maybe we do actually want it.</p>
-<p>– This AE also had a second section that had:</p>
-<pre><code>  - Create side-by-side box plots of roi by clean_test where the 
-  boxes are colored by binary.
-  
-  - What are those movies with very high returns on investment?
-  
-  - Expand on your plot from the previous step to zoom in on movies 
-  with roi &lt; ___ to get a better view of how the medians across 
-  the categories compare.
-  </code></pre>
-<p>I’m under the impression that the last 2 questions are going to be beyond the scope of what Coursera students have learned, and did not include them. Thus, I also didn’t include the first question as it may feel out of place (I pitch it above as an assessment question). Do we want to do something with these? Do we want to include this as given code for the last 2 questions as a lead in for <code>dplyr</code> / introduce the <code>coord_cartesian</code> function?</p>
 
 
 </section>
