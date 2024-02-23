@@ -1,6 +1,6 @@
 ---
 title: "Bechdel + Data Visualization"
-subtitle: "Module 1 - Ex 1"
+subtitle: "Module 2 - Lesson 2.2 - Course 1 "
 author: ""
 toc: true
 filters: 
@@ -9,54 +9,10 @@ webr:
   packages: ['tidyverse', 'scales']
 ---
 
-# Programming Activity Guide
+::: {.callout-important}
+## Programming Activity Guide
 
-This activity is meant to provide an interactive environment for students to implement what they have learned from the videos. This activity allows you to write and run R-Code within the html document. Code chunks that allow you to do this look like:
-
-```{webr-r}
-
-# example interactive r-chunk
-
-```
-
-Sometimes, we provide code chunks that are not interactive, and will look like:
-
-```{r}
-
-# example r-chunk
-
-```
-
-There will be a variety of question types throughout the document. Question types include the following:
-
--- **Your Turn**: These coding questions ask students to explore / edit / manipulate existing to code. These questions are followed with an `Expected Solutions` box so students can get immediate feedback
-
--- **Demo**: These coding questions have the solutions within them and allow the students to run the code and think critically about the output.
-
-Throughout the activity, you will see open text boxes. These text boxes will either be labeled *Answer* or *Notes*.
-
-```         
-  - Answer: This prompts you to answer a short-answer question. These questions are followed by 
-  a `Solutions` tab to reveal the answer.
-  
-  - Notes: This provides a space to take notes to be referenced later. These are often gives 
-  after `Demo` questions. 
-```
-
-::: callout-tip
-## Saving Your Work
-
-**Your work does not automatically save.**
-
-For most browsers, the most efficient way to save your work is by using the `Print` feature. This may be useful if you want to come back and reference your work after it's completed.
-
--- Right click anywhere on this html page
-
--- Select `Print...`
-
--- Under the `Destination` tab, click `Save as PDF`
-
--- Select a file on your computer you wish to save your work.
+Please reference the `webR-intro` activity for information on the different types of code chunks, questions, and how to save your work to reference later.
 :::
 
 ## Getting started
@@ -452,6 +408,41 @@ This was not a useful update as one of the levels of `clean_test` maps directly 
 
 # Quiz
 
+**1 (Fill in blank)**
+
+Should we have a question like this? Could also move this into the activity.  
+
+Create side-by-side box plots of roi on the y-axis, and clean_test on the x-axis with the boxes are colored by binary. Be sure to include appropriate labels.
+
+```{webr-r}
+
+ggplot(bechdel, 
+       aes(x = ..., y = ..., color = ...)) +
+  geom_...() +
+  labs(
+    title = "Return on investment vs. Bechdel test result",
+    x = "Detailed Bechdel result",
+    y = "Return-on-investment (gross / budget)",
+    color = "Bechdel\nresult"
+    )
+```
+
+**Solution**
+
+```{webr-r}
+
+ggplot(bechdel, 
+       aes(x = clean_test, y = roi, color = binary)) +
+  geom_boxplot() +
+  labs(
+    title = "Return on investment vs. Bechdel test result",
+    x = "Detailed Bechdel result",
+    y = "Return-on-investment (gross / budget)",
+    color = "Bechdel\nresult"
+    )
+```
+
+
 **1 (dropdown question)** The `|>` operator in R represents the word (*then* \| with \| before \| after)
 
 **2 (dropdown question)** The formal name for a row is a(an) (*observational unit* \| variable \| input). Columns in our data set represent a(an) (observational unit \| *variable* \| input).
@@ -524,6 +515,16 @@ c.  geom_bar()
 :::
 :::
 
+**8 (multiple select)** Tidying your data means...
+
+*a*. storing it in a consistent form that matches the semantics of the dataset with how it is stored
+
+*b*. storing it where each column is a variable and each row is an observation 
+
+c. cleaning your data so there are no missing observations 
+
+d. making sure your data set has only quantitative values for analysis
+
 The next two questions will use the `mtcars` data set in R. A key to the data set can be found below:
 
 | Variable | Description                              |
@@ -539,18 +540,7 @@ The next two questions will use the `mtcars` data set in R. A key to the data se
 | am       | Transmission (0 = automatic, 1 = manual) |
 | gear     | Number of forward gears                  |
 
-**8 (multiple select)** Tidying your data means...
-
-*a*. storing it in a consistent form that matches the semantics of the dataset with how it is stored
-
-*b*. storing it where each column is a variable and each row is an observation 
-
-c. cleaning your data so there are no missing observations 
-
-d. making sure your data set has only quantitative values for analysis  
-
-
-**8 (Matching)** Code style: Below is code that does not follow the [Tidyverse style guide](https://style.tidyverse.org/). Pick the correction option that changes the code to adhere to the style guide.
+**9 (Multiple choice)** Code style: Below is code that does not follow the [Tidyverse style guide](https://style.tidyverse.org/). Pick the correction option that changes the code to adhere to the style guide.
 
 ```{r}
 #| eval: false
@@ -586,7 +576,7 @@ scale_fill_viridis_d()
 ```
 
 
-**9 (Matching)** Reference the data set key above. Then, choose the selection that fills in the following `...` to make a scatterplot of cars' with `miles per gallon` on the x-axis and their \`weight below.
+**10 (Matching)** Reference the data set key above. Then, choose the selection that fills in the following `...` to make a scatterplot of cars' with `miles per gallon` on the x-axis and their \`weight below.
 
 ```{r}
 #| eval: false
@@ -634,39 +624,6 @@ ggplot(mtcars) +
 ```
 
 
-**10 (Fill in blank)** Should probably be moved up to question 1
-
-Might also just not have a question like this. 
-
-Create side-by-side box plots of roi on the y-axis, and clean_test on the x-axis with the boxes are colored by binary. Be sure to include appropriate labels.
-
-```{webr-r}
-
-ggplot(bechdel, 
-       aes(x = ..., y = ..., color = ...)) +
-  geom_...() +
-  labs(
-    title = "Return on investment vs. Bechdel test result",
-    x = "Detailed Bechdel result",
-    y = "Return-on-investment (gross / budget)",
-    color = "Bechdel\nresult"
-    )
-```
-
-**Solution**
-
-```{webr-r}
-
-ggplot(bechdel, 
-       aes(x = clean_test, y = roi, color = binary)) +
-  geom_boxplot() +
-  labs(
-    title = "Return on investment vs. Bechdel test result",
-    x = "Detailed Bechdel result",
-    y = "Return-on-investment (gross / budget)",
-    color = "Bechdel\nresult"
-    )
-```
 
 
 
@@ -682,18 +639,3 @@ ggplot(bechdel,
 
 -- The original AE for 199 had an open ended question at the end that read: "What other improvements could we make to this plot?" Would you like to include something like this? I did not include it (yet), and figure it may be a little to exploratory for a programming activity, but maybe we do actually want it.
 
--- This AE also had a second section that had:
-
-```         
-  - Create side-by-side box plots of roi by clean_test where the 
-  boxes are colored by binary.
-  
-  - What are those movies with very high returns on investment?
-  
-  - Expand on your plot from the previous step to zoom in on movies 
-  with roi < ___ to get a better view of how the medians across 
-  the categories compare.
-  
-```
-
-I'm under the impression that the last 2 questions are going to be beyond the scope of what Coursera students have learned, and did not include them. Thus, I also didn't include the first question as it may feel out of place (I pitch it above as an assessment question). Do we want to do something with these? Do we want to include this as given code for the last 2 questions as a lead in for `dplyr` / introduce the `coord_cartesian` function?
