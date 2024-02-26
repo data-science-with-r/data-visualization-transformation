@@ -10,7 +10,7 @@ listing:
     filter-ui: false
     sort-ui: false
   - id: code-alongs
-    contents: code-alongs/*.qmd
+    contents: code-alongs/*/*.qmd
     type: table
     fields: [title]
     filter-ui: false
