@@ -207,14 +207,14 @@
     "href": "index.html",
     "title": "Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nVisualising data with ggplot2\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nVisualising data with ggplot2\n\n\n\n\nWelcome\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": "Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nVisualising data with ggplot2\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nVisualising data with ggplot2\n\n\n\n\nWelcome\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
@@ -334,5 +334,138 @@
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "ggplot2 is tidyverse’s data visualization package\nStructure of the code for plots can be summarized as\n\n\n\nggplot(\n  data = [data], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options\n\n\n\n\n\n\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.\n\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…\n\n\n\n\n\n\n\n\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(\n  data = penguins, \n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-science",
+    "title": "Welcome",
+    "section": "Data science",
+    "text": "Data science\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nWe’re going to learn to do this in a tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#course-faq",
+    "href": "slides/1-1-welcome/1-1-welcome.html#course-faq",
+    "title": "Welcome",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ - What data science background does this course assume?\nA - None. But it does require a willingness to learn and a motivation to work with data.\n\nQ - Will we be doing computing?\nA - Yes.\n\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#section-4",
+    "href": "slides/1-1-welcome/1-1-welcome.html#section-4",
+    "title": "Welcome",
+    "section": "",
+    "text": "##"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#section-9",
+    "href": "slides/1-1-welcome/1-1-welcome.html#section-9",
+    "title": "Welcome",
+    "section": "",
+    "text": "# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#excel-not",
+    "href": "slides/1-1-welcome/1-1-welcome.html#excel-not",
+    "title": "Welcome",
+    "section": "Excel, not…",
+    "text": "Excel, not…"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#r",
+    "href": "slides/1-1-welcome/1-1-welcome.html#r",
+    "title": "Welcome",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#rstudio",
+    "href": "slides/1-1-welcome/1-1-welcome.html#rstudio",
+    "title": "Welcome",
+    "section": "RStudio",
+    "text": "RStudio"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
+    "title": "Welcome",
+    "section": "Data science life cycle",
+    "text": "Data science life cycle\n\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. R for data science. ” O’Reilly Media, Inc.”, 2023."
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#import",
+    "href": "slides/1-1-welcome/1-1-welcome.html#import",
+    "title": "Welcome",
+    "section": "Import",
+    "text": "Import"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#visualize",
+    "href": "slides/1-1-welcome/1-1-welcome.html#visualize",
+    "title": "Welcome",
+    "section": "Visualize",
+    "text": "Visualize"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#model",
+    "href": "slides/1-1-welcome/1-1-welcome.html#model",
+    "title": "Welcome",
+    "section": "Model",
+    "text": "Model"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-1",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-1",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-2",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-2",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#communicate",
+    "href": "slides/1-1-welcome/1-1-welcome.html#communicate",
+    "title": "Welcome",
+    "section": "Communicate",
+    "text": "Communicate"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
+    "title": "Welcome",
+    "section": "Understand + communicate",
+    "text": "Understand + communicate"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#program",
+    "href": "slides/1-1-welcome/1-1-welcome.html#program",
+    "title": "Welcome",
+    "section": "Program",
+    "text": "Program"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
+    "title": "Welcome",
+    "section": "Data visualization and transformation",
+    "text": "Data visualization and transformation"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
+    "href": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
+    "title": "Welcome",
+    "section": "Tidy -> transform",
+    "text": "Tidy -&gt; transform"
   }
 ]
