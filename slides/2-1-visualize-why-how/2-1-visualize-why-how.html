@@ -7,11 +7,13 @@
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.550">
 
-  <meta name="author" content="Dr.&nbsp;Mine Çetinkaya-Rundel">
-  <title>Data visualization and transformation - Visualising data with ggplot2</title>
+  <meta name="author" content=" Data Science with R">
+  <title>Data visualization and transformation - Visualizing data – why and how</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -391,584 +393,360 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Visualising data with ggplot2</h1>
-  <p class="subtitle"><br><br> Data Science with R</p>
+  <h1 class="title">Visualizing data – why and how</h1>
+  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Dr.&nbsp;Mine Çetinkaya-Rundel 
+<i class="fa-solid fa-book" aria-label="book"></i> Data Science with R 
 </div>
 </div>
 </div>
 
 </section>
 <section>
-<section id="ggplot2" class="title-slide slide level1 center">
-<h1>ggplot2 ❤️ 🐧</h1>
+<section id="what-is-in-a-dataset" class="title-slide slide level1 center">
+<h1>What is in a dataset?</h1>
 
 </section>
-<section id="ggplot2-in-tidyverse" class="slide level2">
-<h2>ggplot2 <span class="math inline">\(\in\)</span> tidyverse</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img data-src="images/ggplot2-part-of-tidyverse.png"></p>
-</div><div class="column" style="width:70%;">
-<div>
+<section id="dataset-terminology" class="slide level2">
+<h2>Dataset terminology</h2>
 <ul>
-<li class="fragment"><strong>ggplot2</strong> is tidyverse’s data visualization package</li>
-<li class="fragment">Structure of the code for plots can be summarized as</li>
+<li>Each row is an <strong>observation</strong></li>
+<li>Each column is a <strong>variable</strong></li>
 </ul>
-</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|2|3|5|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb1-2"><a></a>  <span class="at">data =</span> [data], </span>
-<span id="cb1-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [x<span class="sc">-</span>variable], <span class="at">y =</span> [y<span class="sc">-</span>variable])</span>
-<span id="cb1-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb1-5"><a></a>  <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
-<span id="cb1-6"><a></a>  other options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="data-palmer-penguins" class="slide level2">
-<h2>Data: Palmer Penguins</h2>
-<p>Measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.</p>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img data-src="images/penguins.png"></p>
-</div><div class="column" style="width:70%;">
-<div class="small">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="|1-2|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="|1-2|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb4-2"><a></a></span>
-<span id="cb4-3"><a></a><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>starwars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 344
-Columns: 8
-$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
-$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
-$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
-$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
-$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
-$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
-$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
-$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
-</div>
-</div>
-</div>
+<pre><code># A tibble: 87 × 14
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+ 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+ 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+ 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+ 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+ 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+ 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+ 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
+ 9 Biggs D…    183    84 black      light      brown           24   male  mascu…
+10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+# ℹ 77 more rows
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 </section>
-<section id="goal" class="slide level2">
-<h2>Goal</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Plot</a></li><li><a href="#tabset-1-2">Code</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
+<section id="luke-skywalker" class="slide level2">
+<h2>Luke Skywalker</h2>
+
+<img data-src="images/luke-skywalker-data.png" class="r-stretch"></section>
+<section id="whats-in-the-star-wars-data" class="slide level2">
+<h2>What’s in the Star Wars data?</h2>
+<p>Take a <code>glimpse()</code> at the data:</p>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-4-1.png" style="width:100.0%"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">glimpse</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 87
+Columns: 14
+$ name       &lt;chr&gt; "Luke Skywalker", "C-3PO", "R2-D2", "Darth Vader", "Leia Or…
+$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…
+$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…
+$ hair_color &lt;chr&gt; "blond", NA, NA, "none", "brown", "brown, grey", "brown", N…
+$ skin_color &lt;chr&gt; "fair", "gold", "white, blue", "white", "light", "light", "…
+$ eye_color  &lt;chr&gt; "blue", "yellow", "red", "yellow", "brown", "blue", "blue",…
+$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …
+$ sex        &lt;chr&gt; "male", "none", "none", "male", "female", "male", "female",…
+$ gender     &lt;chr&gt; "masculine", "masculine", "masculine", "masculine", "femini…
+$ homeworld  &lt;chr&gt; "Tatooine", "Tatooine", "Naboo", "Tatooine", "Alderaan", "T…
+$ species    &lt;chr&gt; "Human", "Droid", "Droid", "Human", "Human", "Human", "Huma…
+$ films      &lt;list&gt; &lt;"A New Hope", "The Empire Strikes Back", "Return of the J…
+$ vehicles   &lt;list&gt; &lt;"Snowspeeder", "Imperial Speeder Bike"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, "Imp…
+$ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&gt;, "TIE Advanced x1",…</code></pre>
 </div>
 </div>
+</section>
+<section id="get-to-know-the-data" class="slide level2">
+<h2>Get to know the data</h2>
+<div class="task">
+<p>How many rows and columns does this dataset have? What does each row represent? What does each column represent?</p>
 </div>
-</div>
-<div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|1|2|3|5|6-13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb6-2"><a></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb6-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb6-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb6-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb6-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb6-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb6-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb6-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb6-12"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb6-13"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>?starwars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+
+<img data-src="images/starwars-help.png" width="903" class="r-stretch"></section>
+<section id="dimensions-of-the-data" class="slide level2">
+<h2>Dimensions of the data</h2>
+<div class="task">
+<p>How many rows and columns does this dataset have?</p>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">nrow</span>(starwars) <span class="co"># number of rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 87</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ncol</span>(starwars) <span class="co"># number of columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">dim</span>(starwars)  <span class="co"># dimensions (row column)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 87 14</code></pre>
 </div>
 </div>
 </section></section>
 <section>
-<section id="coding-out-loud" class="title-slide slide level1 center">
-<h1>Coding out loud</h1>
+<section id="exploratory-data-analysis" class="title-slide slide level1 center">
+<h1>Exploratory data analysis</h1>
 
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-<div class="medium">
+<section id="what-is-eda" class="slide level2">
+<h2>What is EDA?</h2>
+<ul>
+<li>Exploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics</li>
+<li>Often, this is visual – this is what we’ll focus on first</li>
+<li>But we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis – this is what we’ll focus on next</li>
+</ul>
+</section>
+<section id="mass-vs.-height" class="slide level2">
+<h2>Mass vs.&nbsp;height</h2>
+<div class="task">
+<p>How would you describe the relationship between mass and height of Starwars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?</p>
+</div>
+
+<img data-src="2-1-visualize-why-how_files/figure-revealjs/mass-height-annotated-1.png" width="576" class="r-stretch"></section>
+<section id="jabba" class="slide level2">
+<h2>Jabba!</h2>
+
+<img data-src="images/mass-height-annotated-jabba.png" class="r-stretch"></section></section>
+<section>
+<section id="data-visualization" class="title-slide slide level1 center">
+<h1>Data visualization</h1>
+
+</section>
+<section id="data-visualization-1" class="slide level2">
+<h2>Data visualization</h2>
 <blockquote>
-<p><strong>Start with the <code>penguins</code> data frame</strong></p>
+<p><em>“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey</em></p>
 </blockquote>
-</div>
+<ul>
+<li>Data visualization is the creation and study of the visual representation of data</li>
+<li>Many tools for visualizing data – R is one of them</li>
+<li>Many approaches/systems within R for making data visualizations – <strong>ggplot2</strong> is one of them, and that’s what we’re going to use</li>
+</ul>
+</section>
+<section id="ggplot2-in-tidyverse" class="slide level2">
+<h2>ggplot2 <span class="math inline">\(\in\)</span> tidyverse</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p><img data-src="images/ggplot2-part-of-tidyverse.png" width="628"></p>
 </div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
+<ul>
+<li><strong>ggplot2</strong> is tidyverse’s data visualization package</li>
+<li><code>gg</code> in “ggplot2” stands for Grammar of Graphics</li>
+<li>Inspired by the book <strong>Grammar of Graphics</strong> by Leland Wilkinson</li>
+</ul>
 </div>
 </div>
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, <strong>map bill depth to the x-axis</strong></p>
-</blockquote>
-</div>
+<section id="grammar-of-graphics" class="slide level2">
+<h2>Grammar of Graphics</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb9-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb9-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb9-4"><a></a>    <span class="at">x =</span> bill_depth_mm</span>
-<span id="cb9-5"><a></a>    )</span>
-<span id="cb9-6"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>A grammar of graphics is a tool that enables us to concisely describe the components of a graphic.</p>
 </div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis <strong>and map bill length to the y-axis.</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb10-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb10-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb10-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb10-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb10-6"><a></a>    )</span>
-<span id="cb10-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. <strong>Represent each observation with a point</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb11-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb11-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb11-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb11-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb11-6"><a></a>    )</span>
-<span id="cb11-7"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb11-8"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-13-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point <strong>and map species to the color of each point.</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb12-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb12-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb12-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb12-5"><a></a>    <span class="at">y =</span> bill_length_mm,</span>
-<span id="cb12-6"><a></a>    <span class="at">color =</span> species</span>
-<span id="cb12-7"><a></a>    )</span>
-<span id="cb12-8"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb12-9"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-15-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. <strong>Title the plot “Bill depth and length”</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb13-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb13-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm,<span class="at">color =</span> species)</span>
-<span id="cb13-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb13-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Bill depth and length"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-17-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, <strong>add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="|8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb14-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb14-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm,<span class="at">color =</span> species)</span>
-<span id="cb14-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb14-5"><a></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span></span>
-<span id="cb14-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb14-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span></span>
-<span id="cb14-9"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-19-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, <strong>label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb15-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb15-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm,<span class="at">color =</span> species)</span>
-<span id="cb15-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb15-5"><a></a>  <span class="fu">geom_point</span>()  <span class="sc">+</span></span>
-<span id="cb15-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb15-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb15-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span></span>
-<span id="cb15-10"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-21-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, <strong>label the legend “Species”</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="|10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb16-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb16-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm,<span class="at">color =</span> species)</span>
-<span id="cb16-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb16-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb16-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb16-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb16-9"><a></a>     <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>, </span>
-<span id="cb16-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span></span>
-<span id="cb16-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-23-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-9" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, <strong>and add a caption for the data source.</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb17-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb17-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm,<span class="at">color =</span> species)</span>
-<span id="cb17-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb17-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb17-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb17-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb17-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>, </span>
-<span id="cb17-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb17-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb17-12"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-25-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-10" class="slide level2">
-<h2></h2>
-<div class="medium">
-<blockquote>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. <strong>Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.</strong></p>
-</blockquote>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="|13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb18-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb18-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm,<span class="at">color =</span> species)</span>
-<span id="cb18-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb18-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb18-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb18-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>, </span>
-<span id="cb18-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb18-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb18-12"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb18-13"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-27-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section-11" class="slide level2">
-<h2></h2>
-<div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Plot</a></li><li><a href="#tabset-2-3">Narrative</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb19-2"><a></a>  <span class="at">data =</span> penguins, </span>
-<span id="cb19-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb19-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb19-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb19-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb19-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb19-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb19-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb19-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb19-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb19-12"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb19-13"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-2">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="ggplot2_files/figure-html/unnamed-chunk-29-1.png" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-3">
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis.</p>
-<p>Represent each observation with a point and map species to the color of each point.</p>
-<p>Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.</p>
-<p>Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="argument-names" class="slide level2">
-<h2>Argument names</h2>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<p>You can omit the names of first two arguments when building plots with <code>ggplot()</code>.</p>
-</div>
-</div>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="|2-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb20-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb20-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb20-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb20-5"><a></a>    <span class="at">y =</span> bill_length_mm,</span>
-<span id="cb20-6"><a></a>    <span class="at">color =</span> species</span>
-<span id="cb20-7"><a></a>    )</span>
-<span id="cb20-8"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb20-9"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-10"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="|2-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb22-2"><a></a>  penguins,</span>
-<span id="cb22-3"><a></a>  <span class="fu">aes</span>(</span>
-<span id="cb22-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb22-5"><a></a>    <span class="at">y =</span> bill_length_mm,</span>
-<span id="cb22-6"><a></a>    <span class="at">color =</span> species</span>
-<span id="cb22-7"><a></a>    )</span>
-<span id="cb22-8"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb22-9"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb22-10"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values (`geom_point()`).</code></pre>
-</div>
-</div>
+<p><img data-src="images/grammar-of-graphics.png"></p>
 </div>
 </div>
 
-<div class="quarto-auto-generated-content">
+<aside><div>
+<p><a href="http://bloggotype.blogspot.com/2016/08/holiday-notes2-grammar-of-graphics.html">BloggoType</a></p>
+</div></aside></section>
+<section id="mass-vs.-height-1" class="slide level2">
+<h2>Mass vs.&nbsp;height</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> mass)) <span class="sc">+</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb12-4"><a></a>    <span class="at">title =</span> <span class="st">"Mass vs. height of Starwars characters"</span>,</span>
+<span id="cb12-5"><a></a>    <span class="at">x =</span> <span class="st">"Height (cm)"</span>, </span>
+<span id="cb12-6"><a></a>    <span class="at">y =</span> <span class="st">"Weight (kg)"</span></span>
+<span id="cb12-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 28 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+
+</div>
+<img data-src="2-1-visualize-why-how_files/figure-revealjs/mass-height-1.png" width="576" class="r-stretch"></section>
+<section id="parsing-the-code" class="slide level2">
+<h2>Parsing the code</h2>
+<div class="task">
+<ul>
+<li>What are the functions doing the plotting?</li>
+<li>What is the dataset being plotted?</li>
+<li>Which variables map to which features (aesthetics) of the plot?</li>
+<li>What does the warning mean?<sup>+</sup></li>
+</ul>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> mass)) <span class="sc">+</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-4"><a></a>    <span class="at">title =</span> <span class="st">"Mass vs. height of Starwars characters"</span>,</span>
+<span id="cb14-5"><a></a>    <span class="at">x =</span> <span class="st">"Height (cm)"</span>, </span>
+<span id="cb14-6"><a></a>    <span class="at">y =</span> <span class="st">"Weight (kg)"</span></span>
+<span id="cb14-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 28 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+</div>
+
+<aside><div>
+<p><sup>+</sup>Suppressing warning to subsequent slides to save space</p>
+</div></aside></section>
+<section id="hello-ggplot2" class="slide level2">
+<h2>Hello ggplot2!</h2>
+<ul>
+<li><code>ggplot()</code> is the main function in ggplot2</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>Plots are constructed in layers</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Structure of the code for plots can be summarized as</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> [dataset], </span>
+<span id="cb16-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [x<span class="sc">-</span>variable], <span class="at">y =</span> [y<span class="sc">-</span>variable])) <span class="sc">+</span></span>
+<span id="cb16-3"><a></a>   <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a></a>   other options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<ul>
+<li>The ggplot2 package comes with the tidyverse</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>For help with ggplot2, see <a href="http://ggplot2.tidyverse.org/">ggplot2.tidyverse.org</a> ]</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="why-do-we-visualize" class="title-slide slide level1 center">
+<h1>Why do we visualize?</h1>
+
+</section>
+<section id="anscombes-quartet" class="slide level2">
+<h2>Anscombe’s quartet</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(Tmisc)</span>
+<span id="cb18-2"><a></a>quartet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   set  x     y
+1    I 10  8.04
+2    I  8  6.95
+3    I 13  7.58
+4    I  9  8.81
+5    I 11  8.33
+6    I 14  9.96
+7    I  6  7.24
+8    I  4  4.26
+9    I 12 10.84
+10   I  7  4.82
+11   I  5  5.68
+12  II 10  9.14
+13  II  8  8.14
+14  II 13  8.74
+15  II  9  8.77
+16  II 11  9.26
+17  II 14  8.10
+18  II  6  6.13
+19  II  4  3.10
+20  II 12  9.13
+21  II  7  7.26
+22  II  5  4.74
+23 III 10  7.46
+24 III  8  6.77
+25 III 13 12.74
+26 III  9  7.11
+27 III 11  7.81
+28 III 14  8.84
+29 III  6  6.08
+30 III  4  5.39
+31 III 12  8.15
+32 III  7  6.42
+33 III  5  5.73
+34  IV  8  6.58
+35  IV  8  5.76
+36  IV  8  7.71
+37  IV  8  8.84
+38  IV  8  8.47
+39  IV  8  7.04
+40  IV  8  5.25
+41  IV 19 12.50
+42  IV  8  5.56
+43  IV  8  7.91
+44  IV  8  6.89</code></pre>
+</div>
+</div>
+</section>
+<section id="summarizing-anscombes-quartet" class="slide level2">
+<h2>Summarizing Anscombe’s quartet</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>quartet <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">group_by</span>(set) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb20-4"><a></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x), </span>
+<span id="cb20-5"><a></a>    <span class="at">mean_y =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb20-6"><a></a>    <span class="at">sd_x =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb20-7"><a></a>    <span class="at">sd_y =</span> <span class="fu">sd</span>(y),</span>
+<span id="cb20-8"><a></a>    <span class="at">r =</span> <span class="fu">cor</span>(x, y)</span>
+<span id="cb20-9"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 6
+  set   mean_x mean_y  sd_x  sd_y     r
+  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 I          9   7.50  3.32  2.03 0.816
+2 II         9   7.50  3.32  2.03 0.816
+3 III        9   7.5   3.32  2.03 0.816
+4 IV         9   7.50  3.32  2.03 0.817</code></pre>
+</div>
+</div>
+</section>
+<section id="visualizing-anscombes-quartet" class="slide level2">
+<h2>Visualizing Anscombe’s quartet</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(quartet, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb22-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> set, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="2-1-visualize-why-how_files/figure-revealjs/quartet-plot-1.png" width="672" class="r-stretch"></section>
+<section id="age-at-first-kiss" class="slide level2">
+<h2>Age at first kiss</h2>
+<div class="task">
+<p>A group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.</p>
+<p>Then, examine the plot below. Do you see anything out of the ordinary?</p>
+</div>
+
+<img data-src="2-1-visualize-why-how_files/figure-revealjs/student-survey-kiss-1.png" width="672" class="r-stretch"></section>
+<section id="facebook-visits" class="slide level2">
+<h2>Facebook visits</h2>
+<div class="task">
+<p>Same group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.</p>
+<p>Then, examine the plot below. How are people reporting lower vs.&nbsp;higher values of FB visits?</p>
+</div>
+
+
+<img data-src="2-1-visualize-why-how_files/figure-revealjs/student-survey-facebook-1.png" width="672" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
@@ -1184,6 +962,44 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
