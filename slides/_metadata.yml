@@ -1,0 +1,11 @@
+subtitle: "<br><br> {{< fa book-open >}} Data visualization and transformation"
+author: "{{< fa book >}} Data Science with R"
+format: 
+  revealjs:
+    theme: ../slides.scss
+    highlight-style: a11y-dark
+    height: 900
+    width: 1600
+    chalkboard: true
+execute:
+  echo: true
