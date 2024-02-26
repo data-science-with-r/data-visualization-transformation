@@ -1,9 +1,6 @@
 ---
 title: "UN Votes"
 subtitle: "Data visualization and transformation // Data Science with R"
-author: "Add your name here"
-format: html
-editor: visual
 ---
 
 ## Introduction

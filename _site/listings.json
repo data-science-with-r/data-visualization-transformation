@@ -2,11 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/slides/z_sample-ggplot2/ggplot2.html",
-      "/slides/2-1-visualize-why-how/2-1-visualize-why-how.html",
       "/slides/1-1-welcome/1-1-welcome.html",
+      "/slides/2-1-visualize-why-how/2-1-visualize-why-how.html",
       "/code-alongs/1-1-unvotes/1-1-unvotes.html",
-      "/code-alongs/z_sample-ggplot2/ggplot2.html",
       "/exercises/webR-intro.html",
       "/exercises/mario-data-visualization.html",
       "/exercises/exercise-1.html",

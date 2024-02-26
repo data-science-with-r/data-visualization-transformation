@@ -100,6 +100,23 @@
       ],
       "Hash": "5ea2700d21e038ace58269ecdbeb9ec0"
     },
+    "Tmisc": {
+      "Package": "Tmisc",
+      "Version": "1.0.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "dplyr",
+        "magrittr",
+        "methods",
+        "rstudioapi",
+        "stats",
+        "tibble",
+        "utils"
+      ],
+      "Hash": "7cef130664d64a6e6852a8cb1eba7b4b"
+    },
     "askpass": {
       "Package": "askpass",
       "Version": "1.2.0",
@@ -419,6 +436,22 @@
         "vctrs"
       ],
       "Hash": "fedd9d00c2944ff00a0e2696ccf048ec"
+    },
+    "dsbox": {
+      "Package": "dsbox",
+      "Version": "0.1.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "tidyverse",
+      "RemoteRepo": "dsbox",
+      "RemoteRef": "main",
+      "RemoteSha": "244ecdfe3c8d68b25db3024d9fdd0465ae991059",
+      "Remotes": "rstudio/gradethis",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "c1c6e2569ec08160e34157c6ad83d982"
     },
     "dtplyr": {
       "Package": "dtplyr",
@@ -950,6 +983,18 @@
         "timechange"
       ],
       "Hash": "680ad542fbcf801442c83a6ac5a2126c"
+    },
+    "magick": {
+      "Package": "magick",
+      "Version": "2.8.3",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "Rcpp",
+        "curl",
+        "magrittr"
+      ],
+      "Hash": "3f6bcbb8a0c1c9365b2f02d5d04ad7bc"
     },
     "magrittr": {
       "Package": "magrittr",
