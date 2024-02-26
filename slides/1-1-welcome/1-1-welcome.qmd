@@ -24,7 +24,8 @@ library(tidyverse)
 ## Course FAQ
 
 **Q - What data science background does this course assume?**\
-A - None. But it does require a willingness to learn and a motivation to work with data.
+A - None.
+But it does require a willingness to learn and a motivation to work with data.
 
 . . .
 
@@ -62,7 +63,8 @@ A: A great discussion for the course forum!
 ![](images/data-science-cycle/data-science-cycle.001.png){fig-align="center"}
 
 ::: aside
-Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. R for data science. " O'Reilly Media, Inc.", 2023.
+Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund.
+"R for Data Science." O'Reilly Media, Inc.", 2023.
 :::
 
 ## Import
