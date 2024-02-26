@@ -6,6 +6,8 @@ format:
     highlight-style: a11y-dark
     height: 900
     width: 1600
-    chalkboard: true
+    fig-width: 6
+    fig-asp: 0.618
 execute:
   echo: true
+  warning: true

@@ -6,13 +6,11 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
-
 $font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
 $font-family-monospace: "Source Code Pro", monospace;
 $presentation-heading-color: #0E538F;
 $link-color: #0E538F;
-$code-color: #0E538F;
-$code-block-font-size: 0.7em;
+$code-block-font-size: 0.85em;
 $presentation-h2-font-size: 1.4em !default;
 $presentation-h3-font-size: 1.1em !default;
 $presentation-font-size-root: 36px !default;
@@ -93,15 +91,4 @@ $presentation-title-slide-text-align: left;
   margin-top: 6px;
   border-left: solid 5px #0E538F;
   background-color: #0E538F50;
-}
-
-.reveal .slide .question {
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  margin-bottom: 6px;
-  margin-top: 6px;
-  border-left: solid 5px #93798b;
-  background-color: #93798b50;
 }
