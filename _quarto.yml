@@ -12,6 +12,7 @@ format:
   html:
     theme: cosmo
     toc: true
+    highlight-style: a11y-dark
 
 execute:
   freeze: auto
