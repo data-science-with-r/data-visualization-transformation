@@ -1,7 +1,7 @@
 [
   {
-    "objectID": "slides/ggplot2/script.html",
-    "href": "slides/ggplot2/script.html",
+    "objectID": "slides/z_sample-ggplot2/script.html",
+    "href": "slides/z_sample-ggplot2/script.html",
     "title": "Data visualization and transformation",
     "section": "",
     "text": "Hello, in this video we’re going to talk about the specifics and syntax of visualizing data with the ggplot2 package and we’re going to do so using data on penguins!\n\n\n\n\n\nA quick reminder that ggplot2 is tidyverse’s data visualization package\n\n\nThe structure of ggplot2 code looks almost always is the same: we start with the ggplot function where the first argument is the data that you want to plot and the second argument defines the aesthetic mappings using the aes function – in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you’re passing a function, aes, as the argument of another function, ggplot. You’ll see more of this as we progress through the course, though more often you’ll see data frame or variable names being passed to function arguments. and then we add on another layer – a geom layer – which defines the geometric shapes with which you want to represent your data and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from.\n\n\n\n\n\n\n\nThe data that we’re working with is called penguins. It comes from the palmerpenguins package, and we also need the tidyverse package for our analyses.\n\n\nSo let’s load those packages first And then glimpse at the data. glimpse is a function that prints out the variables in the data frame, their types – which we’ll dig deeper into later in the course –, and the first few observations as comma separated values.\n\n\nThe data contains body measurements on three species of penguins, chinstrap, gentoo, and adelie. The bodu measurements include things like bill length and depth, flipper length, and body mass. We also know which island the penguin is on, their sec, and the year of data collection. There are a total of 8 columns, so 8 variables.\nThe output also shows that we have 344 rows, that is, we have data on 344 penguins.\n\n\n\n\n\nThe plot shown here is our final goal. We’ll plot bill length against bill depth, both measured in millimeters. We’ll represent each penguin with a point, colored by their species. The species mappings are summarized in the legend of the plot. The plot also has a title, a subtitle, and a caption.\n–&gt; [other tab] And the code for the plot is shown here. It looks like what we’ve seen before – ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let’s unpack it layer by layer.\n\n\n\n\n\nIn other words, let’s code out loud!\n\n\n\n\n\nWe start with the ggplot function and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.\n\n\n\n\n\nThem we map bill depth to the x-axis &gt;&gt; we can see the x-axis indicates the variable name, its range, and a reasonable breakpoint\n\n\n\n\n\nThen we map bill length to the y-axis &gt;&gt; we can see the y-axis mapped as well\n\n\n\n\n\nAnd finally &gt;&gt; we add a geom layer – a geom point, indicating that the data should be represented as points. There seems to be three clusters of points here, let’s see what happens if we also ask that the points be colored by species.\n\n\n\n\n\nSince this requires mapping another variable to a new aesthetic of the plot, we do this in the aesthetic mappings &gt;&gt; mapping color to species. Note that not only the points are colored, but we also gained a legend describing the mappings – red points represent Adelie penguins, green Chinstrap, blue Gentoo.\n\n\n\n\n\nNow that the data we want to see on our plot is there, let’s add some labels.\n\n\nLet’s set the title to Bill depth and length. Not a particularly informative title, but it’s a good starting point. We do this in the labs function, passing it to the title argument as a character string denoted with quotes. You can use double or single quotes in R, sticking to the tidyverse style guide we’ll use double quotes.\n\n\n\n\n\n\n\nLet’s also add a subtitle\n\n\nAgain in the labs function, passing it to the subtitle argument.\n\n\n\n\n\n\n\nAnd let’s fix up the x and y axis labels.\n\n\nBy default ggplot2 will use the variable names, but we can overwrite them by updating the x and y label of the plot, and using more human-friendly text like bill depth mm and bill length mm.\n\n\n\n\n\n\n\nAnd finally let’s relabel the legend as well\n\n\nWe do this also in the labs function, passing the desired label to the color argument. Note that the name of the argument matches the aesthetic mapping.\n\n\n\n\n\n\n\nAnd finally in the labels\n\n\nlet’s add a caption for the data source. This automatically gets placed below the plot.\n\n\n\n\n\n\n\nAnd before we finish up our plot we need to do one more thing – use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nWe do this in a new layer, a scale layer, using a pre-defined color palette called viridis. The underscore-d denotes we will use the discrete color scale in this palette. If you have red-green color vision deficiency up until this point some of the points on the plot may have been difficult to tell apart. The goal with this palette is to make sure all, or at least more, viewers can see the points as intended.\n\n\n\n\n\n\n\nPutting it altogether we have our code\n–&gt; The resulting plot –&gt; And the narrative we built with each layer of the plot\n\n\n\n\n\nBefore we wrap up this introduction to ggplot2, one quick note about argument names. It’s common in R to omit the names of the first two arguments. In the ggplot function\n\n\nthese are data and mapping So you’ll commonly see me and others write ggplot code in the second way, omitting these argument names from the code."
@@ -210,113 +210,113 @@
     "text": "Gross revenue vs. budget\n\nStep 1\nYour Turn: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!\n\n\n\n\n\n\nTip\n\n\n\nSee http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf for many color options you can use by name in R or use the hex code for a color of your choice.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nStep 2\nYour Turn: Add labels for the title and x and y axes using labs. Do this by modifying the existing code below.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013))+\n  geom_point(color = \"deepskyblue3\") + \n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStep 3\nYour Turn: An aesthetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:\n\ncolor\nfill\nshape\nsize\nalpha (transparency)\n\nModify the plot below, so the color of the points is based on the variable binary, and make the size of your points based on roi.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point() + \n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStep 4\nYour Turn: Expand on your plot from the previous step to make the transparency (alpha) of the points 0.5.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nStep 5\nYour Turn: Expand on your plot from the previous step by using facet_wrap to display the association between budget and gross for different values of clean_test.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(bechdel, \n  aes(x = budget_2013, y = gross_2013,\n    color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_wrap(~ clean_test) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStep 6\nDemo: Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.\n\n\n\n\n\n\nTip\n\n\n\nThis is done through the use of the scales package, specifically the scale_x_continuous() and scale_y_continuous() functions.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\n\n\n\nStep 7\nYour Turn: Expand on your plot from the previous step by using facet_grid to display the association between budget and gross for different combinations of clean_test and binary. Comment on whether this was a useful update.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIs this type of facet useful? Why or why not?\nAnswer: \n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThis was not a useful update as one of the levels of clean_test maps directly to one of the levels of binary."
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#ggplot2-in-tidyverse",
-    "href": "slides/ggplot2/ggplot2.html#ggplot2-in-tidyverse",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#ggplot2-in-tidyverse",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#ggplot2-in-tidyverse",
     "title": "Visualising data with ggplot2",
     "section": "ggplot2 \\(\\in\\) tidyverse",
     "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\nStructure of the code for plots can be summarized as\n\n\n\nggplot(\n  data = [data], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#data-palmer-penguins",
-    "href": "slides/ggplot2/ggplot2.html#data-palmer-penguins",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#data-palmer-penguins",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#data-palmer-penguins",
     "title": "Visualising data with ggplot2",
     "section": "Data: Palmer Penguins",
     "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.\n\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\nglimpse(penguins)\n\n\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#goal",
-    "href": "slides/ggplot2/ggplot2.html#goal",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#goal",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#goal",
     "title": "Visualising data with ggplot2",
     "section": "Goal",
     "text": "Goal\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(\n  data = penguins, \n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section",
-    "href": "slides/ggplot2/ggplot2.html#section",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame\n\n\n\n\n\nggplot(data = penguins)"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-1",
-    "href": "slides/ggplot2/ggplot2.html#section-1",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-1",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-1",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm\n    )\n  )"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-2",
-    "href": "slides/ggplot2/ggplot2.html#section-2",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-2",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-2",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-3",
-    "href": "slides/ggplot2/ggplot2.html#section-3",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-3",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-3",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-4",
-    "href": "slides/ggplot2/ggplot2.html#section-4",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-4",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-4",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-5",
-    "href": "slides/ggplot2/ggplot2.html#section-5",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-5",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-5",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(title = \"Bill depth and length\")"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-6",
-    "href": "slides/ggplot2/ggplot2.html#section-6",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-6",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-6",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point()  +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-7",
-    "href": "slides/ggplot2/ggplot2.html#section-7",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-7",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-7",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point()  +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\"\n  )"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-8",
-    "href": "slides/ggplot2/ggplot2.html#section-8",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-8",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-8",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n     x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\"\n  )"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-9",
-    "href": "slides/ggplot2/ggplot2.html#section-9",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-9",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-9",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-10",
-    "href": "slides/ggplot2/ggplot2.html#section-10",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-10",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-10",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#section-11",
-    "href": "slides/ggplot2/ggplot2.html#section-11",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#section-11",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#section-11",
     "title": "Visualising data with ggplot2",
     "section": "",
     "text": "CodePlotNarrative\n\n\n\nggplot(\n  data = penguins, \n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
   },
   {
-    "objectID": "slides/ggplot2/ggplot2.html#argument-names",
-    "href": "slides/ggplot2/ggplot2.html#argument-names",
+    "objectID": "slides/z_sample-ggplot2/ggplot2.html#argument-names",
+    "href": "slides/z_sample-ggplot2/ggplot2.html#argument-names",
     "title": "Visualising data with ggplot2",
     "section": "Argument names",
     "text": "Argument names\n\n\n\n\n\n\nTip\n\n\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point() +\n  scale_color_viridis_d()"

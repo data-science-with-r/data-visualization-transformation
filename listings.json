@@ -2,7 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
-      "/slides/ggplot2/ggplot2.html",
+      "/slides/z_sample-ggplot2/ggplot2.html",
       "/code-alongs/ggplot2.html",
       "/exercises/webR-intro.html",
       "/exercises/mario-data-visualization.html",
