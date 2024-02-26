@@ -3,6 +3,7 @@
     "listing": "/index.html",
     "items": [
       "/slides/z_sample-ggplot2/ggplot2.html",
+      "/slides/1-1-welcome/1-1-welcome.html",
       "/code-alongs/ggplot2.html",
       "/exercises/webR-intro.html",
       "/exercises/mario-data-visualization.html",

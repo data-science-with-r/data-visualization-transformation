@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.4.550">
 
   <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation</title>
+  <title>Data visualization and transformation - Welcome</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -329,168 +329,157 @@
   <div class="reveal">
     <div class="slides">
 
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Welcome</h1>
+  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
-<section class="slide level2">
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<i class="fa-solid fa-book" aria-label="book"></i> Data Science with R 
+</div>
+</div>
+</div>
 
-<p>Hello, in this video we’re going to talk about the specifics and syntax of visualizing data with the ggplot2 package and we’re going to do so using data on penguins!</p>
-<blockquote>
-<blockquote>
+</section>
+<section>
+<section id="hello-world" class="title-slide slide level1 center">
+<h1>Hello world!</h1>
 
-</blockquote>
-</blockquote>
-<p>A quick reminder that ggplot2 is tidyverse’s data visualization package</p>
-<blockquote>
-<blockquote>
-<p>The structure of ggplot2 code looks almost always is the same: we start with the ggplot function where the first argument is the data that you want to plot and the second argument defines the aesthetic mappings using the aes function – in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you’re passing a function, aes, as the argument of another function, ggplot. You’ll see more of this as we progress through the course, though more often you’ll see data frame or variable names being passed to function arguments. and then we add on another layer – a geom layer – which defines the geometric shapes with which you want to represent your data and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+</section>
+<section id="data-science" class="slide level2">
+<h2>Data science</h2>
+<ul>
+<li><p>Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.</p></li>
+<li><p>We’re going to learn to do this in a <code>tidy</code> way – more on that later!</p></li>
+<li><p>This is a course on introduction to data science, with an emphasis on statistical thinking.</p></li>
+</ul>
+</section>
+<section id="course-faq" class="slide level2">
+<h2>Course FAQ</h2>
+<p><strong>Q - What data science background does this course assume?</strong><br>
+A - None. But it does require a willingness to learn and a motivation to work with data.</p>
+<div class="fragment">
+<p><strong>Q - Will we be doing computing?</strong><br>
+A - Yes.</p>
+</div>
+<div class="fragment">
+<p><strong>Q - What computing language will we learn?</strong><br>
+A - R.</p>
+</div>
+<div class="fragment">
+<p><strong>Q: Why not language X?</strong><br>
+A: A great discussion for the course forum!</p>
+</div>
+</section></section>
+<section>
+<section id="software" class="title-slide slide level1 center">
+<h1>Software</h1>
 
-</blockquote>
-</blockquote>
-<p>The data that we’re working with is called penguins. It comes from the palmerpenguins package, and we also need the tidyverse package for our analyses.</p>
-<blockquote>
-<blockquote>
-<p>So let’s load those packages first And then glimpse at the data. glimpse is a function that prints out the variables in the data frame, their types – which we’ll dig deeper into later in the course –, and the first few observations as comma separated values.</p>
-</blockquote>
-</blockquote>
-<p>The data contains body measurements on three species of penguins, chinstrap, gentoo, and adelie. The bodu measurements include things like bill length and depth, flipper length, and body mass. We also know which island the penguin is on, their sec, and the year of data collection. There are a total of 8 columns, so 8 variables.</p>
-<p>The output also shows that we have 344 rows, that is, we have data on 344 penguins.</p>
-<blockquote>
-<blockquote>
+</section>
+<section id="excel-not" class="slide level2">
+<h2>Excel, not…</h2>
 
-</blockquote>
-</blockquote>
-<p>The plot shown here is our final goal. We’ll plot bill length against bill depth, both measured in millimeters. We’ll represent each penguin with a point, colored by their species. The species mappings are summarized in the legend of the plot. The plot also has a title, a subtitle, and a caption.</p>
-<p>–&gt; [other tab] And the code for the plot is shown here. It looks like what we’ve seen before – ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let’s unpack it layer by layer.</p>
-<blockquote>
-<blockquote>
+<img data-src="images/excel.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="r" class="slide level2">
+<h2>R</h2>
 
-</blockquote>
-</blockquote>
-<p>In other words, let’s code out loud!</p>
-<blockquote>
-<blockquote>
+<img data-src="images/r.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="rstudio" class="slide level2">
+<h2>RStudio</h2>
 
-</blockquote>
-</blockquote>
-<p>We start with the ggplot function and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.</p>
-<blockquote>
-<blockquote>
+<img data-src="images/rstudio.png" class="quarto-figure quarto-figure-center r-stretch"></section></section>
+<section>
+<section id="data-science-life-cycle" class="title-slide slide level1 center">
+<h1>Data science life cycle</h1>
 
-</blockquote>
-</blockquote>
-<p>Them we map bill depth to the x-axis &gt;&gt; we can see the x-axis indicates the variable name, its range, and a reasonable breakpoint</p>
-<blockquote>
-<blockquote>
+</section>
+<section id="data-science-life-cycle-1" class="slide level2">
+<h2>Data science life cycle</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/data-science-cycle/data-science-cycle.001.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 
-</blockquote>
-</blockquote>
-<p>Then we map bill length to the y-axis &gt;&gt; we can see the y-axis mapped as well</p>
-<blockquote>
-<blockquote>
+<aside><div>
+<p>Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. R for data science. ” O’Reilly Media, Inc.”, 2023.</p>
+</div></aside></section>
+<section id="import" class="slide level2">
+<h2>Import</h2>
 
-</blockquote>
-</blockquote>
-<p>And finally &gt;&gt; we add a geom layer – a geom point, indicating that the data should be represented as points. There seems to be three clusters of points here, let’s see what happens if we also ask that the points be colored by species.</p>
-<blockquote>
-<blockquote>
+<img data-src="images/data-science-cycle/data-science-cycle.002.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="tidy---transform" class="slide level2">
+<h2>Tidy -&gt; transform</h2>
 
-</blockquote>
-</blockquote>
-<p>Since this requires mapping another variable to a new aesthetic of the plot, we do this in the aesthetic mappings &gt;&gt; mapping color to species. Note that not only the points are colored, but we also gained a legend describing the mappings – red points represent Adelie penguins, green Chinstrap, blue Gentoo.</p>
-<blockquote>
-<blockquote>
+<img data-src="images/data-science-cycle/data-science-cycle.003.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="visualize" class="slide level2">
+<h2>Visualize</h2>
 
-</blockquote>
-</blockquote>
-<p>Now that the data we want to see on our plot is there, let’s add some labels.</p>
-<blockquote>
-<blockquote>
-<p>Let’s set the title to Bill depth and length. Not a particularly informative title, but it’s a good starting point. We do this in the labs function, passing it to the title argument as a character string denoted with quotes. You can use double or single quotes in R, sticking to the tidyverse style guide we’ll use double quotes.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+<img data-src="images/data-science-cycle/data-science-cycle.004.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="model" class="slide level2">
+<h2>Model</h2>
 
-</blockquote>
-</blockquote>
-<p>Let’s also add a subtitle</p>
-<blockquote>
-<blockquote>
-<p>Again in the labs function, passing it to the subtitle argument.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+<img data-src="images/data-science-cycle/data-science-cycle.005.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="understand" class="slide level2">
+<h2>Understand</h2>
 
-</blockquote>
-</blockquote>
-<p>And let’s fix up the x and y axis labels.</p>
-<blockquote>
-<blockquote>
-<p>By default ggplot2 will use the variable names, but we can overwrite them by updating the x and y label of the plot, and using more human-friendly text like bill depth mm and bill length mm.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+<img data-src="images/data-science-cycle/data-science-cycle.006.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="understand-1" class="slide level2">
+<h2>Understand</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/google-trend-index.png" class="quarto-figure quarto-figure-center" width="476"></p>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/data-science-cycle/data-science-cycle.006-cropped.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  date             season
+  &lt;chr&gt;            &lt;chr&gt; 
+1 23 January 2017  winter
+2 4 March 2017     spring
+3 14 June 2017     summer
+4 1 September 2017 fall  
+5 ...              ...   </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="communicate" class="slide level2">
+<h2>Communicate</h2>
 
-</blockquote>
-</blockquote>
-<p>And finally let’s relabel the legend as well</p>
-<blockquote>
-<blockquote>
-<p>We do this also in the labs function, passing the desired label to the color argument. Note that the name of the argument matches the aesthetic mapping.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+<img data-src="images/data-science-cycle/data-science-cycle.007.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="understand-communicate" class="slide level2">
+<h2>Understand + communicate</h2>
 
-</blockquote>
-</blockquote>
-<p>And finally in the labels</p>
-<blockquote>
-<blockquote>
-<p>let’s add a caption for the data source. This automatically gets placed below the plot.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+<img data-src="images/data-science-cycle/data-science-cycle.008.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="program" class="slide level2">
+<h2>Program</h2>
 
-</blockquote>
-</blockquote>
-<p>And before we finish up our plot we need to do one more thing – use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.</p>
-<blockquote>
-<blockquote>
-<p>We do this in a new layer, a scale layer, using a pre-defined color palette called viridis. The underscore-d denotes we will use the discrete color scale in this palette. If you have red-green color vision deficiency up until this point some of the points on the plot may have been difficult to tell apart. The goal with this palette is to make sure all, or at least more, viewers can see the points as intended.</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
+<img data-src="images/data-science-cycle/data-science-cycle.009.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="data-visualization-and-transformation" class="slide level2">
+<h2>Data visualization and transformation</h2>
+<p><br></p>
 
-</blockquote>
-</blockquote>
-<p>Putting it altogether we have our code</p>
-<p>–&gt; The resulting plot –&gt; And the narrative we built with each layer of the plot</p>
-<blockquote>
-<blockquote>
 
-</blockquote>
-</blockquote>
-<p>Before we wrap up this introduction to ggplot2, one quick note about argument names. It’s common in R to omit the names of the first two arguments. In the ggplot function</p>
-<blockquote>
-<blockquote>
-<p>these are data and mapping So you’ll commonly see me and others write ggplot code in the second way, omitting these argument names from the code.</p>
-</blockquote>
-</blockquote>
-
-<div class="quarto-auto-generated-content">
+<img data-src="images/data-science-cycle/data-science-cycle.010-cropped.png" class="quarto-figure quarto-figure-center r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -703,6 +692,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
