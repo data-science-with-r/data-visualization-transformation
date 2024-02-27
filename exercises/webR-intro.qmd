@@ -33,9 +33,9 @@ Sometimes, we provide code chunks that are not interactive and will have already
 
 There will be a variety of question types throughout an activity. Question types include the following:
 
--- **Your Turn**: These coding questions ask students to explore / edit / manipulate existing to code. These questions are followed with an `Expected Solutions` box so students can get immediate feedback
+-- **Your Turn**: These coding questions ask students to explore / edit / manipulate / create code. These questions are followed with an `Solution` box so students can get immediate feedback
 
--- **Demo**: These coding questions have the solutions within them and allow the students to run the code and think critically about the output.
+-- **Demo**: These coding questions have the solutions within them and allow students to run code and think critically about the output / content.
 
 Throughout the activity, you will see open text boxes. These text boxes will either be labeled *Answer* or *Notes*. 
 
@@ -94,6 +94,20 @@ You will see code for packages at the start of every programming activity.
 
 ```
 
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+2 + 2 
+
+3 * 5 
+
+10 / 2
+```
+
+:::
+
+
 ### Functions and Arguments 
 
 R is a functional language. Functions act as the name of algorithmic details that are used to accomplish a specific task.  For example, if I wanted to round the value 3.23, I could accomplish this with the function `round` in R. The number 3.23 is an `argument` to the function `round`. An argument is an input to a function. A `value` is produced as a result.
@@ -116,6 +130,15 @@ From the documentation, you can see the second argument of the function `round` 
 round(3.22, digits = 0)
 
 ```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+round(3.22, digits = 1)
+```
+
+:::
 
 As you may notice, the first argument and second argument are separated by a `,`. This is consistent across all functions in R. 
 
@@ -181,6 +204,11 @@ How many rows are in the `mtcars` data set? How many columns?
 ::: {.callout-tip collapse="true"}
 ## Solution
 
+```{r}
+glimpse(mtcars)
+```
+
+
 There are **32** rows in the mtcars data set
 
 There are **11** columns in the mtcars data set
@@ -212,6 +240,11 @@ tail(mtcars)
 :::
 
 Now, use `slice` to produce the first three lines of the `mtcars` data set. 
+
+```{webr}
+
+```
+
 
 ::: {.callout-tip collapse="true"}
 ## Solution
