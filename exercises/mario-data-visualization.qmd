@@ -23,19 +23,19 @@ Please run the following code by clicking the [green arrow]{style="color:green;"
 ```{webr-r}
 #| context: setup
 download.file(
-  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv",
-  "mariokart.csv"
+  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/Mariokart.csv",
+  "Mariokart.csv"
 )
 ```
 
 ```{webr-r}
 #| echo: false
-mario <- read.csv("mariokart.csv")
+Mario <- read.csv("Mariokart.csv")
 ```
 
 ```{r}
 #| echo: false
-mario <- read.csv("data/mariokart.csv") # put in R file to r chunks have data to use
+Mario <- read.csv("data/Mariokart.csv") # put in R file to r chunks have data to use
 ```
 
 In this mini analysis we work with the data from the *openintro* package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:
@@ -90,7 +90,7 @@ With your output, confirm that:
 -- There are 12 variables (columns) in the dataset
 
 ::: callout-warning
-If you receive the error [Error: object 'mario' not found]{style="color:red;"}, go back and read in your data above.
+If you receive the error [Error: object 'Mario' not found]{style="color:red;"}, go back and read in your data above.
 :::
 
 ```{webr-r}
@@ -101,7 +101,7 @@ If you receive the error [Error: object 'mario' not found]{style="color:red;"}, 
 **Demo**: We can use `slice` to look at rows of our data. Run the following code. Change the `5` to another number to print that many rows!
 
 ```{webr-r}
-slice(mario, 1:5)
+slice(Mario, 1:5)
 ```
 
 <label>Notes:</label> <br>
@@ -125,7 +125,7 @@ What does each observation (row) in the data set represent?
 ::: {.callout-tip collapse="true"}
 ## Solution
 
-Each observation represents a **mario game**.
+Each observation represents a **Mario game**.
 :::
 
 ## Variables of Interest (update)
@@ -142,7 +142,7 @@ The variables we'll focus on are the following:
 First, let's explore the variable `cond`. Specifically, let's investigate how many `new` games were sold versus how many `used` games were sold by creating a barplot. Add the following correct `geom` to make a barplot of `cond`.
 
 ```{webr-r}
-mario |>
+Mario |>
   ggplot(
     aes(x = cond)) + 
   #add geom here
@@ -157,7 +157,7 @@ add `geom_bar()` to the following code above to create a barplot of `cond`.
 Next, let's fill in the bars by the shipping method each game was shipped with (`ship_sp`).
 
 ```{webr-r}
-mario |>
+Mario |>
   ggplot(
     aes(x = cond , fill = ...)) + 
    geom_bar()
@@ -169,7 +169,7 @@ mario |>
 ```{r}
 #| label: plot-fill-solution
 
-mario |>
+Mario |>
   ggplot(
     aes(x = cond , fill = ship_sp)) + 
    geom_bar()
@@ -179,7 +179,7 @@ mario |>
 The code above uses `fill` to color the segments of the boxplot by another categorical variable. Below, we change `fill` to `color`. What happens? Why?
 
 ```{r}
-mario |>
+Mario |>
   ggplot(
     aes(x = cond , color = ship_sp)) + 
    geom_bar()
@@ -204,7 +204,7 @@ mario |>
 Up to this point, our bar plot has counted up the number of observations for each condition of game, and has been segmented by the count of shipping method. Perhaps it is easier to compare shipping method across condition of game if we looked at the proportion of shipping method within each game. This can be achieved using `position = "fill"` in the `geom` statement. Alter the code below so that it includes `position = fill`, and comment on the relationship between condition and shipping method. 
 
 ```{webr-r}
-mario |>
+Mario |>
   ggplot(
     aes(x = cond , fill = ship_sp)) + 
    geom_bar()
@@ -222,14 +222,14 @@ mario |>
 ## Solution
 
 ```{r}
-mario |>
+Mario |>
   ggplot(
     aes(x = cond , fill = ship_sp)) + 
    geom_bar(position = "fill")
 ```
 
 
-It appears that new mario games were mainly shipped using upsGround, while used mario games were shipped using standard shipping.
+It appears that new Mario games were mainly shipped using upsGround, while used Mario games were shipped using standard shipping.
 :::
 
 # Relationships between numerical and categorical variables
@@ -241,7 +241,7 @@ Up to this point, we have been visualizing the relationship between categorical 
 One way we can investigate the relationship between different types of variables is to create a boxplot. Below, we are going to create a boxplot using `geom_boxplot` between the variables `cond` and `total_pr`. What information can we gather from the boxplots? 
 
 ```{webr-r}
-mario |>
+Mario |>
   ggplot(
     aes(x = cond , y = total_pr)) + 
    # insert geom here
@@ -259,13 +259,13 @@ mario |>
 ## Solution
 
 ```{r}
-mario |>
+Mario |>
   ggplot(
     aes(x = cond , y = total_pr)) + 
    geom_boxplot()
 ```
 
-We can infer that the median total price for new mario games is higher for the new condition versus the used condition. There appears to be one outlier in new condition, and four outliers in the used condition. The IQR of the new condition is slightly larger than the used condition. 
+We can infer that the median total price for new Mario games is higher for the new condition versus the used condition. There appears to be one outlier in new condition, and four outliers in the used condition. The IQR of the new condition is slightly larger than the used condition. 
 :::
 
 # Violin plot 
@@ -273,7 +273,7 @@ We can infer that the median total price for new mario games is higher for the n
 A violin plot is a lot like a box plot, but also shows us information about the density of the quantitative variable. Below, we have a violin plot that again shows the relationship between the condition of the Mario game, and the total price of the game (cost + shipping). Describe the relationship below.
 
 ```{r}
-mario |>
+Mario |>
   ggplot(
     aes(x = cond , y = total_pr)) + 
    geom_violin()
@@ -298,7 +298,7 @@ It appears that there is a higher density of new games at a higher price than us
 Ridge plots, similar to violin plots, shows the distribution of a numeric variable across the levels of a categorical variable. In order to make this plot, we will use `geom_density_ridges`. Please add this geom to the following code below to make the ridge plots. Within this geom, set alpha equal to 0.5. 
 
 ```{webr-r}
-mario |>
+Mario |>
   ggplot(
     aes(x = total_pr , y = cond, fill = cond, color = cond)) + 
    # insert geom here
@@ -308,7 +308,7 @@ mario |>
 ## Solution
 
 ```{r}
-mario |>
+Mario |>
   ggplot(
     aes(x = total_pr , y = cond, fill = cond, color = cond)) + 
    geom_density_ridges(alpha = 0.5)
@@ -324,17 +324,17 @@ c. IQR
 d. standard deviation 
 e. mode 
 
-2. Below, we have stacked barplots using the `mario` data set from your exercise. This plot looks at the relationship between condition of game, and the shipping method the seller used to send the game to the customer. Use this plot to answer the following questions. 
+2. Below, we have stacked barplots using the `Mario` data set from your exercise. This plot looks at the relationship between condition of game, and the shipping method the seller used to send the game to the customer. Use this plot to answer the following questions. 
 
 ```{r}
 #| echo: false
 
-a <- mario |>
+a <- Mario |>
   ggplot(
     aes(x = ship_sp, fill = cond)) + 
       geom_bar() + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
-b <- mario |>
+b <- Mario |>
   ggplot(
     aes(x = ship_sp, fill = cond)) + 
       geom_bar(position = "fill") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
@@ -374,7 +374,7 @@ What argument is used to change the y-axis to proportion?
 
 - `not enough information` 
 
-4. Which shipping method had the most used mario games compared to new mario games? 
+4. Which shipping method had the most used Mario games compared to new Mario games? 
 
 - `firstClass` 
 
