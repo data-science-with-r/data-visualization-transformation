@@ -200,14 +200,14 @@
     "href": "index.html",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data – why and how\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data – why and how\n\n\n\n\nVisualizing data – why and how\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data – why and how\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data – why and how\n\n\n\n\nVisualizing data – why and how\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
@@ -221,7 +221,7 @@
     "href": "index.html#exercises",
     "title": " Data visualization and transformation",
     "section": "Exercises",
-    "text": "Exercises\n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\nIntroduction to WebR\n\n\nModule 1 - Course 1 - Lesson 1.2\n\n\n\n\nMario Games + Data Visualization\n\n\nModule 1 - Ex 1\n\n\n\n\nBechdel + Data Visualization\n\n\nModule 1 - Ex 2\n\n\n\n\nVisualizing Iris Flowers\n\n\nModule 2 - Ex 1\n\n\n\n\nBechdel + Data Visualization\n\n\nModule 2 - Lesson 2.2 - Course 1 \n\n\n\n\n\nNo matching items"
+    "text": "Exercises\n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\nIntroduction to WebR\n\n\nModule 1 - Course 1 - Lesson 1.2\n\n\n\n\nBechdel + Data Visualization\n\n\nModule 1 - Ex 2\n\n\n\n\nVisualizing Iris Flowers\n\n\nModule 2 - Ex 1\n\n\n\n\nBechdel + Data Visualization\n\n\nModule 2 - Lesson 2.2 - Course 1 \n\n\n\n\nMario Games + Data Visualization\n\n\nModule 3 - Lesson 3.2 - Course 1\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#ggplot2-in-tidyverse",
@@ -571,21 +571,21 @@
     "href": "exercises/mario-data-visualization.html",
     "title": "Mario Games + Data Visualization",
     "section": "",
-    "text": "This activity is meant to provide an interactive environment for students to implement what they have learned from the videos. This activity allows you to write and run R-Code within the html document. Code chunks that allow you to do this look like:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSometimes, we provide code chunks that are not interactive, and will look like:\n\n# example r-chunk\n\nThere will be a variety of question types throughout the document. Question types include the following:\n– Your Turn: These coding questions ask students to explore / edit / manipulate existing to code. These questions are followed with an Expected Solutions box so students can get immediate feedback\n– Demo: These coding questions have the solutions within them and allow the students to run the code and think critically about the output.\nThroughout the activity, you will see open text boxes. These text boxes will either be labeled Answer or Notes.\n  - Answer: This prompts you to answer a short-answer question. These questions are followed by \n  a `Solutions` tab to reveal the answer.\n  \n  - Notes: This provides a space to take notes to be referenced later. These are often gives \n  after `Demo` questions. \n\n\n\n\n\n\nSaving Your Work\n\n\n\nYour work does not automatically save.\nFor most browsers, the most efficient way to save your work is by using the Print feature. This may be useful if you want to come back and reference your work after it’s completed.\n– Right click anywhere on this html page\n– Select Print...\n– Under the Destination tab, click Save as PDF\n– Select a file on your computer you wish to save your work.\n\n\n\n\nPlease run the following code by clicking the green arrow just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn this mini analysis we work with the data from the openintro package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:\n\n\n\n\n\n\n\nvariable name\ndescription\n\n\nid\nAuction ID assigned by Ebay.\n\n\nduration\nAuction length, in days\n\n\nn_bids\nNumber of bids\n\n\ncond\nGame condition, either new or used\n\n\nstart_pr\nStart price of the auction\n\n\nship_pr\nShipping price\n\n\ntotal_pr\nTotal price, which equals the auction price plus the shipping price\n\n\nship_sp\nShipping speed or method\n\n\nseller_rate\nThe seller’s rating on Ebay. This is the number of positive ratings minus the number of negative ratings for the seller\n\n\nstock_photo\nWhether the auction feature photo was a stock photo or not, either yes or no\n\n\nwheels\nNumber of Wii wheels included in the auction. These are steering wheel attachments to make it seem as though you are actually driving in the game.\n\n\ntitle\nThe title of the auctions\n\n\n\n\n\nWe’ll use: tidyverse for majority of the analysis and scales for pretty plot labels later on. These are ready to use for you in this activity!\n\nlibrary(tidyverse)\nlibrary(scales)\n\n\n\n\nYour Turn: We can use the glimpse function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.\nWith your output, confirm that:\n– There are 143 rows\n– There are 12 variables (columns) in the dataset\n\n\n\n\n\n\nWarning\n\n\n\nIf you receive the error Error: object ‘mario’ not found, go back and read in your data above.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nDemo: We can use slice to look at rows of our data. Run the following code. Change the 5 to another number to print that many rows!\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\n\nWhat does each observation (row) in the data set represent?\nAnswer: \n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nEach observation represents a mario game.\n\n\n\n\n\n\n\nThe variables we’ll focus on are the following:\n\nn_bids: number of bids throughout the auction\ntotal_pr: total price of game sold plus shipping in usd\nseller_rate: The seller’s rating on Ebay\ncond: Binary variable representing the condition of the video game\n\n\n\n\nDemo: ggplot2 is the package and ggplot() is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!\n\nggplot() creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with data = mario, and run the following to create our base.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nThe mapping argument is paired with an aesthetic (aes()), which tells us how the variables in our data set should be mapped to the visual properties of the graph.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nAs we previously mentioned, we often omit the names of the first two arguments in R functions. So you’ll often see this written as:\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNote that the result is exactly the same.\nYour Turn: The geom_xx function specifies the type of plot we want to use to represent the data. In the code below, we want to use geom_point, which creates a plot where each observation is represented by a point.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFOR MINE Should we omit some data so people can see that R omits a warning and a plot? And then talk about it like below:\nNote that this results in a warning as well.\nThis warning represents the number of observations that were removed because there were missing data!\n\n\n\n\n\nYour Turn: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!\n\n\n\n\n\n\nTip\n\n\n\nSee http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf for many color options you can use by name in R or use the hex code for a color of your choice.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nYour Turn: Add labels for the title and x and y axes using labs. Do this by modifying the existing code below.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n       aes(x = n_bids, y = total_pr))+\n  geom_point(color = \"deepskyblue3\") + \n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYour Turn: An aesthetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:\n\ncolor\nfill\nshape\nsize\nalpha (transparency)\n\nModify the plot below, so the color of the points is based on the variable cond, and make the size of your points based on seller_rate.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n       aes(x = n_bids, y = total_pr,\n           color = cond, size = seller_rate)) +\n  geom_point() + \n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price by condition and seller rating\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYour Turn: Expand on your plot from the previous step to make the transparency (alpha) of the points 0.5.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nYour Turn: Expand on your plot from the previous step by using facet_wrap to display the association between budget and gross for different values of stock_photo.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n  aes(x = n_bids, y = total_pr,\n    color = cond, size = seller_rate)) +\n  geom_point(alpha = 0.5) + \n  facet_wrap(~ stock_photo) +\n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price by condition and seller rating\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDemo: Below is a demonstration on how to improve your plot from the previous step by making the y scale more legible.\n\n\n\n\n\n\nTip\n\n\n\nThis is done through the use of the scales package, specifically the scale_x_continuous() and scale_y_continuous() functions. Because we want to change the y-axis label, let’s demo the scale_y_continuous() function below.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\n\n\n\n\nYour Turn: Expand on your plot from the previous step by using facet_grid to display the association between budget and gross for different combinations of stock_photo and cond. Comment on whether you notice any additional patters that were harder to see before.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes:"
+    "text": "Programming Activity Guide\n\n\n\nPlease reference the webR-intro activity for information on the different types of code chunks, questions, and how to save your work to reference later."
   },
   {
     "objectID": "exercises/mario-data-visualization.html#getting-started",
     "href": "exercises/mario-data-visualization.html#getting-started",
     "title": "Mario Games + Data Visualization",
-    "section": "",
-    "text": "Please run the following code by clicking the green arrow just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn this mini analysis we work with the data from the openintro package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:\n\n\n\n\n\n\n\nvariable name\ndescription\n\n\nid\nAuction ID assigned by Ebay.\n\n\nduration\nAuction length, in days\n\n\nn_bids\nNumber of bids\n\n\ncond\nGame condition, either new or used\n\n\nstart_pr\nStart price of the auction\n\n\nship_pr\nShipping price\n\n\ntotal_pr\nTotal price, which equals the auction price plus the shipping price\n\n\nship_sp\nShipping speed or method\n\n\nseller_rate\nThe seller’s rating on Ebay. This is the number of positive ratings minus the number of negative ratings for the seller\n\n\nstock_photo\nWhether the auction feature photo was a stock photo or not, either yes or no\n\n\nwheels\nNumber of Wii wheels included in the auction. These are steering wheel attachments to make it seem as though you are actually driving in the game.\n\n\ntitle\nThe title of the auctions\n\n\n\n\n\nWe’ll use: tidyverse for majority of the analysis and scales for pretty plot labels later on. These are ready to use for you in this activity!\n\nlibrary(tidyverse)\nlibrary(scales)\n\n\n\n\nYour Turn: We can use the glimpse function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.\nWith your output, confirm that:\n– There are 143 rows\n– There are 12 variables (columns) in the dataset\n\n\n\n\n\n\nWarning\n\n\n\nIf you receive the error Error: object ‘mario’ not found, go back and read in your data above.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nDemo: We can use slice to look at rows of our data. Run the following code. Change the 5 to another number to print that many rows!\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\n\nWhat does each observation (row) in the data set represent?\nAnswer: \n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nEach observation represents a mario game."
+    "section": "Getting started",
+    "text": "Getting started\nPlease run the following code by clicking the green arrow just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn this mini analysis we work with the data from the openintro package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:\n\n\n\n\n\n\n\nvariable name\ndescription\n\n\nid\nAuction ID assigned by Ebay.\n\n\nduration\nAuction length, in days\n\n\nn_bids\nNumber of bids\n\n\ncond\nGame condition, either new or used\n\n\nstart_pr\nStart price of the auction\n\n\nship_pr\nShipping price\n\n\ntotal_pr\nTotal price, which equals the auction price plus the shipping price\n\n\nship_sp\nShipping speed or method\n\n\nseller_rate\nThe seller’s rating on Ebay. This is the number of positive ratings minus the number of negative ratings for the seller\n\n\nstock_photo\nWhether the auction feature photo was a stock photo or not, either yes or no\n\n\nwheels\nNumber of Wii wheels included in the auction. These are steering wheel attachments to make it seem as though you are actually driving in the game.\n\n\ntitle\nThe title of the auctions\n\n\n\n\nPackages\nWe’ll use: tidyverse for majority of the analysis and scales for pretty plot labels later on. These are ready to use for you in this activity!\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(ggridges)\nlibrary(gridExtra)\n\n\n\nGet to know the data\nYour Turn: We can use the glimpse function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.\nWith your output, confirm that:\n– There are 143 rows\n– There are 12 variables (columns) in the dataset\n\n\n\n\n\n\nWarning\n\n\n\nIf you receive the error Error: object ‘mario’ not found, go back and read in your data above.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nDemo: We can use slice to look at rows of our data. Run the following code. Change the 5 to another number to print that many rows!\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\n\nWhat does each observation (row) in the data set represent?\nAnswer: \n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nEach observation represents a mario game."
   },
   {
     "objectID": "exercises/mario-data-visualization.html#variables-of-interest-update",
     "href": "exercises/mario-data-visualization.html#variables-of-interest-update",
     "title": "Mario Games + Data Visualization",
-    "section": "",
-    "text": "The variables we’ll focus on are the following:\n\nn_bids: number of bids throughout the auction\ntotal_pr: total price of game sold plus shipping in usd\nseller_rate: The seller’s rating on Ebay\ncond: Binary variable representing the condition of the video game"
+    "section": "Variables of Interest (update)",
+    "text": "Variables of Interest (update)\nThe variables we’ll focus on are the following:\n\nn_bids: number of bids throughout the auction\ntotal_pr: total price of game sold plus shipping in usd\nseller_rate: The seller’s rating on Ebay\ncond: Binary variable representing the condition of the video game"
   },
   {
     "objectID": "exercises/mario-data-visualization.html#visualizing-data-with-ggplot2",
@@ -600,5 +600,299 @@
     "title": "Mario Games + Data Visualization",
     "section": "",
     "text": "Your Turn: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!\n\n\n\n\n\n\nTip\n\n\n\nSee http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf for many color options you can use by name in R or use the hex code for a color of your choice.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nYour Turn: Add labels for the title and x and y axes using labs. Do this by modifying the existing code below.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n       aes(x = n_bids, y = total_pr))+\n  geom_point(color = \"deepskyblue3\") + \n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYour Turn: An aesthetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:\n\ncolor\nfill\nshape\nsize\nalpha (transparency)\n\nModify the plot below, so the color of the points is based on the variable cond, and make the size of your points based on seller_rate.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n       aes(x = n_bids, y = total_pr,\n           color = cond, size = seller_rate)) +\n  geom_point() + \n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price by condition and seller rating\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYour Turn: Expand on your plot from the previous step to make the transparency (alpha) of the points 0.5.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nYour Turn: Expand on your plot from the previous step by using facet_wrap to display the association between budget and gross for different values of stock_photo.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n  aes(x = n_bids, y = total_pr,\n    color = cond, size = seller_rate)) +\n  geom_point(alpha = 0.5) + \n  facet_wrap(~ stock_photo) +\n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price by condition and seller rating\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDemo: Below is a demonstration on how to improve your plot from the previous step by making the y scale more legible.\n\n\n\n\n\n\nTip\n\n\n\nThis is done through the use of the scales package, specifically the scale_x_continuous() and scale_y_continuous() functions. Because we want to change the y-axis label, let’s demo the scale_y_continuous() function below.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\n\n\n\n\nYour Turn: Expand on your plot from the previous step by using facet_grid to display the association between budget and gross for different combinations of stock_photo and cond. Comment on whether you notice any additional patters that were harder to see before.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes:"
+  },
+  {
+    "objectID": "exercises/mario-data-visualization.html#visualizing-categorical-data-with-ggplot2",
+    "href": "exercises/mario-data-visualization.html#visualizing-categorical-data-with-ggplot2",
+    "title": "Mario Games + Data Visualization",
+    "section": "Visualizing categorical data with ggplot2",
+    "text": "Visualizing categorical data with ggplot2\nFirst, let’s explore the variable cond. Specifically, let’s investigate how many new games were sold versus how many used games were sold by creating a barplot. Add the following correct geom to make a barplot of cond.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\nadd geom_bar() to the following code above to create a barplot of cond.\n\n\n\nNext, let’s fill in the bars by the shipping method each game was shipped with (ship_sp).\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nmario |&gt;\n  ggplot(\n    aes(x = cond , fill = ship_sp)) + \n   geom_bar()\n\n\n\n\n\n\n\n\n\n\n\nThe code above uses fill to color the segments of the boxplot by another categorical variable. Below, we change fill to color. What happens? Why?\n\nmario |&gt;\n  ggplot(\n    aes(x = cond , color = ship_sp)) + \n   geom_bar()\n\n\n\n\n\n\n\n\nAnswer: \n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nfill defines the color in which the geom is filled in with, while color defines the color in which the geom is outlined. A special exception to this is with scatterplots, where the dots are not treated as shapes to be filled in, and instead are filled in by color."
+  },
+  {
+    "objectID": "exercises/mario-data-visualization.html#count-vs-proportion",
+    "href": "exercises/mario-data-visualization.html#count-vs-proportion",
+    "title": "Mario Games + Data Visualization",
+    "section": "Count vs Proportion",
+    "text": "Count vs Proportion\nUp to this point, our bar plot has counted up the number of observations for each condition of game, and has been segmented by the count of shipping method. Perhaps it is easier to compare shipping method across condition of game if we looked at the proportion of shipping method within each game. This can be achieved using position = \"fill\" in the geom statement. Alter the code below so that it includes position = fill, and comment on the relationship between condition and shipping method.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAnswer: \n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nmario |&gt;\n  ggplot(\n    aes(x = cond , fill = ship_sp)) + \n   geom_bar(position = \"fill\")\n\n\n\n\n\n\n\n\nIt appears that new mario games were mainly shipped using upsGround, while used mario games were shipped using standard shipping."
+  },
+  {
+    "objectID": "exercises/mario-data-visualization.html#ridge-plots",
+    "href": "exercises/mario-data-visualization.html#ridge-plots",
+    "title": "Mario Games + Data Visualization",
+    "section": "Ridge plots",
+    "text": "Ridge plots\nRidge plots, similar to violin plots, shows the distribution of a numeric variable across the levels of a categorical variable. In order to make this plot, we will use geom_density_ridges. Please add this geom to the following code below to make the ridge plots. Within this geom, set alpha equal to 0.5.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nmario |&gt;\n  ggplot(\n    aes(x = total_pr , y = cond, fill = cond, color = cond)) + \n   geom_density_ridges(alpha = 0.5)\n\nPicking joint bandwidth of 2.68"
+  },
+  {
+    "objectID": "exercises/mario-data-visualization.html#quiz",
+    "href": "exercises/mario-data-visualization.html#quiz",
+    "title": "Mario Games + Data Visualization",
+    "section": "Quiz",
+    "text": "Quiz\n\nSelect all the apply. What information can you gather from a boxplot\n\n\nmedian\nmean\nIQR\nstandard deviation\nmode\n\n\nBelow, we have stacked barplots using the mario data set from your exercise. This plot looks at the relationship between condition of game, and the shipping method the seller used to send the game to the customer. Use this plot to answer the following questions.\n\n\n\n\n\n\n\n\n\n\nWhat argument is used to change the y-axis to proportion?\n\ncolor\nfill\nshape\ntransform\n\n\nAcross both conditions of game, which shipping method had the lowest total?\n\n\nfirstClass\nmedia\nother\nparcel\npriority\nstandard\nups3Day\nupsGround\nnot enough information\n\n\nWhich shipping method had the most used mario games compared to new mario games?\n\n\nfirstClass\nmedia\nother\nparcel\npriority\nstandard\nups3Day\nupsGround\nnot enough information\n\n\nTrue or False: There was a larger count of used Mario games shipped using priority than used Mario games that were shipped standard.\nTrue or False: The y-axis that shows relative proportion must always be on a scale from 0 to 1."
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "Each row is an observation\nEach column is a variable\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…\n 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…\n 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…\n 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…\n 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…\n 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…\n 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…\n 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…\n 9 Biggs D…    183    84 black      light      brown           24   male  mascu…\n10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…\n# ℹ 77 more rows\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\n\n\n\n\n\n\nTake a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\n\n\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n?starwars\n\n\n\n\n\n\nHow many rows and columns does this dataset have?\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#dataset-terminology",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#dataset-terminology",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "Each row is an observation\nEach column is a variable\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…\n 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…\n 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…\n 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…\n 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…\n 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…\n 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…\n 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…\n 9 Biggs D…    183    84 black      light      brown           24   male  mascu…\n10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…\n# ℹ 77 more rows\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#whats-in-the-star-wars-data",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#whats-in-the-star-wars-data",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "Take a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#get-to-know-the-data",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#get-to-know-the-data",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "How many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n?starwars"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#dimensions-of-the-data",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#dimensions-of-the-data",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "How many rows and columns does this dataset have?\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#what-is-eda",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#what-is-eda",
+    "title": "Visualizing data – why and how",
+    "section": "What is EDA?",
+    "text": "What is EDA?\n\nExploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics\nOften, this is visual – this is what we’ll focus on first\nBut we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis – this is what we’ll focus on next"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#mass-vs.-height",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#mass-vs.-height",
+    "title": "Visualizing data – why and how",
+    "section": "Mass vs. height",
+    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Starwars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#jabba",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#jabba",
+    "title": "Visualizing data – why and how",
+    "section": "Jabba!",
+    "text": "Jabba!"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#data-visualization-1",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#data-visualization-1",
+    "title": "Visualizing data – why and how",
+    "section": "Data visualization",
+    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\nData visualization is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#ggplot2-in-tidyverse",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#ggplot2-in-tidyverse",
+    "title": "Visualizing data – why and how",
+    "section": "ggplot2 \\(\\in\\) tidyverse",
+    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\ngg in “ggplot2” stands for Grammar of Graphics\nInspired by the book Grammar of Graphics by Leland Wilkinson"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#grammar-of-graphics",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#grammar-of-graphics",
+    "title": "Visualizing data – why and how",
+    "section": "Grammar of Graphics",
+    "text": "Grammar of Graphics\n\n\nA grammar of graphics is a tool that enables us to concisely describe the components of a graphic.\n\n\n\n\n\n\nBloggoType"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#mass-vs.-height-1",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#mass-vs.-height-1",
+    "title": "Visualizing data – why and how",
+    "section": "Mass vs. height",
+    "text": "Mass vs. height\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#parsing-the-code",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#parsing-the-code",
+    "title": "Visualizing data – why and how",
+    "section": "Parsing the code",
+    "text": "Parsing the code\n\n\nWhat are the functions doing the plotting?\nWhat is the dataset being plotted?\nWhich variables map to which features (aesthetics) of the plot?\nWhat does the warning mean?+\n\n\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n+Suppressing warning to subsequent slides to save space"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#hello-ggplot2",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#hello-ggplot2",
+    "title": "Visualizing data – why and how",
+    "section": "Hello ggplot2!",
+    "text": "Hello ggplot2!\n\nggplot() is the main function in ggplot2\n\n. . .\n\nPlots are constructed in layers\n\n. . .\n\nStructure of the code for plots can be summarized as\n\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], y = [y-variable])) +\n   geom_xxx() +\n   other options\n. . .\n\nThe ggplot2 package comes with the tidyverse\n\n\nlibrary(tidyverse)\n\n. . .\n\nFor help with ggplot2, see ggplot2.tidyverse.org ]"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#anscombes-quartet",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#anscombes-quartet",
+    "title": "Visualizing data – why and how",
+    "section": "Anscombe’s quartet",
+    "text": "Anscombe’s quartet\n\nlibrary(Tmisc)\nquartet\n\n   set  x     y\n1    I 10  8.04\n2    I  8  6.95\n3    I 13  7.58\n4    I  9  8.81\n5    I 11  8.33\n6    I 14  9.96\n7    I  6  7.24\n8    I  4  4.26\n9    I 12 10.84\n10   I  7  4.82\n11   I  5  5.68\n12  II 10  9.14\n13  II  8  8.14\n14  II 13  8.74\n15  II  9  8.77\n16  II 11  9.26\n17  II 14  8.10\n18  II  6  6.13\n19  II  4  3.10\n20  II 12  9.13\n21  II  7  7.26\n22  II  5  4.74\n23 III 10  7.46\n24 III  8  6.77\n25 III 13 12.74\n26 III  9  7.11\n27 III 11  7.81\n28 III 14  8.84\n29 III  6  6.08\n30 III  4  5.39\n31 III 12  8.15\n32 III  7  6.42\n33 III  5  5.73\n34  IV  8  6.58\n35  IV  8  5.76\n36  IV  8  7.71\n37  IV  8  8.84\n38  IV  8  8.47\n39  IV  8  7.04\n40  IV  8  5.25\n41  IV 19 12.50\n42  IV  8  5.56\n43  IV  8  7.91\n44  IV  8  6.89"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#summarizing-anscombes-quartet",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#summarizing-anscombes-quartet",
+    "title": "Visualizing data – why and how",
+    "section": "Summarizing Anscombe’s quartet",
+    "text": "Summarizing Anscombe’s quartet\n\nquartet |&gt;\n  group_by(set) |&gt;\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )\n\n# A tibble: 4 × 6\n  set   mean_x mean_y  sd_x  sd_y     r\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 I          9   7.50  3.32  2.03 0.816\n2 II         9   7.50  3.32  2.03 0.816\n3 III        9   7.5   3.32  2.03 0.816\n4 IV         9   7.50  3.32  2.03 0.817"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#visualizing-anscombes-quartet",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#visualizing-anscombes-quartet",
+    "title": "Visualizing data – why and how",
+    "section": "Visualizing Anscombe’s quartet",
+    "text": "Visualizing Anscombe’s quartet\n\nggplot(quartet, aes(x = x, y = y)) +\n  geom_point() +\n  facet_wrap(~ set, ncol = 4)"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#age-at-first-kiss",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#age-at-first-kiss",
+    "title": "Visualizing data – why and how",
+    "section": "Age at first kiss",
+    "text": "Age at first kiss\n\nA group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. Do you see anything out of the ordinary?"
+  },
+  {
+    "objectID": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#facebook-visits",
+    "href": "slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html#facebook-visits",
+    "title": "Visualizing data – why and how",
+    "section": "Facebook visits",
+    "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "Each row is an observation\nEach column is a variable\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…\n 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…\n 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…\n 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…\n 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…\n 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…\n 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…\n 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…\n 9 Biggs D…    183    84 black      light      brown           24   male  mascu…\n10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…\n# ℹ 77 more rows\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\n\n\n\n\n\n\nTake a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\n\n\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n?starwars\n\n\n\n\n\n\nHow many rows and columns does this dataset have?\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#dataset-terminology",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#dataset-terminology",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "Each row is an observation\nEach column is a variable\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…\n 2 C-3PO       167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…\n 3 R2-D2        96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…\n 4 Darth V…    202   136 none       white      yellow          41.9 male  mascu…\n 5 Leia Or…    150    49 brown      light      brown           19   fema… femin…\n 6 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…\n 7 Beru Wh…    165    75 brown      light      blue            47   fema… femin…\n 8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…\n 9 Biggs D…    183    84 black      light      brown           24   male  mascu…\n10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…\n# ℹ 77 more rows\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#whats-in-the-star-wars-data",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#whats-in-the-star-wars-data",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "Take a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#get-to-know-the-data",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#get-to-know-the-data",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "How many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n?starwars"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#dimensions-of-the-data",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#dimensions-of-the-data",
+    "title": "Visualizing data – why and how",
+    "section": "",
+    "text": "How many rows and columns does this dataset have?\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#what-is-eda",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#what-is-eda",
+    "title": "Visualizing data – why and how",
+    "section": "What is EDA?",
+    "text": "What is EDA?\n\nExploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics\nOften, this is visual – this is what we’ll focus on first\nBut we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis – this is what we’ll focus on next"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#mass-vs.-height",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#mass-vs.-height",
+    "title": "Visualizing data – why and how",
+    "section": "Mass vs. height",
+    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Starwars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#jabba",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#jabba",
+    "title": "Visualizing data – why and how",
+    "section": "Jabba!",
+    "text": "Jabba!"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#data-visualization-1",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#data-visualization-1",
+    "title": "Visualizing data – why and how",
+    "section": "Data visualization",
+    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\nData visualization is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#ggplot2-in-tidyverse",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#ggplot2-in-tidyverse",
+    "title": "Visualizing data – why and how",
+    "section": "ggplot2 \\(\\in\\) tidyverse",
+    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\ngg in “ggplot2” stands for Grammar of Graphics\nInspired by the book Grammar of Graphics by Leland Wilkinson"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#grammar-of-graphics",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#grammar-of-graphics",
+    "title": "Visualizing data – why and how",
+    "section": "Grammar of Graphics",
+    "text": "Grammar of Graphics\n\n\nA grammar of graphics is a tool that enables us to concisely describe the components of a graphic.\n\n\n\n\n\n\nBloggoType"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#mass-vs.-height-1",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#mass-vs.-height-1",
+    "title": "Visualizing data – why and how",
+    "section": "Mass vs. height",
+    "text": "Mass vs. height\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values or values outside the scale range\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#parsing-the-code",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#parsing-the-code",
+    "title": "Visualizing data – why and how",
+    "section": "Parsing the code",
+    "text": "Parsing the code\n\n\nWhat are the functions doing the plotting?\nWhat is the dataset being plotted?\nWhich variables map to which features (aesthetics) of the plot?\nWhat does the warning mean?+\n\n\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n+Suppressing warning to subsequent slides to save space"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#hello-ggplot2",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#hello-ggplot2",
+    "title": "Visualizing data – why and how",
+    "section": "Hello ggplot2!",
+    "text": "Hello ggplot2!\n\nggplot() is the main function in ggplot2\n\n. . .\n\nPlots are constructed in layers\n\n. . .\n\nStructure of the code for plots can be summarized as\n\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], y = [y-variable])) +\n   geom_xxx() +\n   other options\n. . .\n\nThe ggplot2 package comes with the tidyverse\n\n\nlibrary(tidyverse)\n\n. . .\n\nFor help with ggplot2, see ggplot2.tidyverse.org ]"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#anscombes-quartet",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#anscombes-quartet",
+    "title": "Visualizing data – why and how",
+    "section": "Anscombe’s quartet",
+    "text": "Anscombe’s quartet\n\nlibrary(Tmisc)\nquartet\n\n   set  x     y\n1    I 10  8.04\n2    I  8  6.95\n3    I 13  7.58\n4    I  9  8.81\n5    I 11  8.33\n6    I 14  9.96\n7    I  6  7.24\n8    I  4  4.26\n9    I 12 10.84\n10   I  7  4.82\n11   I  5  5.68\n12  II 10  9.14\n13  II  8  8.14\n14  II 13  8.74\n15  II  9  8.77\n16  II 11  9.26\n17  II 14  8.10\n18  II  6  6.13\n19  II  4  3.10\n20  II 12  9.13\n21  II  7  7.26\n22  II  5  4.74\n23 III 10  7.46\n24 III  8  6.77\n25 III 13 12.74\n26 III  9  7.11\n27 III 11  7.81\n28 III 14  8.84\n29 III  6  6.08\n30 III  4  5.39\n31 III 12  8.15\n32 III  7  6.42\n33 III  5  5.73\n34  IV  8  6.58\n35  IV  8  5.76\n36  IV  8  7.71\n37  IV  8  8.84\n38  IV  8  8.47\n39  IV  8  7.04\n40  IV  8  5.25\n41  IV 19 12.50\n42  IV  8  5.56\n43  IV  8  7.91\n44  IV  8  6.89"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#summarizing-anscombes-quartet",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#summarizing-anscombes-quartet",
+    "title": "Visualizing data – why and how",
+    "section": "Summarizing Anscombe’s quartet",
+    "text": "Summarizing Anscombe’s quartet\n\nquartet |&gt;\n  group_by(set) |&gt;\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )\n\n# A tibble: 4 × 6\n  set   mean_x mean_y  sd_x  sd_y     r\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 I          9   7.50  3.32  2.03 0.816\n2 II         9   7.50  3.32  2.03 0.816\n3 III        9   7.5   3.32  2.03 0.816\n4 IV         9   7.50  3.32  2.03 0.817"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#visualizing-anscombes-quartet",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#visualizing-anscombes-quartet",
+    "title": "Visualizing data – why and how",
+    "section": "Visualizing Anscombe’s quartet",
+    "text": "Visualizing Anscombe’s quartet\n\nggplot(quartet, aes(x = x, y = y)) +\n  geom_point() +\n  facet_wrap(~ set, ncol = 4)"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#age-at-first-kiss",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#age-at-first-kiss",
+    "title": "Visualizing data – why and how",
+    "section": "Age at first kiss",
+    "text": "Age at first kiss\n\nA group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. Do you see anything out of the ordinary?"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#facebook-visits",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#facebook-visits",
+    "title": "Visualizing data – why and how",
+    "section": "Facebook visits",
+    "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
   }
 ]

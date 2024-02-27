@@ -3,13 +3,14 @@
     "listing": "/index.html",
     "items": [
       "/slides/1-1-welcome/1-1-welcome.html",
-      "/slides/2-1-visualize-why-how/2-1-visualize-why-how.html",
+      "/slides/2-1-1-visualize-why-how/2-1-1-visualize-why-how.html",
+      "/slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html",
       "/code-alongs/1-1-unvotes/1-1-unvotes.html",
       "/exercises/webR-intro.html",
-      "/exercises/mario-data-visualization.html",
       "/exercises/exercise-1.html",
       "/exercises/iris-data-visualization.html",
-      "/exercises/bechdel-data-visualization.html"
+      "/exercises/bechdel-data-visualization.html",
+      "/exercises/mario-data-visualization.html"
     ]
   }
 ]
