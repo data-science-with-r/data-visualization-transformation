@@ -17,7 +17,7 @@ Please reference the `webR-intro` activity for information on the different type
 
 ## Getting started
 
-Please run the following code by clicking the [green arrow]{style="color:green;"} just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.
+Please run the following code by clicking the [green arrow]{style="color:green;"} just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data can be used for the following activity.
 
 ```{webr-r}
 #| context: setup
@@ -85,6 +85,15 @@ If you receive the error [Error: object 'bechdel' not found]{style="color:red;"}
 # add code here
 
 ```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+glimpse(bechdel)
+```
+
+:::
 
 **Demo**: We can use `slice` to look at rows of our data. Run the following code. Change the `5` to another number to print that many rows!
 
@@ -174,7 +183,7 @@ ggplot(bechdel,
 ```
 
 ::: {.callout-tip collapse="true"}
-## Expected Result
+## Solution
 
 ```{r}
 #| echo: false
@@ -193,7 +202,7 @@ This warning represents the number of observations that were removed because the
 
 ### Step 1
 
-**Your Turn**: The following code changes the color of all points to coral. Explore different colors by changing "coral" to different colors!
+**Demo**: The following code changes the color of all points to coral. Explore different colors by changing "coral" to different colors!
 
 ::: callout-tip
 See <http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf> for many color options you can use by name in R or use the [hex code](https://en.wikipedia.org/wiki/Web_colors) for a color of your choice.
@@ -206,6 +215,14 @@ ggplot(bechdel,
        aes(x = budget_2013, y = gross_2013)) +
   geom_point(color = "coral") 
 ```
+
+<label>Notes:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
 
 ### Step 2
 
@@ -221,7 +238,7 @@ ggplot(bechdel,
 ```
 
 ::: {.callout-tip collapse="true"}
-## Expected Result
+## Solution
 
 ```{r}
 #| label: plot-labels
@@ -263,7 +280,7 @@ ggplot(bechdel,
 ```
 
 ::: {.callout-tip collapse="true"}
-## Expected Result
+## Solution
 
 ```{r}
 #| label: plot-aes-color-solution
@@ -282,7 +299,7 @@ ggplot(bechdel,
 
 ### Step 4
 
-**Your Turn**: Expand on your plot from the previous step to make the transparency (`alpha`) of the points 0.5.
+**Demo**: `alpha` is used within `geom_point` to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent. 
 
 ```{webr-r}
 #| label: plot-aes-alpha
@@ -290,13 +307,22 @@ ggplot(bechdel,
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013,
            color = binary, size = roi)) +
-  geom_point(alpha = #insert 0.5 here) + 
+  geom_point(alpha = 1) + 
   labs(
     x = "Budget (in 2013 $)", 
     y = "Gross revenue (in 2013 $)", 
     title = "Gross revenue vs. budget, by Bechdel test result"
     )
 ```
+
+<label>Notes:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
 
 ### Step 5
 
@@ -402,6 +428,23 @@ Is this type of facet useful? Why or why not?
 
 ::: {.callout-tip collapse="true"}
 ## Solution
+
+```{r}
+
+ggplot(bechdel, 
+       aes(x = budget_2013, y = gross_2013,
+           color = binary, size = roi)) +
+  geom_point(alpha = 0.5) + 
+  facet_grid(clean_test ~ binary) +
+  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +
+  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +
+  labs(
+    x = "Budget (in 2013 $)", 
+    y = "Gross revenue (in 2013 $)", 
+    title = "Gross revenue vs. budget, by Bechdel test result"
+    )
+```
+
 
 This was not a useful update as one of the levels of `clean_test` maps directly to one of the levels of `binary`.
 :::
