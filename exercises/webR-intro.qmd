@@ -33,9 +33,9 @@ Sometimes, we provide code chunks that are not interactive and will have already
 
 There will be a variety of question types throughout an activity. Question types include the following:
 
--- **Your Turn**: These coding questions ask students to explore / edit / manipulate / create code. These questions are followed with an `Solution` box so students can get immediate feedback
+-- **Your Turn**: These coding questions ask students to add to existing code to produce output. These questions are followed with an `Solution` box so students can get immediate feedback
 
--- **Demo**: These coding questions have the solutions within them and allow students to run code and think critically about the output / content.
+-- **Demo**: These coding questions have complete code within the chunks, and ask students to either think critically about the about, or slightly modify the existing code to learn more about the function! 
 
 Throughout the activity, you will see open text boxes. These text boxes will either be labeled *Answer* or *Notes*. 
 
