@@ -92,7 +92,7 @@ With your output, confirm that:
 -- There are 12 variables (columns) in the dataset
 
 ::: callout-warning
-If you receive the error [Error: object 'Mario' not found]{style="color:red;"}, go back and read in your data above.
+If you receive the error [Error: object 'mario' not found]{style="color:red;"}, go back and read in your data above.
 :::
 
 ```{webr-r}
