@@ -1,5 +1,5 @@
 ---
-title: "Mario Games + Data Visualization"
+title: "Mario games + data visualization"
 subtitle: "Module 3 - Lesson 3.3 - Course 1"
 author: ""
 toc: true

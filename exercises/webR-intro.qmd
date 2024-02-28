@@ -1,5 +1,5 @@
 ---
-title: "Introduction to WebR"
+title: "Introduction to webR"
 subtitle: "Module 1 - Course 1 - Lesson 1.2"
 author: ""
 toc: true

@@ -1,5 +1,5 @@
 ---
-title: "Bechdel + Data Visualization"
+title: "Bechdel + data visualization"
 subtitle: "Module 2 - Lesson 2.2 - Course 1 "
 author: ""
 toc: true
