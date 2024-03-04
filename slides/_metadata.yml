@@ -8,6 +8,8 @@ format:
     width: 1600
     fig-width: 6
     fig-asp: 0.618
+    code-link: true
+    slide-number: c
 execute:
   echo: true
   warning: true

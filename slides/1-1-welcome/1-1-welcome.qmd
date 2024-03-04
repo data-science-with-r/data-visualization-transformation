@@ -11,38 +11,38 @@ ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 library(tidyverse)
 ```
 
-# Hello world!
+# Hello world! {.section-break}
 
 ## Data science
 
 -   Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.
 
--   We're going to learn to do this in a `tidy` way -- more on that later!
+-   We're going to learn to do this in a ***tidy*** way -- more on that later!
 
 -   This is a course on introduction to data science, with an emphasis on statistical thinking.
 
 ## Course FAQ
 
-**Q - What data science background does this course assume?**\
-A - None.
+**Q: What data science background does this course assume?**\
+A: None.
 But it does require a willingness to learn and a motivation to work with data.
 
 . . .
 
-**Q - Will we be doing computing?**\
-A - Yes.
+**Q: Will we be doing computing?**\
+A: Yes.
 
 . . .
 
-**Q - What computing language will we learn?**\
-A - R.
+**Q: What computing language will we learn?**\
+A: R.
 
 . . .
 
 **Q: Why not language X?**\
 A: A great discussion for the course forum!
 
-# Software
+# Software {.section-break}
 
 ## Excel, not...
 
@@ -56,7 +56,7 @@ A: A great discussion for the course forum!
 
 ![](images/rstudio.png){fig-align="center"}
 
-# Data science life cycle
+# Data science life cycle {.section-break}
 
 ## Data science life cycle
 

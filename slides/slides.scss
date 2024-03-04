@@ -18,12 +18,14 @@ $presentation-title-slide-text-align: left;
 
 /*-- scss:rules --*/
 
+/* title slide */
+
 #title-slide .title {
-  color: #0E538F;
+  color: $presentation-heading-color;
 }
 
 #title-slide .subtitle {
-  color: #0E538F;
+  color: $presentation-heading-color;
   font-weight: bold;
   font-size: 1.6em;
 }
@@ -31,6 +33,20 @@ $presentation-title-slide-text-align: left;
 #title-slide .quarto-title-authors {
   color: #66676D;
   font-size: 1.4em;
+}
+
+/* section break slide */
+
+.section-break .reveal a { /* not working */
+  color: #FFFFFF !important;
+}
+
+.section-break .slide-background-content {
+  background-color: $presentation-heading-color;
+}
+
+.section-break h1 {
+  color: #FFFFFF;
 }
 
 /* font sizes */
@@ -54,6 +70,12 @@ $presentation-title-slide-text-align: left;
 .large {
   font-size: 1.5em;
 }
+
+/* bold should be blue */
+
+b, strong {
+   color: $presentation-heading-color;
+   }
 
 /* alignment */
 

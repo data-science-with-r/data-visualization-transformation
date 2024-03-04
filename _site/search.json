@@ -95,7 +95,7 @@
     "href": "slides/1-1-welcome/1-1-welcome.html#course-faq",
     "title": "Welcome",
     "section": "Course FAQ",
-    "text": "Course FAQ\nQ - What data science background does this course assume?\nA - None. But it does require a willingness to learn and a motivation to work with data.\n\nQ - Will we be doing computing?\nA - Yes.\n\n\nQ - What computing language will we learn?\nA - R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
+    "text": "Course FAQ\nQ: What data science background does this course assume?\nA: None. But it does require a willingness to learn and a motivation to work with data.\n\nQ: Will we be doing computing?\nA: Yes.\n\n\nQ: What computing language will we learn?\nA: R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
   },
   {
     "objectID": "slides/1-1-welcome/1-1-welcome.html#excel-not",
@@ -123,7 +123,7 @@
     "href": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
     "title": "Welcome",
     "section": "Data science life cycle",
-    "text": "Data science life cycle\n\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
+    "text": "Data science life cycle\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
   },
   {
     "objectID": "slides/1-1-welcome/1-1-welcome.html#import",
@@ -165,7 +165,7 @@
     "href": "slides/1-1-welcome/1-1-welcome.html#understand-1",
     "title": "Welcome",
     "section": "Understand",
-    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
   },
   {
     "objectID": "slides/1-1-welcome/1-1-welcome.html#communicate",
@@ -200,14 +200,14 @@
     "href": "index.html",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data – why and how\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data – why and how\n\n\n\n\nGrammar of graphics\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data – why and how\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data – why and how\n\n\n\n\nGrammar of graphics\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
@@ -600,5 +600,12 @@
     "title": "Mario Games + Data Visualization",
     "section": "",
     "text": "Your Turn: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!\n\n\n\n\n\n\nTip\n\n\n\nSee http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf for many color options you can use by name in R or use the hex code for a color of your choice.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nYour Turn: Add labels for the title and x and y axes using labs. Do this by modifying the existing code below.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n       aes(x = n_bids, y = total_pr))+\n  geom_point(color = \"deepskyblue3\") + \n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYour Turn: An aesthetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:\n\ncolor\nfill\nshape\nsize\nalpha (transparency)\n\nModify the plot below, so the color of the points is based on the variable cond, and make the size of your points based on seller_rate.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n       aes(x = n_bids, y = total_pr,\n           color = cond, size = seller_rate)) +\n  geom_point() + \n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price by condition and seller rating\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYour Turn: Expand on your plot from the previous step to make the transparency (alpha) of the points 0.5.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\nYour Turn: Expand on your plot from the previous step by using facet_wrap to display the association between budget and gross for different values of stock_photo.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nExpected Result\n\n\n\n\n\n\nggplot(mario, \n  aes(x = n_bids, y = total_pr,\n    color = cond, size = seller_rate)) +\n  geom_point(alpha = 0.5) + \n  facet_wrap(~ stock_photo) +\n  labs(\n    x = \"Number of bids\", \n    y = \"Total price ($)\", \n    title = \"Total bids vs price by condition and seller rating\"\n    )\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDemo: Below is a demonstration on how to improve your plot from the previous step by making the y scale more legible.\n\n\n\n\n\n\nTip\n\n\n\nThis is done through the use of the scales package, specifically the scale_x_continuous() and scale_y_continuous() functions. Because we want to change the y-axis label, let’s demo the scale_y_continuous() function below.\n\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\n\n\n\n\nYour Turn: Expand on your plot from the previous step by using facet_grid to display the association between budget and gross for different combinations of stock_photo and cond. Comment on whether you notice any additional patters that were harder to see before.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes:"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#references",
+    "href": "slides/1-1-welcome/1-1-welcome.html#references",
+    "title": "Welcome",
+    "section": "References",
+    "text": "References\n\nData science cycle diagram: Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
   }
 ]
