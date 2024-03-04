@@ -616,17 +616,6 @@
       ],
       "Hash": "15e9634c0fcd294799e9b2e929ed1b86"
     },
-    "ggeasy": {
-      "Package": "ggeasy",
-      "Version": "0.1.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "ggplot2",
-        "rlang"
-      ],
-      "Hash": "d99c7c23645eeb0c034cb8ae5cf3a185"
-    },
     "ggplot2": {
       "Package": "ggplot2",
       "Version": "3.4.4",
@@ -651,6 +640,20 @@
         "withr"
       ],
       "Hash": "313d31eff2274ecf4c1d3581db7241f9"
+    },
+    "ggridges": {
+      "Package": "ggridges",
+      "Version": "0.5.6",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "ggplot2",
+        "grid",
+        "scales",
+        "withr"
+      ],
+      "Hash": "66488692cb8621bc78df1b9b819497a6"
     },
     "glue": {
       "Package": "glue",

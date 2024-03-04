@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.21">
+<meta name="generator" content="quarto-1.5.22">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="">
 
-<title>Data visualization and transformation – Mario Games + Data Visualization</title>
+<title>Data visualization and transformation – Mario games + data visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 const initializeWebRTimerStart = performance.now();
 
 // Determine if we need to install R packages
-var installRPackagesList = ['tidyverse', 'scales'];
+var installRPackagesList = ['tidyverse', 'scales', 'ggridges', 'gridExtra'];
 // Check to see if we have an empty array, if we do set to skip the installation.
 var setupRPackages = !(installRPackagesList.indexOf("") !== -1);
 var autoloadRPackages = true;
@@ -769,28 +769,18 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#programming-activity-guide" id="toc-programming-activity-guide" class="nav-link active" data-scroll-target="#programming-activity-guide">Programming Activity Guide</a>
-  <ul class="collapse">
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a>
   <ul class="collapse">
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#get-to-know-the-data" id="toc-get-to-know-the-data" class="nav-link" data-scroll-target="#get-to-know-the-data">Get to know the data</a></li>
   </ul></li>
   <li><a href="#variables-of-interest-update" id="toc-variables-of-interest-update" class="nav-link" data-scroll-target="#variables-of-interest-update">Variables of Interest (update)</a></li>
-  <li><a href="#visualizing-data-with-ggplot2" id="toc-visualizing-data-with-ggplot2" class="nav-link" data-scroll-target="#visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code></a></li>
-  <li><a href="#number-of-bids-vs.-total-price" id="toc-number-of-bids-vs.-total-price" class="nav-link" data-scroll-target="#number-of-bids-vs.-total-price">Number of bids vs.&nbsp;total price</a>
-  <ul class="collapse">
-  <li><a href="#step-1" id="toc-step-1" class="nav-link" data-scroll-target="#step-1">Step 1</a></li>
-  <li><a href="#step-2" id="toc-step-2" class="nav-link" data-scroll-target="#step-2">Step 2</a></li>
-  <li><a href="#step-3" id="toc-step-3" class="nav-link" data-scroll-target="#step-3">Step 3</a></li>
-  <li><a href="#step-4" id="toc-step-4" class="nav-link" data-scroll-target="#step-4">Step 4</a></li>
-  <li><a href="#step-5" id="toc-step-5" class="nav-link" data-scroll-target="#step-5">Step 5</a></li>
-  <li><a href="#step-6" id="toc-step-6" class="nav-link" data-scroll-target="#step-6">Step 6</a></li>
-  <li><a href="#step-7" id="toc-step-7" class="nav-link" data-scroll-target="#step-7">Step 7</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#quiz" id="toc-quiz" class="nav-link" data-scroll-target="#quiz">Quiz</a></li>
-  <li><a href="#questions-for-mine" id="toc-questions-for-mine" class="nav-link" data-scroll-target="#questions-for-mine">Questions for Mine</a></li>
+  <li><a href="#visualizing-categorical-data-with-ggplot2" id="toc-visualizing-categorical-data-with-ggplot2" class="nav-link" data-scroll-target="#visualizing-categorical-data-with-ggplot2">Visualizing categorical data with <code>ggplot2</code></a></li>
+  <li><a href="#count-vs-proportion" id="toc-count-vs-proportion" class="nav-link" data-scroll-target="#count-vs-proportion">Count vs Proportion</a></li>
+  <li><a href="#relationships-between-numerical-and-categorical-variables" id="toc-relationships-between-numerical-and-categorical-variables" class="nav-link" data-scroll-target="#relationships-between-numerical-and-categorical-variables">Relationships between numerical and categorical variables</a></li>
+  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots">Boxplots</a></li>
+  <li><a href="#violin-plot" id="toc-violin-plot" class="nav-link" data-scroll-target="#violin-plot">Violin plot</a></li>
+  <li><a href="#ridge-plots" id="toc-ridge-plots" class="nav-link" data-scroll-target="#ridge-plots">Ridge plots</a></li>
   </ul>
 </nav>
     </div>
@@ -941,8 +931,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mario Games + Data Visualization</h1>
-<p class="subtitle lead">Module 1 - Ex 1</p>
+<h1 class="title">Mario games + data visualization</h1>
+<p class="subtitle lead">Module 3 - Lesson 3.3 - Course 1</p>
 </div>
 
 
@@ -959,71 +949,30 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 </header>
 
 
-<section id="programming-activity-guide" class="level1">
-<h1>Programming Activity Guide</h1>
-<p>This activity is meant to provide an interactive environment for students to implement what they have learned from the videos. This activity allows you to write and run R-Code within the html document. Code chunks that allow you to do this look like:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Programming Activity Guide
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please reference the <code>webR-intro</code> activity for information on the different types of code chunks, questions, and how to save your work to reference later.</p>
+</div>
+</div>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.</p>
 <div id="qwebr-insertion-location-1"></div>
 <script type="module">
 // Retrieve the insertion point
 const currentDocumentLocation = document.getElementById("qwebr-insertion-location-1");
 
 // Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    1
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-# example interactive r-chunk`, 
-  1);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Sometimes, we provide code chunks that are not interactive, and will look like:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example r-chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>There will be a variety of question types throughout the document. Question types include the following:</p>
-<p>– <strong>Your Turn</strong>: These coding questions ask students to explore / edit / manipulate existing to code. These questions are followed with an <code>Expected Solutions</code> box so students can get immediate feedback</p>
-<p>– <strong>Demo</strong>: These coding questions have the solutions within them and allow the students to run the code and think critically about the output.</p>
-<p>Throughout the activity, you will see open text boxes. These text boxes will either be labeled <em>Answer</em> or <em>Notes</em>.</p>
-<pre><code>  - Answer: This prompts you to answer a short-answer question. These questions are followed by 
-  a `Solutions` tab to reveal the answer.
-  
-  - Notes: This provides a space to take notes to be referenced later. These are often gives 
-  after `Demo` questions. </code></pre>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Saving Your Work
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Your work does not automatically save.</strong></p>
-<p>For most browsers, the most efficient way to save your work is by using the <code>Print</code> feature. This may be useful if you want to come back and reference your work after it’s completed.</p>
-<p>– Right click anywhere on this html page</p>
-<p>– Select <code>Print...</code></p>
-<p>– Under the <code>Destination</code> tab, click <code>Save as PDF</code></p>
-<p>– Select a file on your computer you wish to save your work.</p>
-</div>
-</div>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.</p>
-<div id="qwebr-insertion-location-2"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-2");
-
-// Initalize an interactive element
 const initializedElement = qwebrCreateNonInteractiveSetupElement(
-    2
+    1
   );
 
 // Add the interactive element into the document scope
@@ -1035,21 +984,21 @@ await globalThis.webR.init();
 // Run R code without focusing on storing data.
 await globalThis.webR.evalRVoid(`
 download.file(
-  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv",
-  "mariokart.csv"
+  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/Mariokart.csv",
+  "Mariokart.csv"
 )
 `)
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
-<div id="qwebr-insertion-location-3"></div>
+<div id="qwebr-insertion-location-2"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-3");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-2");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    3
+    2
   );
 
 // Add the interactive element into the document scope
@@ -1057,8 +1006,8 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `mario <- read.csv("mariokart.csv")`, 
-  3);
+  `mario <- read.csv("Mariokart.csv")`, 
+  2);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>In this mini analysis we work with the data from the <em>openintro</em> package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:</p>
@@ -1124,10 +1073,12 @@ qwebrCreateMonacoEditorInstance(
 </table>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
-<p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. These are ready to use for you in this activity!</p>
+<p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. <strong>ggridges</strong> allows us to make ridge plots, and <strong>gridExtra</strong> allows to arrange plots next to eachother. These are ready to use for you in this activity!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="get-to-know-the-data" class="level3">
@@ -1149,14 +1100,14 @@ Warning
 <p>If you receive the error <span style="color:red;">Error: object ‘mario’ not found</span>, go back and read in your data above.</p>
 </div>
 </div>
-<div id="qwebr-insertion-location-4"></div>
+<div id="qwebr-insertion-location-3"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-4");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-3");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    4
+    3
   );
 
 // Add the interactive element into the document scope
@@ -1165,36 +1116,9 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   `# add code here`, 
-  4);
+  3);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><strong>Demo</strong>: We can use <code>slice</code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
-<div id="qwebr-insertion-location-5"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-5");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    5
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `slice(mario, 1:5)`, 
-  5);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Notes:</label> <br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
-<p>What does each observation (row) in the data set represent?</p>
-<p><label>Answer:</label> <br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1207,7 +1131,25 @@ Solution
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Each observation represents a <strong>mario game</strong>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mario)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 143
+Columns: 12
+$ id          &lt;dbl&gt; 150377422259, 260483376854, 320432342985, 280405224677, 17…
+$ duration    &lt;int&gt; 3, 7, 3, 3, 1, 3, 1, 1, 3, 7, 1, 1, 1, 1, 7, 7, 3, 3, 1, 7…
+$ n_bids      &lt;int&gt; 20, 13, 16, 18, 20, 19, 13, 15, 29, 8, 15, 15, 13, 16, 6, …
+$ cond        &lt;chr&gt; "new", "used", "new", "new", "new", "new", "used", "new", …
+$ start_pr    &lt;dbl&gt; 0.99, 0.99, 0.99, 0.99, 0.01, 0.99, 0.01, 1.00, 0.99, 19.9…
+$ ship_pr     &lt;dbl&gt; 4.00, 3.99, 3.50, 0.00, 0.00, 4.00, 0.00, 2.99, 4.00, 4.00…
+$ total_pr    &lt;dbl&gt; 51.55, 37.04, 45.50, 44.00, 71.00, 45.00, 37.02, 53.99, 47…
+$ ship_sp     &lt;chr&gt; "standard", "firstClass", "firstClass", "standard", "media…
+$ seller_rate &lt;int&gt; 1580, 365, 998, 7, 820, 270144, 7284, 4858, 27, 201, 4858,…
+$ stock_photo &lt;chr&gt; "yes", "yes", "no", "yes", "yes", "yes", "yes", "yes", "ye…
+$ wheels      &lt;int&gt; 1, 1, 1, 1, 2, 0, 0, 2, 1, 1, 2, 2, 2, 2, 1, 0, 1, 1, 2, 2…
+$ title       &lt;chr&gt; "~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BRAND NEW …</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1223,12 +1165,147 @@ Solution
 <li><code>cond</code>: Binary variable representing the condition of the video game</li>
 </ul>
 </section>
-<section id="visualizing-data-with-ggplot2" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code></h2>
-<p><strong>Demo</strong>: <strong>ggplot2</strong> is the package and <code>ggplot()</code> is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!</p>
-<ul>
-<li><code>ggplot()</code> creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with <code>data = mario</code>, and run the following to create our base.</li>
-</ul>
+<section id="visualizing-categorical-data-with-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-categorical-data-with-ggplot2">Visualizing categorical data with <code>ggplot2</code></h2>
+<p><strong>Your Turn</strong>: First, let’s explore the variable <code>cond</code>. Specifically, let’s investigate how many <code>new</code> games were sold versus how many <code>used</code> games were sold by creating a barplot. Add the following correct <code>geom</code> to make a barplot of <code>cond</code>.</p>
+<div id="qwebr-insertion-location-4"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-4");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    4
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `mario |>
+  ggplot(
+    aes(x = cond)) + 
+  #add geom here`, 
+  4);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond)) <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Next, let’s fill in the bars by the shipping method each game was shipped with (<code>ship_sp</code>).</p>
+<div id="qwebr-insertion-location-5"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-5");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    5
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `mario |>
+  ggplot(
+    aes(x = cond , fill = ...)) + 
+   geom_bar()`, 
+  5);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Expected Result
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">fill =</span> ship_sp)) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mario-data-visualization_files/figure-html/plot-fill-solution-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Demo</strong>: The code above uses <code>fill</code> to color the segments of the boxplot by another categorical variable. Below, we change <code>fill</code> to <code>color</code>. What happens? Why?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">color =</span> ship_sp)) <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><label>Answer:</label> <br></p>
+<textarea rows="4" cols="50"></textarea>
+<p><br><br></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><code>fill</code> defines the color in which the <code>geom</code> is filled in with, while color defines the color in which the <code>geom</code> is outlined. A special exception to this is with scatterplots, where the dots are not treated as shapes to be filled in, and instead are filled in by color.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="count-vs-proportion" class="level2">
+<h2 class="anchored" data-anchor-id="count-vs-proportion">Count vs Proportion</h2>
+<p><strong>Your Turn</strong>: Up to this point, our bar plot has counted up the number of observations for each condition of game, and has been segmented by the count of shipping method. Perhaps it is easier to compare shipping method across condition of game if we looked at the proportion of shipping method within each game. This can be achieved using <code>position = "fill"</code> in the <code>geom</code> statement. Alter the code below so that it includes <code>position = fill</code>, and comment on the relationship between condition and shipping method.</p>
 <div id="qwebr-insertion-location-6"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1244,13 +1321,53 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(data = mario)`, 
+  `mario |>
+  ggplot(
+    aes(x = cond , fill = ...)) + 
+   geom_bar()`, 
   6);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ul>
-<li>The <code>mapping</code> argument is paired with an aesthetic (<code>aes()</code>), which tells us how the variables in our data set should be mapped to the visual properties of the graph.</li>
-</ul>
+<p><label>Answer:</label> <br></p>
+<textarea rows="4" cols="50"></textarea>
+<p><br><br></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">fill =</span> ship_sp)) <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It appears that new Mario games were mainly shipped using upsGround, while used Mario games were shipped using standard shipping.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="relationships-between-numerical-and-categorical-variables" class="level1">
+<h1>Relationships between numerical and categorical variables</h1>
+<p>Up to this point, we have been visualizing the relationship between categorical variables. What if we wanted to look at the relationships between different types of variables?</p>
+</section>
+<section id="boxplots" class="level1">
+<h1>Boxplots</h1>
+<p>One way we can investigate the relationship between different types of variables is to create a boxplot. Below, we are going to create a boxplot using <code>geom_boxplot</code> between the variables <code>cond</code> and <code>total_pr</code>. What information can we gather from the boxplots?</p>
 <div id="qwebr-insertion-location-7"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1266,14 +1383,85 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(data = mario, 
-       mapping = aes(x = n_bids, y = total_pr))`, 
+  `mario |>
+  ggplot(
+    aes(x = cond , y = total_pr)) + 
+   # insert geom here`, 
   7);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ul>
-<li>As we previously mentioned, we often omit the names of the first two arguments in R functions. So you’ll often see this written as:</li>
-</ul>
+<p><label>Answer:</label> <br></p>
+<textarea rows="4" cols="50"></textarea>
+<p><br><br></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">y =</span> total_pr)) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can infer that the median total price for new Mario games is higher for the new condition versus the used condition. There appears to be one outlier in new condition, and four outliers in the used condition. The IQR of the new condition is slightly larger than the used condition.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="violin-plot" class="level1">
+<h1>Violin plot</h1>
+<p><strong>Demo</strong>: A violin plot is a lot like a box plot, but also shows us information about the density of the quantitative variable. Below, we have a violin plot that again shows the relationship between the condition of the Mario game, and the total price of the game (cost + shipping). Describe the relationship below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">y =</span> total_pr)) <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><label>Answer:</label> <br></p>
+<textarea rows="4" cols="50"></textarea>
+<p><br><br></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It appears that there is a higher density of new games at a higher price than used games. Used games appear to have two potential outliers higher than any new game.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="ridge-plots" class="level1">
+<h1>Ridge plots</h1>
+<p><strong>Your Turn</strong>: Ridge plots, similar to violin plots, shows the distribution of a numeric variable across the levels of a categorical variable. In order to make this plot, we will use <code>geom_density_ridges</code>. Please add this geom to the following code below to make the ridge plots. Within this geom, set alpha equal to 0.5.</p>
 <div id="qwebr-insertion-location-8"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1289,51 +1477,37 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `ggplot(mario, 
-       aes(x = n_bids, y = total_pr))`, 
+  `mario |>
+  ggplot(
+    aes(x = total_pr , y = cond, fill = cond, color = cond)) + 
+   # insert geom here`, 
   8);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Note that the result is exactly the same.</p>
-<p><strong>Your Turn</strong>: The <code>geom_xx</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point</code>, which creates a plot where each observation is represented by a point.</p>
-<div id="qwebr-insertion-location-9"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-9");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    9
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  # type geom_point() here!`, 
-  9);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Expected Result
+Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> total_pr , <span class="at">y =</span> cond, <span class="at">fill =</span> cond, <span class="at">color =</span> cond)) <span class="sc">+</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Picking joint bandwidth of 2.68</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1341,648 +1515,7 @@ Expected Result
 </div>
 </div>
 </div>
-<p><em>FOR MINE</em> Should we omit some data so people can see that R omits a warning and a plot? And then talk about it like below:</p>
-<p>Note that this results in a warning as well.</p>
-<p>This warning represents the number of observations that were removed because there were missing data!</p>
-</section>
-<section id="number-of-bids-vs.-total-price" class="level2">
-<h2 class="anchored" data-anchor-id="number-of-bids-vs.-total-price">Number of bids vs.&nbsp;total price</h2>
-<section id="step-1" class="level3">
-<h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
-<p><strong>Your Turn</strong>: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>See <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf" class="uri">http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf</a> for many color options you can use by name in R or use the <a href="https://en.wikipedia.org/wiki/Web_colors">hex code</a> for a color of your choice.</p>
-</div>
-</div>
-<div id="qwebr-insertion-location-10"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-10");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    10
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  geom_point(color = "coral") `, 
-  10);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="step-2" class="level3">
-<h3 class="anchored" data-anchor-id="step-2">Step 2</h3>
-<p><strong>Your Turn</strong>: Add labels for the title and x and y axes using <a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a>. Do this by modifying the existing code below.</p>
-<div id="qwebr-insertion-location-11"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-11");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    11
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  geom_point(color = "coral") + 
-  # insert code here`, 
-  11);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expected Result
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mario, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> n_bids, <span class="at">y =</span> total_pr))<span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"deepskyblue3"</span>) <span class="sc">+</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of bids"</span>, </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total price ($)"</span>, </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Total bids vs price"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/plot-labels-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-3" class="level3">
-<h3 class="anchored" data-anchor-id="step-3">Step 3</h3>
-<p><strong>Your Turn</strong>: An <code>aes</code>thetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:</p>
-<ul>
-<li>color</li>
-<li>fill</li>
-<li>shape</li>
-<li>size</li>
-<li>alpha (transparency)</li>
-</ul>
-<p>Modify the plot below, so the <code>color</code> of the points is based on the variable <code>cond</code>, and make the size of your points based on <code>seller_rate</code>.</p>
-<div id="qwebr-insertion-location-12"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-12");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    12
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  geom_point() + 
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )`, 
-  12);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expected Result
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mario, </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> n_bids, <span class="at">y =</span> total_pr,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> cond, <span class="at">size =</span> seller_rate)) <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of bids"</span>, </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total price ($)"</span>, </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Total bids vs price by condition and seller rating"</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/plot-aes-color-solution-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-4" class="level3">
-<h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step to make the transparency (<code>alpha</code>) of the points 0.5.</p>
-<div id="qwebr-insertion-location-13"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-13");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    13
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr,
-           color = cond, size = seller_rate)) +
-  geom_point(alpha = #insert 0.5 here) + 
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )`, 
-  13);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="step-5" class="level3">
-<h3 class="anchored" data-anchor-id="step-5">Step 5</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_wrap</code> to display the association between budget and gross for different values of <code>stock_photo</code>.</p>
-<div id="qwebr-insertion-location-14"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-14");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    14
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-  aes(x = n_bids, y = total_pr,
-    color = cond, size = seller_rate)) +
-  geom_point(alpha = 0.5) + 
-  facet_wrap(~#insert variable here) +
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )`, 
-  14);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Expected Result
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mario, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> n_bids, <span class="at">y =</span> total_pr,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> cond, <span class="at">size =</span> seller_rate)) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> stock_photo) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Number of bids"</span>, </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total price ($)"</span>, </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Total bids vs price by condition and seller rating"</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/plot-facet-wrap-sol-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-6" class="level3">
-<h3 class="anchored" data-anchor-id="step-6">Step 6</h3>
-<p><strong>Demo</strong>: Below is a demonstration on how to improve your plot from the previous step by making the y scale more legible.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This is done through the use of the <a href="https://scales.r-lib.org/"><strong>scales</strong></a> package, specifically the <code>scale_x_continuous()</code> and <code>scale_y_continuous()</code> functions. Because we want to change the y-axis label, let’s demo the <code>scale_y_continuous()</code> function below.</p>
-</div>
-</div>
-<div id="qwebr-insertion-location-15"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-15");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    15
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-  aes(x = n_bids, y = total_pr,
-    color = cond, size = seller_rate)) +
-  geom_point(alpha = 0.5) + 
-  facet_wrap(~stock_photo) +
-  scale_y_continuous(labels = label_dollar()) +
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )`, 
-  15);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Notes:</label> <br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
-</section>
-<section id="step-7" class="level3">
-<h3 class="anchored" data-anchor-id="step-7">Step 7</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_grid</code> to display the association between budget and gross for different combinations of <code>stock_photo</code> and <code>cond</code>. Comment on whether you notice any additional patters that were harder to see before.</p>
-<div id="qwebr-insertion-location-16"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-16");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    16
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr,
-           color = cond, size = seller_rate)) +
-  geom_point(alpha = 0.5) + 
-  facet_grid(stock_photo ~ cond) +
-  scale_y_continuous(labels = label_dollar()) +
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )`, 
-  16);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Notes:</label> <br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
-</section>
-</section>
-</section>
-<section id="quiz" class="level1">
-<h1>Quiz</h1>
-<p><strong>1 (dropdown question)</strong> The <code>|&gt;</code> operator in R represents the word (<em>then</em> | with | before | after)</p>
-<p><strong>2 (dropdown question)</strong> The formal name for a row is a(an) (<em>observational unit</em> | variable | input). Columns in our data set represent a(an) (observational unit | <em>variable</em> | input).</p>
-<p><strong>3 (multiple choice)</strong> Below is a table that has all columns and five rows from the mario dataset. This is also commonly refereed to as a …</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/data-frame.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<ol type="a">
-<li><p><em>data frame</em></p></li>
-<li><p>data description</p></li>
-<li><p>data table</p></li>
-<li><p>data features</p></li>
-</ol>
-<p><strong>4a (matching)</strong> Suppose data were collected about customers at a coffee shop. Three variables were recorded for each customer: number of cups of coffee they ordered, customer height, whether the customer had previously visited this coffee shop before, and the customer’s rating of their overall experience measures as “Bad”, “Okay”, and “Great”. Use the information to classify each variable below:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Classification</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Cups of Coffee</td>
-<td>Categorical - Ordinal</td>
-</tr>
-<tr class="even">
-<td>Height</td>
-<td>Categorical - Nominal</td>
-</tr>
-<tr class="odd">
-<td>Visited Before</td>
-<td>Numeric - Discrete</td>
-</tr>
-<tr class="even">
-<td>Customer Rating</td>
-<td>Numeric - Continuous</td>
-</tr>
-</tbody>
-</table>
-<p><strong>4b (dropdown question)</strong> The researchers that collected data about customers at a coffee shop are interested in the relationship between cups of coffee and customer rating. Specifically, they are interested in if there is an increase in the number of cups of coffee a customer orders, does this influence a more positive customer rating. Based on this research question, please fill in the following:</p>
-<p>Customer rating would be considered the (<em>response</em> | explanatory) variable, and cups of coffee would be considered the (response | <em>explanatory</em> variable). This study design is an (experience | <em>observational study</em>).</p>
-<p><strong>5 (multiple choice)</strong> The gg in the name of the package ggplot2 stands for …</p>
-<p><strong>Options</strong></p>
-<ol type="a">
-<li><p>Grammar of Graphics</p></li>
-<li><p>Grammar of Graphing</p></li>
-<li><p>Good Grammar</p></li>
-<li><p>Generate Graphics</p></li>
-</ol>
-<p><strong>6 (True or False)</strong> Please answer each <em>true or false question</em> below as it relates to the functionality.</p>
-<ol type="a">
-<li><p>The <code>&lt;-</code> assigns the value of the result from the operation on the right hand side to the object on the left hand side</p></li>
-<li><p><code>geom_jitter</code> and <code>geom_point</code> will produce the same scatter plot.</p></li>
-</ol>
-<p><strong>7 (Matching)</strong> Connect the set of variables with a geom that will create an appropriate visualization.</p>
-<div class="columns">
-<div class="column" style="width:70%;">
-<ol type="1">
-<li><p>Quantitative X &amp; Quantitative Y</p></li>
-<li><p>Categorical X &amp; Quantitative Y</p></li>
-<li><p>Categorical X</p></li>
-</ol>
-</div><div class="column" style="width:10%;">
-<!-- empty column to create gap -->
-</div><div class="column" style="width:20%;">
-<ol type="a">
-<li><p>geom_boxplot()</p></li>
-<li><p>geom_point()</p></li>
-<li><p>geom_bar()</p></li>
-</ol>
-</div>
-</div>
-<p>The next two questions will use the <code>mtcars</code> data set in R. A key to the data set can be found below:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>mpg</td>
-<td>Miles/(US) gallon</td>
-</tr>
-<tr class="even">
-<td>cyl</td>
-<td>Number of cylinders</td>
-</tr>
-<tr class="odd">
-<td>disp</td>
-<td>Displacement (cu.in.)</td>
-</tr>
-<tr class="even">
-<td>hp</td>
-<td>Gross horsepower</td>
-</tr>
-<tr class="odd">
-<td>drat</td>
-<td>Rear axle ratio</td>
-</tr>
-<tr class="even">
-<td>wt</td>
-<td>Weight (1000 lbs)</td>
-</tr>
-<tr class="odd">
-<td>qsec</td>
-<td>1/4 mile time</td>
-</tr>
-<tr class="even">
-<td>vs</td>
-<td>Engine (0 = V-shaped, 1 = straight)</td>
-</tr>
-<tr class="odd">
-<td>am</td>
-<td>Transmission (0 = automatic, 1 = manual)</td>
-</tr>
-<tr class="even">
-<td>gear</td>
-<td>Number of forward gears</td>
-</tr>
-</tbody>
-</table>
-<p><strong>8 (multiple select)</strong> Tidying your data means…</p>
-<p><em>a</em>. storing it in a consistent form that matches the semantics of the dataset with how it is stored</p>
-<p><em>b</em>. storing it where each column is a variable and each row is an observation</p>
-<ol start="3" type="a">
-<li><p>cleaning your data so there are no missing observations</p></li>
-<li><p>making sure your data set has only quantitative values for analysis</p></li>
-</ol>
-<p><strong>8 (Matching)</strong> Code style: Below is code that does not follow the <a href="https://style.tidyverse.org/">Tidyverse style guide</a>. Pick the correction option that changes the code to adhere to the style guide.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>drv,<span class="at">fill=</span>class))<span class="sc">+</span><span class="fu">geom_bar</span>() <span class="sc">+</span><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Options</strong></p>
-<ol type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class)) <span class="sc">+</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> drv, <span class="at">fill =</span> class))<span class="sc">+</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_bar</span>()<span class="sc">+</span> </span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>9 (Matching)</strong> Reference the data set key above. Then, choose the selection that fills in the following <code>...</code> to make a scatterplot of cars’ with <code>miles per gallon</code> on the x-axis and their `weight below.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> ... , <span class="at">y =</span> ...) <span class="sc">+</span> </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_...</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>Options</strong></p>
-<ol type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg , <span class="at">y =</span> wt) <span class="sc">+</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> wt) <span class="sc">+</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="4" type="a">
-<li></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars) <span class="sc">+</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> wt , <span class="at">y =</span> cyl) <span class="sc">+</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_scatter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>10 (Fill in blank)</strong> Should probably be moved up to question 1</p>
-<p>Might also just not have a question like this.</p>
-<p>Create side-by-side box plots of seller_rate on the y-axis, and clean_test on the x-axis with the boxes are colored by cond. Be sure to include appropriate labels.</p>
-<div id="qwebr-insertion-location-17"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-17");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    17
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-       aes(x = ..., y = ..., color = ...)) +
-  geom_...() +
-  labs(
-    title = "Return on investment vs. mario test result",
-    x = "Detailed mario result",
-    y = "Return-on-investment (gross / budget)",
-    color = "mario\\nresult"
-    )`, 
-  17);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><strong>Solution</strong></p>
-<div id="qwebr-insertion-location-18"></div>
-<script type="module">
-// Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-18");
-
-// Initalize an interactive element
-const initializedElement =   qwebrCreateInteractiveElement(
-    18
-  );
-
-// Add the interactive element into the document scope
-currentDocumentLocation.appendChild(initializedElement);
-
-// Initialize a Monaco Editor Instance
-qwebrCreateMonacoEditorInstance(
-  `
-ggplot(mario, 
-       aes(x = clean_test, y = seller_rate, color = cond)) +
-  geom_boxplot() +
-  labs(
-    title = "Return on investment vs. mario test result",
-    x = "Detailed mario result",
-    y = "Return-on-investment (gross / budget)",
-    color = "mario\\nresult"
-    )`, 
-  18);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="questions-for-mine" class="level1">
-<h1>Questions for Mine</h1>
-<p>– Is the <strong>Your Turn</strong> / <strong>Demo</strong> questions clear / how do we feel about how I’ve indicated this within each question in the document?</p>
-<p>– I’ve put a <em>Notes</em> text box after the demo questions. Should every question have a notes box?</p>
-<p>– The original AE for 199 had an open ended question at the end that read: “What other improvements could we make to this plot?” Would you like to include something like this? I did not include it (yet), and figure it may be a little to exploratory for a programming activity, but maybe we do actually want it.</p>
-<p>– This AE also had a second section that had:</p>
-<pre><code>  - Create side-by-side box plots of seller_rate by clean_test where the 
-  boxes are colored by cond.
-  
-  - What are those movies with very high returns on investment?
-  
-  - Expand on your plot from the previous step to zoom in on movies 
-  with seller_rate &lt; ___ to get a better view of how the medians across 
-  the categories compare.
-  </code></pre>
-<p>I’m under the impression that the last 2 questions are going to be beyond the scope of what Coursera students have learned, and did not include them. Thus, I also didn’t include the first question as it may feel out of place (I pitch it above as an assessment question). Do we want to do something with these? Do we want to include this as given code for the last 2 questions as a lead in for <code>dplyr</code> / introduce the <code>coord_cartesian</code> function?</p>
+<p><strong>FOR MINE</strong>: I think I should add a big exploratory question to end these activities. what do you think?</p>
 
 
 </section>

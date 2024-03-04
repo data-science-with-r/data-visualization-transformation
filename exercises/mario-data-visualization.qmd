@@ -1,63 +1,20 @@
 ---
-title: "Mario Games + Data Visualization"
-subtitle: "Module 1 - Ex 1"
+title: "Mario games + data visualization"
+subtitle: "Module 3 - Lesson 3.3 - Course 1"
 author: ""
 toc: true
 filters: 
   - webr
 webr:
-  packages: ['tidyverse', 'scales']
+  packages: ['tidyverse', 'scales' , 'ggridges' , 'gridExtra']
 ---
 
-# Programming Activity Guide
+::: {.callout-important}
+## Programming Activity Guide
 
-This activity is meant to provide an interactive environment for students to implement what they have learned from the videos. This activity allows you to write and run R-Code within the html document. Code chunks that allow you to do this look like:
-
-```{webr-r}
-
-# example interactive r-chunk
-
-```
-
-Sometimes, we provide code chunks that are not interactive, and will look like:
-
-```{r}
-
-# example r-chunk
-
-```
-
-There will be a variety of question types throughout the document. Question types include the following:
-
--- **Your Turn**: These coding questions ask students to explore / edit / manipulate existing to code. These questions are followed with an `Expected Solutions` box so students can get immediate feedback
-
--- **Demo**: These coding questions have the solutions within them and allow the students to run the code and think critically about the output.
-
-Throughout the activity, you will see open text boxes. These text boxes will either be labeled *Answer* or *Notes*.
-
-```         
-  - Answer: This prompts you to answer a short-answer question. These questions are followed by 
-  a `Solutions` tab to reveal the answer.
-  
-  - Notes: This provides a space to take notes to be referenced later. These are often gives 
-  after `Demo` questions. 
-```
-
-::: callout-tip
-## Saving Your Work
-
-**Your work does not automatically save.**
-
-For most browsers, the most efficient way to save your work is by using the `Print` feature. This may be useful if you want to come back and reference your work after it's completed.
-
--- Right click anywhere on this html page
-
--- Select `Print...`
-
--- Under the `Destination` tab, click `Save as PDF`
-
--- Select a file on your computer you wish to save your work.
+Please reference the `webR-intro` activity for information on the different types of code chunks, questions, and how to save your work to reference later.
 :::
+
 
 ## Getting started
 
@@ -66,19 +23,19 @@ Please run the following code by clicking the [green arrow]{style="color:green;"
 ```{webr-r}
 #| context: setup
 download.file(
-  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv",
-  "mariokart.csv"
+  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/Mariokart.csv",
+  "Mariokart.csv"
 )
 ```
 
 ```{webr-r}
 #| echo: false
-mario <- read.csv("mariokart.csv")
+mario <- read.csv("Mariokart.csv")
 ```
 
 ```{r}
 #| echo: false
-mario <- read.csv("data/mariokart.csv") # put in R file to r chunks have data to use
+mario <- read.csv("data/Mariokart.csv") # put in R file to r chunks have data to use
 ```
 
 In this mini analysis we work with the data from the *openintro* package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:
@@ -101,7 +58,7 @@ In this mini analysis we work with the data from the *openintro* package in R. T
 
 ### Packages
 
-We'll use: **tidyverse** for majority of the analysis and **scales** for pretty plot labels later on. These are ready to use for you in this activity!
+We'll use: **tidyverse** for majority of the analysis and **scales** for pretty plot labels later on. **ggridges** allows us to make ridge plots, and **gridExtra** allows to arrange plots next to eachother. These are ready to use for you in this activity!
 
 ```{r}
 #| label: load-packages
@@ -109,6 +66,8 @@ We'll use: **tidyverse** for majority of the analysis and **scales** for pretty 
 #| warning: false
 library(tidyverse)
 library(scales)
+library(ggridges)
+library(gridExtra)
 ```
 
 ```{r}
@@ -116,6 +75,8 @@ library(scales)
 
 library(tidyverse) # put in r file to r chunks have packages to use
 library(scales)
+library(ggridges)
+library(gridExtra)
 
 ```
 
@@ -139,21 +100,76 @@ If you receive the error [Error: object 'mario' not found]{style="color:red;"}, 
 
 ```
 
-**Demo**: We can use `slice` to look at rows of our data. Run the following code. Change the `5` to another number to print that many rows!
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+glimpse(mario)
+```
+
+:::
+
+## Variables of Interest (update)
+
+The variables we'll focus on are the following:
+
+-   `n_bids`: number of bids throughout the auction 
+-   `total_pr`: total price of game sold plus shipping in usd 
+-   `seller_rate`: The seller's rating on Ebay
+-   `cond`: Binary variable representing the condition of the video game
+
+## Visualizing categorical data with `ggplot2`
+
+**Your Turn**: First, let's explore the variable `cond`. Specifically, let's investigate how many `new` games were sold versus how many `used` games were sold by creating a barplot. Add the following correct `geom` to make a barplot of `cond`.
 
 ```{webr-r}
-slice(mario, 1:5)
+mario |>
+  ggplot(
+    aes(x = cond)) + 
+  #add geom here
 ```
 
-<label>Notes:</label> <br>
+::: {.callout-tip collapse="true"}
+## Solution
 
-```{=html}
-<textarea rows="4" cols="50">
-</textarea>
+```{r}
+mario |>
+  ggplot(
+    aes(x = cond)) + 
+   geom_bar()
 ```
-<br><br>
+:::
 
-What does each observation (row) in the data set represent?
+Next, let's fill in the bars by the shipping method each game was shipped with (`ship_sp`).
+
+```{webr-r}
+mario |>
+  ggplot(
+    aes(x = cond , fill = ...)) + 
+   geom_bar()
+```
+
+::: {.callout-tip collapse="true"}
+## Expected Result
+
+```{r}
+#| label: plot-fill-solution
+
+mario |>
+  ggplot(
+    aes(x = cond , fill = ship_sp)) + 
+   geom_bar()
+```
+:::
+
+**Demo**: The code above uses `fill` to color the segments of the boxplot by another categorical variable. Below, we change `fill` to `color`. What happens? Why?
+
+```{r}
+mario |>
+  ggplot(
+    aes(x = cond , color = ship_sp)) + 
+   geom_bar()
+```
 
 <label>Answer:</label> <br>
 
@@ -166,246 +182,21 @@ What does each observation (row) in the data set represent?
 ::: {.callout-tip collapse="true"}
 ## Solution
 
-Each observation represents a **mario game**.
+`fill` defines the color in which the `geom` is filled in with, while color defines the color in which the `geom` is outlined. A special exception to this is with scatterplots, where the dots are not treated as shapes to be filled in, and instead are filled in by color.
 :::
 
-## Variables of Interest (update)
+## Count vs Proportion
 
-The variables we'll focus on are the following:
-
--   `n_bids`: number of bids throughout the auction 
--   `total_pr`: total price of game sold plus shipping in usd 
--   `seller_rate`: The seller's rating on Ebay
--   `cond`: Binary variable representing the condition of the video game
-
-## Visualizing data with `ggplot2`
-
-**Demo**: **ggplot2** is the package and `ggplot()` is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!
-
--   `ggplot()` creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with `data = mario`, and run the following to create our base.
+**Your Turn**: Up to this point, our bar plot has counted up the number of observations for each condition of game, and has been segmented by the count of shipping method. Perhaps it is easier to compare shipping method across condition of game if we looked at the proportion of shipping method within each game. This can be achieved using `position = "fill"` in the `geom` statement. Alter the code below so that it includes `position = fill`, and comment on the relationship between condition and shipping method. 
 
 ```{webr-r}
-#| label: plot-base
-ggplot(data = mario)
+mario |>
+  ggplot(
+    aes(x = cond , fill = ...)) + 
+   geom_bar()
 ```
 
--   The `mapping` argument is paired with an aesthetic (`aes()`), which tells us how the variables in our data set should be mapped to the visual properties of the graph.
-
-```{webr-r}
-#| label: plot-aesthetic-mapping
-ggplot(data = mario, 
-       mapping = aes(x = n_bids, y = total_pr))
-```
-
--   As we previously mentioned, we often omit the names of the first two arguments in R functions. So you'll often see this written as:
-
-```{webr-r}
-#| label: plot-simplified-call
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr))
-```
-
-Note that the result is exactly the same.
-
-**Your Turn**: The `geom_xx` function specifies the type of plot we want to use to represent the data. In the code below, we want to use `geom_point`, which creates a plot where each observation is represented by a point.
-
-```{webr-r}
-#| label: plot-point
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  # type geom_point() here!
-```
-
-::: {.callout-tip collapse="true"}
-## Expected Result
-
-```{r}
-#| echo: false
-library(ggplot2)
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  geom_point()
-```
-:::
-
-*FOR MINE* Should we omit some data so people can see that R omits a warning and a plot? And then talk about it like below:
-
-Note that this results in a warning as well.
-
-This warning represents the number of observations that were removed because there were missing data!
-
-## Number of bids vs. total price
-
-### Step 1
-
-**Your Turn**: The following code changes the color of all points to coral. Explore different colors by changing "coral" to different colors!
-
-::: callout-tip
-See <http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf> for many color options you can use by name in R or use the [hex code](https://en.wikipedia.org/wiki/Web_colors) for a color of your choice.
-:::
-
-```{webr-r}
-#| label: plot-point-color
-
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  geom_point(color = "coral") 
-```
-
-### Step 2
-
-**Your Turn**: Add labels for the title and x and y axes using [labs](https://ggplot2.tidyverse.org/reference/labs.html). Do this by modifying the existing code below.
-
-```{webr-r}
-#| label: plot-labs
-
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  geom_point(color = "coral") + 
-  # insert code here
-```
-
-::: {.callout-tip collapse="true"}
-## Expected Result
-
-```{r}
-#| label: plot-labels
-
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr))+
-  geom_point(color = "deepskyblue3") + 
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price"
-    )
-```
-:::
-
-### Step 3
-
-**Your Turn**: An `aes`thetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:
-
--   color
--   fill
--   shape
--   size
--   alpha (transparency)
-
-Modify the plot below, so the `color` of the points is based on the variable `cond`, and make the size of your points based on `seller_rate`.
-
-```{webr-r}
-#| label: plot-aes-color
-
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr)) +
-  geom_point() + 
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )
-```
-
-::: {.callout-tip collapse="true"}
-## Expected Result
-
-```{r}
-#| label: plot-aes-color-solution
-
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr,
-           color = cond, size = seller_rate)) +
-  geom_point() + 
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )
-```
-:::
-
-### Step 4
-
-**Your Turn**: Expand on your plot from the previous step to make the transparency (`alpha`) of the points 0.5.
-
-```{webr-r}
-#| label: plot-aes-alpha
-
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr,
-           color = cond, size = seller_rate)) +
-  geom_point(alpha = #insert 0.5 here) + 
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )
-```
-
-### Step 5
-
-**Your Turn**: Expand on your plot from the previous step by using `facet_wrap` to display the association between budget and gross for different values of `stock_photo`.
-
-```{webr-r}
-#| label: plot-facet-wrap
-
-ggplot(mario, 
-  aes(x = n_bids, y = total_pr,
-    color = cond, size = seller_rate)) +
-  geom_point(alpha = 0.5) + 
-  facet_wrap(~#insert variable here) +
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )
-```
-
-::: {.callout-tip collapse="true"}
-## Expected Result
-
-```{r}
-#| label: plot-facet-wrap-sol
-
-ggplot(mario, 
-  aes(x = n_bids, y = total_pr,
-    color = cond, size = seller_rate)) +
-  geom_point(alpha = 0.5) + 
-  facet_wrap(~ stock_photo) +
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )
-```
-:::
-
-### Step 6
-
-**Demo**: Below is a demonstration on how to improve your plot from the previous step by making the y scale more legible.
-
-::: callout-tip
-This is done through the use of the [**scales**](https://scales.r-lib.org/) package, specifically the `scale_x_continuous()` and `scale_y_continuous()` functions. Because we want to change the y-axis label, let's demo the `scale_y_continuous()` function below. 
-:::
-
-```{webr-r}
-#| label: plot-scales
-
-ggplot(mario, 
-  aes(x = n_bids, y = total_pr,
-    color = cond, size = seller_rate)) +
-  geom_point(alpha = 0.5) + 
-  facet_wrap(~stock_photo) +
-  scale_y_continuous(labels = label_dollar()) +
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )
-```
-
-<label>Notes:</label> <br>
+<label>Answer:</label> <br>
 
 ```{=html}
 <textarea rows="4" cols="50">
@@ -413,27 +204,36 @@ ggplot(mario,
 ```
 <br><br>
 
-### Step 7
+::: {.callout-tip collapse="true"}
+## Solution
 
-**Your Turn**: Expand on your plot from the previous step by using `facet_grid` to display the association between budget and gross for different combinations of `stock_photo` and `cond`. Comment on whether you notice any additional patters that were harder to see before.
-
-```{webr-r}
-#| label: plot-facet-grid
-
-ggplot(mario, 
-       aes(x = n_bids, y = total_pr,
-           color = cond, size = seller_rate)) +
-  geom_point(alpha = 0.5) + 
-  facet_grid(stock_photo ~ cond) +
-  scale_y_continuous(labels = label_dollar()) +
-  labs(
-    x = "Number of bids", 
-    y = "Total price ($)", 
-    title = "Total bids vs price by condition and seller rating"
-    )
+```{r}
+mario |>
+  ggplot(
+    aes(x = cond , fill = ship_sp)) + 
+   geom_bar(position = "fill")
 ```
 
-<label>Notes:</label> <br>
+
+It appears that new Mario games were mainly shipped using upsGround, while used Mario games were shipped using standard shipping.
+:::
+
+# Relationships between numerical and categorical variables
+
+Up to this point, we have been visualizing the relationship between categorical variables. What if we wanted to look at the relationships between different types of variables? 
+
+# Boxplots 
+
+One way we can investigate the relationship between different types of variables is to create a boxplot. Below, we are going to create a boxplot using `geom_boxplot` between the variables `cond` and `total_pr`. What information can we gather from the boxplots? 
+
+```{webr-r}
+mario |>
+  ggplot(
+    aes(x = cond , y = total_pr)) + 
+   # insert geom here
+```
+
+<label>Answer:</label> <br>
 
 ```{=html}
 <textarea rows="4" cols="50">
@@ -441,240 +241,67 @@ ggplot(mario,
 ```
 <br><br>
 
-# Quiz
+::: {.callout-tip collapse="true"}
+## Solution
 
-**1 (dropdown question)** The `|>` operator in R represents the word (*then* \| with \| before \| after)
+```{r}
+mario |>
+  ggplot(
+    aes(x = cond , y = total_pr)) + 
+   geom_boxplot()
+```
 
-**2 (dropdown question)** The formal name for a row is a(an) (*observational unit* \| variable \| input). Columns in our data set represent a(an) (observational unit \| *variable* \| input).
-
-**3 (multiple choice)** Below is a table that has all columns and five rows from the mario dataset. This is also commonly refereed to as a ...
-
-![](images/data-frame.png){fig-align="center"}
-
-a.  *data frame*
-
-b.  data description
-
-c.  data table
-
-d.  data features
-
-**4a (matching)** Suppose data were collected about customers at a coffee shop. Three variables were recorded for each customer: number of cups of coffee they ordered, customer height, whether the customer had previously visited this coffee shop before, and the customer's rating of their overall experience measures as "Bad", "Okay", and "Great". Use the information to classify each variable below:
-
-| Variable        | Classification        |
-|-----------------|-----------------------|
-| Cups of Coffee  | Categorical - Ordinal |
-| Height          | Categorical - Nominal |
-| Visited Before  | Numeric - Discrete    |
-| Customer Rating | Numeric - Continuous  |
-
-**4b (dropdown question)** The researchers that collected data about customers at a coffee shop are interested in the relationship between cups of coffee and customer rating. Specifically, they are interested in if there is an increase in the number of cups of coffee a customer orders, does this influence a more positive customer rating. Based on this research question, please fill in the following:
-
-Customer rating would be considered the (*response* \| explanatory) variable, and cups of coffee would be considered the (response \| *explanatory* variable). This study design is an (experience \| *observational study*).
-
-**5 (multiple choice)** The gg in the name of the package ggplot2 stands for ...
-
-**Options**
-
-a.  Grammar of Graphics
-
-b.  Grammar of Graphing
-
-c.  Good Grammar
-
-d.  Generate Graphics
-
-**6 (True or False)** Please answer each *true or false question* below as it relates to the functionality.
-
-a.  The `<-` assigns the value of the result from the operation on the right hand side to the object on the left hand side
-
-b.  `geom_jitter` and `geom_point` will produce the same scatter plot.
-
-**7 (Matching)** Connect the set of variables with a geom that will create an appropriate visualization.
-
-::: columns
-::: {.column width="70%"}
-1.  Quantitative X & Quantitative Y
-
-2.  Categorical X & Quantitative Y
-
-3.  Categorical X
+We can infer that the median total price for new Mario games is higher for the new condition versus the used condition. There appears to be one outlier in new condition, and four outliers in the used condition. The IQR of the new condition is slightly larger than the used condition. 
 :::
 
-::: {.column width="10%"}
-<!-- empty column to create gap -->
+# Violin plot 
+
+**Demo**: A violin plot is a lot like a box plot, but also shows us information about the density of the quantitative variable. Below, we have a violin plot that again shows the relationship between the condition of the Mario game, and the total price of the game (cost + shipping). Describe the relationship below.
+
+```{r}
+mario |>
+  ggplot(
+    aes(x = cond , y = total_pr)) + 
+   geom_violin()
+```
+
+<label>Answer:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+It appears that there is a higher density of new games at a higher price than used games. Used games appear to have two potential outliers higher than any new game.
 :::
 
-::: {.column width="20%"}
-a.  geom_boxplot()
+# Ridge plots 
 
-b.  geom_point()
-
-c.  geom_bar()
-:::
-:::
-
-The next two questions will use the `mtcars` data set in R. A key to the data set can be found below:
-
-| Variable | Description                              |
-|----------|------------------------------------------|
-| mpg      | Miles/(US) gallon                        |
-| cyl      | Number of cylinders                      |
-| disp     | Displacement (cu.in.)                    |
-| hp       | Gross horsepower                         |
-| drat     | Rear axle ratio                          |
-| wt       | Weight (1000 lbs)                        |
-| qsec     | 1/4 mile time                            |
-| vs       | Engine (0 = V-shaped, 1 = straight)      |
-| am       | Transmission (0 = automatic, 1 = manual) |
-| gear     | Number of forward gears                  |
-
-**8 (multiple select)** Tidying your data means...
-
-*a*. storing it in a consistent form that matches the semantics of the dataset with how it is stored
-
-*b*. storing it where each column is a variable and each row is an observation
-
-c.  cleaning your data so there are no missing observations
-
-d.  making sure your data set has only quantitative values for analysis
-
-**8 (Matching)** Code style: Below is code that does not follow the [Tidyverse style guide](https://style.tidyverse.org/). Pick the correction option that changes the code to adhere to the style guide.
-
-```{r}
-#| eval: false
-ggplot(data=mpg,mapping=aes(x=drv,fill=class))+geom_bar() +scale_fill_viridis_d()
-```
-
-**Options**
-
-a.  
-
-```{r}
-#| eval: false
-ggplot(mpg, aes(x = drv, fill = class)) + 
-  geom_bar() + 
-  scale_fill_viridis_d()
-```
-
-b.  
-
-```{r}
-#| eval: false
-ggplot(data=mpg, aes(x = drv, fill = class)) + 
-  geom_bar() + scale_fill_viridis_d()
-```
-
-c.  
-
-```{r}
-#| eval: false
-ggplot(mpg, aes(x = drv, fill = class))+ 
-geom_bar()+ 
-scale_fill_viridis_d()
-```
-
-**9 (Matching)** Reference the data set key above. Then, choose the selection that fills in the following `...` to make a scatterplot of cars' with `miles per gallon` on the x-axis and their \`weight below.
-
-```{r}
-#| eval: false
-ggplot(mtcars) + 
-  aes(x = ... , y = ...) + 
-  geom_...()
-```
-
-**Options**
-
-a.  
-
-```{r}
-#| eval: false
-ggplot(mtcars) + 
-  aes(x = mpg , y = wt) + 
-  geom_point()
-```
-
-b.  
-
-```{r}
-#| eval: false
-ggplot(mtcars) + 
-  aes(x = wt , y = cyl) + 
-  geom_point()
-```
-
-c.  
-
-```{r}
-#| eval: false
-ggplot(mtcars) + 
-  aes(x = mpg, y = wt) + 
-  geom_scatter()
-```
-
-d.  
-
-```{r}
-#| eval: false
-ggplot(mtcars) + 
-  aes(x = wt , y = cyl) + 
-  geom_scatter()
-```
-
-**10 (Fill in blank)** Should probably be moved up to question 1
-
-Might also just not have a question like this.
-
-Create side-by-side box plots of seller_rate on the y-axis, and clean_test on the x-axis with the boxes are colored by cond. Be sure to include appropriate labels.
+**Your Turn**: Ridge plots, similar to violin plots, shows the distribution of a numeric variable across the levels of a categorical variable. In order to make this plot, we will use `geom_density_ridges`. Please add this geom to the following code below to make the ridge plots. Within this geom, set alpha equal to 0.5. 
 
 ```{webr-r}
-
-ggplot(mario, 
-       aes(x = ..., y = ..., color = ...)) +
-  geom_...() +
-  labs(
-    title = "Return on investment vs. mario test result",
-    x = "Detailed mario result",
-    y = "Return-on-investment (gross / budget)",
-    color = "mario\nresult"
-    )
+mario |>
+  ggplot(
+    aes(x = total_pr , y = cond, fill = cond, color = cond)) + 
+   # insert geom here
 ```
 
-**Solution**
+::: {.callout-tip collapse="true"}
+## Solution
 
-```{webr-r}
-
-ggplot(mario, 
-       aes(x = clean_test, y = seller_rate, color = cond)) +
-  geom_boxplot() +
-  labs(
-    title = "Return on investment vs. mario test result",
-    x = "Detailed mario result",
-    y = "Return-on-investment (gross / budget)",
-    color = "mario\nresult"
-    )
+```{r}
+mario |>
+  ggplot(
+    aes(x = total_pr , y = cond, fill = cond, color = cond)) + 
+   geom_density_ridges(alpha = 0.5)
 ```
+:::
 
-# Questions for Mine
+**FOR MINE**: I think I should add a big exploratory question to end these activities. what do you think?
 
--- Is the **Your Turn** / **Demo** questions clear / how do we feel about how I've indicated this within each question in the document?
 
--- I've put a *Notes* text box after the demo questions. Should every question have a notes box?
 
--- The original AE for 199 had an open ended question at the end that read: "What other improvements could we make to this plot?" Would you like to include something like this? I did not include it (yet), and figure it may be a little to exploratory for a programming activity, but maybe we do actually want it.
-
--- This AE also had a second section that had:
-
-```         
-  - Create side-by-side box plots of seller_rate by clean_test where the 
-  boxes are colored by cond.
-  
-  - What are those movies with very high returns on investment?
-  
-  - Expand on your plot from the previous step to zoom in on movies 
-  with seller_rate < ___ to get a better view of how the medians across 
-  the categories compare.
-  
-```
-
-I'm under the impression that the last 2 questions are going to be beyond the scope of what Coursera students have learned, and did not include them. Thus, I also didn't include the first question as it may feel out of place (I pitch it above as an assessment question). Do we want to do something with these? Do we want to include this as given code for the last 2 questions as a lead in for `dplyr` / introduce the `coord_cartesian` function?
