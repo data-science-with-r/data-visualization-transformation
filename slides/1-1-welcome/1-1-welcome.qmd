@@ -46,21 +46,21 @@ A: A great discussion for the course forum!
 
 ## Excel, not...
 
-![](images/excel.png){fig-align="center"}
+![](images/excel.png){fig-align="left" width="1000"}
 
 ## R
 
-![](images/r.png){fig-align="center"}
+![](images/r.png){fig-align="left" width="800"}
 
 ## RStudio
 
-![](images/rstudio.png){fig-align="center"}
+![](images/rstudio.png){fig-align="left" width="1199"}
 
 # Data science life cycle {.section-break}
 
 ## Data science life cycle
 
-![](images/data-science-cycle/data-science-cycle.001.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.001.png){fig-align="left" width="1280"}
 
 ::: aside
 Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund.
@@ -69,32 +69,32 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund.
 
 ## Import
 
-![](images/data-science-cycle/data-science-cycle.002.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.002.png){fig-align="left" width="1280"}
 
 ## Tidy -\> transform
 
-![](images/data-science-cycle/data-science-cycle.003.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.003.png){fig-align="left" width="1280"}
 
 ## Visualize
 
-![](images/data-science-cycle/data-science-cycle.004.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.004.png){fig-align="left" width="1280"}
 
 ## Model
 
-![](images/data-science-cycle/data-science-cycle.005.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.005.png){fig-align="left" width="1280"}
 
 ## Understand
 
-![](images/data-science-cycle/data-science-cycle.006.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.006.png){fig-align="left" width="1280"}
 
 ## Understand
 
 ::: columns
-::: {.column width="40%"}
+::: {.column width="30%"}
 ![](images/google-trend-index.png){fig-align="center" width="476"}
 :::
 
-::: {.column width="60%"}
+::: {.column width="40%"}
 ![](images/data-science-cycle/data-science-cycle.006-cropped.png){fig-align="center"}
 
 ::: fragment
@@ -117,18 +117,18 @@ travel
 
 ## Communicate
 
-![](images/data-science-cycle/data-science-cycle.007.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.007.png){fig-align="left" width="1280"}
 
 ## Understand + communicate
 
-![](images/data-science-cycle/data-science-cycle.008.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.008.png){fig-align="left" width="1280"}
 
 ## Program
 
-![](images/data-science-cycle/data-science-cycle.009.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.009.png){fig-align="left" width="1280"}
 
 ## Data visualization and transformation
 
 <br>
 
-![](images/data-science-cycle/data-science-cycle.010-cropped.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.010-cropped.png){fig-align="left" width="1200"}

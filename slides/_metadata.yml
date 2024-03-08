@@ -10,6 +10,7 @@ format:
     fig-asp: 0.618
     code-link: true
     slide-number: c
+    auto-stretch: false
 execute:
   echo: true
   warning: true
