@@ -1,0 +1,247 @@
+---
+title: "Untitled"
+format: revealjs
+editor: visual
+---
+
+# Aesthetics {.section-break}
+
+## Aesthetics options
+
+Commonly used characteristics of plotting characters that can be **mapped to a specific variable** in the data are
+
+-   `color`
+-   `shape`
+-   `size`
+-   `alpha` (transparency)
+
+## color
+
+```{r}
+#| output-location: column
+ggplot(penguins,
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm,
+           color = species)) +
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Shape
+
+Mapped to a different variable than `color`
+
+```{r}
+#| output-location: column
+ggplot(penguins,
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm,
+           color = species,
+           shape = island)) + #<<
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Shape
+
+Mapped to same variable as `color`
+
+```{r}
+#| output-location: column
+ggplot(penguins,
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm,
+           color = species,
+           shape = species)) +
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Size
+
+```{r}
+#| output-location: column
+
+ggplot(penguins,
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm,
+           color = species,
+           shape = species,
+           size = body_mass_g)) +
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Alpha
+
+```{r}
+#| output-location: column
+
+ggplot(penguins,
+       aes(x = bill_depth_mm, 
+           y = bill_length_mm,
+           color = species,
+           shape = species,
+           size = body_mass_g,
+           alpha = flipper_length_mm)) + #<<
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Mapping vs. setting
+
+::: columns
+::: {.column width="50%"}
+**Mapping:**
+
+```{r}
+ggplot(penguins,
+       aes(x = bill_depth_mm,
+           y = bill_length_mm,
+           size = body_mass_g, #<<
+           alpha = flipper_length_mm)) + #<<
+  geom_point()
+```
+:::
+
+::: {.column width="50%"}
+**Setting:**
+
+```{r warning = FALSE, out.width = "100%"}
+ggplot(penguins,
+       aes(x = bill_depth_mm,
+           y = bill_length_mm)) + 
+  geom_point(size = 2, alpha = 0.5)
+```
+:::
+:::
+
+## Mapping vs. setting
+
+-   **Mapping:** Determine the size, alpha, etc. of points based on the values of a variable in the data
+    -   goes into `aes()`
+-   **Setting:** Determine the size, alpha, etc. of points **not** based on the values of a variable in the data
+    -   goes into `geom_*()` (this was `geom_point()` in the previous example, but we'll learn about other geoms soon!)
+
+class: middle
+
+# Faceting
+
+## Faceting
+
+-   Smaller plots that display different subsets of the data
+-   Useful for exploring conditional relationships and large data
+
+.panelset\[ .panel\[.panel-name\[Plot\]
+
+```{r ref.label = "facet", echo = FALSE, warning = FALSE, out.width = "70%"}
+```
+
+.panel\[.panel-name\[Code\]
+
+```{r facet, fig.show = "hide"}
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+  geom_point() +
+  facet_grid(species ~ island) #<<
+```
+
+## Various ways to facet
+
+.question\[ In the next few slides describe what each plot displays.
+Think about how the code relates to the output.
+
+**Note:** The plots in the next few slides do not have proper titles, axis labels, etc. because we want you to figure out what's happening in the plots.
+But you should always label your plots!
+
+```{r warning = FALSE}
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+  geom_point() +
+  facet_grid(species ~ sex) #<<
+```
+
+```{r warning = FALSE}
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+  geom_point() +
+  facet_grid(sex ~ species) #<<
+```
+
+```{r warning = FALSE, fig.asp = 0.5}
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+  geom_point() +
+  facet_wrap(~ species) #<<
+```
+
+```{r warning = FALSE, fig.asp = 0.5}
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+  geom_point() +
+  facet_grid(. ~ species) #<<
+```
+
+```{r warning = FALSE}
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+  geom_point() +
+  facet_wrap(~ species, ncol = 2) #<<
+```
+
+## Faceting summary
+
+-   `facet_grid()`:
+    -   2d grid
+    -   `rows ~ cols`
+    -   use `.` for no split
+-   `facet_wrap()`: 1d ribbon wrapped according to number of rows and columns specified or available plotting area
+
+## Facet and color
+
+.pull-left-narrow\[
+
+```{r facet-color-legend, fig.show = "hide", warning = FALSE}
+ggplot(
+  penguins, 
+  aes(x = bill_depth_mm, 
+      y = bill_length_mm, 
+      color = species)) + #<<
+  geom_point() +
+  facet_grid(species ~ sex) +
+  scale_color_viridis_d() #<<
+```
+
+.pull-right-wide\[
+
+```{r ref.label = "facet-color-legend", echo = FALSE, warning = FALSE, out.width = "100%"}
+```
+
+## Face and color, no legend
+
+.pull-left-narrow\[
+
+```{r facet-color-no-legend, fig.show = "hide", warning = FALSE}
+ggplot(
+  penguins, 
+  aes(x = bill_depth_mm, 
+      y = bill_length_mm, 
+      color = species)) +
+  geom_point() +
+  facet_grid(species ~ sex) +
+  scale_color_viridis_d() +
+  guides(color = "none") #<<
+```
+
+.pull-right-wide\[
+
+```{r ref.label = "facet-color-no-legend", echo = FALSE, warning = FALSE, out.width = "100%"}
+```
+
+# Summary
+
+## Summary
+
+Structure of the code for plots can be summarized as
+
+``` r
+ggplot(data = [dataset], 
+       mapping = aes(x = [x-variable], 
+                     y = [y-variable])) +
+   geom_xxx() +
+   other options
+```
