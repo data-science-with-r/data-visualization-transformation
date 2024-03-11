@@ -120,6 +120,10 @@ b, strong {
   width: 1200px;
 }
 
+.reveal pre.sourceCode code {
+  max-height: 1000px;
+}
+
 .reveal blockquote {
   width: 75%;
   text-align: left;
