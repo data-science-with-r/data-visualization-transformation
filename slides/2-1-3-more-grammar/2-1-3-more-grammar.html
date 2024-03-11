@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.4.551">
 
   <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation - Grammar of graphics</title>
+  <title>Data visualization and transformation - Untitled</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -393,7 +393,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Grammar of graphics</h1>
+  <h1 class="title">Untitled</h1>
   <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
@@ -405,420 +405,401 @@
 </div>
 
 </section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section>
-<section id="ggplot2" class="title-slide slide level1 section-break center">
-<h1>ggplot2 ❤️ 🐧</h1>
+<section id="aesthetics" class="title-slide slide level1 section-break center">
+<h1>Aesthetics</h1>
 
 </section>
-<section id="data-palmer-penguins" class="slide level2">
-<h2>Data: Palmer Penguins</h2>
-<p>Measurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.</p>
-<div class="quarto-figure quarto-figure-center">
+<section id="aesthetics-options" class="slide level2">
+<h2>Aesthetics options</h2>
+<p>Commonly used characteristics of plotting characters that can be <strong>mapped to a specific variable</strong> in the data are</p>
+<ul>
+<li><code>color</code></li>
+<li><code>shape</code></li>
+<li><code>size</code></li>
+<li><code>alpha</code> (transparency)</li>
+</ul>
+</section>
+<section id="color" class="slide level2">
+<h2>color</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(penguins,</span>
+<span id="cb4-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, </span>
+<span id="cb4-3"><a></a>           <span class="at">y =</span> bill_length_mm,</span>
+<span id="cb4-4"><a></a>           <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb4-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-6"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
 <figure>
-<p><img data-src="images/penguins.png" class="quarto-figure quarto-figure-center" width="477"></p>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-2-1.png" width="576"></p>
 </figure>
 </div>
+</div>
+</div>
+</div>
 </section>
-<section id="data" class="slide level2">
-<h2>Data</h2>
+<section id="shape" class="slide level2">
+<h2>Shape</h2>
+<p>Mapped to a different variable than <code>color</code></p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(penguins,</span>
+<span id="cb6-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, </span>
+<span id="cb6-3"><a></a>           <span class="at">y =</span> bill_length_mm,</span>
+<span id="cb6-4"><a></a>           <span class="at">color =</span> species,</span>
+<span id="cb6-5"><a></a>           <span class="at">shape =</span> island)) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb6-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-7"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-3-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="shape-1" class="slide level2">
+<h2>Shape</h2>
+<p>Mapped to same variable as <code>color</code></p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(penguins,</span>
+<span id="cb8-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, </span>
+<span id="cb8-3"><a></a>           <span class="at">y =</span> bill_length_mm,</span>
+<span id="cb8-4"><a></a>           <span class="at">color =</span> species,</span>
+<span id="cb8-5"><a></a>           <span class="at">shape =</span> species)) <span class="sc">+</span></span>
+<span id="cb8-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-7"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-4-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="size" class="slide level2">
+<h2>Size</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(penguins,</span>
+<span id="cb10-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, </span>
+<span id="cb10-3"><a></a>           <span class="at">y =</span> bill_length_mm,</span>
+<span id="cb10-4"><a></a>           <span class="at">color =</span> species,</span>
+<span id="cb10-5"><a></a>           <span class="at">shape =</span> species,</span>
+<span id="cb10-6"><a></a>           <span class="at">size =</span> body_mass_g)) <span class="sc">+</span></span>
+<span id="cb10-7"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="alpha" class="slide level2">
+<h2>Alpha</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(penguins,</span>
+<span id="cb12-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, </span>
+<span id="cb12-3"><a></a>           <span class="at">y =</span> bill_length_mm,</span>
+<span id="cb12-4"><a></a>           <span class="at">color =</span> species,</span>
+<span id="cb12-5"><a></a>           <span class="at">shape =</span> species,</span>
+<span id="cb12-6"><a></a>           <span class="at">size =</span> body_mass_g,</span>
+<span id="cb12-7"><a></a>           <span class="at">alpha =</span> flipper_length_mm)) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb12-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-9"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-6-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mapping-vs.-setting" class="slide level2">
+<h2>Mapping vs.&nbsp;setting</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Mapping:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-2"><a></a><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 344
-Columns: 8
-$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, …
-$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen,…
-$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3…
-$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6…
-$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181…
-$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650…
-$ sex               &lt;fct&gt; male, female, female, NA, female…
-$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…</code></pre>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(penguins,</span>
+<span id="cb14-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm,</span>
+<span id="cb14-3"><a></a>           <span class="at">y =</span> bill_length_mm,</span>
+<span id="cb14-4"><a></a>           <span class="at">size =</span> body_mass_g, <span class="co">#&lt;&lt;</span></span>
+<span id="cb14-5"><a></a>           <span class="at">alpha =</span> flipper_length_mm)) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb14-6"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-7-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Setting:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(penguins,</span>
+<span id="cb16-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm,</span>
+<span id="cb16-3"><a></a>           <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
+<span id="cb16-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
-<section id="plot" class="slide level2">
-<h2>Plot</h2>
+<section id="mapping-vs.-setting-1" class="slide level2">
+<h2>Mapping vs.&nbsp;setting</h2>
+<ul>
+<li><strong>Mapping:</strong> Determine the size, alpha, etc. of points based on the values of a variable in the data
+<ul>
+<li>goes into <code>aes()</code></li>
+</ul></li>
+<li><strong>Setting:</strong> Determine the size, alpha, etc. of points <strong>not</strong> based on the values of a variable in the data
+<ul>
+<li>goes into <code>geom_*()</code> (this was <code>geom_point()</code> in the previous example, but we’ll learn about other geoms soon!)</li>
+</ul></li>
+</ul>
+<p>class: middle</p>
+</section></section>
+<section>
+<section id="faceting" class="title-slide slide level1 center">
+<h1>Faceting</h1>
+
+</section>
+<section id="faceting-1" class="slide level2">
+<h2>Faceting</h2>
+<ul>
+<li>Smaller plots that display different subsets of the data</li>
+<li>Useful for exploring conditional relationships and large data</li>
+</ul>
+<p>.panelset[ .panel[.panel-name[Plot]</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>.panel[.panel-name[Code]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-3"><a></a>  <span class="fu">facet_grid</span>(species <span class="sc">~</span> island) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values
+(`geom_point()`).</code></pre>
+</div>
+</div>
+</section>
+<section id="various-ways-to-facet" class="slide level2">
+<h2>Various ways to facet</h2>
+<p>.question[ In the next few slides describe what each plot displays. Think about how the code relates to the output.</p>
+<p><strong>Note:</strong> The plots in the next few slides do not have proper titles, axis labels, etc. because we want you to figure out what’s happening in the plots. But you should always label your plots!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
+<span id="cb19-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a></a>  <span class="fu">facet_grid</span>(species <span class="sc">~</span> sex) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-10-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-3"><a></a>  <span class="fu">facet_grid</span>(sex <span class="sc">~</span> species) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-11-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
+<span id="cb21-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> species) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-12-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
+<span id="cb22-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">facet_grid</span>(. <span class="sc">~</span> species) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-13-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
+<span id="cb23-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> species, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-14-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
+<section id="faceting-summary" class="slide level2">
+<h2>Faceting summary</h2>
+<ul>
+<li><code>facet_grid()</code>:
+<ul>
+<li>2d grid</li>
+<li><code>rows ~ cols</code></li>
+<li>use <code>.</code> for no split</li>
+</ul></li>
+<li><code>facet_wrap()</code>: 1d ribbon wrapped according to number of rows and columns specified or available plotting area</li>
+</ul>
+</section>
+<section id="facet-and-color" class="slide level2">
+<h2>Facet and color</h2>
+<p>.pull-left-narrow[</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb3-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb3-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb3-4"><a></a>    <span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm,</span>
-<span id="cb3-5"><a></a>    <span class="at">color =</span> species</span>
-<span id="cb3-6"><a></a>  )</span>
-<span id="cb3-7"><a></a>) <span class="sc">+</span></span>
-<span id="cb3-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb3-9"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb3-10"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb3-11"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb3-12"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, </span>
-<span id="cb3-13"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb3-14"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span></span>
-<span id="cb3-15"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values
-(`geom_point()`).</code></pre>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">ggplot</span>(</span>
+<span id="cb24-2"><a></a>  penguins, </span>
+<span id="cb24-3"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, </span>
+<span id="cb24-4"><a></a>      <span class="at">y =</span> bill_length_mm, </span>
+<span id="cb24-5"><a></a>      <span class="at">color =</span> species)) <span class="sc">+</span> <span class="co">#&lt;&lt;</span></span>
+<span id="cb24-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-7"><a></a>  <span class="fu">facet_grid</span>(species <span class="sc">~</span> sex) <span class="sc">+</span></span>
+<span id="cb24-8"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>.pull-right-wide[</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="face-and-color-no-legend" class="slide level2">
+<h2>Face and color, no legend</h2>
+<p>.pull-left-narrow[</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ggplot</span>(</span>
+<span id="cb25-2"><a></a>  penguins, </span>
+<span id="cb25-3"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, </span>
+<span id="cb25-4"><a></a>      <span class="at">y =</span> bill_length_mm, </span>
+<span id="cb25-5"><a></a>      <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb25-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb25-7"><a></a>  <span class="fu">facet_grid</span>(species <span class="sc">~</span> sex) <span class="sc">+</span></span>
+<span id="cb25-8"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb25-9"><a></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"none"</span>) <span class="co">#&lt;&lt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>.pull-right-wide[</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="2-1-3-more-grammar_files/figure-revealjs/unnamed-chunk-16-1.png" style="width:100.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section></section>
 <section>
-<section id="coding-out-loud" class="title-slide slide level1 section-break center">
-<h1>Coding out loud</h1>
+<section id="summary" class="title-slide slide level1 center">
+<h1>Summary</h1>
 
 </section>
-<section id="step-1" class="slide level2">
-<h2>Step 1</h2>
-<p><strong>Start with the <code>penguins</code> data frame</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="|1,3|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb5-2"><a></a>  <span class="at">data =</span> penguins</span>
-<span id="cb5-3"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-2" class="slide level2">
-<h2>Step 2</h2>
-<p>Start with the <code>penguins</code> data frame, <strong>map bill depth to the x-axis</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb6-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb6-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm)</span>
-<span id="cb6-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-6-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-3" class="slide level2">
-<h2>Step 3</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis <strong>and map bill length to the y-axis.</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb7-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb7-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb7-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb7-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb7-6"><a></a>    )</span>
-<span id="cb7-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-7-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-4" class="slide level2">
-<h2>Step 4</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. <strong>Represent each observation with a point</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb8-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb8-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb8-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb8-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb8-6"><a></a>    )</span>
-<span id="cb8-7"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb8-8"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-8-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-5" class="slide level2">
-<h2>Step 5</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point <strong>and map species to the color of each point.</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb9-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb9-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb9-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb9-5"><a></a>    <span class="at">y =</span> bill_length_mm,</span>
-<span id="cb9-6"><a></a>    <span class="at">color =</span> species</span>
-<span id="cb9-7"><a></a>    )</span>
-<span id="cb9-8"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb9-9"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-6" class="slide level2">
-<h2>Step 6</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. <strong>Title the plot “Bill depth and length”</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|6,8|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb10-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb10-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb10-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb10-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb10-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb10-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span></span>
-<span id="cb10-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-10-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-7" class="slide level2">
-<h2>Step 7</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, <strong>add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb11-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb11-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb11-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb11-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb11-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb11-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span></span>
-<span id="cb11-9"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-11-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-8" class="slide level2">
-<h2>Step 8</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, <strong>label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="9-10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb12-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb12-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb12-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb12-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb12-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb12-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb12-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, </span>
-<span id="cb12-10"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span></span>
-<span id="cb12-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-12-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-9" class="slide level2">
-<h2>Step 9</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, <strong>label the legend “Species”</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb13-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb13-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb13-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb13-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb13-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb13-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb13-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span></span>
-<span id="cb13-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-13-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-10" class="slide level2 smaller">
-<h2>Step 10</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, <strong>and add a caption for the data source.</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb14-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb14-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb14-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb14-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb14-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb14-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb14-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb14-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb14-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb14-12"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-14-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="step-11" class="slide level2 smaller">
-<h2>Step 11</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. <strong>Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.</strong></p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb15-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb15-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb15-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb15-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb15-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb15-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb15-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb15-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb15-12"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb15-13"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/step-11-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="plot-1" class="slide level2">
-<h2>Plot</h2>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 2 rows containing missing values
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="code-1" class="slide level2">
-<h2>Code</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb17-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb17-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb17-4"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb17-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb17-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb17-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb17-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb17-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb17-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb17-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb17-12"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb17-13"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="narrative" class="slide level2">
-<h2>Narrative</h2>
-<p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis.</p>
-<p>Represent each observation with a point and map species to the color of each point.</p>
-<p>Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.</p>
-<p>Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.</p>
-</section>
-<section id="argument-names" class="slide level2">
-<h2>Argument names</h2>
-<p>You can omit the names of first two arguments when building plots with <code>ggplot()</code>.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="|2|3-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb18-2"><a></a>  <span class="at">data =</span> penguins,</span>
-<span id="cb18-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb18-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb18-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb18-6"><a></a>    )</span>
-<span id="cb18-7"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb18-8"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="|2|3-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">ggplot</span>(</span>
-<span id="cb19-2"><a></a>  penguins,</span>
-<span id="cb19-3"><a></a>  <span class="fu">aes</span>(</span>
-<span id="cb19-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
-<span id="cb19-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb19-6"><a></a>    )</span>
-<span id="cb19-7"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb19-8"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
+<section id="summary-1" class="slide level2">
+<h2>Summary</h2>
+<p>Structure of the code for plots can be summarized as</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> [dataset], </span>
+<span id="cb26-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [x<span class="sc">-</span>variable], </span>
+<span id="cb26-3"><a></a>                     <span class="at">y =</span> [y<span class="sc">-</span>variable])) <span class="sc">+</span></span>
+<span id="cb26-4"><a></a>   <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
+<span id="cb26-5"><a></a>   other options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
