@@ -175,13 +175,6 @@
     "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
   },
   {
-    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#ggplot2-in-tidyverse",
-    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#ggplot2-in-tidyverse",
-    "title": "Grammar of graphics",
-    "section": "ggplot2 \\(\\in\\) tidyverse",
-    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\nStructure of the code for plots can be summarized as\n\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], \n                     y = [y-variable])) +\n   geom_xxx() +\n   other options"
-  },
-  {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#data-palmer-penguins",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#data-palmer-penguins",
     "title": "Grammar of graphics",
@@ -214,14 +207,105 @@
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-1",
     "title": "Grammar of graphics",
     "section": "Step 1",
-    "text": "Step 1\n.midi[ &gt; Start with the penguins data frame]\n.pull-left[\n\nggplot(data = penguins) #&lt;&lt;\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n]"
+    "text": "Step 1\nStart with the penguins data frame\n\n\nggplot(\n  data = penguins\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-2",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-2",
+    "title": "Grammar of graphics",
+    "section": "Step 2",
+    "text": "Step 2\nStart with the penguins data frame, map bill depth to the x-axis\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm)\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-3",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-3",
+    "title": "Grammar of graphics",
+    "section": "Step 3",
+    "text": "Step 3\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-4",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-4",
+    "title": "Grammar of graphics",
+    "section": "Step 4",
+    "text": "Step 4\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-5",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-5",
+    "title": "Grammar of graphics",
+    "section": "Step 5",
+    "text": "Step 5\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-6",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-6",
+    "title": "Grammar of graphics",
+    "section": "Step 6",
+    "text": "Step 6\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  labs(\n    title = \"Bill depth and length\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-7",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-7",
+    "title": "Grammar of graphics",
+    "section": "Step 7",
+    "text": "Step 7\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-8",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-8",
+    "title": "Grammar of graphics",
+    "section": "Step 8",
+    "text": "Step 8\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-9",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-9",
+    "title": "Grammar of graphics",
+    "section": "Step 9",
+    "text": "Step 9\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-10",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-10",
+    "title": "Grammar of graphics",
+    "section": "Step 10",
+    "text": "Step 10\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-11",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#step-11",
+    "title": "Grammar of graphics",
+    "section": "Step 11",
+    "text": "Step 11\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#plot-1",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#plot-1",
+    "title": "Grammar of graphics",
+    "section": "Plot",
+    "text": "Plot"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#code-1",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#code-1",
+    "title": "Grammar of graphics",
+    "section": "Code",
+    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#narrative",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#narrative",
+    "title": "Grammar of graphics",
+    "section": "Narrative",
+    "text": "Narrative\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#argument-names",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#argument-names",
     "title": "Grammar of graphics",
     "section": "Argument names",
-    "text": "Argument names\n.tip[ You can omit the names of first two arguments when building plots with ggplot().]\n.pull-left[\n\nggplot(data = penguins,\n       mapping = aes(x = bill_depth_mm,\n                     y = bill_length_mm,\n                     color = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n] .pull-right[\n\nggplot(penguins,\n       aes(x = bill_depth_mm,\n           y = bill_length_mm,\n           color = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n]"
+    "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\nggplot(data = penguins,\n       mapping = aes(x = bill_depth_mm,\n                     y = bill_length_mm,\n                     color = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm,\n           y = bill_length_mm,\n           color = species)) +\n  geom_point() +\n  scale_color_viridis_d()"
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#aesthetics-options",
@@ -235,56 +319,63 @@
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#color",
     "title": "Grammar of graphics",
     "section": "color",
-    "text": "color\n.pull-left[\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n]"
+    "text": "color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#shape",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#shape",
     "title": "Grammar of graphics",
     "section": "Shape",
-    "text": "Shape\nMapped to a different variable than color\n.pull-left[\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = island)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n]"
+    "text": "Shape\nMapped to a different variable than color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = island)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#shape-1",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#shape-1",
     "title": "Grammar of graphics",
     "section": "Shape",
-    "text": "Shape\nMapped to same variable as color\n.pull-left[\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n]"
+    "text": "Shape\nMapped to same variable as color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#size",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#size",
     "title": "Grammar of graphics",
     "section": "Size",
-    "text": "Size\n.pull-left[\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species,\n           size = body_mass_g)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n]"
+    "text": "Size\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species,\n           size = body_mass_g)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#alpha",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#alpha",
     "title": "Grammar of graphics",
     "section": "Alpha",
-    "text": "Alpha\n.pull-left[\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species,\n           size = body_mass_g,\n           alpha = flipper_length_mm)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n] .pull-right[\n\n\n\n\n\n\n\n\n\n]"
+    "text": "Alpha\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species,\n           size = body_mass_g,\n           alpha = flipper_length_mm)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#mapping-vs.-setting",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#mapping-vs.-setting",
     "title": "Grammar of graphics",
     "section": "Mapping vs. setting",
-    "text": "Mapping vs. setting\n\nMapping: Determine the size, alpha, etc. of points based on the values of a variable in the data\n\ngoes into aes()\n\nSetting: Determine the size, alpha, etc. of points not based on the values of a variable in the data\n\ngoes into geom_*() (this was geom_point() in the previous example, but we’ll learn about other geoms soon!)"
+    "text": "Mapping vs. setting\n\n\nMapping:\n\nggplot(penguins,\n       aes(x = bill_depth_mm,\n           y = bill_length_mm,\n           size = body_mass_g, #&lt;&lt;\n           alpha = flipper_length_mm)) + #&lt;&lt;\n  geom_point()\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nSetting:\n\nggplot(penguins,\n       aes(x = bill_depth_mm,\n           y = bill_length_mm)) + \n  geom_point(size = 2, alpha = 0.5)"
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#mapping-vs.-setting-1",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#mapping-vs.-setting-1",
+    "title": "Grammar of graphics",
+    "section": "Mapping vs. setting",
+    "text": "Mapping vs. setting\n\nMapping: Determine the size, alpha, etc. of points based on the values of a variable in the data\n\ngoes into aes()\n\nSetting: Determine the size, alpha, etc. of points not based on the values of a variable in the data\n\ngoes into geom_*() (this was geom_point() in the previous example, but we’ll learn about other geoms soon!)\n\n\nclass: middle"
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#faceting-1",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#faceting-1",
     "title": "Grammar of graphics",
     "section": "Faceting",
-    "text": "Faceting\n\nSmaller plots that display different subsets of the data\nUseful for exploring conditional relationships and large data"
+    "text": "Faceting\n\nSmaller plots that display different subsets of the data\nUseful for exploring conditional relationships and large data\n\n.panelset[ .panel[.panel-namePlot\n\n\n\n\n\n\n\n\n\n.panel[.panel-nameCode\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ island) #&lt;&lt;\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#various-ways-to-facet",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#various-ways-to-facet",
     "title": "Grammar of graphics",
     "section": "Various ways to facet",
-    "text": "Various ways to facet\n.question[ In the next few slides describe what each plot displays. Think about how the code relates to the output.\nNote: The plots in the next few slides do not have proper titles, axis labels, etc. because we want you to figure out what’s happening in the plots. But you should always label your plots! ]"
+    "text": "Various ways to facet\n.question[ In the next few slides describe what each plot displays. Think about how the code relates to the output.\nNote: The plots in the next few slides do not have proper titles, axis labels, etc. because we want you to figure out what’s happening in the plots. But you should always label your plots!\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ sex) #&lt;&lt;\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(sex ~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(. ~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species, ncol = 2) #&lt;&lt;"
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#faceting-summary",
@@ -298,14 +389,21 @@
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#facet-and-color",
     "title": "Grammar of graphics",
     "section": "Facet and color",
-    "text": "Facet and color\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) + #&lt;&lt;\n  geom_point() +\n  facet_grid(species ~ sex) +\n  scale_color_viridis_d() #&lt;&lt;\n\n] .pull-right-wide[\n\n\n\n\n\n\n\n\n\n]"
+    "text": "Facet and color\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) + #&lt;&lt;\n  geom_point() +\n  facet_grid(species ~ sex) +\n  scale_color_viridis_d() #&lt;&lt;\n\n.pull-right-wide["
   },
   {
     "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#face-and-color-no-legend",
     "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#face-and-color-no-legend",
     "title": "Grammar of graphics",
     "section": "Face and color, no legend",
-    "text": "Face and color, no legend\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) +\n  geom_point() +\n  facet_grid(species ~ sex) +\n  scale_color_viridis_d() +\n  guides(color = \"none\") #&lt;&lt;\n\n] .pull-right-wide[\n\n\n\n\n\n\n\n\n\n]"
+    "text": "Face and color, no legend\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) +\n  geom_point() +\n  facet_grid(species ~ sex) +\n  scale_color_viridis_d() +\n  guides(color = \"none\") #&lt;&lt;\n\n.pull-right-wide["
+  },
+  {
+    "objectID": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#summary-1",
+    "href": "slides/2-1-2-grammar-of-graphics/2-1-2-grammar-of-graphics.html#summary-1",
+    "title": "Grammar of graphics",
+    "section": "Summary",
+    "text": "Summary\nStructure of the code for plots can be summarized as\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], \n                     y = [y-variable])) +\n   geom_xxx() +\n   other options"
   },
   {
     "objectID": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
