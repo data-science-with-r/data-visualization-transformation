@@ -71,11 +71,17 @@ $presentation-title-slide-text-align: left;
   font-size: 1.5em;
 }
 
+/* inline code should be blue */
+
+.reveal code {
+  color: $presentation-heading-color;
+}
+
 /* bold should be blue */
 
 b, strong {
-   color: $presentation-heading-color;
-   }
+  color: $presentation-heading-color;
+}
 
 /* alignment */
 
@@ -111,6 +117,23 @@ b, strong {
   padding-bottom: 3px;
   margin-bottom: 6px;
   margin-top: 6px;
+  margin-right: 6px;
   border-left: solid 5px #0E538F;
   background-color: #0E538F50;
+}
+
+/* white space on left */
+
+div {
+  width: 1200px;
+}
+
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.reveal pre.sourceCode code .hscroll {
+  background-color: lightgray !important;
+  color: black !important;  
 }

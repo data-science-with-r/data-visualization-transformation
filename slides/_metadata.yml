@@ -14,3 +14,8 @@ format:
 execute:
   echo: true
   warning: true
+engine: knitr
+knitr:
+  opts_chunk: 
+    R.options:
+      width: 80

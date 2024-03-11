@@ -91,11 +91,11 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund.
 
 ::: columns
 ::: {.column width="30%"}
-![](images/google-trend-index.png){fig-align="center" width="476"}
+![](images/google-trend-index.png){fig-align="left" width="450"}
 :::
 
 ::: {.column width="40%"}
-![](images/data-science-cycle/data-science-cycle.006-cropped.png){fig-align="center"}
+![](images/data-science-cycle/data-science-cycle.006-cropped.png){fig-align="left" width="800"}
 
 ::: fragment
 ```{r}
@@ -112,6 +112,9 @@ travel <- tribble(
 travel
 ```
 :::
+:::
+
+::: {.column width="30%"}
 :::
 :::
 

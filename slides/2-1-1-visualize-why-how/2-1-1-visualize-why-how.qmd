@@ -1,5 +1,5 @@
 ---
-title: "Visualizing data -- why and how"
+title: "Visualizing data:<br>why and how"
 format: revealjs
 ---
 
@@ -10,7 +10,6 @@ format: revealjs
 ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 
 library(tidyverse)
-library(magick)
 library(Tmisc)
 library(dsbox)
 ```
@@ -23,18 +22,22 @@ library(dsbox)
 -   Each column is a **variable**
 
 ```{r}
+#| class-output: hscroll
+
 starwars
 ```
 
 ## Luke Skywalker
 
-![](images/luke-skywalker-data.png)
+![](images/luke-skywalker-data.png){fig-align="left" width="1280"}
 
 ## What's in the Star Wars data?
 
 Take a `glimpse()` at the data:
 
 ```{r}
+#| class-output: hscroll
+
 glimpse(starwars)
 ```
 
@@ -52,13 +55,15 @@ What does each column represent?
 ?starwars
 ```
 
-![](images/starwars-help.png){width="903"}
+![](images/starwars-help.png){fig-align="left" width="697"}
 
 ## Dimensions of the data
 
 ::: task
 How many rows and columns does this dataset have?
 :::
+
+. . .
 
 ```{r}
 #| label: starwars-dims
