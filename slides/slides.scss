@@ -108,6 +108,48 @@ b, strong {
   color: #93798b;
 }
 
+/* white space on left */
+
+.cell-output {
+  overflow-x: scroll;
+  white-space: nowrap;
+  width: 1200px;
+}
+
+.sourceCode {
+  width: 1200px;
+}
+
+.reveal blockquote {
+  width: 75%;
+  text-align: left;
+  margin-left: 0;
+}
+
+.reveal p {
+  width: 75%;
+}
+
+.reveal ul {
+  width: 75%;
+}
+
+.reveal .slide aside {
+  width: 75%;
+}
+
+.columns p {
+  width: 100%;
+}
+
+.columns .cell-output {
+  width: auto;
+}
+
+.columns .sourceCode {
+  width: auto;
+}
+
 /* custom divs */
 
 .reveal .slide .task {
@@ -120,20 +162,13 @@ b, strong {
   margin-right: 6px;
   border-left: solid 5px #0E538F;
   background-color: #0E538F50;
+  width: 1173px;
 }
 
-/* white space on left */
-
-div {
-  width: 1200px;
+.reveal .slide .task p {
+  width: 100%;
 }
 
-.hscroll {
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.reveal pre.sourceCode code .hscroll {
-  background-color: lightgray !important;
-  color: black !important;  
+.reveal .slide .task ul {
+  width: 100%;
 }

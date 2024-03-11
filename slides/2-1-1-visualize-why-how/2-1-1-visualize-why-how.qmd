@@ -14,7 +14,7 @@ library(Tmisc)
 library(dsbox)
 ```
 
-# What is in a dataset?
+# What is in a dataset? {.section-break}
 
 ## Dataset terminology
 
@@ -22,8 +22,6 @@ library(dsbox)
 -   Each column is a **variable**
 
 ```{r}
-#| class-output: hscroll
-
 starwars
 ```
 
@@ -36,8 +34,6 @@ starwars
 Take a `glimpse()` at the data:
 
 ```{r}
-#| class-output: hscroll
-
 glimpse(starwars)
 ```
 
@@ -73,7 +69,7 @@ ncol(starwars) # number of columns
 dim(starwars)  # dimensions (row column)
 ```
 
-# Exploratory data analysis
+# Exploratory data analysis {.section-break}
 
 ## What is EDA?
 
@@ -93,6 +89,7 @@ Who is the not so tall but really chubby character?
 #| label: mass-height-annotated
 #| warning: false
 #| echo: false
+#| fig-width: 7
 
 ggplot(starwars, aes(x = height, y = mass)) +
   geom_point() +
@@ -109,9 +106,9 @@ ggplot(starwars, aes(x = height, y = mass)) +
 
 ## Jabba!
 
-![](images/mass-height-annotated-jabba.png)
+![](images/mass-height-annotated-jabba.png){fig-align="left" width="1000"}
 
-# Data visualization
+# Data visualization {.section-break}
 
 ## Data visualization
 
@@ -124,11 +121,11 @@ ggplot(starwars, aes(x = height, y = mass)) +
 ## ggplot2 $\in$ tidyverse
 
 ::: columns
-::: {.column width="50%"}
-![](images/ggplot2-part-of-tidyverse.png){width="628"}
+::: {.column width="30%"}
+![](images/ggplot2-part-of-tidyverse.png){fig-align="left" width="400"}
 :::
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 -   **ggplot2** is tidyverse's data visualization package
 -   `gg` in "ggplot2" stands for Grammar of Graphics
 -   Inspired by the book **Grammar of Graphics** by Leland Wilkinson
@@ -137,15 +134,9 @@ ggplot(starwars, aes(x = height, y = mass)) +
 
 ## Grammar of Graphics
 
-::: columns
-::: {.column width="50%"}
 A grammar of graphics is a tool that enables us to concisely describe the components of a graphic.
-:::
 
-::: {.column width="50%"}
-![](images/grammar-of-graphics.png)
-:::
-:::
+![](images/grammar-of-graphics.png){fig-align="left" width="999"}
 
 ::: aside
 [BloggoType](http://bloggotype.blogspot.com/2016/08/holiday-notes2-grammar-of-graphics.html)
@@ -214,7 +205,7 @@ library(tidyverse)
 
 -   For help with ggplot2, see [ggplot2.tidyverse.org](http://ggplot2.tidyverse.org/) \]
 
-# Why do we visualize?
+# Why do we visualize? {.section-break}
 
 ## Anscombe's quartet
 
@@ -246,7 +237,7 @@ quartet |>
 ```{r}
 #| label: quartet-plot
 #| fig-asp: 0.4
-#| fig-width: 7
+#| fig-width: 10
 
 ggplot(quartet, aes(x = x, y = y)) +
   geom_point() +
