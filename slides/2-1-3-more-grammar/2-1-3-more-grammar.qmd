@@ -4,6 +4,11 @@ format: revealjs
 editor: visual
 ---
 
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
 # Aesthetics {.section-break}
 
 ## Aesthetics options

@@ -775,5 +775,103 @@
     "title": "Grammar of graphics",
     "section": "Mapping vs. setting",
     "text": "Mapping vs. setting\n\n\nMapping: Determine the size, alpha, etc. of points based on the values of a variable in the data\n\ngoes into aes()\n\n\n\n\nSetting: Determine the size, alpha, etc. of points not based on the values of a variable in the data\n\ngoes into geom_*() (this was geom_point() in the previous example, but we’ll learn about other geoms soon!)\n\n\n\nclass: middle"
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#aesthetics-options",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#aesthetics-options",
+    "title": "Untitled",
+    "section": "Aesthetics options",
+    "text": "Aesthetics options\nCommonly used characteristics of plotting characters that can be mapped to a specific variable in the data are\n\ncolor\nshape\nsize\n\nalpha (transparency)"
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#color",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#color",
+    "title": "Untitled",
+    "section": "color",
+    "text": "color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#shape",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#shape",
+    "title": "Untitled",
+    "section": "Shape",
+    "text": "Shape\nMapped to a different variable than color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = island)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#shape-1",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#shape-1",
+    "title": "Untitled",
+    "section": "Shape",
+    "text": "Shape\nMapped to same variable as color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#size",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#size",
+    "title": "Untitled",
+    "section": "Size",
+    "text": "Size\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species,\n           size = body_mass_g)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#alpha",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#alpha",
+    "title": "Untitled",
+    "section": "Alpha",
+    "text": "Alpha\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species,\n           size = body_mass_g,\n           alpha = flipper_length_mm)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#mapping-vs.-setting",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#mapping-vs.-setting",
+    "title": "Untitled",
+    "section": "Mapping vs. setting",
+    "text": "Mapping vs. setting\n\n\nMapping:\n\nggplot(penguins,\n       aes(x = bill_depth_mm,\n           y = bill_length_mm,\n           size = body_mass_g, #&lt;&lt;\n           alpha = flipper_length_mm)) + #&lt;&lt;\n  geom_point()\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nSetting:\n\nggplot(penguins,\n       aes(x = bill_depth_mm,\n           y = bill_length_mm)) + \n  geom_point(size = 2, alpha = 0.5)"
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#mapping-vs.-setting-1",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#mapping-vs.-setting-1",
+    "title": "Untitled",
+    "section": "Mapping vs. setting",
+    "text": "Mapping vs. setting\n\n\nMapping: Determine the size, alpha, etc. of points based on the values of a variable in the data\n\ngoes into aes()\n\n\n\n\nSetting: Determine the size, alpha, etc. of points not based on the values of a variable in the data\n\ngoes into geom_*() (this was geom_point() in the previous example, but we’ll learn about other geoms soon!)\n\n\n\nclass: middle"
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#faceting-1",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#faceting-1",
+    "title": "Untitled",
+    "section": "Faceting",
+    "text": "Faceting\n\nSmaller plots that display different subsets of the data\nUseful for exploring conditional relationships and large data\n\n.panelset[ .panel[.panel-name[Plot]\n\n\n\n\n\n\n\n\n.panel[.panel-name[Code]\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ island) #&lt;&lt;\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#various-ways-to-facet",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#various-ways-to-facet",
+    "title": "Untitled",
+    "section": "Various ways to facet",
+    "text": "Various ways to facet\n.question[ In the next few slides describe what each plot displays. Think about how the code relates to the output.\nNote: The plots in the next few slides do not have proper titles, axis labels, etc. because we want you to figure out what’s happening in the plots. But you should always label your plots!\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ sex) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(sex ~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(. ~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species, ncol = 2) #&lt;&lt;"
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#faceting-summary",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#faceting-summary",
+    "title": "Untitled",
+    "section": "Faceting summary",
+    "text": "Faceting summary\n\n\nfacet_grid():\n\n2d grid\nrows ~ cols\nuse . for no split\n\n\n\nfacet_wrap(): 1d ribbon wrapped according to number of rows and columns specified or available plotting area"
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#facet-and-color",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#facet-and-color",
+    "title": "Untitled",
+    "section": "Facet and color",
+    "text": "Facet and color\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) + #&lt;&lt;\n  geom_point() +\n  facet_grid(species ~ sex) +\n  scale_color_viridis_d() #&lt;&lt;\n\n.pull-right-wide["
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#face-and-color-no-legend",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#face-and-color-no-legend",
+    "title": "Untitled",
+    "section": "Face and color, no legend",
+    "text": "Face and color, no legend\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) +\n  geom_point() +\n  facet_grid(species ~ sex) +\n  scale_color_viridis_d() +\n  guides(color = \"none\") #&lt;&lt;\n\n.pull-right-wide["
+  },
+  {
+    "objectID": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#summary-1",
+    "href": "slides/2-1-3-more-grammar/2-1-3-more-grammar.html#summary-1",
+    "title": "Untitled",
+    "section": "Summary",
+    "text": "Summary\nStructure of the code for plots can be summarized as\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], \n                     y = [y-variable])) +\n   geom_xxx() +\n   other options"
   }
 ]
