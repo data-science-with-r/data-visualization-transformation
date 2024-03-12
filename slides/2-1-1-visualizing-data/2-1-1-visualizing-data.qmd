@@ -1,0 +1,207 @@
+---
+title: "Visualizing data"
+format: revealjs
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
+
+library(tidyverse)
+library(Tmisc)
+library(dsbox)
+```
+
+# What is in a dataset? {.section-break}
+
+## Dataset terminology
+
+-   Each row is an **observation**
+-   Each column is a **variable**
+
+```{r}
+starwars
+```
+
+## Luke Skywalker
+
+![](images/luke-skywalker-data.png){fig-align="left" width="1280"}
+
+## What's in the Star Wars data?
+
+Take a `glimpse()` at the data:
+
+```{r}
+glimpse(starwars)
+```
+
+## Get to know the data
+
+::: task
+How many rows and columns does this dataset have?
+What does each row represent?
+What does each column represent?
+:::
+
+```{r}
+#| eval: false
+
+?starwars
+```
+
+![](images/starwars-help.png){fig-align="left" width="697"}
+
+## Dimensions of the data
+
+::: task
+How many rows and columns does this dataset have?
+:::
+
+. . .
+
+```{r}
+#| label: starwars-dims
+
+nrow(starwars) # number of rows
+ncol(starwars) # number of columns
+dim(starwars)  # dimensions (row column)
+```
+
+# Exploratory data analysis {.section-break}
+
+## What is EDA?
+
+-   Exploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics
+-   Often, this is visual -- this is what we'll focus on first
+-   But we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis -- this is what we'll focus on next
+
+## Mass vs. height
+
+::: task
+How would you describe the relationship between mass and height of Starwars characters?
+What other variables would help us understand data points that don't follow the overall trend?
+Who is the not so tall but really chubby character?
+:::
+
+```{r}
+#| label: mass-height-annotated
+#| warning: false
+#| echo: false
+#| fig-width: 7
+
+ggplot(starwars, aes(x = height, y = mass)) +
+  geom_point() +
+  geom_point(
+    data = starwars |> filter(name == "Jabba Desilijic Tiure"), 
+    size = 5, pch = 1, color = "pink", stroke = 3
+  ) +
+  labs(
+    title = "Mass vs. height of Starwars characters",
+    x = "Height (cm)", 
+    y = "Weight (kg)"
+  )
+```
+
+## Jabba!
+
+![](images/mass-height-annotated-jabba.png){fig-align="left" width="1000"}
+
+## Data visualization
+
+> *"The simple graph has brought more information to the data analyst's mind than any other device." --- John Tukey*
+
+-   Data visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data
+-   Many tools for visualizing data -- R is one of them
+-   Many approaches/systems within R for making data visualizations -- **ggplot2** is one of them, and that's what we're going to use
+
+# Why visualize? {.section-break}
+
+## Anscombe's quartet
+
+```{r}
+#| label: quartet-for-show
+
+library(Tmisc)
+quartet
+```
+
+## Summarizing Anscombe's quartet
+
+```{r}
+#| label: quartet-summary
+
+quartet |>
+  group_by(set) |>
+  summarise(
+    mean_x = mean(x), 
+    mean_y = mean(y),
+    sd_x = sd(x),
+    sd_y = sd(y),
+    r = cor(x, y)
+  )
+```
+
+## Visualizing Anscombe's quartet
+
+```{r}
+#| label: quartet-plot
+#| fig-asp: 0.4
+#| fig-width: 10
+
+ggplot(quartet, aes(x = x, y = y)) +
+  geom_point() +
+  facet_wrap(~ set, ncol = 4)
+```
+
+## Age at first kiss
+
+::: task
+A group of college students were asked "How old were you when you had your first kiss?" on a survey.
+First, think about how you might expect the distribution of their responses to look.
+
+Then, examine the plot below.
+Do you see anything out of the ordinary?
+:::
+
+```{r}
+#| label: student-survey-kiss
+#| echo: false
+#| warning: false
+#| fig-width: 7
+
+ggplot(student_survey, aes(x = first_kiss)) +
+  geom_histogram(binwidth = 1) +
+  labs(
+    title = "How old were you when you had your first kiss?", 
+    x = "Age (years)", 
+    y = "Count"
+  )
+```
+
+------------------------------------------------------------------------
+
+## Facebook visits
+
+::: task
+Same group of college students were also asked "How many times do you go on Facebook per day?" First, think about how you might expect the distribution of their responses to look.
+
+Then, examine the plot below.
+How are people reporting lower vs. higher values of FB visits?
+:::
+
+```{r}
+#| label: student-survey-facebook
+#| echo: false
+#| warning: false
+#| fig-width: 7
+
+ggplot(student_survey, aes(x = fb_visits_per_day)) +
+  geom_histogram(binwidth = 1) +
+  labs(
+    title = "How many times do you go on Facebook per day?", 
+    x = "Number of times", 
+    y = "Count"
+  )
+```
