@@ -1,10 +1,6 @@
 ---
 title: "Mario games + data visualization"
-subtitle: "Module 3 - Lesson 3.3 - Course 1"
-author: ""
-toc: true
-filters: 
-  - webr
+order: 3
 webr:
   packages: ['tidyverse', 'scales' , 'ggridges' , 'gridExtra']
 ---
@@ -87,9 +83,9 @@ library(gridExtra)
 
 With your output, confirm that:
 
--- There are 143 rows
+- There are 143 rows
 
--- There are 12 variables (columns) in the dataset
+- There are 12 variables (columns) in the dataset
 
 ::: callout-warning
 If you receive the error [Error: object 'mario' not found]{style="color:red;"}, go back and read in your data above.

@@ -1,10 +1,6 @@
 ---
 title: "Bechdel + data visualization"
-subtitle: "Module 2 - Lesson 2.2 - Course 1 "
-author: ""
-toc: true
-filters: 
-  - webr
+order: 2
 webr:
   packages: ['tidyverse', 'scales']
 ---
@@ -75,9 +71,9 @@ This a modified version of the `bechdel` dataset. It's been modified to include 
 
 With your output, confirm that:
 
--- There are 1615 rows
+- There are 1615 rows
 
--- There are 7 variables (columns) in the dataset
+- There are 7 variables (columns) in the dataset
 
 ::: callout-warning
 If you receive the error [Error: object 'bechdel' not found]{style="color:red;"}, go back and read in your data above.
