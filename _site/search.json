@@ -1152,7 +1152,7 @@
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#review-grammar-of-graphics",
     "title": "Grammar of graphics",
     "section": "Review: Grammar of Graphics",
-    "text": "Review: Grammar of Graphics\n\n\n\nGrammar of graphics is a tool that enables us to concisely describe the components of a graphic\nggplot2 is an implementation of grammar of graphics in R"
+    "text": "Review: Grammar of Graphics\n\nThe grammar of graphics is a tool that enables us to concisely describe the components of a graphic\n\n\n\nThe ggplot2 package, which is part of tidyverse, implements the grammar of graphics in R\n\n\n\n\n\n\nWith ggplot2, you can create a wide variety of plots with a few lines of code, layer-by-layer"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#aesthetics-options",
@@ -1165,50 +1165,50 @@
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color",
     "title": "Grammar of graphics",
-    "section": "color",
-    "text": "color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+    "section": "Color",
+    "text": "Color\nThe color aesthetic mapped to species:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#shape",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#shape",
     "title": "Grammar of graphics",
     "section": "Shape",
-    "text": "Shape\nMapped to a different variable than color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = island)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+    "text": "Shape\nThe shape aesthetic mapped to island:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = island\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#shape-1",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#shape-1",
     "title": "Grammar of graphics",
     "section": "Shape",
-    "text": "Shape\nMapped to same variable as color\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+    "text": "Shape\nThe color and shape aesthetics mapped to species:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#size",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#size",
     "title": "Grammar of graphics",
     "section": "Size",
-    "text": "Size\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species,\n           size = body_mass_g)) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+    "text": "Size\nThe size aesthetic mapped to body_mass_g:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species,\n    size = body_mass_g\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#alpha",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#alpha",
     "title": "Grammar of graphics",
     "section": "Alpha",
-    "text": "Alpha\n\n\nggplot(penguins,\n       aes(x = bill_depth_mm, \n           y = bill_length_mm,\n           color = species,\n           shape = species,\n           size = body_mass_g,\n           alpha = flipper_length_mm)) + #&lt;&lt;\n  geom_point() +\n  scale_color_viridis_d()\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+    "text": "Alpha\nThe alpha aesthetic mapped to flipper_length_mm:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species,\n    size = body_mass_g,\n    alpha = flipper_length_mm\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting",
     "title": "Grammar of graphics",
     "section": "Mapping vs. setting",
-    "text": "Mapping vs. setting\n\n\nMapping:\n\nggplot(penguins,\n       aes(x = bill_depth_mm,\n           y = bill_length_mm,\n           size = body_mass_g, #&lt;&lt;\n           alpha = flipper_length_mm)) + #&lt;&lt;\n  geom_point()\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`).\n\n\n\n\n\n\n\n\n\nSetting:\n\nggplot(penguins,\n       aes(x = bill_depth_mm,\n           y = bill_length_mm)) + \n  geom_point(size = 2, alpha = 0.5)"
+    "text": "Mapping vs. setting\n\n\nMapping:\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species,\n    size = body_mass_g\n    )\n  ) + \n  geom_point()\n\n\n\n\n\n\n\n\nSetting:\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, y = bill_length_mm\n    )\n  ) + \n  geom_point(\n    color = \"red\",\n    size = 3\n  )"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting-1",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting-1",
     "title": "Grammar of graphics",
     "section": "Mapping vs. setting",
-    "text": "Mapping vs. setting\n\n\nMapping: Determine the size, alpha, etc. of points based on the values of a variable in the data\n\ngoes into aes()\n\n\n\n\nSetting: Determine the size, alpha, etc. of points not based on the values of a variable in the data\n\ngoes into geom_*() (this was geom_point() in the previous example, but we’ll learn about other geoms soon!)\n\n\n\nclass: middle"
+    "text": "Mapping vs. setting\n\n\nMapping:\nDetermine the size, alpha, etc. of points based on the values of a variable in the data – goes into aes():\n\n\n\n\n\n\n\n\n\n\n\nSetting:\nDetermine the size, alpha, etc. of points not based on the values of a variable in the data – goes into geom_*():"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-1",
@@ -1222,7 +1222,7 @@
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#various-ways-to-facet",
     "title": "Grammar of graphics",
     "section": "Various ways to facet",
-    "text": "Various ways to facet\n.question[ In the next few slides describe what each plot displays. Think about how the code relates to the output.\nNote: The plots in the next few slides do not have proper titles, axis labels, etc. because we want you to figure out what’s happening in the plots. But you should always label your plots!\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ sex) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(sex ~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(. ~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species, ncol = 2) #&lt;&lt;"
+    "text": "Various ways to facet\n\nIn the next few slides describe what each plot displays. Think about how the code relates to the output.\n\nNote: The plots in the next few slides do not have proper titles, axis labels, etc. because we want you to figure out what’s happening in the plots. But you should always label your plots!\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ island) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(island ~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(. ~ species) #&lt;&lt;\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species, ncol = 2) #&lt;&lt;"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-summary",
@@ -1236,20 +1236,125 @@
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#facet-and-color",
     "title": "Grammar of graphics",
     "section": "Facet and color",
-    "text": "Facet and color\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) + #&lt;&lt;\n  geom_point() +\n  facet_grid(species ~ sex) +\n  scale_color_viridis_d() #&lt;&lt;\n\n.pull-right-wide["
+    "text": "Facet and color\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) + #&lt;&lt;\n  geom_point() +\n  facet_grid(species ~ island) +\n  scale_color_viridis_d() #&lt;&lt;\n\n.pull-right-wide["
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#face-and-color-no-legend",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#face-and-color-no-legend",
     "title": "Grammar of graphics",
     "section": "Face and color, no legend",
-    "text": "Face and color, no legend\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) +\n  geom_point() +\n  facet_grid(species ~ sex) +\n  scale_color_viridis_d() +\n  guides(color = \"none\") #&lt;&lt;\n\n.pull-right-wide["
+    "text": "Face and color, no legend\n.pull-left-narrow[\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, \n      y = bill_length_mm, \n      color = species)) +\n  geom_point() +\n  facet_grid(species ~ island) +\n  scale_color_viridis_d() +\n  guides(color = \"none\") #&lt;&lt;\n\n.pull-right-wide["
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#data",
     "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#data",
     "title": "Grammar of graphics",
     "section": "Data",
-    "text": "Data\n\nThe data layer is the foundation of the plot\nIt gives you the canvas on which you can “paint” your data\n\n\nggplot(penguins)"
+    "text": "Data\nFoundation of the plot that gives you the canvas on which you can “paint” your data:\n\nggplot(penguins)"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#review-grammar-of-graphics-1",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#review-grammar-of-graphics-1",
+    "title": "Grammar of graphics",
+    "section": "Review: Grammar of Graphics",
+    "text": "Review: Grammar of Graphics\n\nThe grammar of graphics is a tool that enables us to concisely describe the components of a graphic\n\n\n\nThe ggplot2 package, which is part of tidyverse, implements the grammar of graphics in R\n\n\n\n\n\n\nWith ggplot2, you can create a wide variety of plots with a few lines of code, layer-by-layer"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#facets",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#facets",
+    "title": "Grammar of graphics",
+    "section": "Facets",
+    "text": "Facets\n\nSmaller plots that display different subsets of the data\nUseful for exploring conditional relationships and large data\n\n\n\nggplot(\n  penguins, \n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm)\n  ) + \n  geom_point() +\n  facet_grid(species ~ island)\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---what-and-why",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---what-and-why",
+    "title": "Grammar of graphics",
+    "section": "Faceting - what and why",
+    "text": "Faceting - what and why\n\nSmaller plots that each display different subsets of the data\nAlso referred to as small multiples\n\nUseful for exploring conditional relationships and large data"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how",
+    "title": "Grammar of graphics",
+    "section": "Faceting - how",
+    "text": "Faceting - how\n\n\nggplot(\n  penguins, \n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm)\n  ) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how-1",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how-1",
+    "title": "Grammar of graphics",
+    "section": "Faceting - how",
+    "text": "Faceting - how\n\n\nggplot(\n  penguins, \n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm)\n  ) + \n  geom_point() +\n  facet_grid(species ~ island)"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-two-variables",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-two-variables",
+    "title": "Grammar of graphics",
+    "section": "Faceting by two variables",
+    "text": "Faceting by two variables\n\n\nspecies on rows, island on columns:\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ island)\n\n\n\n\n\n\n\n\n\nisland on rows, species on columns:\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(island ~ species)"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-one-variable",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-one-variable",
+    "title": "Grammar of graphics",
+    "section": "Faceting by one variable",
+    "text": "Faceting by one variable\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species)\n\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species, ncol = 1)"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#themes",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#themes",
+    "title": "Grammar of graphics",
+    "section": "Themes",
+    "text": "Themes\nControl the non-data elements of the plot:\n\nSelect from pre-defined themes with theme_*() functions\nTake control of individual theme elements in the theme() function"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#aesthetics",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#aesthetics",
+    "title": "Grammar of graphics",
+    "section": "Aesthetics",
+    "text": "Aesthetics\nCharacteristics of plotting characters that can be mapped to a specific variable in the data, e.g.:\n\ncolor\nshape\nsize\n\nalpha (transparency)\n…"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geoms",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geoms",
+    "title": "Grammar of graphics",
+    "section": "Geoms",
+    "text": "Geoms\nVisual representations of data points:\n\nShort for geometric objects\n\ngeom_*() functions are used to add geoms to a plot\nEach geom adds a layer to the plot"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_point",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_point",
+    "title": "Grammar of graphics",
+    "section": "geom_point()",
+    "text": "geom_point()\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, y = bill_length_mm)\n  ) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_smooth",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_smooth",
+    "title": "Grammar of graphics",
+    "section": "geom_smooth()",
+    "text": "geom_smooth()\n\nggplot(\n  penguins,\n  aes(x = bill_depth_mm, y = bill_length_mm)\n  ) + \n  geom_point() +\n  geom_smooth()\n\n\n\n\n\n\n\n\n\nand many more soon…"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_",
+    "title": "Grammar of graphics",
+    "section": "geom_*()",
+    "text": "geom_*()\n\nand many more soon…"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme_dark",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme_dark",
+    "title": "Grammar of graphics",
+    "section": "theme_dark()",
+    "text": "theme_dark()\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  theme_dark()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme",
+    "title": "Grammar of graphics",
+    "section": "theme()",
+    "text": "theme()\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) + \n  geom_point() +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\nand many more throughout the course…"
   }
 ]
