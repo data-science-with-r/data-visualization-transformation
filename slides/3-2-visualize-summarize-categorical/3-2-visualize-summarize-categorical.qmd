@@ -3,284 +3,232 @@ title: "Grammar of data transformation"
 format: 
   revealjs:
     auto-stretch: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r}
 #| include: false
 
 library(tidyverse)
-library(nycflights13)
+library(openintro)
 
 ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 ```
 
-# Data frames and `tibble`s
+# Terminology {.section-break}
 
-## NYC Flights
-
--   To demonstrate data wrangling we will use `flights`, a tibble in the **nycflights13** R package.
-
--   The data set includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.
-
-```{r}
-#| label: load-packages
-#| message: false
-
-library(tidyverse)
-library(nycflights13)
-```
-
-## `flights` -- dimensions
-
--   Number of rows:
-
-```{r}
-nrow(flights)
-```
-
-. . .
-
--   Number of columns:
-
-```{r}
-ncol(flights)
-```
-
-## `flights` -- first look with `glimpse()`
-
-```{r}
-#| label: glimpse-data
-
-glimpse(flights)
-```
-
-## `flights` -- first look with `names()`
-
-```{r}
-#| label: column-names
-
-names(flights)
-```
-
-## `flights` -- first look with `head()`
-
-```{r}
-#| label: explore-data
-
-head(flights)
-```
-
-## `tibble` vs. data frame
+## Number of variables involved
 
 ::: incremental
--   **tibble**: an opinionated version of the `R` data frame
--   All tibbles are data frames, but not all data frames are tibbles!
--   Two main differences between a tibble and a data frame:
-    -   Printing
-    -   Stricter subsetting
+-   Univariate data analysis - distribution of single variable
+-   Bivariate data analysis - relationship between two variables
+-   Multivariate data analysis - relationship between many variables at once, usually focusing on the relationship between two while conditioning for others
 :::
 
-## Printing - `tibble`s
+## Types of variables
 
-Display first 10 rows and all of the columns that fit on the screen will display, along with the type of each column.
+::: incremental
+-   **Numerical variables** can be classified as **continuous** or **discrete** based on whether or not the variable can take on an infinite number of values or only non-negative whole numbers, respectively.
+-   If the variable is **categorical**, we can determine if it is **ordinal** based on whether or not the levels have a natural ordering.
+:::
 
-```{r}
-#| label: tibble-print
+# Data
 
-flights
-```
-
-## Printing - `data.frame`s
-
-(Attempt to) display all of the data, or die (crash) tryin (if the dataset is too large)!
-
-```{r}
-#| label: data-frame-print
-
-cars
-```
-
-## Stricter subsetting -- `tibble`s
-
-Warning + `NULL` if variable not found.
-
-```{r}
-#| label: tibble-subset
-
-flights$apple
-```
-
-## Stricter subsetting -- `data.frame`s
-
-Only `NULL` if variable not found.
-
-```{r}
-#| label: data-frame-subset
-
-cars$apple
-```
-
-# Data wrangling with `dplyr`
-
-## dplyr
-
-## dplyr $\in$ tidyverse
+## Data: Lending Club
 
 ::: columns
 ::: {.column width="40%"}
--   **dplyr** is tidyverse's primary package for data wrangling
--   Package website: [dplyr.tidyverse.org](https://dplyr.tidyverse.org)
+-   Thousands of loans made through the Lending Club, which is a platform that allows individuals to lend to other individuals
 :::
 
 ::: {.column width="30%"}
-![](images/dplyr-part-of-tidyverse.png){fig-align="left" width="400"}
+![](images/lending-club.png)
 :::
 :::
-
-## Row operations
-
--   `slice()`: chooses rows based on location
--   `filter()`:chooses rows based on column values
--   `arrange()`: changes the order of the rows
--   `sample_n()`: take a random subset of the rows
-
-## `slice()`
-
-Display the first five rows of `flights`:
-
-```{r}
-#| label: slice
-#| code-line-numbers: "|1|2"
-
-flights |>      # <1>   
-  slice(1:5)    # <2>
-```
-
-1.  Take the `flights` data frame, **and then**,
-2.  Slice its first five rows
-
-## `filter()`
-
-Filter for flights to RDU in `flights`:
-
-```{r}
-#| label: filter
-#| code-line-numbers: "|1|2"
-
-flights |>                 # <1>   
-  filter(dest == "RDU")    # <2>
-```
-
-1.  Take the `flights` data frame, **and then**,
-2.  Filter for rows where `dest` *is equal to* `RDU`
-
-## The pipe
 
 ::: incremental
--   The **pipe**, `|>`, is an operator (a tool) for passing information from one process to another.
+-   Not all loans are created equal -- ease of getting a loan depends on (apparent) ability to pay back the loan
 
--   Use `|>` mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.
-
--   When reading code "in English", say "and then" whenever you see a pipe.
+-   Data includes loans *made*, these are not loan applications
 :::
 
-## Delayed flights to RDU
+## Take a peek at data
+
+```{r output.lines=18}
+library(openintro)
+glimpse(loans_full_schema)
+```
+
+## Selected variables
+
+```{r}
+loans <- loans_full_schema |>
+  select(
+    loan_amount, interest_rate, term, grade, 
+    state, annual_income, homeownership, debt_to_income
+  )
+glimpse(loans)
+```
+
+## Selected variables {.midi}
+
+| variable         | description                                                                                                            |
+|---------------------|-------------------------------------------|
+| `loan_amount`    | Amount of the loan received, in US dollars                                                                             |
+| `interest_rate`  | Interest rate on the loan, in an annual percentage                                                                     |
+| `term`           | The length of the loan, which is always set as a whole number of months                                                |
+| `grade`          | Loan grade, which takes a values A through G and represents the quality of the loan and its likelihood of being repaid |
+| `state`          | US state where the borrower resides                                                                                    |
+| `annual_income`  | Borrower’s annual income, including any second income, in US dollars                                                   |
+| `homeownership`  | Indicates whether the person owns, owns but has a mortgage, or rents                                                   |
+| `debt_to_income` | Debt-to-income ratio                                                                                                   |
+
+## Variable types
+
+| variable         | type                     |
+|------------------|--------------------------|
+| `loan_amount`    | numerical, continuous    |
+| `interest_rate`  | numerical, continuous    |
+| `term`           | numerical, discrete      |
+| `grade`          | categorical, ordinal     |
+| `state`          | categorical, not ordinal |
+| `annual_income`  | numerical, continuous    |
+| `homeownership`  | categorical, not ordinal |
+| `debt_to_income` | numerical, continuous    |
+
+class: middle
+
+# Visualizing categorical data
+
+## Bar plot
+
+```{r}
+ggplot(loans, aes(x = homeownership)) +
+  geom_bar()
+```
+
+## Segmented bar plot
+
+```{r}
+ggplot(loans, aes(x = homeownership, fill = grade)) +
+  geom_bar()
+```
+
+## Segmented bar plot
+
+```{r}
+#| output-location: fragment
+#| error: true
+ggplot(loans, aes(x = homeownership, fill = term)) +
+  geom_bar()
+```
+
+## Numerical to categorical {.nostretch}
+
+```{r}
+#| code-line-numbers: "|2|3|4"
+#| fig-width: 7
+loans |>
+  mutate(term = as.factor(term)) |>
+  ggplot(aes(x = homeownership, fill = term)) +
+  geom_bar()
+```
+
+## Segmented bar plot - proportions {.nostretch}
+
+```{r}
+#| code-line-numbers: "|4"
+#| fig-width: 7
+loans |>
+  mutate(term = as.factor(term)) |>
+  ggplot(aes(x = homeownership, fill = term)) +
+  geom_bar(position = "fill")
+```
+
+## Frequencies vs. proportions
 
 ::: task
-Which airline is the most delayed, on average, arriving in RDU from a New York City airport?
+Which bar plot is a more useful representation for visualizing the relationship between homeownership and term?
 :::
 
-. . .
+:::: {.columns}
 
-**Goal:**
-
+::: {.column width="35%"}
 ```{r}
 #| echo: false
-#| ref.label: pipe-5
+loans |>
+  mutate(term = as.factor(term)) |>
+  ggplot(aes(x = homeownership, fill = term)) +
+  geom_bar()
 ```
-
-## The pipe, in action
-
-```{r}
-#| label: pipe-1
-
-flights # <1>
-```
-
-1.  Take the flights data frame
-
-## The pipe, in action
-
-```{r}
-#| label: pipe-2
-
-flights |>               # <1>
-  filter(dest == "RDU")  # <2>
-```
-
-1.  Take the flights data frame,
-2.  **and then** filter for flights going to RDU
-
-## The pipe, in action
-
-```{r}
-#| label: pipe-3
-
-flights |>                  # <1>
-  filter(dest == "RDU") |>  # <2>
-  group_by(carrier)         # <3>
-```
-
-1.  Take the flights data frame,
-2.  **and then** filter for flights going to RDU,
-3.  **and then** group by carrier
-
-## The pipe, in action
-
-```{r}
-#| label: pipe-4
-
-flights |>                  # <1>
-  filter(dest == "RDU") |>  # <2>
-  group_by(carrier) |>      # <3>
-  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE)) # <4>
-```
-
-1.  Take the flights data frame,
-2.  **and then** filter for flights going to RDU,
-3.  **and then** group by carrier,
-4.  **and then** calculate the mean arrival delay for each carrier
-
-## The pipe, in action
-
-```{r}
-#| label: pipe-5
-
-flights |>                  # <1>
-  filter(dest == "RDU") |>  # <2>
-  group_by(carrier) |>      # <3>
-  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE)) |> # <4>
-  arrange(desc(mean_arr_delay)) # <5>
-```
-
-1.  Take the flights data frame,
-2.  **and then** filter for flights going to RDU,
-3.  **and then** group by carrier,
-4.  **and then** calculate the mean arrival delay for each carrier,
-5.  **and then** arrange in descending order of mean arrival delay.
-
-## Column operations
-
-::: incremental
--   `select()`: changes whether or not a column is included.
--   `rename()`: changes the name of columns.
--   `mutate()`: changes the values of columns and creates new columns.
 :::
 
-## Groups of rows
-
-::: incremental
--   `summarize()`: collapses a group into a single row.
--   `count()`: count unique values of one or more variables.
--   `group_by()`: perform calculations separately for each value of a variable
+::: {.column width="35%"}
+```{r}
+#| echo: false
+loans |>
+  mutate(term = as.factor(term)) |>
+  ggplot(aes(x = homeownership, fill = term)) +
+  geom_bar(position = "fill")
+```
 :::
+
+::::
+
+## Customizing bar plots {.smaller .nostretch}
+
+```{r}
+#| code-line-numbers: "|4|5-9|10"
+#| fig-width: 10
+#| fig-asp: 0.4
+
+loans |>
+  mutate(term = as.factor(term)) |>
+  ggplot(aes(y = homeownership, fill = term)) +
+  geom_bar(position = "fill") +
+  labs(
+    x = "Proportion", y = "Homeownership", fill = "Term",
+    title = "Terms of Lending Club loans",
+    subtitle = "and homeownership of borrowers"
+  ) +
+  scale_fill_manual(values = c("lightblue", "darkgreen"))
+```
+
+# Summarizing categorical data
+
+## Frequency table
+
+```{r}
+#| code-line-numbers: "|2"
+loans |>
+  count(homeownership)
+```
+
+## Relative frequency table
+
+```{r}
+#| code-line-numbers: "|3"
+loans |>
+  count(homeownership) |>
+  mutate(proportion = n / sum(n))
+```
+
+## Frequency table with multiple variables
+
+```{r}
+#| code-line-numbers: "|2"
+loans |>
+  count(homeownership, term)
+```
+
+## Relative frequency table with multiple variables
+
+```{r}
+#| code-line-numbers: "|3|4"
+loans |>
+  count(homeownership, term) |>
+  group_by(homeownership) |>
+  mutate(proportion = n / sum(n))
+```
+

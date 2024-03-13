@@ -67,6 +67,10 @@ $presentation-title-slide-text-align: left;
   font-size: 0.70em;
 }
 
+.midi {
+  font-size: 0.8em;
+}
+
 .large {
   font-size: 1.5em;
 }
@@ -148,6 +152,11 @@ b, strong {
 
 .reveal ul {
   width: 75%;
+}
+
+.reveal table {
+  width: 75%;
+  margin: 0px;
 }
 
 .reveal .slide aside {
