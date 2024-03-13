@@ -1,0 +1,7 @@
+subtitle: "{{< fa book-open >}} Data visualization and transformation<br>{{< fa book >}} Data Science with R"
+format: 
+  html:
+    code-link: true
+    toc: true
+filters: 
+  - webr
