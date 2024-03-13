@@ -88,34 +88,34 @@ gg_diagram <- gg |>
 
 # Grammar of graphics {.section-break}
 
-## Review: Grammar of Graphics
-
--   The grammar of graphics is a tool that enables us to concisely describe the components of a graphic
-
-. . .
-
--   The **ggplot2** package, which is part of **tidyverse**, implements the grammar of graphics in R
-
-. . .
+## Grammar of Graphics
 
 ::: columns
-::: {.column width="30%"}
--   With ggplot2, you can create a wide variety of plots with a few lines of code, layer-by-layer
+::: {.column width="40%"}
+-   The grammar of graphics is a tool that enables us to concisely describe the components of a graphic
+-   The **ggplot2** package, which is part of **tidyverse**, implements the grammar of graphics in R
 :::
 
-::: {.column width="40%"}
+::: {.column width="30%"}
+![](images/grammar-of-graphics.png){fig-align="left" width="300"}
+:::
+:::
+
+## Layers
+
+With ggplot2, you can create a wide variety of plots layer-by-layer:
+
 ```{r}
 #| label: gg
 #| echo: false
 #| fig-width: 7
 #| fig-asp: 0.8
+#| fig-align: center
 
 gg_diagram +
   scale_fill_manual(values = gg_colors$fill) +
   scale_color_manual(values = gg_colors$color)
 ```
-:::
-:::
 
 # Layer 1: Data {.section-break}
 
@@ -531,7 +531,7 @@ gg_diagram +
 ```
 :::
 
-::: {.column width="20%" .fragment}
+::: {.column .fragment width="20%"}
 ::: hand-white
 more on these later...
 :::
@@ -558,9 +558,10 @@ Control the non-data elements of the plot:
 -   Select from pre-defined themes with `theme_*()` functions
 -   Take control of individual theme elements in the `theme()` function
 
-## `theme_dark()` {.nostretch}
+## `theme_dark()`  {.nostretch}
 
 ```{r}
+#| fig-show: hide
 #| warning: false
 #| code-line-numbers: "3"
 ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
@@ -568,11 +569,21 @@ ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) +
   theme_dark()
 ```
 
-## `theme()`  {.nostretch}
+```{r}
+#| echo: false
+#| warning: false
+#| fig-width: 8
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + 
+  geom_point() +
+  theme_dark(base_size = 16)
+```
+
+## `theme()` {.nostretch}
 
 ```{r}
 #| warning: false
 #| code-line-numbers: "3"
+#| fig-width: 8
 ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) + 
   geom_point() +
   theme(legend.position = "bottom")

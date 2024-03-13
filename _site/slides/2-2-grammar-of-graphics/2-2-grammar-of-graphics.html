@@ -405,34 +405,24 @@
 
 </section><section><section id="grammar-of-graphics" class="title-slide slide level1 section-break center"><h1>Grammar of graphics</h1>
 
-</section><section id="review-grammar-of-graphics" class="slide level2"><h2>Review: Grammar of Graphics</h2>
+</section><section id="grammar-of-graphics-1" class="slide level2"><h2>Grammar of Graphics</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
 <ul>
 <li>The grammar of graphics is a tool that enables us to concisely describe the components of a graphic</li>
-</ul>
-<div class="fragment">
-<ul>
 <li>The <strong>ggplot2</strong> package, which is part of <strong>tidyverse</strong>, implements the grammar of graphics in R</li>
 </ul>
-</div>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:30%;">
-<ul>
-<li>With ggplot2, you can create a wide variety of plots with a few lines of code, layer-by-layer</li>
-</ul>
-</div><div class="column" style="width:40%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-1.png" width="672"></p>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-left">
+<figure><p><img data-src="images/grammar-of-graphics.png" class="quarto-figure quarto-figure-left" width="300"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</section></section><section><section id="layer-1-data" class="title-slide slide level1 section-break center"><h1>Layer 1: Data</h1>
+</section><section id="layers" class="slide level2"><h2>Layers</h2>
+<p>With ggplot2, you can create a wide variety of plots layer-by-layer:</p>
+
+<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section></section><section><section id="layer-1-data" class="title-slide slide level1 section-break center"><h1>Layer 1: Data</h1>
 
 <img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-data-1.png" width="768" class="r-stretch"></section><section id="data" class="slide level2"><h2>Data</h2>
 <p>Foundation of the plot that gives you the canvas on which you can “paint” your data:</p>
@@ -828,9 +818,11 @@
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
 <span id="cb17-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb17-3"><a></a>  <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-29-1.png" width="576"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-30-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -842,7 +834,7 @@
 <span id="cb18-3"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-30-1.png" width="576"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-31-1.png" width="768"></p>
 </figure>
 </div>
 </div>

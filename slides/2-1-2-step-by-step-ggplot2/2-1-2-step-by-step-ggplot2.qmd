@@ -18,25 +18,15 @@ library(palmerpenguins)
 ## ggplot2 $\in$ tidyverse
 
 ::: columns
+::: {.column width="40%"}
+-   **ggplot2** is tidyverse's data visualization package
+-   *gg* in ggplot2 stands for Grammar of Graphics, inspired by the book **Grammar of Graphics** by Leland Wilkinson
+-   Package website: [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org)
+:::
 ::: {.column width="30%"}
 ![](images/ggplot2-part-of-tidyverse.png){fig-align="left" width="400"}
 :::
 
-::: {.column width="40%"}
--   **ggplot2** is tidyverse's data visualization package
--   `gg` in "ggplot2" stands for Grammar of Graphics
--   Inspired by the book **Grammar of Graphics** by Leland Wilkinson
-:::
-:::
-
-## Grammar of Graphics
-
-A grammar of graphics is a tool that enables us to concisely describe the components of a graphic.
-
-![](images/grammar-of-graphics.png){fig-align="left" width="999"}
-
-::: aside
-[BloggoType](http://bloggotype.blogspot.com/2016/08/holiday-notes2-grammar-of-graphics.html)
 :::
 
 ## Mass vs. height
