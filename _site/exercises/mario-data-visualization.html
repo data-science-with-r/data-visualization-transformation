@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.23">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="">
-
 <title>Data visualization and transformation – Mario games + data visualization</title>
 <style>
 code{white-space: pre-wrap;}
@@ -57,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -74,7 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -100,10 +96,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs/editor/editor.main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs/editor/editor.main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <style type="text/css">.monaco-editor pre {
   background-color: unset !important;
 }
@@ -401,8 +395,7 @@ globalThis.qwebrEscapeHTMLCharacters = function(unsafe) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
-};</script>
-<script type="module">// Supported Evaluation Types for Context
+};</script><script type="module">// Supported Evaluation Types for Context
 globalThis.EvalTypes = Object.freeze({
     Interactive: 'interactive',
     Setup: 'setup',
@@ -612,8 +605,7 @@ globalThis.qwebrExecuteCode = async function (
         elements.runButton.innerHTML = '<i class="fa-solid fa-play qwebr-icon-run-code"></i> <span>Run Code</span>';
     }
 }
-</script>
-<script type="module">// Function that dispatches the creation request
+</script><script type="module">// Function that dispatches the creation request
 globalThis.qwebrCreateHTMLElement = function (insertElement,
   qwebrCounter, 
   evalType = EvalTypes.Interactive,
@@ -728,16 +720,11 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
 
   return mainDiv;
 }</script>
-
-
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Data visualization and transformation</span>
@@ -749,31 +736,29 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a>
+<li>
+<a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a>
   <ul class="collapse">
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+<li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#get-to-know-the-data" id="toc-get-to-know-the-data" class="nav-link" data-scroll-target="#get-to-know-the-data">Get to know the data</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#variables-of-interest-update" id="toc-variables-of-interest-update" class="nav-link" data-scroll-target="#variables-of-interest-update">Variables of Interest (update)</a></li>
   <li><a href="#visualizing-categorical-data-with-ggplot2" id="toc-visualizing-categorical-data-with-ggplot2" class="nav-link" data-scroll-target="#visualizing-categorical-data-with-ggplot2">Visualizing categorical data with <code>ggplot2</code></a></li>
   <li><a href="#count-vs-proportion" id="toc-count-vs-proportion" class="nav-link" data-scroll-target="#count-vs-proportion">Count vs Proportion</a></li>
@@ -781,13 +766,10 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
   <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots">Boxplots</a></li>
   <li><a href="#violin-plot" id="toc-violin-plot" class="nav-link" data-scroll-target="#violin-plot">Violin plot</a></li>
   <li><a href="#ridge-plots" id="toc-ridge-plots" class="nav-link" data-scroll-target="#ridge-plots">Ridge plots</a></li>
-  </ul>
-</nav>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs/loader.js"></script>
-<script type="module" id="qwebr-monaco-editor-init">
+<main class="content" id="quarto-document-content"><script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs/loader.js"></script><script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
@@ -795,8 +777,7 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
       'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.43.0/min/vs'
     }
   });
-</script>
-<script type="module">// Global dictionary to store Monaco Editor instances
+</script><script type="module">// Global dictionary to store Monaco Editor instances
 const qwebrEditorInstances = {};
 
 // Function that builds and registers a Monaco Editor instance    
@@ -927,12 +908,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
     qwebrExecuteCode(editor.getValue(), editor.__qwebrCounter, EvalTypes.Interactive);
   };
 
-}</script>
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+}</script><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Mario games + data visualization</h1>
-<p class="subtitle lead">Module 3 - Lesson 3.3 - Course 1</p>
+<p class="subtitle lead"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation<br><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
 </div>
 
 
@@ -946,10 +924,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
   
 
 
-</header>
-
-
-<div class="callout callout-style-default callout-important callout-titled">
+</header><div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -962,8 +937,7 @@ Programming Activity Guide
 <p>Please reference the <code>webR-intro</code> activity for information on the different types of code chunks, questions, and how to save your work to reference later.</p>
 </div>
 </div>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<section id="getting-started" class="level2"><h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
 <p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.</p>
 <div id="qwebr-insertion-location-1"></div>
 <script type="module">
@@ -988,8 +962,7 @@ download.file(
   "Mariokart.csv"
 )
 `)
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 
 <div id="qwebr-insertion-location-2"></div>
 <script type="module">
@@ -1008,8 +981,7 @@ currentDocumentLocation.appendChild(initializedElement);
 qwebrCreateMonacoEditorInstance(
   `mario <- read.csv("Mariokart.csv")`, 
   2);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>In this mini analysis we work with the data from the <em>openintro</em> package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:</p>
 <table class="table">
 <colgroup>
@@ -1035,7 +1007,8 @@ qwebrCreateMonacoEditorInstance(
 </tr>
 <tr class="odd">
 <td>cond</td>
-<td>Game condition, either <code>new</code> or <code>used</code></td>
+<td>Game condition, either <code>new</code> or <code>used</code>
+</td>
 </tr>
 <tr class="even">
 <td>start_pr</td>
@@ -1059,7 +1032,8 @@ qwebrCreateMonacoEditorInstance(
 </tr>
 <tr class="odd">
 <td>stock_photo</td>
-<td>Whether the auction feature photo was a stock photo or not, either <code>yes</code> or <code>no</code></td>
+<td>Whether the auction feature photo was a stock photo or not, either <code>yes</code> or <code>no</code>
+</td>
 </tr>
 <tr class="even">
 <td>wheels</td>
@@ -1071,22 +1045,21 @@ qwebrCreateMonacoEditorInstance(
 </tr>
 </tbody>
 </table>
-<section id="packages" class="level3">
-<h3 class="anchored" data-anchor-id="packages">Packages</h3>
+<section id="packages" class="level3"><h3 class="anchored" data-anchor-id="packages">Packages</h3>
 <p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. <strong>ggridges</strong> allows us to make ridge plots, and <strong>gridExtra</strong> allows to arrange plots next to eachother. These are ready to use for you in this activity!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggridges/">ggridges</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gridExtra</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="get-to-know-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="get-to-know-the-data">Get to know the data</h3>
+</section><section id="get-to-know-the-data" class="level3"><h3 class="anchored" data-anchor-id="get-to-know-the-data">Get to know the data</h3>
 <p><strong>Your Turn</strong>: We can use the <code>glimpse</code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
 <p>With your output, confirm that:</p>
-<p>– There are 143 rows</p>
-<p>– There are 12 variables (columns) in the dataset</p>
+<ul>
+<li><p>There are 143 rows</p></li>
+<li><p>There are 12 variables (columns) in the dataset</p></li>
+</ul>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1117,8 +1090,7 @@ currentDocumentLocation.appendChild(initializedElement);
 qwebrCreateMonacoEditorInstance(
   `# add code here`, 
   3);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1132,7 +1104,7 @@ Solution
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mario)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">mario</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 143
 Columns: 12
@@ -1153,20 +1125,19 @@ $ title       &lt;chr&gt; "~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BR
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="variables-of-interest-update" class="level2">
-<h2 class="anchored" data-anchor-id="variables-of-interest-update">Variables of Interest (update)</h2>
+</section></section><section id="variables-of-interest-update" class="level2"><h2 class="anchored" data-anchor-id="variables-of-interest-update">Variables of Interest (update)</h2>
 <p>The variables we’ll focus on are the following:</p>
 <ul>
-<li><code>n_bids</code>: number of bids throughout the auction</li>
-<li><code>total_pr</code>: total price of game sold plus shipping in usd</li>
-<li><code>seller_rate</code>: The seller’s rating on Ebay</li>
-<li><code>cond</code>: Binary variable representing the condition of the video game</li>
-</ul>
-</section>
-<section id="visualizing-categorical-data-with-ggplot2" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-categorical-data-with-ggplot2">Visualizing categorical data with <code>ggplot2</code></h2>
+<li>
+<code>n_bids</code>: number of bids throughout the auction</li>
+<li>
+<code>total_pr</code>: total price of game sold plus shipping in usd</li>
+<li>
+<code>seller_rate</code>: The seller’s rating on Ebay</li>
+<li>
+<code>cond</code>: Binary variable representing the condition of the video game</li>
+</ul></section><section id="visualizing-categorical-data-with-ggplot2" class="level2"><h2 class="anchored" data-anchor-id="visualizing-categorical-data-with-ggplot2">Visualizing categorical data with <code>ggplot2</code>
+</h2>
 <p><strong>Your Turn</strong>: First, let’s explore the variable <code>cond</code>. Specifically, let’s investigate how many <code>new</code> games were sold versus how many <code>used</code> games were sold by creating a barplot. Add the following correct <code>geom</code> to make a barplot of <code>cond</code>.</p>
 <div id="qwebr-insertion-location-4"></div>
 <script type="module">
@@ -1188,8 +1159,7 @@ qwebrCreateMonacoEditorInstance(
     aes(x = cond)) + 
   #add geom here`, 
   4);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1203,14 +1173,13 @@ Solution
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond)) <span class="sc">+</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mario</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cond</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1239,8 +1208,7 @@ qwebrCreateMonacoEditorInstance(
     aes(x = cond , fill = ...)) + 
    geom_bar()`, 
   5);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1254,14 +1222,13 @@ Expected Result
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">fill =</span> ship_sp)) <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mario</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cond</span> , fill <span class="op">=</span> <span class="va">ship_sp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/plot-fill-solution-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="mario-data-visualization_files/figure-html/plot-fill-solution-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1271,21 +1238,19 @@ Expected Result
 </div>
 <p><strong>Demo</strong>: The code above uses <code>fill</code> to color the segments of the boxplot by another categorical variable. Below, we change <code>fill</code> to <code>color</code>. What happens? Why?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">color =</span> ship_sp)) <span class="sc">+</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mario</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cond</span> , color <span class="op">=</span> <span class="va">ship_sp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p><label>Answer:</label> <br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
+<textarea rows="4" cols="50"></textarea><p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1302,9 +1267,7 @@ Solution
 </div>
 </div>
 </div>
-</section>
-<section id="count-vs-proportion" class="level2">
-<h2 class="anchored" data-anchor-id="count-vs-proportion">Count vs Proportion</h2>
+</section><section id="count-vs-proportion" class="level2"><h2 class="anchored" data-anchor-id="count-vs-proportion">Count vs Proportion</h2>
 <p><strong>Your Turn</strong>: Up to this point, our bar plot has counted up the number of observations for each condition of game, and has been segmented by the count of shipping method. Perhaps it is easier to compare shipping method across condition of game if we looked at the proportion of shipping method within each game. This can be achieved using <code>position = "fill"</code> in the <code>geom</code> statement. Alter the code below so that it includes <code>position = fill</code>, and comment on the relationship between condition and shipping method.</p>
 <div id="qwebr-insertion-location-6"></div>
 <script type="module">
@@ -1326,11 +1289,9 @@ qwebrCreateMonacoEditorInstance(
     aes(x = cond , fill = ...)) + 
    geom_bar()`, 
   6);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><label>Answer:</label> <br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
+<textarea rows="4" cols="50"></textarea><p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1344,14 +1305,13 @@ Solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">fill =</span> ship_sp)) <span class="sc">+</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mario</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cond</span> , fill <span class="op">=</span> <span class="va">ship_sp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1360,13 +1320,9 @@ Solution
 </div>
 </div>
 </div>
-</section>
-<section id="relationships-between-numerical-and-categorical-variables" class="level1">
-<h1>Relationships between numerical and categorical variables</h1>
+</section><section id="relationships-between-numerical-and-categorical-variables" class="level1"><h1>Relationships between numerical and categorical variables</h1>
 <p>Up to this point, we have been visualizing the relationship between categorical variables. What if we wanted to look at the relationships between different types of variables?</p>
-</section>
-<section id="boxplots" class="level1">
-<h1>Boxplots</h1>
+</section><section id="boxplots" class="level1"><h1>Boxplots</h1>
 <p>One way we can investigate the relationship between different types of variables is to create a boxplot. Below, we are going to create a boxplot using <code>geom_boxplot</code> between the variables <code>cond</code> and <code>total_pr</code>. What information can we gather from the boxplots?</p>
 <div id="qwebr-insertion-location-7"></div>
 <script type="module">
@@ -1388,11 +1344,9 @@ qwebrCreateMonacoEditorInstance(
     aes(x = cond , y = total_pr)) + 
    # insert geom here`, 
   7);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p><label>Answer:</label> <br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
+<textarea rows="4" cols="50"></textarea><p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1406,14 +1360,13 @@ Solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">y =</span> total_pr)) <span class="sc">+</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mario</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cond</span> , y <span class="op">=</span> <span class="va">total_pr</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1422,26 +1375,22 @@ Solution
 </div>
 </div>
 </div>
-</section>
-<section id="violin-plot" class="level1">
-<h1>Violin plot</h1>
+</section><section id="violin-plot" class="level1"><h1>Violin plot</h1>
 <p><strong>Demo</strong>: A violin plot is a lot like a box plot, but also shows us information about the density of the quantitative variable. Below, we have a violin plot that again shows the relationship between the condition of the Mario game, and the total price of the game (cost + shipping). Describe the relationship below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">y =</span> total_pr)) <span class="sc">+</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mario</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">cond</span> , y <span class="op">=</span> <span class="va">total_pr</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p><label>Answer:</label> <br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
+<textarea rows="4" cols="50"></textarea><p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1458,9 +1407,7 @@ Solution
 </div>
 </div>
 </div>
-</section>
-<section id="ridge-plots" class="level1">
-<h1>Ridge plots</h1>
+</section><section id="ridge-plots" class="level1"><h1>Ridge plots</h1>
 <p><strong>Your Turn</strong>: Ridge plots, similar to violin plots, shows the distribution of a numeric variable across the levels of a categorical variable. In order to make this plot, we will use <code>geom_density_ridges</code>. Please add this geom to the following code below to make the ridge plots. Within this geom, set alpha equal to 0.5.</p>
 <div id="qwebr-insertion-location-8"></div>
 <script type="module">
@@ -1482,8 +1429,7 @@ qwebrCreateMonacoEditorInstance(
     aes(x = total_pr , y = cond, fill = cond, color = cond)) + 
    # insert geom here`, 
   8);
-</script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1497,17 +1443,16 @@ Solution
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> total_pr , <span class="at">y =</span> cond, <span class="at">fill =</span> cond, <span class="at">color =</span> cond)) <span class="sc">+</span> </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mario</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">total_pr</span> , y <span class="op">=</span> <span class="va">cond</span>, fill <span class="op">=</span> <span class="va">cond</span>, color <span class="op">=</span> <span class="va">cond</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>   <span class="fu"><a href="https://wilkelab.org/ggridges/reference/geom_density_ridges.html">geom_density_ridges</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Picking joint bandwidth of 2.68</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="mario-data-visualization_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1518,10 +1463,7 @@ Solution
 <p><strong>FOR MINE</strong>: I think I should add a big exploratory question to end these activities. what do you think?</p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1931,7 +1873,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 
