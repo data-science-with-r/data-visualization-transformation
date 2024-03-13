@@ -115,7 +115,7 @@ R is a functional language. Functions act as the name of algorithmic details tha
 ex.
 
 ```{r}
-round(3.22)
+round(3.225)
 ```
 
 
