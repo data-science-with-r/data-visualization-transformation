@@ -1,0 +1,211 @@
+---
+title: "Visualizing and summarizing numerical data"
+format: 
+  revealjs:
+    auto-stretch: true
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+library(openintro)
+
+ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
+```
+
+# Data
+
+## Data: Lending Club
+
+```{r}
+loans <- loans_full_schema |>
+  select(
+    loan_amount, interest_rate, term, grade, 
+    state, annual_income, homeownership, debt_to_income
+  )
+glimpse(loans)
+```
+
+# Histogram {.section-break}
+
+## Histogram {.nostretch}
+
+```{r}
+ggplot(loans, aes(x = loan_amount)) +
+  geom_histogram()
+```
+
+## Histograms and binwidth {.nostretch}
+
+```{r}
+ggplot(loans, aes(x = loan_amount)) +
+  geom_histogram(binwidth = 1000)
+```
+
+## Histograms and binwidth {.nostretch}
+
+```{r}
+ggplot(loans, aes(x = loan_amount)) +
+  geom_histogram(binwidth = 5000)
+```
+
+## Histograms and binwidth {.nostretch}
+
+```{r}
+ggplot(loans, aes(x = loan_amount)) +
+  geom_histogram(binwidth = 20000)
+```
+
+## Customizing histograms
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "|2|3-7"
+ggplot(loans, aes(x = loan_amount)) +
+  geom_histogram(binwidth = 5000) +
+  labs(
+    x = "Loan amount ($)",
+    y = "Frequency",
+    title = "Amounts of Lending Club loans"
+  )
+```
+
+## Fill with a categorical variable
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "|5,10"
+#| fig-asp: 0.8
+ggplot(
+  loans, 
+  aes(
+    x = loan_amount, 
+    fill = homeownership
+    )
+  ) +
+  geom_histogram(
+    binwidth = 5000,
+    alpha = 0.5
+  ) +
+  labs(
+    x = "Loan amount ($)", y = "Frequency",
+    title = "Amounts of Lending Club loans",
+    fill = "Homeownership"
+  ) +
+  theme(legend.position = "bottom")
+```
+
+## Facet with a categorical variable
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "|14"
+#| fig-asp: 1
+ggplot(
+  loans, 
+  aes(
+    x = loan_amount, 
+    fill = homeownership
+    )
+  ) +
+  geom_histogram(binwidth = 5000) +
+  labs(
+    x = "Loan amount ($)", y = "Frequency",
+    title = "Amounts of Lending Club loans",
+    fill = "Homeownership"
+  ) +
+  facet_wrap(~ homeownership, nrow = 3) +
+  theme(legend.position = "bottom")
+```
+
+# Density plot
+
+## Density plot {.nostretch}
+
+```{r}
+ggplot(loans, aes(x = loan_amount)) +
+  geom_density()
+```
+
+## Customizing density plots {.nostretch}
+
+```{r}
+#| code-line-numbers: "|3-7"
+ggplot(loans, aes(x = loan_amount)) +
+  geom_density() +
+  labs(
+    x = "Loan amount ($)", y = "Density",
+    title = "Amounts of Lending Club loans"
+  )
+```
+
+## Adding a categorical variable
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "|5,8"
+ggplot(
+  loans,
+  aes(
+    x = loan_amount, 
+    fill = homeownership
+    )
+  ) +
+  geom_density(alpha = 0.5) +
+  labs(
+    x = "Loan amount ($)", y = "Density",
+    title = "Amounts of Lending Club loans", 
+    fill = "Homeownership"
+  )
+```
+
+# Box plot
+
+## Box plot {.nostretch}
+
+```{r}
+ggplot(loans, aes(x = interest_rate)) +
+  geom_boxplot()
+```
+
+## Box plot and outliers {.nostretch}
+
+```{r}
+ggplot(loans, aes(x = annual_income)) +
+  geom_boxplot()
+```
+
+## Customizing box plots
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "|7-10"
+ggplot(loans, aes(x = interest_rate)) +
+  geom_boxplot() +
+  labs(
+    x = "Interest rate (%)", y = NULL,
+    title = "Interest rates of Lending Club loans"
+  ) +
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.text.y = element_blank()
+  )
+```
+
+## Adding a categorical variable
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "|3"
+ggplot(
+  loans, 
+  aes(x = interest_rate, y = grade)) +
+  geom_boxplot() +
+  labs(
+    x = "Interest rate (%)",
+    y = "Grade",
+    title = "Interest rates of Lending Club loans",
+    subtitle = "by grade of loan"
+  )
+```

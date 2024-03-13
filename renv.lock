@@ -675,25 +675,6 @@
       ],
       "Hash": "66488692cb8621bc78df1b9b819497a6"
     },
-    "ggthemes": {
-      "Package": "ggthemes",
-      "Version": "5.1.0",
-      "Source": "Repository",
-      "Repository": "RSPM",
-      "Requirements": [
-        "R",
-        "ggplot2",
-        "graphics",
-        "grid",
-        "lifecycle",
-        "methods",
-        "purrr",
-        "scales",
-        "stringr",
-        "tibble"
-      ],
-      "Hash": "16a4974681fc751a09a1250431361896"
-    },
     "glue": {
       "Package": "glue",
       "Version": "1.7.0",

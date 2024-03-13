@@ -1,10 +1,8 @@
 ---
-title: "Grammar of data transformation"
+title: "Visualizing and summarizing categorical data"
 format: 
   revealjs:
     auto-stretch: true
-editor_options: 
-  chunk_output_type: console
 ---
 
 ```{r}
@@ -231,4 +229,3 @@ loans |>
   group_by(homeownership) |>
   mutate(proportion = n / sum(n))
 ```
-
