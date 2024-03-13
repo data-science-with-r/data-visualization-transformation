@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
 
-<title>Data visualization and transformation - Introduction to webR</title>
+<title>Data visualization and transformation - Meet the toolkit: Programming exercises</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,6 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -769,16 +770,16 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#programming-activity-guide" id="toc-programming-activity-guide" class="nav-link active" data-scroll-target="#programming-activity-guide">Programming Activity Guide</a>
+  <li><a href="#components" id="toc-components" class="nav-link active" data-scroll-target="#components">Components</a>
   <ul class="collapse">
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code chunks</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  </ul></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a>
   <ul class="collapse">
   <li><a href="#calculator" id="toc-calculator" class="nav-link" data-scroll-target="#calculator">Calculator</a></li>
-  <li><a href="#functions-and-arguments" id="toc-functions-and-arguments" class="nav-link" data-scroll-target="#functions-and-arguments">Functions and Arguments</a></li>
-  <li><a href="#application---mtcars" id="toc-application---mtcars" class="nav-link" data-scroll-target="#application---mtcars">Application - mtcars</a></li>
-  <li><a href="#on-your-own" id="toc-on-your-own" class="nav-link" data-scroll-target="#on-your-own">On your own</a></li>
-  </ul></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#exploring-mtcars" id="toc-exploring-mtcars" class="nav-link" data-scroll-target="#exploring-mtcars">Exploring <code>mtcars</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -930,8 +931,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to webR</h1>
-<p class="subtitle lead">Module 1 - Course 1 - Lesson 1.2</p>
+<h1 class="title">Meet the toolkit: Programming exercises</h1>
+<p class="subtitle lead"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation<br><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
 </div>
 
 
@@ -948,10 +949,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 </header>
 
 
-<section id="programming-activity-guide" class="level1">
-<h1>Programming Activity Guide</h1>
-<p><a href="https://docs.r-wasm.org/webr/latest/#:~:text=WebR%20is%20a%20version%20of,directly%20on%20the%20user's%20machine.">WebR</a> is a version of the statistical language R compiled for the browser. We have created WebR documents for each programming activity you will interact with for each module.</p>
-<p>Activities are meant to provide an interactive environment for students to implement what they have learned from the videos. This activity allows you to write and run R-Code within the html document. Code chunks that allow you to do this look like:</p>
+<p>Programming exercises are designed to provide an opportunity for you to put what you learn in the videos and readings. These exercises feature interactive code chunks using a tool called <a href="https://docs.r-wasm.org/webr/latest">WebR</a>, which allow you to write, edit, and run R code without leaving your browser.</p>
+<section id="components" class="level1">
+<h1>Components</h1>
+<section id="code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="code-chunks">Code chunks</h2>
+<p>Interactive code chunks look like the following:</p>
 <div id="qwebr-insertion-location-1"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -967,26 +970,26 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-# example interactive r-chunk`, 
+  `1 + 1`, 
   1);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Recall that anything after the <code>#</code> sign in a code chunk is treated as text, and not code.</p>
-<p>Sometimes, we provide code chunks that are not interactive and will have already run for you. These will look like this:</p>
+<p>Majority of the code chunks in these documents will be interactive, like the one shown above. However, some code chunks will be static and include code that you can’t edit and you are just meant to read and review the output of. These will look like the following:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example r-chunk</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
 </div>
-<p>There will be a variety of question types throughout an activity. Question types include the following:</p>
-<p>– <strong>Your Turn</strong>: These coding questions ask students to add to existing code to produce output. These questions are followed with an <code>Solution</code> box so students can get immediate feedback</p>
-<p>– <strong>Demo</strong>: These coding questions have complete code within the chunks, and ask students to either think critically about the about, or slightly modify the existing code to learn more about the function!</p>
-<p>Throughout the activity, you will see open text boxes. These text boxes will either be labeled <em>Answer</em> or <em>Notes</em>.</p>
-<pre><code>  - Answer: This prompts you to answer a short-answer question. These questions are followed by 
-  a `Solutions` tab to reveal the answer.
-  
-  - Notes: This provides a space to take notes to be referenced later. These are often gives 
-  after `Demo` questions. 
-  </code></pre>
+</div>
+<p>For example, we’ll use the <strong>tidyverse</strong> package in every programming exercise. Therefore, each exercise will start with a static code chunk that loads this package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<p>Many of the questions in the programming exercises require you to actively do something – edit existing code, write code from scratch, write a narrative, etc. Code goes in interactive code chunks that have a <em>Run Code</em> button, narrative goes in text boxes.</p>
+<p>However, some questions come with complete code that you don’t need to edit, but still need to run to view the output. These questions will also often invite you to make modifications to explore alternatives.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -998,29 +1001,25 @@ Saving Your Work
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Your work does not automatically save.</strong></p>
-<p>For most browsers, the most efficient way to save your work is by using the <code>Print</code> feature. This may be useful if you want to come back and reference your work after it’s completed.</p>
-<p>– Right click anywhere on this html page</p>
-<p>– Select <code>Print...</code></p>
-<p>– Under the <code>Destination</code> tab, click <code>Save as PDF</code></p>
-<p>– Select a file on your computer you wish to save your work.</p>
+<p>For most browsers, the most efficient way to save your work is by using the <em>Print</em> feature. This may be useful if you want to come back and reference your work after you’ve completed it.</p>
+<ul>
+<li>Right click anywhere on this html page.</li>
+<li>Select <em>Print…</em>.</li>
+<li>Under <em>Destination</em> drop-down menu, select <em>Save as PDF</em>.</li>
+<li>Click on <em>Save</em> and navigate to where you wish to save your work.</li>
+</ul>
 </div>
 </div>
-<section id="packages" class="level3">
-<h3 class="anchored" data-anchor-id="packages">Packages</h3>
-<p>We’ll use the <strong>tidyverse</strong> package in every programming activity. The tidyverse is an R package that has many different data science functions to help us better explore and visualize data. We need to “unpack” the package to use the functions inside. We do this with the following code.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You will see code for packages at the start of every programming activity.</p>
 </section>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<section id="calculator" class="level3">
-<h3 class="anchored" data-anchor-id="calculator">Calculator</h3>
-<p><strong>Your Turn</strong>: First, let’s get started by using R as a calculator. Below, perform the following calculations by typing the equation into the code chunk and clicking <span style="color:green;">Run Code</span></p>
-<p>– 2 + 2</p>
-<p>– 3 * 5</p>
-<p>– 10 / 2</p>
+</section>
+<section id="practice" class="level1">
+<h1>Practice</h1>
+<section id="calculator" class="level2">
+<h2 class="anchored" data-anchor-id="calculator">Calculator</h2>
+<p>First, let’s get started by using R as a calculator.</p>
+<p>In the interactive code chunk below, perform the following calculations by typing the code and then clicking <em>Run Code</em>.</p>
+<ul>
+<li><p>Run code: Run the code below as is.</p>
 <div id="qwebr-insertion-location-2"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1036,11 +1035,51 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-`, 
+  `2 + 2`, 
   2);
 </script>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><p>Modify code: Modify the code below to multiply 3 by 6 instead of 3 by 5.</p>
+<div id="qwebr-insertion-location-3"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-3");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    3
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `3 * 5`, 
+  3);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><p>Write code: Use the code chunk below to calculate 10 divided by 2 (<code>10 / 2</code>):</p>
+<div id="qwebr-insertion-location-4"></div>
+<script type="module">
+// Retrieve the insertion point
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-4");
+
+// Initalize an interactive element
+const initializedElement =   qwebrCreateInteractiveElement(
+    4
+  );
+
+// Add the interactive element into the document scope
+currentDocumentLocation.appendChild(initializedElement);
+
+// Initialize a Monaco Editor Instance
+qwebrCreateMonacoEditorInstance(
+  `# add code here`, 
+  4);
+</script>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+</ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1058,9 +1097,9 @@ Solution
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 15</code></pre>
+<pre><code>[1] 18</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1071,12 +1110,12 @@ Solution
 </div>
 </div>
 </section>
-<section id="functions-and-arguments" class="level3">
-<h3 class="anchored" data-anchor-id="functions-and-arguments">Functions and Arguments</h3>
-<p>R is a functional language. Functions act as the name of algorithmic details that are used to accomplish a specific task. For example, if I wanted to round the value 3.23, I could accomplish this with the function <code>round</code> in R. The number 3.23 is an <code>argument</code> to the function <code>round</code>. An argument is an input to a function. A <code>value</code> is produced as a result.</p>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<p>R is a functional language. Functions act as the name of algorithmic details that are used to accomplish a specific task. For example, if I wanted to round the value 3.23, I could accomplish this with the function <code>round()</code> in R. The number 3.23 is an <code>argument</code> to the function <code>round()</code>. An argument is an input to a function. A <code>value</code> is produced as a result.</p>
 <p>ex.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.225</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.22</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
@@ -1084,15 +1123,14 @@ Solution
 <p>Often times, functions can take on multiple arguments. Previously, we saw <code>round(3.225)</code> produce the value <code>3</code>. This is because round defaults to producing a value to the nearest whole number. However, we can override the default inputing a second argument. <strong>You are not expected to memorize all arguments of every function you learn during this course</strong>. If you have R locally installed, you can run a <code>?</code> in front of the function name in your console to pull up a help file that will define the arguments of a function for you. These help files can also be found on line. For example, here is the help file for round <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Round">here</a></p>
 <p>From the documentation, you can see the second argument of the function <code>round</code> is digits.</p>
 <p><strong>Your Turn</strong> Change the 0 to another number, and take note on how this changes the corresponding output when you click <span style="color:green;">Run Code</span>.</p>
-<div class="cell">
-<div id="qwebr-insertion-location-3"></div>
+<div id="qwebr-insertion-location-5"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-3");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-5");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    3
+    5
   );
 
 // Add the interactive element into the document scope
@@ -1100,12 +1138,10 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-round(3.22, digits = 0)`, 
-  3);
+  `round(3.22, digits = 0)`, 
+  5);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1148,19 +1184,18 @@ Tip
 </div>
 </div>
 </section>
-<section id="application---mtcars" class="level3">
-<h3 class="anchored" data-anchor-id="application---mtcars">Application - mtcars</h3>
-<p>For the remainder of this activity, we are going to practice using fucntions on the <code>mtcars</code> data set. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).</p>
+<section id="exploring-mtcars" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-mtcars">Exploring <code>mtcars</code></h2>
+<p>For the remainder of this activity, we are going to practice using functions on the <code>mtcars</code> data set. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).</p>
 <p><strong>Demo</strong> Run the following code to see the first six lines of data below</p>
-<div class="cell">
-<div id="qwebr-insertion-location-4"></div>
+<div id="qwebr-insertion-location-6"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-4");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-6");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    4
+    6
   );
 
 // Add the interactive element into the document scope
@@ -1170,10 +1205,9 @@ currentDocumentLocation.appendChild(initializedElement);
 qwebrCreateMonacoEditorInstance(
   `
 head(mtcars)`, 
-  4);
+  6);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
 <p>What is the name of the function used in the above code? What is the input?</p>
 <p><label>Answer:</label> <br></p>
 <textarea rows="4" cols="50"></textarea>
@@ -1195,17 +1229,16 @@ Solution
 </div>
 </div>
 </div>
-<p>We can also get a better sense of the data we are working with by using the <a href="https://www.rdocumentation.org/packages/dplyr/versions/1.0.10/topics/glimpse"><code>glimpe</code></a> function. This allows us to see how many rows and columns we have in our data set, the type of data we are working with, and the data inputs. For now, we just want to practice writing the function to initially explore these data.</p>
-<p><strong>Your Turn</strong> Use the <code>glimpse</code> function on the <code>mtcars</code> data set below.</p>
-<div class="cell">
-<div id="qwebr-insertion-location-5"></div>
+<p>We can also get a better sense of the data we are working with by using the <code>glimpse()</code> function. This allows us to see how many rows and columns we have in our data set, the type of data we are working with, and the data inputs. For now, we just want to practice writing the function to initially explore these data.</p>
+<p><strong>Your Turn</strong> Use the <code>glimpse()</code> function on the <code>mtcars</code> data set below.</p>
+<div id="qwebr-insertion-location-7"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-5");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-7");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    5
+    7
   );
 
 // Add the interactive element into the document scope
@@ -1214,10 +1247,9 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   ``, 
-  5);
+  7);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
 <p>How many rows are in the <code>mtcars</code> data set? How many columns?</p>
 <p><label>Answer:</label> <br></p>
 <textarea rows="4" cols="50"></textarea>
@@ -1257,23 +1289,21 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 </div>
 </div>
 </div>
-</section>
-<section id="on-your-own" class="level3">
-<h3 class="anchored" data-anchor-id="on-your-own">On your own</h3>
 <p><strong>Your Turn</strong>: There are many other functions we can use on data to explore it prior to making data visualizations. You are encouraged to explore the help files of the following:</p>
-<p>– <a href="https://www.rdocumentation.org/packages/rotations/versions/1.6.1/topics/tail">tail</a></p>
-<p>– <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/slice">slice</a></p>
+<ul>
+<li><p><code>tail()</code></p></li>
+<li><p><code>slice()</code></p></li>
+</ul>
 <p>After doing so, try to answer answer the following questions!</p>
-<p>Use <code>tail</code> to produce the last six lines of the <code>mtcars</code> data set.</p>
-<div class="cell">
-<div id="qwebr-insertion-location-6"></div>
+<p>Use <code>tail()</code> to produce the last six lines of the <code>mtcars</code> data set.</p>
+<div id="qwebr-insertion-location-8"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-6");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-8");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    6
+    8
   );
 
 // Add the interactive element into the document scope
@@ -1282,10 +1312,9 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   ``, 
-  6);
+  8);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1314,15 +1343,14 @@ Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2</code></pre>
 </div>
 </div>
 <p>Now, use <code>slice</code> to produce the first three lines of the <code>mtcars</code> data set.</p>
-<div class="cell">
-<div id="qwebr-insertion-location-7"></div>
+<div id="qwebr-insertion-location-9"></div>
 <script type="module">
 // Retrieve the insertion point
-const currentDocumentLocation = document.getElementById("qwebr-insertion-location-7");
+const currentDocumentLocation = document.getElementById("qwebr-insertion-location-9");
 
 // Initalize an interactive element
 const initializedElement =   qwebrCreateInteractiveElement(
-    7
+    9
   );
 
 // Add the interactive element into the document scope
@@ -1331,10 +1359,9 @@ currentDocumentLocation.appendChild(initializedElement);
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
   ``, 
-  7);
+  9);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1362,7 +1389,6 @@ Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</code></pre>
 <p>In the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R.</p>
 
 
-</section>
 </section>
 </section>
 
