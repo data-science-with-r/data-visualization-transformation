@@ -1,0 +1,252 @@
+---
+title: "Meet the toolkit: Programming exercises"
+order: 1
+webr:
+  packages: ['tidyverse']
+---
+
+Programming exercises are designed to provide an opportunity for you to put what you learn in the videos and readings.
+These exercises feature interactive code chunks using a tool called [WebR](https://docs.r-wasm.org/webr/latest), which allow you to write, edit, and run R code without leaving your browser.
+
+# Components
+
+## Code chunks
+
+Interactive code chunks look like the following:
+
+```{webr-r}
+1 + 1
+```
+
+Majority of the code chunks in these documents will be interactive, like the one shown above.
+However, some code chunks will be static and include code that you can't edit and you are just meant to read and review the output of.
+These will look like the following:
+
+```{r}
+1 + 1
+```
+
+For example, we'll use the **tidyverse** package in every programming exercise.
+Therefore, each exercise will start with a static code chunk that loads this package.
+
+```{r}
+#| label: load-packages
+#| message: false
+#| warning: false
+library(tidyverse)
+```
+
+## Questions
+
+Many of the questions in the programming exercises require you to actively do something -- edit existing code, write code from scratch, write a narrative, etc.
+Code goes in interactive code chunks that have a *Run Code* button, narrative goes in text boxes.
+
+However, some questions come with complete code that you don't need to edit, but still need to run to view the output.
+These questions will also often invite you to make modifications to explore alternatives.
+
+::: callout-tip
+## Saving Your Work
+
+**Your work does not automatically save.**
+
+For most browsers, the most efficient way to save your work is by using the *Print* feature.
+This may be useful if you want to come back and reference your work after you've completed it.
+
+-   Right click anywhere on this html page.
+-   Select *Print...*.
+-   Under *Destination* drop-down menu, select *Save as PDF*.
+-   Click on *Save* and navigate to where you wish to save your work.
+:::
+
+# Practice
+
+## Calculator
+
+First, let's get started by using R as a calculator.
+
+In the interactive code chunk below, perform the following calculations by typing the code and then clicking *Run Code*.
+
+-   Run code: Run the code below as is.
+
+    ```{webr-r}
+    2 + 2
+    ```
+
+-   Modify code: Modify the code below to multiply 3 by 6 instead of 3 by 5.
+
+    ```{webr-r}
+    3 * 5
+    ```
+
+-   Write code: Use the code chunk below to calculate 10 divided by 2 (`10 / 2`):
+
+    ```{webr-r}
+    # add code here
+    ```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+2 + 2 
+
+3 * 6
+
+10 / 2
+```
+:::
+
+## Functions
+
+R is a functional language.
+Functions act as the name of algorithmic details that are used to accomplish a specific task.
+For example, if I wanted to round the value 3.23, I could accomplish this with the function `round()` in R.
+The number 3.23 is an `argument` to the function `round()`.
+An argument is an input to a function.
+A `value` is produced as a result.
+
+ex.
+
+```{r}
+round(3.22)
+```
+
+Often times, functions can take on multiple arguments.
+Previously, we saw `round(3.225)` produce the value `3`.
+This is because round defaults to producing a value to the nearest whole number.
+However, we can override the default inputing a second argument.
+**You are not expected to memorize all arguments of every function you learn during this course**.
+If you have R locally installed, you can run a `?` in front of the function name in your console to pull up a help file that will define the arguments of a function for you.
+These help files can also be found on line.
+For example, here is the help file for round [here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Round)
+
+From the documentation, you can see the second argument of the function `round` is digits.
+
+**Your Turn** Change the 0 to another number, and take note on how this changes the corresponding output when you click [Run Code]{style="color:green;"}.
+
+```{webr-r}
+round(3.22, digits = 0)
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+round(3.22, digits = 1)
+```
+:::
+
+As you may notice, the first argument and second argument are separated by a `,`.
+This is consistent across all functions in R.
+
+::: callout-tip
+If you provide the arguments in the exact same order as they are defined in the help file, you do not have to include the name of the argument
+:::
+
+```{r}
+round(3.225, 1)
+```
+
+## Exploring `mtcars`
+
+For the remainder of this activity, we are going to practice using functions on the `mtcars` data set.
+These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+**Demo** Run the following code to see the first six lines of data below
+
+```{webr-r}
+
+head(mtcars)
+
+```
+
+What is the name of the function used in the above code?
+What is the input?
+
+<label>Answer:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+The function is named **head**
+
+The argument is the dataset **mtcars**
+:::
+
+We can also get a better sense of the data we are working with by using the `glimpse()` function.
+This allows us to see how many rows and columns we have in our data set, the type of data we are working with, and the data inputs.
+For now, we just want to practice writing the function to initially explore these data.
+
+**Your Turn** Use the `glimpse()` function on the `mtcars` data set below.
+
+```{webr-r}
+
+```
+
+How many rows are in the `mtcars` data set?
+How many columns?
+
+<label>Answer:</label> <br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+glimpse(mtcars)
+```
+
+There are **32** rows in the mtcars data set
+
+There are **11** columns in the mtcars data set
+:::
+
+**Your Turn**: There are many other functions we can use on data to explore it prior to making data visualizations.
+You are encouraged to explore the help files of the following:
+
+- `tail()`
+
+- `slice()`
+
+After doing so, try to answer answer the following questions!
+
+Use `tail()` to produce the last six lines of the `mtcars` data set.
+
+```{webr-r}
+
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+tail(mtcars)
+```
+:::
+
+Now, use `slice` to produce the first three lines of the `mtcars` data set.
+
+```{webr-r}
+
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+slice(mtcars, 1:3)
+```
+:::
+
+In the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R.
