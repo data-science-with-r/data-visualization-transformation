@@ -20,8 +20,8 @@ listing:
   - id: exercises
     contents: exercises/*.qmd
     type: table
-    fields: [title, subtitle]
-    sort: [subtitle]
+    fields: [title]
+    sort: [order]
     filter-ui: false
     sort-ui: false
 ---
