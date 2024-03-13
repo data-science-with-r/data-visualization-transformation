@@ -4,6 +4,9 @@ project:
 website:
   title: "Data visualization and transformation"
   navbar:
+    tools:
+        - icon: github
+          href: https://github.com/data-science-with-r
     left:
       - href: index.qmd
         text: Home
