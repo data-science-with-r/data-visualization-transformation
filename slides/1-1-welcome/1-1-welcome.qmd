@@ -15,11 +15,11 @@ library(tidyverse)
 
 ## Data science
 
+::: incremental
 -   Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.
-
--   We're going to learn to do this in a ***tidy*** way -- more on that later!
-
+-   You're going to learn to do this the ***tidy*** way -- more on that later!
 -   This is a course on introduction to data science, with an emphasis on statistical thinking.
+:::
 
 ## Course FAQ
 
