@@ -92,8 +92,10 @@ gg_diagram <- gg |>
 
 ::: columns
 ::: {.column width="40%"}
+::: incremental
 -   The grammar of graphics is a tool that enables us to concisely describe the components of a graphic
 -   The **ggplot2** package, which is part of **tidyverse**, implements the grammar of graphics in R
+:::
 :::
 
 ::: {.column width="30%"}
@@ -204,7 +206,7 @@ ggplot(
   geom_point()
 ```
 
-## Shape
+## Color and shape
 
 The `color` and `shape` aesthetics mapped to `species`:
 
@@ -558,7 +560,7 @@ Control the non-data elements of the plot:
 -   Select from pre-defined themes with `theme_*()` functions
 -   Take control of individual theme elements in the `theme()` function
 
-## `theme_dark()`  {.nostretch}
+## `theme_dark()` {.nostretch}
 
 ```{r}
 #| fig-show: hide
