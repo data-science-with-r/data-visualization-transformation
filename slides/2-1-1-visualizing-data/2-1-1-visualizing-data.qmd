@@ -18,8 +18,12 @@ library(dsbox)
 
 ## Dataset terminology
 
+::: incremental
 -   Each row is an **observation**
 -   Each column is a **variable**
+:::
+
+. . .
 
 ```{r}
 starwars
@@ -44,6 +48,8 @@ How many rows and columns does this dataset have?
 What does each row represent?
 What does each column represent?
 :::
+
+. . .
 
 ```{r}
 #| eval: false
@@ -73,9 +79,13 @@ dim(starwars)  # dimensions (row column)
 
 ## What is EDA?
 
--   Exploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics
--   Often, this is visual -- this is what we'll focus on first
--   But we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis -- this is what we'll focus on next
+Exploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:
+
+::: incremental
+-   Visualize – this is what we'll focus on first
+-   Summarize - this is what we'll focus on next
+-   Both of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis
+:::
 
 ## Mass vs. height
 
@@ -112,9 +122,11 @@ ggplot(starwars, aes(x = height, y = mass)) +
 
 > *"The simple graph has brought more information to the data analyst's mind than any other device." --- John Tukey*
 
+::: incremental
 -   Data visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data
 -   Many tools for visualizing data -- R is one of them
 -   Many approaches/systems within R for making data visualizations -- **ggplot2** is one of them, and that's what we're going to use
+:::
 
 # Why visualize? {.section-break}
 
@@ -165,6 +177,8 @@ Then, examine the plot below.
 Do you see anything out of the ordinary?
 :::
 
+. . .
+
 ```{r}
 #| label: student-survey-kiss
 #| echo: false
@@ -190,6 +204,8 @@ Same group of college students were also asked "How many times do you go on Face
 Then, examine the plot below.
 How are people reporting lower vs. higher values of FB visits?
 :::
+
+. . .
 
 ```{r}
 #| label: student-survey-facebook

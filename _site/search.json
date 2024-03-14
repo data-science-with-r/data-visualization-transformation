@@ -74,7 +74,7 @@
     "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
     "title": "Visualizing data",
     "section": "Dataset terminology",
-    "text": "Dataset terminology\n\nEach row is an observation\n\nEach column is a variable\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name         height  mass hair_color skin_color eye_color\n   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    \n 1 Luke Skywal…    172    77 blond      fair       blue     \n 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   \n 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      \n 4 Darth Vader     202   136 none       white      yellow   \n 5 Leia Organa     150    49 brown      light      brown    \n 6 Owen Lars       178   120 brown, gr… light      blue     \n 7 Beru Whites…    165    75 brown      light      blue     \n 8 R5-D4            97    32 &lt;NA&gt;       white, red red      \n 9 Biggs Darkl…    183    84 black      light      brown    \n10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray\n# ℹ 77 more rows\n# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,\n#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,\n#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;"
+    "text": "Dataset terminology\n\n\nEach row is an observation\n\nEach column is a variable\n\n\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name         height  mass hair_color skin_color eye_color\n   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    \n 1 Luke Skywal…    172    77 blond      fair       blue     \n 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   \n 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      \n 4 Darth Vader     202   136 none       white      yellow   \n 5 Leia Organa     150    49 brown      light      brown    \n 6 Owen Lars       178   120 brown, gr… light      blue     \n 7 Beru Whites…    165    75 brown      light      blue     \n 8 R5-D4            97    32 &lt;NA&gt;       white, red red      \n 9 Biggs Darkl…    183    84 black      light      brown    \n10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray\n# ℹ 77 more rows\n# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,\n#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,\n#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;"
   },
   {
     "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
@@ -95,7 +95,7 @@
     "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
     "title": "Visualizing data",
     "section": "Get to know the data",
-    "text": "Get to know the data\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n?starwars"
+    "text": "Get to know the data\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n\n?starwars"
   },
   {
     "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
@@ -109,7 +109,7 @@
     "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
     "title": "Visualizing data",
     "section": "What is EDA?",
-    "text": "What is EDA?\n\nExploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics\nOften, this is visual – this is what we’ll focus on first\nBut we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis – this is what we’ll focus on next"
+    "text": "What is EDA?\nExploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:\n\n\nVisualize – this is what we’ll focus on first\nSummarize - this is what we’ll focus on next\nBoth of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis"
   },
   {
     "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
@@ -130,7 +130,7 @@
     "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
     "title": "Visualizing data",
     "section": "Data visualization",
-    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\nData visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
+    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\n\nData visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
   },
   {
     "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",

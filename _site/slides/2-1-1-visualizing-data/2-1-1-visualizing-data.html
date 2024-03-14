@@ -406,12 +406,15 @@
 </section><section><section id="what-is-in-a-dataset" class="title-slide slide level1 section-break center"><h1>What is in a dataset?</h1>
 
 </section><section id="dataset-terminology" class="slide level2"><h2>Dataset terminology</h2>
+<div>
 <ul>
-<li>Each row is an <strong>observation</strong>
+<li class="fragment">Each row is an <strong>observation</strong>
 </li>
-<li>Each column is a <strong>variable</strong>
+<li class="fragment">Each column is a <strong>variable</strong>
 </li>
 </ul>
+</div>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>starwars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -432,6 +435,7 @@
 # ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,
 #   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,
 #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+</div>
 </div>
 </div>
 </section><section id="luke-skywalker" class="slide level2"><h2>Luke Skywalker</h2>
@@ -466,12 +470,14 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <div class="task">
 <p>How many rows and columns does this dataset have? What does each row represent? What does each column represent?</p>
 </div>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>?starwars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-left">
 <figure><p><img data-src="images/starwars-help.png" class="quarto-figure quarto-figure-left" width="697"></p>
 </figure>
+</div>
 </div>
 </section><section id="dimensions-of-the-data" class="slide level2"><h2>Dimensions of the data</h2>
 <div class="task">
@@ -496,11 +502,15 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 </section></section><section><section id="exploratory-data-analysis" class="title-slide slide level1 section-break center"><h1>Exploratory data analysis</h1>
 
 </section><section id="what-is-eda" class="slide level2"><h2>What is EDA?</h2>
+<p>Exploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:</p>
+<div>
 <ul>
-<li>Exploratory data analysis (EDA) is an approach to analysing data sets to summarize its main characteristics</li>
-<li>Often, this is visual – this is what we’ll focus on first</li>
-<li>But we might also calculate summary statistics and perform data wrangling/manipulation/transformation at (or before) this stage of the analysis – this is what we’ll focus on next</li>
-</ul></section><section id="mass-vs.-height" class="slide level2"><h2>Mass vs.&nbsp;height</h2>
+<li class="fragment">Visualize – this is what we’ll focus on first</li>
+<li class="fragment">Summarize - this is what we’ll focus on next</li>
+<li class="fragment">Both of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis</li>
+</ul>
+</div>
+</section><section id="mass-vs.-height" class="slide level2"><h2>Mass vs.&nbsp;height</h2>
 <div class="task">
 <p>How would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?</p>
 </div>
@@ -521,11 +531,14 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <blockquote>
 <p><em>“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey</em></p>
 </blockquote>
+<div>
 <ul>
-<li>Data visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data</li>
-<li>Many tools for visualizing data – R is one of them</li>
-<li>Many approaches/systems within R for making data visualizations – <strong>ggplot2</strong> is one of them, and that’s what we’re going to use</li>
-</ul></section></section><section><section id="why-visualize" class="title-slide slide level1 section-break center"><h1>Why visualize?</h1>
+<li class="fragment">Data visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data</li>
+<li class="fragment">Many tools for visualizing data – R is one of them</li>
+<li class="fragment">Many approaches/systems within R for making data visualizations – <strong>ggplot2</strong> is one of them, and that’s what we’re going to use</li>
+</ul>
+</div>
+</section></section><section><section id="why-visualize" class="title-slide slide level1 section-break center"><h1>Why visualize?</h1>
 
 </section><section id="anscombes-quartet" class="slide level2"><h2>Anscombe’s quartet</h2>
 <div class="cell">
@@ -617,6 +630,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <p>A group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.</p>
 <p>Then, examine the plot below. Do you see anything out of the ordinary?</p>
 </div>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -625,11 +639,13 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 </div>
 </div>
 </div>
+</div>
 </section><section id="facebook-visits" class="slide level2"><h2>Facebook visits</h2>
 <div class="task">
 <p>Same group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.</p>
 <p>Then, examine the plot below. How are people reporting lower vs.&nbsp;higher values of FB visits?</p>
 </div>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -642,6 +658,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </div>
 </section></section>
