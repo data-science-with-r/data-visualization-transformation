@@ -92,7 +92,7 @@ flights
 
 ## Printing - `data.frame`s
 
-(Attempt to) display all of the data, or die (crash) tryin (if the dataset is too large)!
+(Attempt to) display all of the data, or die (crash) trying (if the dataset is too large)!
 
 ```{r}
 #| label: data-frame-print

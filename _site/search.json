@@ -116,7 +116,7 @@
     "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
     "title": "Visualizing data",
     "section": "Mass vs. height",
-    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Starwars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
+    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
   },
   {
     "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
@@ -1040,7 +1040,7 @@
     "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
     "title": "Grammar of data transformation",
     "section": "Printing - data.frames",
-    "text": "Printing - data.frames\n(Attempt to) display all of the data, or die (crash) tryin (if the dataset is too large)!\n\ncars\n\n   speed dist\n1      4    2\n2      4   10\n3      7    4\n4      7   22\n5      8   16\n6      9   10\n7     10   18\n8     10   26\n9     10   34\n10    11   17\n11    11   28\n12    12   14\n13    12   20\n14    12   24\n15    12   28\n16    13   26\n17    13   34\n18    13   34\n19    13   46\n20    14   26\n21    14   36\n22    14   60\n23    14   80\n24    15   20\n25    15   26\n26    15   54\n27    16   32\n28    16   40\n29    17   32\n30    17   40\n31    17   50\n32    18   42\n33    18   56\n34    18   76\n35    18   84\n36    19   36\n37    19   46\n38    19   68\n39    20   32\n40    20   48\n41    20   52\n42    20   56\n43    20   64\n44    22   66\n45    23   54\n46    24   70\n47    24   92\n48    24   93\n49    24  120\n50    25   85"
+    "text": "Printing - data.frames\n(Attempt to) display all of the data, or die (crash) trying (if the dataset is too large)!\n\ncars\n\n   speed dist\n1      4    2\n2      4   10\n3      7    4\n4      7   22\n5      8   16\n6      9   10\n7     10   18\n8     10   26\n9     10   34\n10    11   17\n11    11   28\n12    12   14\n13    12   20\n14    12   24\n15    12   28\n16    13   26\n17    13   34\n18    13   34\n19    13   46\n20    14   26\n21    14   36\n22    14   60\n23    14   80\n24    15   20\n25    15   26\n26    15   54\n27    16   32\n28    16   40\n29    17   32\n30    17   40\n31    17   50\n32    18   42\n33    18   56\n34    18   76\n35    18   84\n36    19   36\n37    19   46\n38    19   68\n39    20   32\n40    20   48\n41    20   52\n42    20   56\n43    20   64\n44    22   66\n45    23   54\n46    24   70\n47    24   92\n48    24   93\n49    24  120\n50    25   85"
   },
   {
     "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",

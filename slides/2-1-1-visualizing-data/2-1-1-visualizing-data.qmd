@@ -80,7 +80,7 @@ dim(starwars)  # dimensions (row column)
 ## Mass vs. height
 
 ::: task
-How would you describe the relationship between mass and height of Starwars characters?
+How would you describe the relationship between mass and height of Star Wars characters?
 What other variables would help us understand data points that don't follow the overall trend?
 Who is the not so tall but really chubby character?
 :::
