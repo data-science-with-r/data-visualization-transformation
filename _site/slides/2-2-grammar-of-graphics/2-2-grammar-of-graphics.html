@@ -408,10 +408,12 @@
 </section><section id="grammar-of-graphics-1" class="slide level2"><h2>Grammar of Graphics</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
+<div>
 <ul>
-<li>The grammar of graphics is a tool that enables us to concisely describe the components of a graphic</li>
-<li>The <strong>ggplot2</strong> package, which is part of <strong>tidyverse</strong>, implements the grammar of graphics in R</li>
+<li class="fragment">The grammar of graphics is a tool that enables us to concisely describe the components of a graphic</li>
+<li class="fragment">The <strong>ggplot2</strong> package, which is part of <strong>tidyverse</strong>, implements the grammar of graphics in R</li>
 </ul>
+</div>
 </div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-left">
 <figure><p><img data-src="images/grammar-of-graphics.png" class="quarto-figure quarto-figure-left" width="300"></p>
@@ -486,7 +488,7 @@
 </div>
 </div>
 </div>
-</section><section id="shape-1" class="slide level2"><h2>Shape</h2>
+</section><section id="color-and-shape" class="slide level2"><h2>Color and shape</h2>
 <p>The <code>color</code> and <code>shape</code> aesthetics mapped to <code>species</code>:</p>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -633,12 +635,15 @@
 
 <img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-geoms-1.png" width="768" class="r-stretch"></section><section id="geoms" class="slide level2"><h2>Geoms</h2>
 <p>Visual representations of data points:</p>
+<div>
 <ul>
-<li>Short for <em>geom</em>etric objects</li>
-<li>
+<li class="fragment">Short for <em>geom</em>etric objects</li>
+<li class="fragment">
 <code>geom_*()</code> functions are used to add geoms to a plot</li>
-<li>Each geom adds a layer to the plot</li>
-</ul></section><section id="geom_point" class="slide level2 nostretch"><h2><code>geom_point()</code></h2>
+<li class="fragment">Each geom adds a layer to the plot</li>
+</ul>
+</div>
+</section><section id="geom_point" class="slide level2 nostretch"><h2><code>geom_point()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb9-2"><a></a>  penguins, </span>
@@ -675,17 +680,21 @@
 </section></section><section><section id="layer-4-facets" class="title-slide slide level1 section-break center"><h1>Layer 4: Facets</h1>
 
 <img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-facets-1.png" width="768" class="r-stretch"></section><section id="faceting---what-and-why" class="slide level2 nostretch"><h2>Faceting - what and why</h2>
+<div>
 <ul>
-<li>Smaller plots that each display different subsets of the data</li>
-<li>Also referred to as <strong>small multiples</strong>
+<li class="fragment">Smaller plots that each display different subsets of the data</li>
+<li class="fragment">Also referred to as <strong>small multiples</strong>
 </li>
-<li>Useful for exploring conditional relationships and large data</li>
+<li class="fragment">Useful for exploring conditional relationships and large data</li>
 </ul>
+</div>
+<div class="fragment">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/facet-grid-1.png" width="576"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/facet-grid-1.png" width="672"></p>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -810,10 +819,13 @@
 
 <img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-themes-1.png" width="768" class="r-stretch"></section><section id="themes" class="slide level2"><h2>Themes</h2>
 <p>Control the non-data elements of the plot:</p>
+<div>
 <ul>
-<li>Select from pre-defined themes with <code>theme_*()</code> functions</li>
-<li>Take control of individual theme elements in the <code>theme()</code> function</li>
-</ul></section><section id="theme_dark" class="slide level2 nostretch"><h2><code>theme_dark()</code></h2>
+<li class="fragment">Select from pre-defined themes with <code>theme_*()</code> functions</li>
+<li class="fragment">Take control of individual theme elements in the <code>theme()</code> function</li>
+</ul>
+</div>
+</section><section id="theme_dark" class="slide level2 nostretch"><h2><code>theme_dark()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
 <span id="cb17-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>

@@ -366,9 +366,11 @@ gg_diagram +
 
 Visual representations of data points:
 
+::: incremental
 -   Short for *geom*etric objects
 -   `geom_*()` functions are used to add geoms to a plot
 -   Each geom adds a layer to the plot
+:::
 
 ## `geom_point()` {.nostretch}
 
@@ -416,14 +418,19 @@ gg_diagram +
 
 ## Faceting - what and why {.nostretch}
 
+::: incremental
 -   Smaller plots that each display different subsets of the data
 -   Also referred to as **small multiples**
 -   Useful for exploring conditional relationships and large data
+:::
+
+. . .
 
 ```{r}
 #| label: facet-grid
 #| echo: false
 #| warning: false
+#| fig-width: 7
 ggplot(
   penguins, 
   aes(
@@ -557,8 +564,10 @@ gg_diagram +
 
 Control the non-data elements of the plot:
 
+::: incremental
 -   Select from pre-defined themes with `theme_*()` functions
 -   Take control of individual theme elements in the `theme()` function
+:::
 
 ## `theme_dark()` {.nostretch}
 
