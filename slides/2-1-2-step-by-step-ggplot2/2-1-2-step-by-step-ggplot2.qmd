@@ -11,28 +11,54 @@ ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 
 library(tidyverse)
 library(palmerpenguins)
+library(ggthemes)
 ```
 
-# ggplot2
+# ggplot2 {.section-break}
 
 ## ggplot2 $\in$ tidyverse
 
 ::: columns
 ::: {.column width="40%"}
+::: incremental
 -   **ggplot2** is tidyverse's data visualization package
+
+    ```{r}
+    #| eval: false
+
+    library(tidyverse)
+    ```
+
 -   *gg* in ggplot2 stands for Grammar of Graphics, inspired by the book **Grammar of Graphics** by Leland Wilkinson
--   Package website: [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org)
 :::
-::: {.column width="30%"}
-![](images/ggplot2-part-of-tidyverse.png){fig-align="left" width="400"}
 :::
 
+::: {.column width="30%"}
+![](images/ggplot2-part-of-tidyverse.png){fig-align="left" width="200"}
+:::
+:::
+
+::: incremental
+-   Package website: [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org)
+
+-   Structure of the code for plots can be summarized as
+
+    ```{r}
+    #| eval: false
+    ggplot(
+      data = [dataset], 
+      mapping = aes(x = [x-variable], y = [y-variable])
+      ) +
+      geom_xxx() +
+      other options
+    ```
 :::
 
 ## Mass vs. height
 
 ```{r}
 #| label: mass-height
+#| code-line-numbers: "|1|2|3"
 
 ggplot(starwars, aes(x = height, y = mass)) +
   geom_point() +
@@ -42,56 +68,6 @@ ggplot(starwars, aes(x = height, y = mass)) +
     y = "Weight (kg)"
   )
 ```
-
-## Parsing the code
-
-::: task
--   What are the functions doing the plotting?
--   What is the dataset being plotted?
--   Which variables map to which features (aesthetics) of the plot?
--   What does the warning mean?<sup>+</sup>
-:::
-
-```{r}
-#| ref.label: "mass-height"
-#| fig-show: hide
-```
-
-::: aside
-<sup>+</sup>Suppressing warning to subsequent slides to save space
-:::
-
-## Hello ggplot2!
-
--   `ggplot()` is the main function in ggplot2
-
-. . .
-
--   Plots are constructed in layers
-
-. . .
-
--   Structure of the code for plots can be summarized as
-
-``` r
-ggplot(data = [dataset], 
-       mapping = aes(x = [x-variable], y = [y-variable])) +
-   geom_xxx() +
-   other options
-```
-
-. . .
-
--   The ggplot2 package comes with the tidyverse
-
-```{r}
-library(tidyverse)
-```
-
-. . .
-
--   For help with ggplot2, see [ggplot2.tidyverse.org](http://ggplot2.tidyverse.org/)
-
 
 # ggplot2 `r emo::ji("heart")` `r emo::ji("penguin")` {.section-break}
 
@@ -104,6 +80,7 @@ Measurements for penguin species, island in Palmer Archipelago, size (flipper le
 ## Data
 
 ```{r}
+#| code-line-numbers: "|1|2"
 library(palmerpenguins)
 glimpse(penguins)
 ```
@@ -400,7 +377,7 @@ You can omit the names of first two arguments when building plots with `ggplot()
 ```{r}
 #| label: named-args
 #| eval: false
-#| code-line-numbers: "|2|3-7"
+#| code-line-numbers: "|2-7"
 
 ggplot(
   data = penguins,
@@ -417,7 +394,7 @@ ggplot(
 ```{r}
 #| label: non-named-args
 #| eval: false
-#| code-line-numbers: "|2|3-7"
+#| code-line-numbers: "|2-7"
 
 ggplot(
   penguins,
@@ -430,16 +407,3 @@ ggplot(
 ```
 :::
 :::
-
-## Summary
-
-Structure of the code for plots can be summarized as
-
-``` r
-ggplot(data = [dataset], 
-       mapping = aes(x = [x-variable], 
-                     y = [y-variable])) +
-   geom_xxx() +
-   other options
-```
-

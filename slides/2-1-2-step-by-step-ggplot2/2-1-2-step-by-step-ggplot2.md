@@ -2,20 +2,39 @@ Hello, in this video we're going to talk about the specifics and syntax of visua
 
 >>
 
-A quick reminder that ggplot2 is tidyverse's data visualization package
-
->> The structure of ggplot2 code looks almost always is the same: 
->> we start with the ggplot function 
->> where the first argument is the data that you want to plot
->> and the second argument defines the aesthetic mappings using the aes function -- in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you're passing a function, aes, as the argument of another function, ggplot. You'll see more of this as we progress through the course, though more often you'll see data frame or variable names being passed to function arguments.
->> and then we add on another layer -- a geom layer -- which defines the geometric shapes with which you want to represent your data 
->> and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from.
+First, a bit on gglot2 as a package.
 
 >>
 
-The data that we're working with is called penguins. It comes from the palmerpenguins package, and we also need the tidyverse package for our analyses.
+>> ggplot2 is tidyverse's data visualization package, so to access it, we load it with library(tidyverse)
+>> gg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson
+>> A useful resource for learning about the package and its functions is the package website, at ggplot2.tidyverse.owg
+>> And the code always follows the same structure: ggplot, then the data, then aesthetic mappings, then any geoms, and finally any other options
 
->> So let's load those packages first
+
+>>
+
+We've seen this plot of mass and height of star wars characters, but here it is again, with the code and any associated warnings this time.
+
+The structure of ggplot2 code looks almost always is the same: 
+>> we start with the ggplot function, where the first argument is the data that you want to plot and the second argument defines the aesthetic mappings using the aes function -- in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you're passing a function, aes, as the argument of another function, ggplot. You'll see more of this as we progress through the course, though more often you'll see data frame or variable names being passed to function arguments.
+>> and then we add on another layer -- a geom layer -- which defines the geometric shapes with which you want to represent your data 
+>> and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from.
+>> and finally the warning tells us that 28 observations are not represented in the plot because they have some NAs, missing values.
+
+>>
+
+Ok, let's visualize those penguins with ggplot2!
+
+>>
+
+The data we'll work with are measurements for three species of penguins in Palmer Archipelago: Chinstrap, Gentoo, and Adelie.
+
+>>
+
+The data are in the palmerpenguins package
+
+>> So let's load the packages first
 >> And then glimpse at the data. 
 >> glimpse is a function that prints out the variables in the data frame, their types -- which we'll dig deeper into later in the course --, and the first few observations as comma separated values.
 
@@ -27,7 +46,9 @@ The output also shows that we have 344 rows, that is, we have data on 344 pengui
 
 The plot shown here is our final goal. We'll plot bill length against bill depth, both measured in millimeters. We'll represent each penguin with a point, colored by their species. The species mappings are summarized in the legend of the plot. The plot also has a title, a subtitle, and a caption.
 
---> [other tab] And the code for the plot is shown here. It looks like what we've seen before -- ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let's unpack it layer by layer.
+>>
+
+And the code for the plot is shown on this slide. It looks like what we've seen before -- ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let's unpack it layer by layer.
 
 >>
 
@@ -35,7 +56,9 @@ In other words, let's code out loud!
 
 >>
 
-We start with the ggplot function and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.
+We start with the 
+>> ggplot function 
+>> and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.
 
 >>
 
@@ -95,10 +118,15 @@ And before we finish up our plot we need to do one more thing -- use a discrete 
 
 >>
 
-Putting it altogether we have our code
+Putting it altogether we have our plot
 
---> The resulting plot
---> And the narrative we built with each layer of the plot
+>>
+
+The code
+
+>>
+
+And the narrative we built with each layer of the plot
 
 >>
 

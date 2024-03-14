@@ -172,7 +172,7 @@
     "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
     "title": "Building a plotstep-by-step with ggplot2",
     "section": "ggplot2 \\(\\in\\) tidyverse",
-    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\nggplot2 is tidyverse’s data visualization package\n\ngg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson\nPackage website: ggplot2.tidyverse.org"
+    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\n\nlibrary(tidyverse)\n\n\ngg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson\n\n\n\n\n\n\n\n\n\n\n\nPackage website: ggplot2.tidyverse.org\n\nStructure of the code for plots can be summarized as\n\nggplot(\n  data = [dataset], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
   },
   {
     "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
@@ -193,7 +193,7 @@
     "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#hello-ggplot2",
     "title": "Building a plotstep-by-step with ggplot2",
     "section": "Hello ggplot2!",
-    "text": "Hello ggplot2!\n\n\nggplot() is the main function in ggplot2\n\n\n\nPlots are constructed in layers\n\n\n\n\nStructure of the code for plots can be summarized as\n\nggplot(data = [dataset], \n       mapping = aes(x = [x-variable], y = [y-variable])) +\n   geom_xxx() +\n   other options\n\n\n\nThe ggplot2 package comes with the tidyverse\n\n\nlibrary(tidyverse)\n\n\n\n\nFor help with ggplot2, see ggplot2.tidyverse.org"
+    "text": "Hello ggplot2!\n\n\nggplot() is the main function in ggplot2\n\n\n\nPlots are constructed in layers\n\n\n\n\nStructure of the code for plots can be summarized as\n\n\nggplot(\n  data = [dataset], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options\n\n\n\n\nThe ggplot2 package comes with the tidyverse\n\n\nlibrary(tidyverse)"
   },
   {
     "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
