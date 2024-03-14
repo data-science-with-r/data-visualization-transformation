@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.4.551">
 
   <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation - Visualizing data</title>
+  <title>Data visualization and transformation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,71 +31,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #97947a;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #97947a;  padding-left: 4px; }
-    div.sourceCode
-      { color: #f8f8f2; background-color: #2b2b2b; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #dcc6e0; } /* Alert */
-    code span.an { color: #d4d0ab; } /* Annotation */
-    code span.at { color: #ffd700; } /* Attribute */
-    code span.bn { color: #dcc6e0; } /* BaseN */
-    code span.bu { color: #f5ab35; } /* BuiltIn */
-    code span.cf { color: #ffa07a; } /* ControlFlow */
-    code span.ch { color: #abe338; } /* Char */
-    code span.cn { color: #ffa07a; } /* Constant */
-    code span.co { color: #d4d0ab; } /* Comment */
-    code span.cv { color: #d4d0ab; font-style: italic; } /* CommentVar */
-    code span.do { color: #d4d0ab; font-style: italic; } /* Documentation */
-    code span.dt { color: #dcc6e0; } /* DataType */
-    code span.dv { color: #dcc6e0; } /* DecVal */
-    code span.er { color: #dcc6e0; } /* Error */
-    code span.ex { color: #ffd700; } /* Extension */
-    code span.fl { color: #f5ab35; } /* Float */
-    code span.fu { color: #ffd700; } /* Function */
-    code span.im { color: #f8f8f2; } /* Import */
-    code span.in { color: #d4d0ab; } /* Information */
-    code span.kw { color: #ffa07a; } /* Keyword */
-    code span.op { color: #00e0e0; } /* Operator */
-    code span.ot { color: #ffa07a; } /* Other */
-    code span.pp { color: #dcc6e0; } /* Preprocessor */
-    code span.sc { color: #00e0e0; } /* SpecialChar */
-    code span.ss { color: #abe338; } /* SpecialString */
-    code span.st { color: #abe338; } /* String */
-    code span.va { color: #f5ab35; } /* Variable */
-    code span.vs { color: #abe338; } /* VerbatimString */
-    code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -392,319 +327,208 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Visualizing data</h1>
-  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-<i class="fa-solid fa-book" aria-label="book"></i> Data Science with R 
-</div>
-</div>
-</div>
+<section class="slide level2">
 
-</section>
-<section>
-<section id="what-is-in-a-dataset" class="title-slide slide level1 section-break center">
-<h1>What is in a dataset?</h1>
-
-</section>
-<section id="dataset-terminology" class="slide level2">
-<h2>Dataset terminology</h2>
-<div>
-<ul>
-<li class="fragment">Each row is an <strong>observation</strong></li>
-<li class="fragment">Each column is a <strong>variable</strong></li>
-</ul>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>starwars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 87 × 14
-   name         height  mass hair_color skin_color eye_color
-   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    
- 1 Luke Skywal…    172    77 blond      fair       blue     
- 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   
- 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      
- 4 Darth Vader     202   136 none       white      yellow   
- 5 Leia Organa     150    49 brown      light      brown    
- 6 Owen Lars       178   120 brown, gr… light      blue     
- 7 Beru Whites…    165    75 brown      light      blue     
- 8 R5-D4            97    32 &lt;NA&gt;       white, red red      
- 9 Biggs Darkl…    183    84 black      light      brown    
-10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray
-# ℹ 77 more rows
-# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,
-#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,
-#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="luke-skywalker" class="slide level2">
-<h2>Luke Skywalker</h2>
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/luke-skywalker-data.png" class="quarto-figure quarto-figure-left" width="1280"></p>
-</figure>
-</div>
-</section>
-<section id="whats-in-the-star-wars-data" class="slide level2">
-<h2>What’s in the Star Wars data?</h2>
-<p>Take a <code>glimpse()</code> at the data:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">glimpse</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 87
-Columns: 14
-$ name       &lt;chr&gt; "Luke Skywalker", "C-3PO", "R2-D2", "Da…
-$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 1…
-$ mass       &lt;dbl&gt; 77, 75, 32, 136, 49, 120, 75, 32, 84, 7…
-$ hair_color &lt;chr&gt; "blond", NA, NA, "none", "brown", "brow…
-$ skin_color &lt;chr&gt; "fair", "gold", "white, blue", "white",…
-$ eye_color  &lt;chr&gt; "blue", "yellow", "red", "yellow", "bro…
-$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47…
-$ sex        &lt;chr&gt; "male", "none", "none", "male", "female…
-$ gender     &lt;chr&gt; "masculine", "masculine", "masculine", …
-$ homeworld  &lt;chr&gt; "Tatooine", "Tatooine", "Naboo", "Tatoo…
-$ species    &lt;chr&gt; "Human", "Droid", "Droid", "Human", "Hu…
-$ films      &lt;list&gt; &lt;"A New Hope", "The Empire Strikes Bac…
-$ vehicles   &lt;list&gt; &lt;"Snowspeeder", "Imperial Speeder Bike…
-$ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&gt;…</code></pre>
-</div>
-</div>
-</section>
-<section id="get-to-know-the-data" class="slide level2">
-<h2>Get to know the data</h2>
-<div class="task">
-<p>How many rows and columns does this dataset have? What does each row represent? What does each column represent?</p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>?starwars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/starwars-help.png" class="quarto-figure quarto-figure-left" width="697"></p>
-</figure>
-</div>
-</div>
-</section>
-<section id="dimensions-of-the-data" class="slide level2">
-<h2>Dimensions of the data</h2>
-<div class="task">
-<p>How many rows and columns does this dataset have?</p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">nrow</span>(starwars) <span class="co"># number of rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 87</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">ncol</span>(starwars) <span class="co"># number of columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 14</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">dim</span>(starwars)  <span class="co"># dimensions (row column)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 87 14</code></pre>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="exploratory-data-analysis" class="title-slide slide level1 section-break center">
-<h1>Exploratory data analysis</h1>
-
-</section>
-<section id="what-is-eda" class="slide level2">
-<h2>What is EDA?</h2>
-<p>Exploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:</p>
-<div>
-<ul>
-<li class="fragment">Visualize – this is what we’ll focus on first</li>
-<li class="fragment">Summarize - this is what we’ll focus on next</li>
-<li class="fragment">Both of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis</li>
-</ul>
-</div>
-</section>
-<section id="mass-vs.-height" class="slide level2">
-<h2>Mass vs.&nbsp;height</h2>
-<div class="task">
-<p>How would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?</p>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/mass-height-annotated-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="jabba" class="slide level2">
-<h2>Jabba!</h2>
-<div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/mass-height-annotated-jabba.png" class="quarto-figure quarto-figure-left" width="1000"></p>
-</figure>
-</div>
-</section>
-<section id="data-visualization" class="slide level2">
-<h2>Data visualization</h2>
+<p>Hello, in this video we’re going to talk about the specifics and syntax of visualizing data with the ggplot2 package and we’re going to do so using data on penguins!</p>
 <blockquote>
-<p><em>“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey</em></p>
-</blockquote>
-<div>
-<ul>
-<li class="fragment">Data visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data</li>
-<li class="fragment">Many tools for visualizing data – R is one of them</li>
-<li class="fragment">Many approaches/systems within R for making data visualizations – <strong>ggplot2</strong> is one of them, and that’s what we’re going to use</li>
-</ul>
-</div>
-</section></section>
-<section>
-<section id="why-visualize" class="title-slide slide level1 section-break center">
-<h1>Why visualize?</h1>
+<blockquote>
 
-</section>
-<section id="anscombes-quartet" class="slide level2">
-<h2>Anscombe’s quartet</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(Tmisc)</span>
-<span id="cb12-2"><a></a>quartet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   set  x     y
-1    I 10  8.04
-2    I  8  6.95
-3    I 13  7.58
-4    I  9  8.81
-5    I 11  8.33
-6    I 14  9.96
-7    I  6  7.24
-8    I  4  4.26
-9    I 12 10.84
-10   I  7  4.82
-11   I  5  5.68
-12  II 10  9.14
-13  II  8  8.14
-14  II 13  8.74
-15  II  9  8.77
-16  II 11  9.26
-17  II 14  8.10
-18  II  6  6.13
-19  II  4  3.10
-20  II 12  9.13
-21  II  7  7.26
-22  II  5  4.74
-23 III 10  7.46
-24 III  8  6.77
-25 III 13 12.74
-26 III  9  7.11
-27 III 11  7.81
-28 III 14  8.84
-29 III  6  6.08
-30 III  4  5.39
-31 III 12  8.15
-32 III  7  6.42
-33 III  5  5.73
-34  IV  8  6.58
-35  IV  8  5.76
-36  IV  8  7.71
-37  IV  8  8.84
-38  IV  8  8.47
-39  IV  8  7.04
-40  IV  8  5.25
-41  IV 19 12.50
-42  IV  8  5.56
-43  IV  8  7.91
-44  IV  8  6.89</code></pre>
-</div>
-</div>
-</section>
-<section id="summarizing-anscombes-quartet" class="slide level2">
-<h2>Summarizing Anscombe’s quartet</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>quartet <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">group_by</span>(set) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">summarise</span>(</span>
-<span id="cb14-4"><a></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x), </span>
-<span id="cb14-5"><a></a>    <span class="at">mean_y =</span> <span class="fu">mean</span>(y),</span>
-<span id="cb14-6"><a></a>    <span class="at">sd_x =</span> <span class="fu">sd</span>(x),</span>
-<span id="cb14-7"><a></a>    <span class="at">sd_y =</span> <span class="fu">sd</span>(y),</span>
-<span id="cb14-8"><a></a>    <span class="at">r =</span> <span class="fu">cor</span>(x, y)</span>
-<span id="cb14-9"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 6
-  set   mean_x mean_y  sd_x  sd_y     r
-  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 I          9   7.50  3.32  2.03 0.816
-2 II         9   7.50  3.32  2.03 0.816
-3 III        9   7.5   3.32  2.03 0.816
-4 IV         9   7.50  3.32  2.03 0.817</code></pre>
-</div>
-</div>
-</section>
-<section id="visualizing-anscombes-quartet" class="slide level2">
-<h2>Visualizing Anscombe’s quartet</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(quartet, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb16-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> set, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/quartet-plot-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="age-at-first-kiss" class="slide level2">
-<h2>Age at first kiss</h2>
-<div class="task">
-<p>A group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.</p>
-<p>Then, examine the plot below. Do you see anything out of the ordinary?</p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/student-survey-kiss-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="facebook-visits" class="slide level2">
-<h2>Facebook visits</h2>
-<div class="task">
-<p>Same group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.</p>
-<p>Then, examine the plot below. How are people reporting lower vs.&nbsp;higher values of FB visits?</p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/student-survey-facebook-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+</blockquote>
+</blockquote>
+<p>First, a bit on gglot2 as a package.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>ggplot2 is tidyverse’s data visualization package, so to access it, we load it with library(tidyverse) gg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson A useful resource for learning about the package and its functions is the package website, at ggplot2.tidyverse.owg And the code always follows the same structure: ggplot, then the data, then aesthetic mappings, then any geoms, and finally any other options</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>We’ve seen this plot of mass and height of star wars characters, but here it is again, with the code and any associated warnings this time.</p>
+<p>The structure of ggplot2 code looks almost always is the same: &gt;&gt; we start with the ggplot function, where the first argument is the data that you want to plot and the second argument defines the aesthetic mappings using the aes function – in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you’re passing a function, aes, as the argument of another function, ggplot. You’ll see more of this as we progress through the course, though more often you’ll see data frame or variable names being passed to function arguments. &gt;&gt; and then we add on another layer – a geom layer – which defines the geometric shapes with which you want to represent your data &gt;&gt; and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from. &gt;&gt; and finally the warning tells us that 28 observations are not represented in the plot because they have some NAs, missing values.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Ok, let’s visualize those penguins with ggplot2!</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>The data we’ll work with are measurements for three species of penguins in Palmer Archipelago: Chinstrap, Gentoo, and Adelie.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>The data are in the palmerpenguins package</p>
+<blockquote>
+<blockquote>
+<p>So let’s load the packages first And then glimpse at the data. glimpse is a function that prints out the variables in the data frame, their types – which we’ll dig deeper into later in the course –, and the first few observations as comma separated values.</p>
+</blockquote>
+</blockquote>
+<p>The data contains body measurements on three species of penguins, chinstrap, gentoo, and adelie. The bodu measurements include things like bill length and depth, flipper length, and body mass. We also know which island the penguin is on, their sec, and the year of data collection. There are a total of 8 columns, so 8 variables.</p>
+<p>The output also shows that we have 344 rows, that is, we have data on 344 penguins.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>The plot shown here is our final goal. We’ll plot bill length against bill depth, both measured in millimeters. We’ll represent each penguin with a point, colored by their species. The species mappings are summarized in the legend of the plot. The plot also has a title, a subtitle, and a caption.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And the code for the plot is shown on this slide. It looks like what we’ve seen before – ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let’s unpack it layer by layer.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>In other words, let’s code out loud!</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>We start with the &gt;&gt; ggplot function &gt;&gt; and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Them we map bill depth to the x-axis &gt;&gt; we can see the x-axis indicates the variable name, its range, and a reasonable breakpoint</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Then we map bill length to the y-axis &gt;&gt; we can see the y-axis mapped as well</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And finally &gt;&gt; we add a geom layer – a geom point, indicating that the data should be represented as points. There seems to be three clusters of points here, let’s see what happens if we also ask that the points be colored by species.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Since this requires mapping another variable to a new aesthetic of the plot, we do this in the aesthetic mappings &gt;&gt; mapping color to species. Note that not only the points are colored, but we also gained a legend describing the mappings – red points represent Adelie penguins, green Chinstrap, blue Gentoo.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Now that the data we want to see on our plot is there, let’s add some labels.</p>
+<blockquote>
+<blockquote>
+<p>Let’s set the title to Bill depth and length. Not a particularly informative title, but it’s a good starting point. We do this in the labs function, passing it to the title argument as a character string denoted with quotes. You can use double or single quotes in R, sticking to the tidyverse style guide we’ll use double quotes.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Let’s also add a subtitle</p>
+<blockquote>
+<blockquote>
+<p>Again in the labs function, passing it to the subtitle argument.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And let’s fix up the x and y axis labels.</p>
+<blockquote>
+<blockquote>
+<p>By default ggplot2 will use the variable names, but we can overwrite them by updating the x and y label of the plot, and using more human-friendly text like bill depth mm and bill length mm.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And finally let’s relabel the legend as well</p>
+<blockquote>
+<blockquote>
+<p>We do this also in the labs function, passing the desired label to the color argument. Note that the name of the argument matches the aesthetic mapping.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And finally in the labels</p>
+<blockquote>
+<blockquote>
+<p>let’s add a caption for the data source. This automatically gets placed below the plot.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And before we finish up our plot we need to do one more thing – use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.</p>
+<blockquote>
+<blockquote>
+<p>We do this in a new layer, a scale layer, using a pre-defined color palette called viridis. The underscore-d denotes we will use the discrete color scale in this palette. If you have red-green color vision deficiency up until this point some of the points on the plot may have been difficult to tell apart. The goal with this palette is to make sure all, or at least more, viewers can see the points as intended.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Putting it altogether we have our plot</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>The code</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And the narrative we built with each layer of the plot</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Before we wrap up this introduction to ggplot2, one quick note about argument names. It’s common in R to omit the names of the first two arguments. In the ggplot function</p>
+<blockquote>
+<blockquote>
+<p>these are data and mapping So you’ll commonly see me and others write ggplot code in the second way, omitting these argument names from the code.</p>
+</blockquote>
+</blockquote>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -915,44 +739,6 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
