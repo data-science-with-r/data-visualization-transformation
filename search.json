@@ -291,56 +291,42 @@
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
     "title": "Visualizing and summarizing numerical data",
     "section": "Histograms and binwidth",
-    "text": "Histograms and binwidth\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 1000)"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-1",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-1",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histograms and binwidth",
-    "text": "Histograms and binwidth\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000)"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-2",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-2",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histograms and binwidth",
-    "text": "Histograms and binwidth\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 20000)"
+    "text": "Histograms and binwidth\n\np_loans &lt;- ggplot(loans, aes(x = loan_amount))\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 1000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 5000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 20000\n  )"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
     "title": "Visualizing and summarizing numerical data",
     "section": "Histogram customization",
-    "text": "Histogram customization\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000) +\n  labs(\n    x = \"Loan amount ($)\",\n    y = \"Frequency\",\n    title = \"Amounts of Lending Club loans\"\n  )"
+    "text": "Histogram customization\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000) +\n  labs(\n    x = \"Loan amount ($)\",\n    y = \"Frequency\",\n    title = \"Amounts of Lending Club loans\"\n  ) +\n  scale_x_continuous(\n    labels = label_dollar()\n  ) +\n  scale_y_continuous(\n    labels = label_number(big.mark = \",\")\n  )"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
     "title": "Visualizing and summarizing numerical data",
     "section": "Density plot",
-    "text": "Density plot\n\nHelpful for identifying shape (modality and skewness)\nSmoothness can be adjusted\n\n\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_density()\n\n\n\n\n\n\n\n\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_density(adjust = 2)"
+    "text": "Density plot\n\nHelpful for identifying shape (modality and skewness)\nSmoothness can be adjusted\n\n\n\n\np_loans+\n  geom_density()\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_density(adjust = 2)"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
     "title": "Visualizing and summarizing numerical data",
     "section": "Box plot",
-    "text": "Box plot\n\nHelpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile\nHelpful for identifying shape (skewness, but not modality)\nMakes outliers very clear (according to a strict definition of an outlier)\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot()"
+    "text": "Box plot\n\nHelpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile\nHelpful for identifying shape (skewness, but not modality)\nMakes outliers very clear (according to a strict definition of an outlier)\n\n\np_loans +\n  geom_boxplot()"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
     "title": "Visualizing and summarizing numerical data",
     "section": "Box plot and outliers",
-    "text": "Box plot and outliers\n\nggplot(loans, aes(x = annual_income)) +\n  geom_boxplot()"
+    "text": "Box plot and outliers\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot()"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
     "title": "Visualizing and summarizing numerical data",
     "section": "Box plot customization",
-    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  labs(\n    x = \"Interest rate (%)\", y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
+    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  scale_x_continuous(\n    labels = label_percent()\n  ) +\n  labs(\n    x = \"Interest rate\", \n    y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
@@ -504,230 +490,6 @@
     "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
-    "title": "Visualizing data",
-    "section": "Dataset terminology",
-    "text": "Dataset terminology\n\n\nEach row is an observation\nEach column is a variable\n\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name         height  mass hair_color skin_color eye_color\n   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    \n 1 Luke Skywal…    172    77 blond      fair       blue     \n 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   \n 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      \n 4 Darth Vader     202   136 none       white      yellow   \n 5 Leia Organa     150    49 brown      light      brown    \n 6 Owen Lars       178   120 brown, gr… light      blue     \n 7 Beru Whites…    165    75 brown      light      blue     \n 8 R5-D4            97    32 &lt;NA&gt;       white, red red      \n 9 Biggs Darkl…    183    84 black      light      brown    \n10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray\n# ℹ 77 more rows\n# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,\n#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,\n#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
-    "title": "Visualizing data",
-    "section": "Luke Skywalker",
-    "text": "Luke Skywalker"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
-    "title": "Visualizing data",
-    "section": "What’s in the Star Wars data?",
-    "text": "What’s in the Star Wars data?\nTake a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Da…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 1…\n$ mass       &lt;dbl&gt; 77, 75, 32, 136, 49, 120, 75, 32, 84, 7…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brow…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\",…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"bro…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47…\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", …\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatoo…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Hu…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Bac…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;…"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
-    "title": "Visualizing data",
-    "section": "Get to know the data",
-    "text": "Get to know the data\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n\n?starwars"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
-    "title": "Visualizing data",
-    "section": "Dimensions of the data",
-    "text": "Dimensions of the data\n\nHow many rows and columns does this dataset have?\n\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
-    "title": "Visualizing data",
-    "section": "What is EDA?",
-    "text": "What is EDA?\nExploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:\n\n\nVisualize – this is what we’ll focus on first\nSummarize - this is what we’ll focus on next\nBoth of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
-    "title": "Visualizing data",
-    "section": "Mass vs. height",
-    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
-    "title": "Visualizing data",
-    "section": "Jabba!",
-    "text": "Jabba!"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
-    "title": "Visualizing data",
-    "section": "Data visualization",
-    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\n\nData visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Anscombe’s quartet",
-    "text": "Anscombe’s quartet\n\nlibrary(Tmisc)\nquartet\n\n   set  x     y\n1    I 10  8.04\n2    I  8  6.95\n3    I 13  7.58\n4    I  9  8.81\n5    I 11  8.33\n6    I 14  9.96\n7    I  6  7.24\n8    I  4  4.26\n9    I 12 10.84\n10   I  7  4.82\n11   I  5  5.68\n12  II 10  9.14\n13  II  8  8.14\n14  II 13  8.74\n15  II  9  8.77\n16  II 11  9.26\n17  II 14  8.10\n18  II  6  6.13\n19  II  4  3.10\n20  II 12  9.13\n21  II  7  7.26\n22  II  5  4.74\n23 III 10  7.46\n24 III  8  6.77\n25 III 13 12.74\n26 III  9  7.11\n27 III 11  7.81\n28 III 14  8.84\n29 III  6  6.08\n30 III  4  5.39\n31 III 12  8.15\n32 III  7  6.42\n33 III  5  5.73\n34  IV  8  6.58\n35  IV  8  5.76\n36  IV  8  7.71\n37  IV  8  8.84\n38  IV  8  8.47\n39  IV  8  7.04\n40  IV  8  5.25\n41  IV 19 12.50\n42  IV  8  5.56\n43  IV  8  7.91\n44  IV  8  6.89"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Summarizing Anscombe’s quartet",
-    "text": "Summarizing Anscombe’s quartet\n\nquartet |&gt;\n  group_by(set) |&gt;\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )\n\n# A tibble: 4 × 6\n  set   mean_x mean_y  sd_x  sd_y     r\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 I          9   7.50  3.32  2.03 0.816\n2 II         9   7.50  3.32  2.03 0.816\n3 III        9   7.5   3.32  2.03 0.816\n4 IV         9   7.50  3.32  2.03 0.817"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Visualizing Anscombe’s quartet",
-    "text": "Visualizing Anscombe’s quartet\n\nggplot(quartet, aes(x = x, y = y)) +\n  geom_point() +\n  facet_wrap(~ set, ncol = 4)"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
-    "title": "Visualizing data",
-    "section": "Age at first kiss",
-    "text": "Age at first kiss\n\nA group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. Do you see anything out of the ordinary?"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
-    "title": "Visualizing data",
-    "section": "Facebook visits",
-    "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/script.html",
-    "href": "sample-videos/sample-ggplot2-slides/script.html",
-    "title": "Data visualization and transformation",
-    "section": "",
-    "text": "Hello, in this video we’re going to talk about the specifics and syntax of visualizing data with the ggplot2 package and we’re going to do so using data on penguins!\n\n\n\n\n\nA quick reminder that ggplot2 is tidyverse’s data visualization package\n\n\nThe structure of ggplot2 code looks almost always is the same: we start with the ggplot function where the first argument is the data that you want to plot and the second argument defines the aesthetic mappings using the aes function – in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you’re passing a function, aes, as the argument of another function, ggplot. You’ll see more of this as we progress through the course, though more often you’ll see data frame or variable names being passed to function arguments. and then we add on another layer – a geom layer – which defines the geometric shapes with which you want to represent your data and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from.\n\n\n\n\n\n\n\nThe data that we’re working with is called penguins. It comes from the palmerpenguins package, and we also need the tidyverse package for our analyses.\n\n\nSo let’s load those packages first And then glimpse at the data. glimpse is a function that prints out the variables in the data frame, their types – which we’ll dig deeper into later in the course –, and the first few observations as comma separated values.\n\n\nThe data contains body measurements on three species of penguins, chinstrap, gentoo, and adelie. The bodu measurements include things like bill length and depth, flipper length, and body mass. We also know which island the penguin is on, their sec, and the year of data collection. There are a total of 8 columns, so 8 variables.\nThe output also shows that we have 344 rows, that is, we have data on 344 penguins.\n\n\n\n\n\nThe plot shown here is our final goal. We’ll plot bill length against bill depth, both measured in millimeters. We’ll represent each penguin with a point, colored by their species. The species mappings are summarized in the legend of the plot. The plot also has a title, a subtitle, and a caption.\n–&gt; [other tab] And the code for the plot is shown here. It looks like what we’ve seen before – ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let’s unpack it layer by layer.\n\n\n\n\n\nIn other words, let’s code out loud!\n\n\n\n\n\nWe start with the ggplot function and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.\n\n\n\n\n\nThem we map bill depth to the x-axis &gt;&gt; we can see the x-axis indicates the variable name, its range, and a reasonable breakpoint\n\n\n\n\n\nThen we map bill length to the y-axis &gt;&gt; we can see the y-axis mapped as well\n\n\n\n\n\nAnd finally &gt;&gt; we add a geom layer – a geom point, indicating that the data should be represented as points. There seems to be three clusters of points here, let’s see what happens if we also ask that the points be colored by species.\n\n\n\n\n\nSince this requires mapping another variable to a new aesthetic of the plot, we do this in the aesthetic mappings &gt;&gt; mapping color to species. Note that not only the points are colored, but we also gained a legend describing the mappings – red points represent Adelie penguins, green Chinstrap, blue Gentoo.\n\n\n\n\n\nNow that the data we want to see on our plot is there, let’s add some labels.\n\n\nLet’s set the title to Bill depth and length. Not a particularly informative title, but it’s a good starting point. We do this in the labs function, passing it to the title argument as a character string denoted with quotes. You can use double or single quotes in R, sticking to the tidyverse style guide we’ll use double quotes.\n\n\n\n\n\n\n\nLet’s also add a subtitle\n\n\nAgain in the labs function, passing it to the subtitle argument.\n\n\n\n\n\n\n\nAnd let’s fix up the x and y axis labels.\n\n\nBy default ggplot2 will use the variable names, but we can overwrite them by updating the x and y label of the plot, and using more human-friendly text like bill depth mm and bill length mm.\n\n\n\n\n\n\n\nAnd finally let’s relabel the legend as well\n\n\nWe do this also in the labs function, passing the desired label to the color argument. Note that the name of the argument matches the aesthetic mapping.\n\n\n\n\n\n\n\nAnd finally in the labels\n\n\nlet’s add a caption for the data source. This automatically gets placed below the plot.\n\n\n\n\n\n\n\nAnd before we finish up our plot we need to do one more thing – use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nWe do this in a new layer, a scale layer, using a pre-defined color palette called viridis. The underscore-d denotes we will use the discrete color scale in this palette. If you have red-green color vision deficiency up until this point some of the points on the plot may have been difficult to tell apart. The goal with this palette is to make sure all, or at least more, viewers can see the points as intended.\n\n\n\n\n\n\n\nPutting it altogether we have our code\n–&gt; The resulting plot –&gt; And the narrative we built with each layer of the plot\n\n\n\n\n\nBefore we wrap up this introduction to ggplot2, one quick note about argument names. It’s common in R to omit the names of the first two arguments. In the ggplot function\n\n\nthese are data and mapping So you’ll commonly see me and others write ggplot code in the second way, omitting these argument names from the code."
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
-    "href": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
-    "title": "Visualizing Starwars characters",
-    "section": "",
-    "text": "Load packages.\n\nGlimpse at the starwars data frame.\n\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nModify the following plot to change the color of all points to \"pink\".\n\n\nggplot(\n  starwars, \n  aes(x = height, y = mass, color = gender, size = birth_year)\n  ) +\n  geom_point(color = \"pink\")\n\nWarning: Removed 51 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nAdd labels for title, x and y axes, and size of points. Uncomment to see the effect.\n\n\nggplot(\n  starwars, \n  aes(x = height, y = mass, color = gender, size = birth_year)\n  ) +\n  geom_point(color = \"#30509C\") +\n  labs(\n    title = \"Mass vs. height of Starwars Characters\",\n    x = \"Height (cm)\", \n    y = \"Body mass (kg)\",\n    size = \"Birth year\"\n  )\n\nWarning: Removed 51 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nPick a single numerical variable and make a histogram of it. Select a reasonable binwidth for it.\n\n(A bit of starter code is provided below, and the code chunk is set to not be evaluated with eval: false because the current code in there is not valid code and hence the document wouldn’t knit. Once you replace the code with valid code, set the chunk option to eval: true, or remove the eval option altogether since it’s set to true by default.)\n\nggplot(starwars, aes(x = height)) +\n  geom_histogram(binwidth = 10)\n\n\n\n\n\n\n\n\n\nPick a numerical variable and a categorical variable and make a visualization (you pick the type!) to visualization the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n# add code here\n\nInterpretation goes here…\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\n# add code here\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n# add code here\n\nInterpretation goes here…\n\nPick two numerical variables and two categorical variables and make a visualization that incorporates all of them and provide an interpretation with your answer.\n\n(This time no starter code is provided, you’re on your own!)\n\n# add code here\n\nAdd your interpretation here."
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#ggplot2-in-tidyverse",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#ggplot2-in-tidyverse",
-    "title": "Visualising data with ggplot2",
-    "section": "ggplot2 \\(\\in\\) tidyverse",
-    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\nStructure of the code for plots can be summarized as\n\n\n\nggplot(\n  data = [data], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#data-palmer-penguins",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#data-palmer-penguins",
-    "title": "Visualising data with ggplot2",
-    "section": "Data: Palmer Penguins",
-    "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.\n\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\nglimpse(penguins)\n\n\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#goal",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#goal",
-    "title": "Visualising data with ggplot2",
-    "section": "Goal",
-    "text": "Goal\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(\n  data = penguins, \n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame\n\n\n\n\n\nggplot(data = penguins)"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-1",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-1",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm\n    )\n  )"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-2",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-2",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-3",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-3",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-4",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-4",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-5",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-5",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(title = \"Bill depth and length\")"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-6",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-6",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point()  +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-7",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-7",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point()  +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\"\n  )"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-8",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-8",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n     x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\"\n  )"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-9",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-9",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-10",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-10",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-11",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-11",
-    "title": "Visualising data with ggplot2",
-    "section": "",
-    "text": "CodePlotNarrative\n\n\n\nggplot(\n  data = penguins, \n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
-  },
-  {
-    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#argument-names",
-    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#argument-names",
-    "title": "Visualising data with ggplot2",
-    "section": "Argument names",
-    "text": "Argument names\n\n\n\n\n\n\nTip\n\n\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point() +\n  scale_color_viridis_d()"
-  },
-  {
     "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
     "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
     "title": "Visualizing and summarizing categorical data",
@@ -852,6 +614,440 @@
     "title": "Visualizing and summarizing categorical data",
     "section": "Relative frequency table with multiple variables",
     "text": "Relative frequency table with multiple variables\n\nloans |&gt;\n  count(homeownership, term) |&gt;\n  group_by(homeownership) |&gt;\n  mutate(proportion = n / sum(n))\n\n# A tibble: 6 × 4\n# Groups:   homeownership [3]\n  homeownership  term     n proportion\n  &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;\n1 MORTGAGE         36  3071      0.641\n2 MORTGAGE         60  1718      0.359\n3 OWN              36   998      0.738\n4 OWN              60   355      0.262\n5 RENT             36  2901      0.752\n6 RENT             60   957      0.248"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#ggplot2-in-tidyverse",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#ggplot2-in-tidyverse",
+    "title": "Visualising data with ggplot2",
+    "section": "ggplot2 \\(\\in\\) tidyverse",
+    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\nStructure of the code for plots can be summarized as\n\n\n\nggplot(\n  data = [data], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#data-palmer-penguins",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#data-palmer-penguins",
+    "title": "Visualising data with ggplot2",
+    "section": "Data: Palmer Penguins",
+    "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex.\n\n\n\n\n\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\nglimpse(penguins)\n\n\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#goal",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#goal",
+    "title": "Visualising data with ggplot2",
+    "section": "Goal",
+    "text": "Goal\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(\n  data = penguins, \n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame\n\n\n\n\n\nggplot(data = penguins)"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-1",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-1",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm\n    )\n  )"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-2",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-2",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-3",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-3",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-4",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-4",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-5",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-5",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(title = \"Bill depth and length\")"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-6",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-6",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point()  +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-7",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-7",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point()  +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\"\n  )"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-8",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-8",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n     x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\"\n  )"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-9",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-9",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-10",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-10",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "Start with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm,color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\", \n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-11",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#section-11",
+    "title": "Visualising data with ggplot2",
+    "section": "",
+    "text": "CodePlotNarrative\n\n\n\nggplot(\n  data = penguins, \n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#argument-names",
+    "href": "sample-videos/sample-ggplot2-slides/ggplot2.html#argument-names",
+    "title": "Visualising data with ggplot2",
+    "section": "Argument names",
+    "text": "Argument names\n\n\n\n\n\n\nTip\n\n\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point() +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
+    "href": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
+    "title": "Visualizing Starwars characters",
+    "section": "",
+    "text": "Load packages.\n\nGlimpse at the starwars data frame.\n\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nModify the following plot to change the color of all points to \"pink\".\n\n\nggplot(\n  starwars, \n  aes(x = height, y = mass, color = gender, size = birth_year)\n  ) +\n  geom_point(color = \"pink\")\n\nWarning: Removed 51 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nAdd labels for title, x and y axes, and size of points. Uncomment to see the effect.\n\n\nggplot(\n  starwars, \n  aes(x = height, y = mass, color = gender, size = birth_year)\n  ) +\n  geom_point(color = \"#30509C\") +\n  labs(\n    title = \"Mass vs. height of Starwars Characters\",\n    x = \"Height (cm)\", \n    y = \"Body mass (kg)\",\n    size = \"Birth year\"\n  )\n\nWarning: Removed 51 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nPick a single numerical variable and make a histogram of it. Select a reasonable binwidth for it.\n\n(A bit of starter code is provided below, and the code chunk is set to not be evaluated with eval: false because the current code in there is not valid code and hence the document wouldn’t knit. Once you replace the code with valid code, set the chunk option to eval: true, or remove the eval option altogether since it’s set to true by default.)\n\nggplot(starwars, aes(x = height)) +\n  geom_histogram(binwidth = 10)\n\n\n\n\n\n\n\n\n\nPick a numerical variable and a categorical variable and make a visualization (you pick the type!) to visualization the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n# add code here\n\nInterpretation goes here…\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\n# add code here\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n# add code here\n\nInterpretation goes here…\n\nPick two numerical variables and two categorical variables and make a visualization that incorporates all of them and provide an interpretation with your answer.\n\n(This time no starter code is provided, you’re on your own!)\n\n# add code here\n\nAdd your interpretation here."
+  },
+  {
+    "objectID": "sample-videos/sample-ggplot2-slides/script.html",
+    "href": "sample-videos/sample-ggplot2-slides/script.html",
+    "title": "Data visualization and transformation",
+    "section": "",
+    "text": "Hello, in this video we’re going to talk about the specifics and syntax of visualizing data with the ggplot2 package and we’re going to do so using data on penguins!\n\n\n\n\n\nA quick reminder that ggplot2 is tidyverse’s data visualization package\n\n\nThe structure of ggplot2 code looks almost always is the same: we start with the ggplot function where the first argument is the data that you want to plot and the second argument defines the aesthetic mappings using the aes function – in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you’re passing a function, aes, as the argument of another function, ggplot. You’ll see more of this as we progress through the course, though more often you’ll see data frame or variable names being passed to function arguments. and then we add on another layer – a geom layer – which defines the geometric shapes with which you want to represent your data and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from.\n\n\n\n\n\n\n\nThe data that we’re working with is called penguins. It comes from the palmerpenguins package, and we also need the tidyverse package for our analyses.\n\n\nSo let’s load those packages first And then glimpse at the data. glimpse is a function that prints out the variables in the data frame, their types – which we’ll dig deeper into later in the course –, and the first few observations as comma separated values.\n\n\nThe data contains body measurements on three species of penguins, chinstrap, gentoo, and adelie. The bodu measurements include things like bill length and depth, flipper length, and body mass. We also know which island the penguin is on, their sec, and the year of data collection. There are a total of 8 columns, so 8 variables.\nThe output also shows that we have 344 rows, that is, we have data on 344 penguins.\n\n\n\n\n\nThe plot shown here is our final goal. We’ll plot bill length against bill depth, both measured in millimeters. We’ll represent each penguin with a point, colored by their species. The species mappings are summarized in the legend of the plot. The plot also has a title, a subtitle, and a caption.\n–&gt; [other tab] And the code for the plot is shown here. It looks like what we’ve seen before – ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let’s unpack it layer by layer.\n\n\n\n\n\nIn other words, let’s code out loud!\n\n\n\n\n\nWe start with the ggplot function and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.\n\n\n\n\n\nThem we map bill depth to the x-axis &gt;&gt; we can see the x-axis indicates the variable name, its range, and a reasonable breakpoint\n\n\n\n\n\nThen we map bill length to the y-axis &gt;&gt; we can see the y-axis mapped as well\n\n\n\n\n\nAnd finally &gt;&gt; we add a geom layer – a geom point, indicating that the data should be represented as points. There seems to be three clusters of points here, let’s see what happens if we also ask that the points be colored by species.\n\n\n\n\n\nSince this requires mapping another variable to a new aesthetic of the plot, we do this in the aesthetic mappings &gt;&gt; mapping color to species. Note that not only the points are colored, but we also gained a legend describing the mappings – red points represent Adelie penguins, green Chinstrap, blue Gentoo.\n\n\n\n\n\nNow that the data we want to see on our plot is there, let’s add some labels.\n\n\nLet’s set the title to Bill depth and length. Not a particularly informative title, but it’s a good starting point. We do this in the labs function, passing it to the title argument as a character string denoted with quotes. You can use double or single quotes in R, sticking to the tidyverse style guide we’ll use double quotes.\n\n\n\n\n\n\n\nLet’s also add a subtitle\n\n\nAgain in the labs function, passing it to the subtitle argument.\n\n\n\n\n\n\n\nAnd let’s fix up the x and y axis labels.\n\n\nBy default ggplot2 will use the variable names, but we can overwrite them by updating the x and y label of the plot, and using more human-friendly text like bill depth mm and bill length mm.\n\n\n\n\n\n\n\nAnd finally let’s relabel the legend as well\n\n\nWe do this also in the labs function, passing the desired label to the color argument. Note that the name of the argument matches the aesthetic mapping.\n\n\n\n\n\n\n\nAnd finally in the labels\n\n\nlet’s add a caption for the data source. This automatically gets placed below the plot.\n\n\n\n\n\n\n\nAnd before we finish up our plot we need to do one more thing – use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nWe do this in a new layer, a scale layer, using a pre-defined color palette called viridis. The underscore-d denotes we will use the discrete color scale in this palette. If you have red-green color vision deficiency up until this point some of the points on the plot may have been difficult to tell apart. The goal with this palette is to make sure all, or at least more, viewers can see the points as intended.\n\n\n\n\n\n\n\nPutting it altogether we have our code\n–&gt; The resulting plot –&gt; And the narrative we built with each layer of the plot\n\n\n\n\n\nBefore we wrap up this introduction to ggplot2, one quick note about argument names. It’s common in R to omit the names of the first two arguments. In the ggplot function\n\n\nthese are data and mapping So you’ll commonly see me and others write ggplot code in the second way, omitting these argument names from the code."
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
+    "title": "Visualizing data",
+    "section": "Dataset terminology",
+    "text": "Dataset terminology\n\n\nEach row is an observation\nEach column is a variable\n\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name         height  mass hair_color skin_color eye_color\n   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    \n 1 Luke Skywal…    172    77 blond      fair       blue     \n 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   \n 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      \n 4 Darth Vader     202   136 none       white      yellow   \n 5 Leia Organa     150    49 brown      light      brown    \n 6 Owen Lars       178   120 brown, gr… light      blue     \n 7 Beru Whites…    165    75 brown      light      blue     \n 8 R5-D4            97    32 &lt;NA&gt;       white, red red      \n 9 Biggs Darkl…    183    84 black      light      brown    \n10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray\n# ℹ 77 more rows\n# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,\n#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,\n#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
+    "title": "Visualizing data",
+    "section": "Luke Skywalker",
+    "text": "Luke Skywalker"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
+    "title": "Visualizing data",
+    "section": "What’s in the Star Wars data?",
+    "text": "What’s in the Star Wars data?\nTake a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Da…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 1…\n$ mass       &lt;dbl&gt; 77, 75, 32, 136, 49, 120, 75, 32, 84, 7…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brow…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\",…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"bro…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47…\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", …\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatoo…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Hu…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Bac…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;…"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
+    "title": "Visualizing data",
+    "section": "Get to know the data",
+    "text": "Get to know the data\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n\n?starwars"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
+    "title": "Visualizing data",
+    "section": "Dimensions of the data",
+    "text": "Dimensions of the data\n\nHow many rows and columns does this dataset have?\n\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
+    "title": "Visualizing data",
+    "section": "What is EDA?",
+    "text": "What is EDA?\nExploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:\n\n\nVisualize – this is what we’ll focus on first\nSummarize - this is what we’ll focus on next\nBoth of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
+    "title": "Visualizing data",
+    "section": "Mass vs. height",
+    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
+    "title": "Visualizing data",
+    "section": "Jabba!",
+    "text": "Jabba!"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
+    "title": "Visualizing data",
+    "section": "Data visualization",
+    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\n\nData visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Anscombe’s quartet",
+    "text": "Anscombe’s quartet\n\nlibrary(Tmisc)\nquartet\n\n   set  x     y\n1    I 10  8.04\n2    I  8  6.95\n3    I 13  7.58\n4    I  9  8.81\n5    I 11  8.33\n6    I 14  9.96\n7    I  6  7.24\n8    I  4  4.26\n9    I 12 10.84\n10   I  7  4.82\n11   I  5  5.68\n12  II 10  9.14\n13  II  8  8.14\n14  II 13  8.74\n15  II  9  8.77\n16  II 11  9.26\n17  II 14  8.10\n18  II  6  6.13\n19  II  4  3.10\n20  II 12  9.13\n21  II  7  7.26\n22  II  5  4.74\n23 III 10  7.46\n24 III  8  6.77\n25 III 13 12.74\n26 III  9  7.11\n27 III 11  7.81\n28 III 14  8.84\n29 III  6  6.08\n30 III  4  5.39\n31 III 12  8.15\n32 III  7  6.42\n33 III  5  5.73\n34  IV  8  6.58\n35  IV  8  5.76\n36  IV  8  7.71\n37  IV  8  8.84\n38  IV  8  8.47\n39  IV  8  7.04\n40  IV  8  5.25\n41  IV 19 12.50\n42  IV  8  5.56\n43  IV  8  7.91\n44  IV  8  6.89"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Summarizing Anscombe’s quartet",
+    "text": "Summarizing Anscombe’s quartet\n\nquartet |&gt;\n  group_by(set) |&gt;\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )\n\n# A tibble: 4 × 6\n  set   mean_x mean_y  sd_x  sd_y     r\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 I          9   7.50  3.32  2.03 0.816\n2 II         9   7.50  3.32  2.03 0.816\n3 III        9   7.5   3.32  2.03 0.816\n4 IV         9   7.50  3.32  2.03 0.817"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Visualizing Anscombe’s quartet",
+    "text": "Visualizing Anscombe’s quartet\n\nggplot(quartet, aes(x = x, y = y)) +\n  geom_point() +\n  facet_wrap(~ set, ncol = 4)"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
+    "title": "Visualizing data",
+    "section": "Age at first kiss",
+    "text": "Age at first kiss\n\nA group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. Do you see anything out of the ordinary?"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
+    "title": "Visualizing data",
+    "section": "Facebook visits",
+    "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Data: Houses in Duke Forest",
+    "text": "Data: Houses in Duke Forest\n\nglimpse(duke_forest)\n\nRows: 98\nColumns: 13\n$ address    &lt;chr&gt; \"1 Learned Pl, Durham, NC 27705\", \"1616…\n$ price      &lt;dbl&gt; 1520000, 1030000, 420000, 680000, 42850…\n$ bed        &lt;dbl&gt; 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, …\n$ bath       &lt;dbl&gt; 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0,…\n$ area       &lt;dbl&gt; 6040, 4475, 1745, 2091, 1772, 1950, 390…\n$ type       &lt;chr&gt; \"Single Family\", \"Single Family\", \"Sing…\n$ year_built &lt;dbl&gt; 1972, 1969, 1959, 1961, 2020, 2014, 196…\n$ heating    &lt;chr&gt; \"Other, Gas\", \"Forced air, Gas\", \"Force…\n$ cooling    &lt;fct&gt; central, central, central, central, cen…\n$ parking    &lt;chr&gt; \"0 spaces\", \"Carport, Covered\", \"Garage…\n$ lot        &lt;dbl&gt; 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.9…\n$ hoa        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ url        &lt;chr&gt; \"https://www.zillow.com/homedetails/1-L…"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area",
+    "text": "Price vs. area"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#scatterplot",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#scatterplot",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Scatterplot",
+    "text": "Scatterplot\n\nggplot(duke_forest, aes(x = area, y = price)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#correlation-coefficient",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#correlation-coefficient",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Correlation coefficient",
+    "text": "Correlation coefficient\n\nduke_forest |&gt;\n  summarize(r = cor(area, price))\n\n# A tibble: 1 × 1\n      r\n  &lt;dbl&gt;\n1 0.667"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Characteristics of a relationship",
+    "text": "Characteristics of a relationship\nbetween two numerical variables\n\n\n\n\nDirection: Positive\nForm: Linear\nStrength: Moderately strong"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Distribution of house prices",
+    "text": "Distribution of house prices\n\nggplot(duke_forest, aes(x = price)) +\n  geom_histogram(binwidth = 100000)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-histograms",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-histograms",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Filled histograms",
+    "text": "Filled histograms\n\nggplot(duke_forest, aes(x = price, fill = cooling)) +\n  geom_histogram(binwidth = 100000)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Side-by-side box plots",
+    "text": "Side-by-side box plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Filled density plots",
+    "text": "Filled density plots\n\nggplot(\n  duke_forest, \n  aes(x = price, color = cooling, fill = cooling)\n  ) +\n  geom_density(alpha = 0.5)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Violin plots",
+    "text": "Violin plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_violin()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Grouped summaries",
+    "text": "Grouped summaries\n\nduke_forest |&gt;\n  summarize(median_price = median(price))\n\n# A tibble: 1 × 1\n  median_price\n         &lt;dbl&gt;\n1       540000\n\n\n\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    median_price = median(price), \n  )\n\n# A tibble: 2 × 2\n  cooling median_price\n  &lt;fct&gt;          &lt;dbl&gt;\n1 other         525000\n2 central       550000"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Multiple summary statistics",
+    "text": "Multiple summary statistics\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    min_price = min(price),\n    median_price = median(price), \n    iqr_price = IQR(price),\n    max_price = max(price)\n  )\n\n# A tibble: 2 × 5\n  cooling min_price median_price iqr_price max_price\n  &lt;fct&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 other       95000       525000    156500   1020000\n2 central    265000       550000    221500   1520000"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Year built",
+    "text": "Year built\n\nCreate a new variable called year_built_cat that takes on the value \"1970 or later\" if the house is built in 1970 or later, and \"1969 or earlier\" otherwise.\n\n\n\nduke_forest &lt;- duke_forest |&gt;\n  mutate(\n    year_built_cat = if_else(\n      year_built &gt;= 1970, \n      \"1970 or later\", \n      \"1969 or earlier\"\n    )\n   )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Year built",
+    "text": "Year built\n\nduke_forest |&gt;\n  select(contains(\"year_built\"))\n\n# A tibble: 98 × 2\n   year_built year_built_cat \n        &lt;dbl&gt; &lt;chr&gt;          \n 1       1972 1970 or later  \n 2       1969 1969 or earlier\n 3       1959 1969 or earlier\n 4       1961 1969 or earlier\n 5       2020 1970 or later  \n 6       2014 1970 or later  \n 7       1968 1969 or earlier\n 8       1973 1970 or later  \n 9       1972 1970 or later  \n10       1964 1969 or earlier\n# ℹ 88 more rows"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Stacked bar plot – frequencites",
+    "text": "Stacked bar plot – frequencites\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Stacked bar plot – proportions",
+    "text": "Stacked bar plot – proportions\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar(position = \"fill\")"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#frequencies",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#frequencies",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Frequencies",
+    "text": "Frequencies\n\nduke_forest |&gt;\n  count(year_built_cat, cooling)\n\n# A tibble: 4 × 3\n  year_built_cat  cooling     n\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt;\n1 1969 or earlier other      39\n2 1969 or earlier central    27\n3 1970 or later   other      14\n4 1970 or later   central    18"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#proportions",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#proportions",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Proportions",
+    "text": "Proportions\n\nduke_forest |&gt;\n  count(year_built_cat, cooling) |&gt;\n  group_by(year_built_cat) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 4 × 4\n# Groups:   year_built_cat [2]\n  year_built_cat  cooling     n  prop\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt; &lt;dbl&gt;\n1 1969 or earlier other      39 0.591\n2 1969 or earlier central    27 0.409\n3 1970 or later   other      14 0.438\n4 1970 or later   central    18 0.562"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  theme(legend.position = c(0.15, 0.8))"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-8",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-8",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(r = cor(price, area))\n\n# A tibble: 2 × 2\n  cooling     r\n  &lt;fct&gt;   &lt;dbl&gt;\n1 other   0.459\n2 central 0.854"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-9",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-9",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-10",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-10",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest, by cooling type\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#grammar-of-graphics-1",
@@ -1215,14 +1411,14 @@
     "href": "index.html",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
