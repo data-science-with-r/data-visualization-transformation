@@ -403,6 +403,187 @@
 </blockquote>
 </blockquote>
 <p>It’s possible to map multiple aesthetics to the same variable, like species in this plot. We can see that this results in a combined legend.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And here size is mapped to body mass. This effects the size of the points on the plot, which makes it very busy and difficult to read. Which means, just because you can, doesn’t mean you should. It’s up to you to decide whether an aesthetic mapping makes sense and results in a useful visualization. The best way to decide is to give it a try.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>And one more – alpha. Here alpha, the transparency level, is mapped to flipper length. This is useful when you have lots of points being overplotted, like we have in this plot. It shows you where the density of the data is higher vs.&nbsp;lower.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>We’ve been using the term mapping.</p>
+<blockquote>
+<blockquote>
+<p>This is reseserved for when we are mapping an aesthetic to a variable in the data frame. So the values the aesthetic takes is determined by values in the data.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>You can also just set an aesthetic to a value, just because you want to. For example, make all points red or make all of their sizes a bit bigger.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>So, mapping determines the size, alpha, etc. of points based on the values of a variable in the data and goes into the aes() function, and</p>
+<blockquote>
+<blockquote>
+<p>setting determines the size, alpha, etc. of points not based on the values of a variable in the data, and goes into geom function.</p>
+</blockquote>
+</blockquote>
+<p>mapping vs.&nbsp;setting – this will come up regularly in the course and when you’re doing your own data visualizations.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>The next layer is geoms</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>These are the visual representations of data points</p>
+<blockquote>
+<blockquote>
+<p>they’re short for geometric objects geom functions are used to add geoms to a plot, and Each geom adds a new layer to the plot, so you can stack them up!</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Here we have data represented with just points to make a scatterplot</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>and here we’ve added another geom layer, where we’re also representing the same data with a smooth curve that’s fit to the data</p>
+<blockquote>
+<blockquote>
+<p>and you’ll learn about many more geoms soon!</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>Next up is facets</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>What is a facet and why might we want it?</p>
+<blockquote>
+<blockquote>
+<p>Facets are Smaller plots that each display different subsets of the data</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>they’re also commonly referred to as small multiples</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>and they’re Useful for exploring conditional relationships and large data</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>here is a faceted scatterplot, faceted by island across the columns and species across the rows</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>To facet a plot</p>
+<blockquote>
+<blockquote>
+<p>we add a facet layer. In this case we’ve used the facet_grid function to facet by two variables into a grid.</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>species tilde island means species on rows, island on columns</p>
+<blockquote>
+<blockquote>
+<p>and island tilde species means island on rows, species on columns</p>
+</blockquote>
+</blockquote>
+<p>don’t feel like you have to memorize this order. I often get them mixed up. just try it one way, and if you don’t like it, try it the other way.</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>to facet by a single variable, we instead use the facet_wrap function, which has a quirky syntax: just tilde species, so tilde followed by the variable you want to facet by</p>
+<blockquote>
+<blockquote>
+<p>you have some control over how these facets are laid out, for example here we said we want them in a single column with the ncol argument, setting it to 1</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>layers 5 and 6 are statistics and coordinates</p>
+<blockquote>
+<blockquote>
+<p>they’re a bit more advanced so i won’t say more about them now, but we’ll get to them soon</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>and layer 7 is themes</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>themes control the non-data elements of the plot</p>
+<blockquote>
+<blockquote>
+<p>you can select from pre-defined themes with theme_something functions or Take control of individual theme elements in the theme() function</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>here we’ve added a dark theme to our plot with theme_dark</p>
+<blockquote>
+<blockquote>
+
+</blockquote>
+</blockquote>
+<p>and here we’ve changed the position of the legend to the bottom of the plot with the theme function</p>
+<p>we’ll highlight commonly used theme elements throughout the course as they become relevant. And remember, you can always access the function documentation with question mark theme to learn about all of the options available to you. exploring the documentation for all these functions is a great way to get practice making visualizations with ggplot2.</p>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

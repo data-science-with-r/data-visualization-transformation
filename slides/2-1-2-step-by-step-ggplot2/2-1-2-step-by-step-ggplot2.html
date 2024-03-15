@@ -449,7 +449,7 @@
 <section id="mass-vs.-height" class="slide level2">
 <h2>Mass vs.&nbsp;height</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> mass)) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|1|2|3-7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(starwars, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> mass)) <span class="sc">+</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb3-3"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb3-4"><a></a>    <span class="at">title =</span> <span class="st">"Mass vs. height of Starwars characters"</span>,</span>
@@ -530,8 +530,9 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…</code></pre>
 <span id="cb7-11"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
 <span id="cb7-12"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, </span>
 <span id="cb7-13"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb7-14"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span></span>
-<span id="cb7-15"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-14"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
+<span id="cb7-15"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
+<span id="cb7-16"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing missing values
 (`geom_point()`).</code></pre>
