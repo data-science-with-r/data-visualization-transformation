@@ -362,7 +362,7 @@ duke_forest |>
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "24"
+#| code-line-numbers: "22"
 #| fig-asp: 1
 ggplot(
   duke_forest, 

@@ -571,7 +571,7 @@
     "href": "index.html#code-alongs",
     "title": " Data visualization and transformation",
     "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguin\n\n\n\n\n\nNo matching items"
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguin\n\n\n\n\nDiving deeper with Palmer Penguin\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#exercises",
@@ -983,15 +983,15 @@
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
     "title": "Visualizing and summarizing relationships",
-    "section": "",
-    "text": "library(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
     "title": "Visualizing and summarizing relationships",
-    "section": "",
-    "text": "glimpse(duke_forest)\n\nRows: 98\nColumns: 13\n$ address    &lt;chr&gt; \"1 Learned Pl, Durham, NC 27705\", \"1616…\n$ price      &lt;dbl&gt; 1520000, 1030000, 420000, 680000, 42850…\n$ bed        &lt;dbl&gt; 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, …\n$ bath       &lt;dbl&gt; 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0,…\n$ area       &lt;dbl&gt; 6040, 4475, 1745, 2091, 1772, 1950, 390…\n$ type       &lt;chr&gt; \"Single Family\", \"Single Family\", \"Sing…\n$ year_built &lt;dbl&gt; 1972, 1969, 1959, 1961, 2020, 2014, 196…\n$ heating    &lt;chr&gt; \"Other, Gas\", \"Forced air, Gas\", \"Force…\n$ cooling    &lt;fct&gt; central, central, central, central, cen…\n$ parking    &lt;chr&gt; \"0 spaces\", \"Carport, Covered\", \"Garage…\n$ lot        &lt;dbl&gt; 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.9…\n$ hoa        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ url        &lt;chr&gt; \"https://www.zillow.com/homedetails/1-L…"
+    "section": "Data: Houses in Duke Forest",
+    "text": "Data: Houses in Duke Forest\n\nglimpse(duke_forest)\n\nRows: 98\nColumns: 13\n$ address    &lt;chr&gt; \"1 Learned Pl, Durham, NC 27705\", \"1616…\n$ price      &lt;dbl&gt; 1520000, 1030000, 420000, 680000, 42850…\n$ bed        &lt;dbl&gt; 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, …\n$ bath       &lt;dbl&gt; 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0,…\n$ area       &lt;dbl&gt; 6040, 4475, 1745, 2091, 1772, 1950, 390…\n$ type       &lt;chr&gt; \"Single Family\", \"Single Family\", \"Sing…\n$ year_built &lt;dbl&gt; 1972, 1969, 1959, 1961, 2020, 2014, 196…\n$ heating    &lt;chr&gt; \"Other, Gas\", \"Forced air, Gas\", \"Force…\n$ cooling    &lt;fct&gt; central, central, central, central, cen…\n$ parking    &lt;chr&gt; \"0 spaces\", \"Carport, Covered\", \"Garage…\n$ lot        &lt;dbl&gt; 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.9…\n$ hoa        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ url        &lt;chr&gt; \"https://www.zillow.com/homedetails/1-L…"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
@@ -1075,7 +1075,7 @@
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
     "title": "Visualizing and summarizing relationships",
     "section": "Year built",
-    "text": "Year built\n\nCreate a new variable called year_built_cat that takes on the value \"1970 or later\" if the house is built in 1970 or later, and \"1969 or earlier\" otherwise.\n\n. . .\n\nduke_forest &lt;- duke_forest |&gt;\n  mutate(\n    year_built_cat = if_else(\n      year_built &gt;= 1970, \n      \"1970 or later\", \n      \"1969 or earlier\"\n    )\n   )"
+    "text": "Year built\n\nCreate a new variable called year_built_cat that takes on the value \"1970 or later\" if the house is built in 1970 or later, and \"1969 or earlier\" otherwise.\n\n\n\nduke_forest &lt;- duke_forest |&gt;\n  mutate(\n    year_built_cat = if_else(\n      year_built &gt;= 1970, \n      \"1970 or later\", \n      \"1969 or earlier\"\n    )\n   )"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
@@ -1446,42 +1446,42 @@
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---1",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling - 1",
-    "text": "Price vs. area and cooling - 1\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point()"
+    "text": "Price vs. area and cooling - 1\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---2",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---2",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling - 2",
-    "text": "Price vs. area and cooling - 2\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4)"
+    "text": "Price vs. area and cooling - 2\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4)"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---3",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---3",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling - 3",
-    "text": "Price vs. area and cooling - 3\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+    "text": "Price vs. area and cooling - 3\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---4",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---4",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling - 4",
-    "text": "Price vs. area and cooling - 4\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+    "text": "Price vs. area and cooling - 4\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---5",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---5",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling - 5",
-    "text": "Price vs. area and cooling - 5\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+    "text": "Price vs. area and cooling - 5\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---6",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---6",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling - 6",
-    "text": "Price vs. area and cooling - 6\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+    "text": "Price vs. area and cooling - 6\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---7",
@@ -1495,14 +1495,14 @@
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---8",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling - 8",
-    "text": "Price vs. area and cooling - 8\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  facet_wrap(~cooling, ncol = 1)"
+    "text": "Price vs. area and cooling - 8\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  facet_wrap(~cooling, ncol = 1)"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---9",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---9",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling - 9",
-    "text": "Price vs. area and cooling - 9\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest, by cooling type\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  facet_wrap(~cooling, ncol = 1)"
+    "text": "Price vs. area and cooling - 9\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest, by cooling type\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  facet_wrap(~cooling, ncol = 1)"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---10",
@@ -1538,5 +1538,68 @@
     "title": "UN Votes",
     "section": "",
     "text": "The data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship =\n  \"many-to-many\")"
+  },
+  {
+    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html",
+    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#packages",
+    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#packages",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#data",
+    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#data",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html",
+    "title": "Diving deeper with Palmer Penguin",
+    "section": "",
+    "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#packages",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#packages",
+    "title": "Diving deeper with Palmer Penguin",
+    "section": "",
+    "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#data",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#data",
+    "title": "Diving deeper with Palmer Penguin",
+    "section": "",
+    "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#single-variable",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#single-variable",
+    "title": "Diving deeper with Palmer Penguin",
+    "section": "Single variable",
+    "text": "Single variable\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the a single variable is called univariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins.\n\nMake a histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nMake a boxplot.\n\n\n# add code here\n\n\nBased on these, determine if each of the following statements about the shape of the distribution is true or false.\n\nThe distribution of penguin weights in this sample is left skewed. FALSE\n\nThe distribution of penguin weights in this sample is unimodal. TRUE"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#two-variables",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#two-variables",
+    "title": "Diving deeper with Palmer Penguin",
+    "section": "Two variables",
+    "text": "Two variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between two variables is called bivariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins by species.\n\nMake a single histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nUse multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.\n\n\n# add code here\n\n\nUse side-by-side box plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse density plots. Add color as you see fit.\n\n\n# add code here\n\n\nUse violin plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nMake a jittered scatter plot. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse beeswarm plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#multiple-variables",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#multiple-variables",
+    "title": "Diving deeper with Palmer Penguin",
+    "section": "Multiple variables",
+    "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\n\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\n\n# add code here\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
   }
 ]
