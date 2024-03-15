@@ -1237,5 +1237,215 @@
     "title": "Meet the toolkit: Programming exercises",
     "section": "Exploring mtcars\n",
     "text": "Exploring mtcars\n\nFor the remainder of this activity, we are going to practice using functions on the mtcars data set. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).\nDemo Run the following code to see the first six lines of data below\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat is the name of the function used in the above code? What is the input?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe function is named head\nThe argument is the dataset mtcars\n\n\n\nWe can also get a better sense of the data we are working with by using the glimpse() function. This allows us to see how many rows and columns we have in our data set, the type of data we are working with, and the data inputs. For now, we just want to practice writing the function to initially explore these data.\nYour Turn Use the glimpse() function on the mtcars data set below.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHow many rows are in the mtcars data set? How many columns?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nglimpse(mtcars)\n\nRows: 32\nColumns: 11\n$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…\n$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…\n$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…\n$ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180…\n$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92,…\n$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.…\n$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…\n$ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,…\n$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,…\n$ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3,…\n$ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2,…\n\n\nThere are 32 rows in the mtcars data set\nThere are 11 columns in the mtcars data set\n\n\n\nYour Turn: There are many other functions we can use on data to explore it prior to making data visualizations. You are encouraged to explore the help files of the following:\n\ntail()\nslice()\n\nAfter doing so, try to answer answer the following questions!\nUse tail() to produce the last six lines of the mtcars data set.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\ntail(mtcars)\n\n                mpg cyl  disp  hp drat    wt qsec vs am gear carb\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2\nFord Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4\nFerrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6\nMaserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2\n\n\n\n\n\nNow, use slice to produce the first three lines of the mtcars data set.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nslice(mtcars, 1:3)\n\n               mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\n\n\n\n\n\nIn the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R."
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Data: Houses in Duke Forest",
+    "text": "Data: Houses in Duke Forest\n\nglimpse(duke_forest)\n\nRows: 98\nColumns: 13\n$ address    &lt;chr&gt; \"1 Learned Pl, Durham, NC 27705\", \"1616…\n$ price      &lt;dbl&gt; 1520000, 1030000, 420000, 680000, 42850…\n$ bed        &lt;dbl&gt; 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, …\n$ bath       &lt;dbl&gt; 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0,…\n$ area       &lt;dbl&gt; 6040, 4475, 1745, 2091, 1772, 1950, 390…\n$ type       &lt;chr&gt; \"Single Family\", \"Single Family\", \"Sing…\n$ year_built &lt;dbl&gt; 1972, 1969, 1959, 1961, 2020, 2014, 196…\n$ heating    &lt;chr&gt; \"Other, Gas\", \"Forced air, Gas\", \"Force…\n$ cooling    &lt;fct&gt; central, central, central, central, cen…\n$ parking    &lt;chr&gt; \"0 spaces\", \"Carport, Covered\", \"Garage…\n$ lot        &lt;dbl&gt; 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.9…\n$ hoa        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ url        &lt;chr&gt; \"https://www.zillow.com/homedetails/1-L…"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area",
+    "text": "Price vs. area"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#scatterplot",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#scatterplot",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Scatterplot",
+    "text": "Scatterplot\n\nggplot(duke_forest, aes(x = area, y = price)) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#correlation-coefficient",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#correlation-coefficient",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Correlation coefficient",
+    "text": "Correlation coefficient\n\nduke_forest |&gt;\n  summarize(r = cor(area, price))\n\n# A tibble: 1 × 1\n      r\n  &lt;dbl&gt;\n1 0.667"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Characteristics of a relationship",
+    "text": "Characteristics of a relationship\nbetween two numerical variables\n\n\n\n\nDirection: Positive\nForm: Linear\nStrength: Moderately strong"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Distribution of house prices",
+    "text": "Distribution of house prices\n\nggplot(duke_forest, aes(x = price)) +\n  geom_histogram(binwidth = 100000)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-histograms",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-histograms",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Filled histograms",
+    "text": "Filled histograms\n\nggplot(duke_forest, aes(x = price, fill = cooling)) +\n  geom_histogram(binwidth = 100000)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plot",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plot",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Side-by-side box plot",
+    "text": "Side-by-side box plot\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#density-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#density-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Density plots",
+    "text": "Density plots\n\nggplot(duke_forest, aes(x = price, color = cooling, fill = cooling)) +\n  geom_density(alpha = 0.5)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Violin plots",
+    "text": "Violin plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_violin()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Grouped summaries",
+    "text": "Grouped summaries\n\nduke_forest |&gt;\n  summarize(median_price = median(price))\n\n# A tibble: 1 × 1\n  median_price\n         &lt;dbl&gt;\n1       540000\n\n\n\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    median_price = median(price), \n  )\n\n# A tibble: 2 × 2\n  cooling median_price\n  &lt;fct&gt;          &lt;dbl&gt;\n1 other         525000\n2 central       550000"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Side-by-side box plots",
+    "text": "Side-by-side box plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Filled density plots",
+    "text": "Filled density plots\n\nggplot(\n  duke_forest, \n  aes(x = price, color = cooling, fill = cooling)\n  ) +\n  geom_density(alpha = 0.5)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Multiple summary statistics",
+    "text": "Multiple summary statistics\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    min_price = min(price),\n    median_price = median(price), \n    iqr_price = IQR(price),\n    max_price = max(price)\n  )\n\n# A tibble: 2 × 5\n  cooling min_price median_price iqr_price max_price\n  &lt;fct&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 other       95000       525000    156500   1020000\n2 central    265000       550000    221500   1520000"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Year built",
+    "text": "Year built\n\nCreate a new variable called year_built_cat that takes on the value \"1970 or later\" if the house is built in 1970 or later, and \"1969 or earlier\" otherwise.\n\n\n\nduke_forest &lt;- duke_forest |&gt;\n  mutate(\n    year_built_cat = if_else(\n      year_built &gt;= 1970, \n      \"1970 or later\", \n      \"1969 or earlier\"\n    )\n   )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Stacked bar plot",
+    "text": "Stacked bar plot\n\nVisualize the relationship between year built (pre/post 1970) and cooling for houses in this sample.\n\n\n\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()\n\n\n\n\n\n\n\n\n\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar(position = \"fill\")"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Year built",
+    "text": "Year built\n\nduke_forest |&gt;\n  select(contains(\"year_built\"))\n\n# A tibble: 98 × 2\n   year_built year_built_cat \n        &lt;dbl&gt; &lt;chr&gt;          \n 1       1972 1970 or later  \n 2       1969 1969 or earlier\n 3       1959 1969 or earlier\n 4       1961 1969 or earlier\n 5       2020 1970 or later  \n 6       2014 1970 or later  \n 7       1968 1969 or earlier\n 8       1973 1970 or later  \n 9       1972 1970 or later  \n10       1964 1969 or earlier\n# ℹ 88 more rows"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Stacked bar plot – frequencites",
+    "text": "Stacked bar plot – frequencites\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Stacked bar plot – proportions",
+    "text": "Stacked bar plot – proportions\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar(position = \"fill\")"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#frequencies",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#frequencies",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Frequencies",
+    "text": "Frequencies\n\nduke_forest |&gt;\n  count(year_built_cat, cooling)\n\n# A tibble: 4 × 3\n  year_built_cat  cooling     n\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt;\n1 1969 or earlier other      39\n2 1969 or earlier central    27\n3 1970 or later   other      14\n4 1970 or later   central    18"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#proportions",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#proportions",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Proportions",
+    "text": "Proportions\n\nduke_forest |&gt;\n  count(year_built_cat, cooling) |&gt;\n  group_by(year_built_cat) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 4 × 4\n# Groups:   year_built_cat [2]\n  year_built_cat  cooling     n  prop\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt; &lt;dbl&gt;\n1 1969 or earlier other      39 0.591\n2 1969 or earlier central    27 0.409\n3 1970 or later   other      14 0.438\n4 1970 or later   central    18 0.562"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  theme(legend.position = c(0.15, 0.8))"
   }
 ]

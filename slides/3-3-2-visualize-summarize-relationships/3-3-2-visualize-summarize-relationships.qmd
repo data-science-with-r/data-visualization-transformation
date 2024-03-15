@@ -1,0 +1,386 @@
+---
+title: "Visualizing and summarizing relationships"
+format: 
+  revealjs:
+    auto-stretch: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| include: false
+ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
+```
+
+# Setup
+
+## Packages
+
+```{r}
+#| label: packages
+#| message: false
+library(tidyverse) # for data wrangling and visualization
+library(openintro) # for data
+library(scales)    # for pretty axis labels
+```
+
+## Data: Houses in Duke Forest
+
+```{r}
+glimpse(duke_forest)
+```
+
+## Price vs. area {.nostretch}
+
+```{r}
+#| echo: false
+#| fig-width: 12
+ggplot(duke_forest, aes(x = area, y = price, color = cooling, shape = cooling)) +
+  geom_point(alpha = 0.7, size = 4) +
+  scale_x_continuous(labels = label_number(big.mark = ",")) +
+  scale_y_continuous(labels = label_dollar()) +
+  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  labs(
+    title = "Houses in Duke Forest",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  ) +
+  theme_minimal(base_size = 26) +
+  theme(legend.position = c(0.15, 0.8))
+```
+
+# Relationship between two numerical variables
+
+## Scatterplot
+
+```{r}
+#| label: area-price-scatter
+ggplot(duke_forest, aes(x = area, y = price)) +
+  geom_point()
+```
+
+## Correlation coefficient
+
+```{r}
+duke_forest |>
+  summarize(r = cor(area, price))
+```
+
+## Characteristics of a relationship
+
+*between two numerical variables*
+
+::: columns
+::: {.column .fragment width="30%"}
+::: incremental
+-   **Direction:** Positive
+
+-   **Form:** Linear
+
+-   **Strength:** Moderately strong
+:::
+:::
+
+::: {.column width="40%"}
+```{r}
+#| ref.label: area-price-scatter
+#| fig-width: 5
+#| echo: false
+```
+:::
+:::
+
+# Relationship between a numerical and a categorical variable
+
+## Distribution of house prices
+
+```{r}
+ggplot(duke_forest, aes(x = price)) +
+  geom_histogram(binwidth = 100000)
+```
+
+## Filled histograms
+
+```{r}
+ggplot(duke_forest, aes(x = price, fill = cooling)) +
+  geom_histogram(binwidth = 100000)
+```
+  
+## Side-by-side box plots
+
+```{r}
+ggplot(duke_forest, aes(x = price, y = cooling)) +
+  geom_boxplot()
+```
+
+## Filled density plots
+
+```{r}
+ggplot(
+  duke_forest, 
+  aes(x = price, color = cooling, fill = cooling)
+  ) +
+  geom_density(alpha = 0.5)
+```
+
+## Violin plots
+
+```{r}
+ggplot(duke_forest, aes(x = price, y = cooling)) +
+  geom_violin()
+```
+
+## Grouped summaries
+
+```{r}
+duke_forest |>
+  summarize(median_price = median(price))
+```
+
+. . .
+
+```{r}
+#| code-line-numbers: "|2"
+duke_forest |>
+  group_by(cooling) |>
+  summarize(
+    median_price = median(price), 
+  )
+```
+
+## Multiple summary statistics
+
+```{r}
+#| code-line-numbers: "|4-7"
+duke_forest |>
+  group_by(cooling) |>
+  summarize(
+    min_price = min(price),
+    median_price = median(price), 
+    iqr_price = IQR(price),
+    max_price = max(price)
+  )
+```
+
+# Relationship between two categorical variables
+
+## Year built
+
+::: task
+Create a new variable called `year_built_cat` that takes on the value `"1970 or later"` if the house is built in 1970 or later, and `"1969 or earlier"` otherwise.
+:::
+
+. . .
+
+```{r}
+#| code-line-numbers: "|2|3-7|4|5|6|1"
+duke_forest <- duke_forest |>
+  mutate(
+    year_built_cat = if_else(
+      year_built >= 1970, 
+      "1970 or later", 
+      "1969 or earlier"
+    )
+   )
+```
+
+## Year built
+
+```{r}
+duke_forest |>
+  select(contains("year_built"))
+```
+
+## Stacked bar plot -- frequencites
+
+```{r}
+ggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +
+  geom_bar()
+```
+
+## Stacked bar plot -- proportions
+
+```{r}
+ggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +
+  geom_bar(position = "fill")
+```
+
+## Frequencies
+
+```{r}
+duke_forest |>
+  count(year_built_cat, cooling)
+```
+
+## Proportions
+
+```{r}
+duke_forest |>
+  count(year_built_cat, cooling) |>
+  group_by(year_built_cat) |>
+  mutate(prop = n / sum(n))
+```
+
+# Relationships between many variables
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "|1,4|2|3|5"
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point()
+```
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "5"
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4)
+```
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "6-13"
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4) +
+  labs(
+    title = "Houses in Duke Forest",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  )
+```
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "6"
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4) +
+  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  labs(
+    title = "Houses in Duke Forest",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  )
+```
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "6"
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4) +
+  scale_x_continuous(labels = label_number(big.mark = ",")) +
+  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  labs(
+    title = "Houses in Duke Forest",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  )
+```
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "7"
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4) +
+  scale_x_continuous(labels = label_number(big.mark = ",")) +
+  scale_y_continuous(labels = label_dollar()) +
+  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  labs(
+    title = "Houses in Duke Forest",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  )
+```
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "17"
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4) +
+  scale_x_continuous(labels = label_number(big.mark = ",")) +
+  scale_y_continuous(labels = label_dollar()) +
+  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  labs(
+    title = "Houses in Duke Forest",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  ) +
+  theme_minimal()
+```
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "18"
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4) +
+  scale_x_continuous(labels = label_number(big.mark = ",")) +
+  scale_y_continuous(labels = label_dollar()) +
+  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  labs(
+    title = "Houses in Duke Forest",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  ) +
+  theme_minimal() +
+  theme(legend.position = c(0.15, 0.8))
+```
