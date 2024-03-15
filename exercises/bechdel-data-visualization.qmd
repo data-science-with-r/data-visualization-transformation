@@ -49,10 +49,8 @@ library(scales)
 
 ```{r}
 #| echo: false
-
 library(tidyverse) # put in r file to r chunks have packages to use
 library(scales)
-
 ```
 
 
@@ -76,7 +74,6 @@ If you receive the error [Error: object 'bechdel' not found]{style="color:red;"}
 
 ```{webr-r}
 # add code here
-
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -94,7 +91,7 @@ We can use `slice()` to look at rows of our data. Run the following code. Change
 slice(bechdel, 1:5)
 ```
 
-
+<br>
 ```{=html}
 <textarea rows="4" cols="50">
 </textarea>
@@ -103,7 +100,7 @@ slice(bechdel, 1:5)
 
 What does each observation (row) in the data set represent?
 
-
+<br>
 ```{=html}
 <textarea rows="4" cols="50">
 </textarea>
@@ -170,7 +167,7 @@ The `geom_xx()` function specifies the type of plot we want to use to represent 
 #| label: plot-point
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
-  # type geom_point() here!
+  #add code here
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -207,7 +204,7 @@ ggplot(bechdel,
   geom_point(color = "coral") 
 ```
 
-
+<br>
 ```{=html}
 <textarea rows="4" cols="50">
 </textarea>
@@ -220,11 +217,10 @@ Add labels for the title and x and y axes using [labs()](https://ggplot2.tidyver
 
 ```{webr-r}
 #| label: plot-labs
-
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
   geom_point(color = "coral") + 
-  # insert code here
+  #add code here
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -258,7 +254,6 @@ Modify the plot below, so the `color` of the points is based on the variable `bi
 
 ```{webr-r}
 #| label: plot-aes-color
-
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
   geom_point() + 
@@ -274,7 +269,6 @@ ggplot(bechdel,
 
 ```{r}
 #| label: plot-aes-color-solution
-
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013,
            color = binary, size = roi)) +
@@ -293,7 +287,6 @@ ggplot(bechdel,
 
 ```{webr-r}
 #| label: plot-aes-alpha
-
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013,
            color = binary, size = roi)) +
@@ -305,7 +298,7 @@ ggplot(bechdel,
     )
 ```
 
-
+<br>
 ```{=html}
 <textarea rows="4" cols="50">
 </textarea>
@@ -319,7 +312,6 @@ Expand on your plot from the previous step by using `facet_wrap()` to display th
 
 ```{webr-r}
 #| label: plot-facet-wrap
-
 ggplot(bechdel, 
   aes(x = budget_2013, y = gross_2013,
     color = binary, size = roi)) +
@@ -361,7 +353,6 @@ This is done through the use of the [**scales**](https://scales.r-lib.org/) pack
 
 ```{webr-r}
 #| label: plot-scales
-
 ggplot(bechdel, 
   aes(x = budget_2013, y = gross_2013,
     color = binary, size = roi)) +
@@ -376,7 +367,7 @@ ggplot(bechdel,
     )
 ```
 
-
+<br>
 ```{=html}
 <textarea rows="4" cols="50">
 </textarea>
@@ -389,7 +380,6 @@ Expand on your plot from the previous step by using `facet_grid()` to display th
 
 ```{webr-r}
 #| label: plot-facet-grid
-
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013,
            color = binary, size = roi)) +
@@ -406,7 +396,7 @@ ggplot(bechdel,
 
 Is this type of facet useful? Why or why not?
 
-
+<br>
 ```{=html}
 <textarea rows="4" cols="50">
 </textarea>
@@ -417,7 +407,6 @@ Is this type of facet useful? Why or why not?
 ## Solution
 
 ```{r}
-
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013,
            color = binary, size = roi)) +
