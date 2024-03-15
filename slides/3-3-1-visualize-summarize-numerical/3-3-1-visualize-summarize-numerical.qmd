@@ -43,7 +43,7 @@ glimpse(loans)
 loan_amount_hist <- ggplot(loans, aes(x = loan_amount)) +
   geom_histogram(binwidth = 5000) +
   scale_x_continuous(labels = label_dollar()) +
-  scale_y_continuous(labels = label_number()) +
+  scale_y_continuous(labels = label_number(big.mark = ",")) +
   theme_gray(base_size = 26) +
   labs(
     x = "Loan amount (USD)",
@@ -155,38 +155,65 @@ ggplot(loans, aes(x = loan_amount)) +
   geom_histogram()
 ```
 
-## Histograms and binwidth {.nostretch}
+## Histograms and binwidth
 
 ```{r}
-ggplot(loans, aes(x = loan_amount)) +
-  geom_histogram(binwidth = 1000)
+p_loans <- ggplot(loans, aes(x = loan_amount))
 ```
 
-## Histograms and binwidth {.nostretch}
+<br>
 
+:::: {.columns}
+
+::: {.column width="33%" .fragment}
 ```{r}
-ggplot(loans, aes(x = loan_amount)) +
-  geom_histogram(binwidth = 5000)
+#| fig-width: 5
+p_loans +
+  geom_histogram(
+    binwidth = 1000
+  )
 ```
+:::
 
-## Histograms and binwidth {.nostretch}
-
+::: {.column width="33%" .fragment}
 ```{r}
-ggplot(loans, aes(x = loan_amount)) +
-  geom_histogram(binwidth = 20000)
+#| fig-width: 5
+p_loans +
+  geom_histogram(
+    binwidth = 5000
+  )
 ```
+:::
+
+::: {.column width="33%" .fragment}
+```{r}
+#| fig-width: 5
+p_loans +
+  geom_histogram(
+    binwidth = 20000
+  )
+```
+:::
+
+::::
 
 ## Histogram customization
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "|2|3-7"
+#| code-line-numbers: "|2|3-7|8|9"
 ggplot(loans, aes(x = loan_amount)) +
   geom_histogram(binwidth = 5000) +
   labs(
     x = "Loan amount ($)",
     y = "Frequency",
     title = "Amounts of Lending Club loans"
+  ) +
+  scale_x_continuous(
+    labels = label_dollar()
+  ) +
+  scale_y_continuous(
+    labels = label_number(big.mark = ",")
   )
 ```
 
@@ -197,16 +224,18 @@ ggplot(loans, aes(x = loan_amount)) +
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="35%"}
 ```{r}
-ggplot(loans, aes(x = loan_amount)) +
+#| fig-width: 5
+p_loans+
   geom_density()
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="35%"}
 ```{r}
-ggplot(loans, aes(x = loan_amount)) +
+#| fig-width: 5
+p_loans +
   geom_density(adjust = 2)
 ```
 :::
@@ -221,14 +250,14 @@ ggplot(loans, aes(x = loan_amount)) +
 - Makes outliers very clear (according to a strict definition of an outlier)
 
 ```{r}
-ggplot(loans, aes(x = interest_rate)) +
+p_loans +
   geom_boxplot()
 ```
 
 ## Box plot and outliers {.nostretch}
 
 ```{r}
-ggplot(loans, aes(x = annual_income)) +
+ggplot(loans, aes(x = interest_rate)) +
   geom_boxplot()
 ```
 
@@ -236,11 +265,15 @@ ggplot(loans, aes(x = annual_income)) +
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "|7-10"
+#| code-line-numbers: "|3-5|6-10|11-14"
 ggplot(loans, aes(x = interest_rate)) +
   geom_boxplot() +
+  scale_x_continuous(
+    labels = label_percent()
+  ) +
   labs(
-    x = "Interest rate (%)", y = NULL,
+    x = "Interest rate", 
+    y = NULL,
     title = "Interest rates of Lending Club loans"
   ) +
   theme(
@@ -278,9 +311,10 @@ loans |>
 
 :::: {.columns}
 
-::: {.column width="25%"}
+::: {.column width="25%" .fragment}
 ```{r}
-#| code-line-numbers: "|3"
+#| code-line-numbers: "4"
+#| fig-width: 5
 # good
 loans |>
   summarize(
@@ -289,9 +323,10 @@ loans |>
 ```
 :::
 
-::: {.column width="25%"}
+::: {.column width="25%" .fragment}
 ```{r}
-#| code-line-numbers: "|3"
+#| code-line-numbers: "4"
+#| fig-width: 5
 # bad
 loans |>
   summarize(
@@ -300,9 +335,10 @@ loans |>
 ```
 :::
 
-::: {.column width="25%"}
+::: {.column width="25%" .fragment}
 ```{r}
-#| code-line-numbers: "|3"
+#| code-line-numbers: "4"
+#| fig-width: 5
 # bad
 loans |>
   summarize(

@@ -851,14 +851,14 @@
     "href": "index.html",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
@@ -1096,7 +1096,7 @@
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
     "title": "Visualizing and summarizing numerical data",
     "section": "Histograms and binwidth",
-    "text": "Histograms and binwidth\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 1000)"
+    "text": "Histograms and binwidth\n\np_loans &lt;- ggplot(loans, aes(x = loan_amount))\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 1000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 5000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 20000\n  )"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-1",
@@ -1117,35 +1117,35 @@
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
     "title": "Visualizing and summarizing numerical data",
     "section": "Histogram customization",
-    "text": "Histogram customization\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000) +\n  labs(\n    x = \"Loan amount ($)\",\n    y = \"Frequency\",\n    title = \"Amounts of Lending Club loans\"\n  )"
+    "text": "Histogram customization\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000) +\n  labs(\n    x = \"Loan amount ($)\",\n    y = \"Frequency\",\n    title = \"Amounts of Lending Club loans\"\n  ) +\n  scale_x_continuous(\n    labels = label_dollar()\n  ) +\n  scale_y_continuous(\n    labels = label_number(big.mark = \",\")\n  )"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
     "title": "Visualizing and summarizing numerical data",
     "section": "Density plot",
-    "text": "Density plot\n\nHelpful for identifying shape (modality and skewness)\nSmoothness can be adjusted\n\n\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_density()\n\n\n\n\n\n\n\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_density(adjust = 2)"
+    "text": "Density plot\n\nHelpful for identifying shape (modality and skewness)\nSmoothness can be adjusted\n\n\n\n\np_loans+\n  geom_density()\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_density(adjust = 2)"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
     "title": "Visualizing and summarizing numerical data",
     "section": "Box plot",
-    "text": "Box plot\n\nHelpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile\nHelpful for identifying shape (skewness, but not modality)\nMakes outliers very clear (according to a strict definition of an outlier)\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot()"
+    "text": "Box plot\n\nHelpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile\nHelpful for identifying shape (skewness, but not modality)\nMakes outliers very clear (according to a strict definition of an outlier)\n\n\np_loans +\n  geom_boxplot()"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
     "title": "Visualizing and summarizing numerical data",
     "section": "Box plot and outliers",
-    "text": "Box plot and outliers\n\nggplot(loans, aes(x = annual_income)) +\n  geom_boxplot()"
+    "text": "Box plot and outliers\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot()"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
     "title": "Visualizing and summarizing numerical data",
     "section": "Box plot customization",
-    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  labs(\n    x = \"Interest rate (%)\", y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
+    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  scale_x_continuous(\n    labels = label_percent()\n  ) +\n  labs(\n    x = \"Interest rate\", \n    y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
@@ -1159,7 +1159,7 @@
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
     "title": "Visualizing and summarizing numerical data",
     "section": "Sloppy summarize()\n",
-    "text": "Sloppy summarize()\n\nsummarize() will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!\n\n\n\n# good\nloans |&gt;\n  summarize(\n    mean_loan_amt = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  `mean(loan_amount)`\n                &lt;dbl&gt;\n1              16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    temp = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n    temp\n   &lt;dbl&gt;\n1 16362."
+    "text": "Sloppy summarize()\n\nsummarize() will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!\n\n\n\n# good\nloans |&gt;\n  summarize(\n    mean_loan_amt = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  `mean(loan_amount)`\n                &lt;dbl&gt;\n1              16362.\n\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    temp = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n    temp\n   &lt;dbl&gt;\n1 16362."
   },
   {
     "objectID": "exercises/bechdel-data-visualization.html",
