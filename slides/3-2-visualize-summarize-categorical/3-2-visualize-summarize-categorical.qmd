@@ -97,25 +97,28 @@ glimpse(loans)
 
 # Visualizing categorical data
 
-## Bar plot
+## Bar plot {.nostretch}
 
 ```{r}
+#| fig-width: 7
 ggplot(loans, aes(x = homeownership)) +
   geom_bar()
 ```
 
-## Segmented bar plot
+## Segmented bar plot {.nostretch}
 
 ```{r}
+#| fig-width: 7
 ggplot(loans, aes(x = homeownership, fill = grade)) +
   geom_bar()
 ```
 
-## Segmented bar plot
+## Segmented bar plot {.nostretch}
 
 ```{r}
 #| output-location: fragment
 #| error: true
+#| fig-width: 7
 ggplot(loans, aes(x = homeownership, fill = term)) +
   geom_bar()
 ```

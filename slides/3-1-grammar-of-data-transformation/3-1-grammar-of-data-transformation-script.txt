@@ -1,0 +1,151 @@
+We've talked about the grammar of graphics, now let's dive into a grammar for data transformation.
+
+>>
+
+Just like with visualizing data, when transforming data, we also always start with a data frame. But we've been seeing another term pop up in our outputs -- tiblle. So, let's first talk about data frames and tibbles.
+
+>>
+
+To demonstrate these concepts, we will use a data frame called flights, which contains information on all flights in 2013 out of the three NYC airports. For those who are familiar, these airports are JFK, La Guardia, and Newark.
+
+Let's load the tidyverse package and the package that contains the flight data -- nycflights13. 
+
+>>
+
+We can take a look at the number of rows in flights -- there are over three hundred thousand rows, so that many flights departing from one of three New York airports that year.
+
+>> And there are 19 columns, meaning that we know 19 things about each of these flights.
+
+>>
+
+Taking a glimpse of the data can also be helpful in getting a sense of the variables and their types. For example, we can see we know things like arrival and departure times, any delays, etc. about each flight.
+
+>>
+
+With the names function, we can also obtain a list of all variable names.
+
+>>
+
+Another handy function is head(), which will by default print out the first six rows of the data frame. And note that the output also mentions the word "tibble".
+
+>>
+
+So what is a tibble.
+
+>> A tibble is an opinionated version of the R data frame
+>> In other words, all tibbles are data frames, but not all data frames are tibbles!
+>> But, to be more clear, there are two main differences between a tibble and a data frame:
+>> printing
+>> stricter subsetting
+
+>> 
+
+About printing... When you print a tibble out, R will only display the first 10 rows of the data frame and  all of the columns that fit on the screen will display, along with the type of each column.
+
+>>
+
+When you print a data.frame out, R will attempt to display all of the data. That is, all rows and all columns, or die tryin. I mean, if the dataset is too large, it might crash.
+
+So the tibble behavior of printing out only 10 rows is a protection against a potential crash for large data.
+
+>>
+
+And subsetting... Tibbles offer stricter subsetting. What does this mean? If you try to subset a tibble for a variable that doesn't exist, for example here I'm looking for a variable called apple in the flights data frame, R not only returns a NULL but it also gives a warning saying "Unknown or uninitialised column: `apple`." Basically that this column does not exist in the data frame.
+
+>>
+
+On the other hand, with a data.frame, all you get is the NULL, not the informative warning.
+
+>>
+
+Alright, time to introduce a new package, dplyr. We previously talked in detail about ggplot2. From its name, it's obvious it had to do with plotting. dplyr is not so obvious, but once you hear the justification, I think it'll make sense. It is short for data plyr, like you want to ply your data.
+
+>>
+
+dplyr is tidyverse's primary package for data transformation -- which includes anything from wrangling and cleaning up the data to summarizing it.
+
+>> A great resource for everything dplyr offers is the package website at dplyr.tidyverse.org.
+
+>>
+
+When working with data, it's useful to think about the operations you want to do with or to it as row operations vs. column operations. For example, with dplyr, you can 
+
+>> chooses rows based on location with slice
+>> chooses rows based on column values with filter
+>> change the order of the rows with arrange
+>> or take a random subset of the rows with sample_n
+
+>>
+
+For example, here I am 
+
+>> taking the flights data frame, and then
+>> slicing its first five rows
+
+>>
+
+Or here I am
+
+>> taking the flights data frame, and then
+>> filtering for rows where dest is equal to RDU, which is Raleigh Durham airport, serving the area where Duke University is located. There were 8,163 such flights in the data.
+
+>>
+
+This is a good moment to pause, and address the elephant in the room -- a very handy tool we haven't formally defined yet. The pipe operator.
+
+>> The pipe, |>, is an operator, in other words, a tool for passing information from one process to another.
+
+>> We use the pipe operator mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.
+
+>> When reading code “in English”, we can pronounce the pipe operator as “and then”. For example, "take the flights data frame, and then filter for rows where dest is equal to RDU"
+
+>>
+
+Alright, let's give our introduction of data transformation a clear purpos and try to answer the following question with a data pipeline: Which airline is the most delayed, on average, arriving in RDU from a New York City airport?
+
+>> So our goal is a data frame like this showing the carrier codes for airlines and their mean arrival delay times.
+
+>>
+
+We Take the flights data frame
+
+>> 
+
+and then filter for flights going to RDU
+
+>>
+
+and then group by carrier
+
+>>
+
+and then calculate the mean arrival delay for each carrier
+
+>>
+
+and then arrange in descending order of mean arrival delay.
+
+There we go! Carrier with the letters UA, that's United Airlines, was on average 56 minutes delayed arriving into RDU from a New York City airport in 2013.
+
+>>
+
+We discussed row operations so far. We can also do some column operations with dplyr. For example,
+
+>> select changes whether or not a column is included
+>> rename changes the names of columns
+>> mutate changes the values of columns or creates new columns.
+
+>>
+
+Additionally we can use dplyr to do operations for groups of rows as well. 
+
+>> group_by performs calculations separately for each value of a variable
+>> summarize collapses a group into a single row
+>> and count counts unique values of one or more variables
+
+We'll put these functions to use in upcoming code along videos!
+
+
+
+
+

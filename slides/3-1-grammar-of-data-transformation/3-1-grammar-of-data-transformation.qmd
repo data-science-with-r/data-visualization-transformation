@@ -18,7 +18,7 @@ ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 
 ## NYC Flights
 
--   To demonstrate data wrangling we will use `flights`, a tibble in the **nycflights13** R package.
+-   To demonstrate data transformation we will use `flights`, a tibble in the **nycflights13** R package.
 
 -   The data set includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.
 
@@ -120,16 +120,16 @@ Only `NULL` if variable not found.
 cars$apple
 ```
 
-# Data wrangling with `dplyr`
-
-## dplyr
+# `dplyr`
 
 ## dplyr $\in$ tidyverse
 
 ::: columns
 ::: {.column width="40%"}
--   **dplyr** is tidyverse's primary package for data wrangling
+::: incremental
+-   **dplyr** is tidyverse's primary package for data transformation
 -   Package website: [dplyr.tidyverse.org](https://dplyr.tidyverse.org)
+:::
 :::
 
 ::: {.column width="30%"}
@@ -139,10 +139,12 @@ cars$apple
 
 ## Row operations
 
+::: incremental
 -   `slice()`: chooses rows based on location
--   `filter()`:chooses rows based on column values
+-   `filter()`: chooses rows based on column values
 -   `arrange()`: changes the order of the rows
 -   `sample_n()`: take a random subset of the rows
+:::
 
 ## `slice()`
 
@@ -174,7 +176,7 @@ flights |>                 # <1>
 1.  Take the `flights` data frame, **and then**,
 2.  Filter for rows where `dest` *is equal to* `RDU`
 
-## The pipe
+## The pipe operator
 
 ::: incremental
 -   The **pipe**, `|>`, is an operator (a tool) for passing information from one process to another.
@@ -272,15 +274,15 @@ flights |>                  # <1>
 ## Column operations
 
 ::: incremental
--   `select()`: changes whether or not a column is included.
--   `rename()`: changes the name of columns.
--   `mutate()`: changes the values of columns and creates new columns.
+-   `select()`: changes whether or not a column is included
+-   `rename()`: changes the names of columns
+-   `mutate()`: changes the values of columns or creates new columns
 :::
 
 ## Groups of rows
 
 ::: incremental
--   `summarize()`: collapses a group into a single row.
--   `count()`: count unique values of one or more variables.
 -   `group_by()`: perform calculations separately for each value of a variable
+-   `summarize()`: collapses a group into a single row
+-   `count()`: count unique values of one or more variables
 :::

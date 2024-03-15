@@ -67,7 +67,7 @@ The distribution of loan amounts in this sample is unimodal and right-skewed dis
 
 ```{r}
 #| echo: false
-#| fig-width: 10
+#| fig-width: 9
 ggplot(loans, aes(x = loan_amount)) +
   geom_histogram(binwidth = 5000, aes(y = after_stat(density))) +
   geom_density(adjust = 2, color = "pink", linewidth = 2) +
@@ -89,7 +89,7 @@ Median loan amount in this sample is $14,500.
 
 ```{r}
 #| echo: false
-#| fig-width: 10
+#| fig-width: 9
 loan_amount_hist +
   geom_vline(xintercept = median(loans$loan_amount), color = "pink", linewidth = 2) +
   labs(
@@ -104,7 +104,7 @@ In this sample, the middle 50% of the loan amounts are between $8,000 and $24,00
 
 ```{r}
 #| echo: false
-#| fig-width: 10
+#| fig-width: 9
 
 loan_amout_summary <- loans |>
   summarize(
@@ -139,6 +139,9 @@ loan_amount_hist +
 There are no clear outliers in the loan amounts in this sample.
 
 ```{r}
+#| echo: false
+#| fig-width: 9
+
 ggplot(loans, aes(x = loan_amount)) +
   geom_boxplot()
 ```
@@ -284,7 +287,7 @@ ggplot(loans, aes(x = interest_rate)) +
 
 # Summarizing numerical data
 
-## `summarize()`
+## `summarize()` {.smaller}
 
 - `summarize()` returns for a summary statistic for all observations in the data:
 

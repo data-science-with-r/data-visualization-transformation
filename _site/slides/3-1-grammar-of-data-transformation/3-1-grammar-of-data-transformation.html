@@ -413,7 +413,7 @@
 <section id="nyc-flights" class="slide level2">
 <h2>NYC Flights</h2>
 <ul>
-<li><p>To demonstrate data wrangling we will use <code>flights</code>, a tibble in the <strong>nycflights13</strong> R package.</p></li>
+<li><p>To demonstrate data transformation we will use <code>flights</code>, a tibble in the <strong>nycflights13</strong> R package.</p></li>
 <li><p>The data set includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.</p></li>
 </ul>
 <div class="cell">
@@ -636,21 +636,20 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…</code></pre>
 </div>
 </section></section>
 <section>
-<section id="data-wrangling-with-dplyr" class="title-slide slide level1 center">
-<h1>Data wrangling with <code>dplyr</code></h1>
+<section id="dplyr" class="title-slide slide level1 center">
+<h1><code>dplyr</code></h1>
 
-</section>
-<section id="dplyr" class="slide level2">
-<h2>dplyr</h2>
 </section>
 <section id="dplyr-in-tidyverse" class="slide level2">
 <h2>dplyr <span class="math inline">\(\in\)</span> tidyverse</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
+<div>
 <ul>
-<li><strong>dplyr</strong> is tidyverse’s primary package for data wrangling</li>
-<li>Package website: <a href="https://dplyr.tidyverse.org">dplyr.tidyverse.org</a></li>
+<li class="fragment"><strong>dplyr</strong> is tidyverse’s primary package for data transformation</li>
+<li class="fragment">Package website: <a href="https://dplyr.tidyverse.org">dplyr.tidyverse.org</a></li>
 </ul>
+</div>
 </div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-left">
 <figure>
@@ -662,12 +661,14 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…</code></pre>
 </section>
 <section id="row-operations" class="slide level2">
 <h2>Row operations</h2>
+<div>
 <ul>
-<li><code>slice()</code>: chooses rows based on location</li>
-<li><code>filter()</code>:chooses rows based on column values</li>
-<li><code>arrange()</code>: changes the order of the rows</li>
-<li><code>sample_n()</code>: take a random subset of the rows</li>
+<li class="fragment"><code>slice()</code>: chooses rows based on location</li>
+<li class="fragment"><code>filter()</code>: chooses rows based on column values</li>
+<li class="fragment"><code>arrange()</code>: changes the order of the rows</li>
+<li class="fragment"><code>sample_n()</code>: take a random subset of the rows</li>
 </ul>
+</div>
 </section>
 <section id="slice" class="slide level2">
 <h2><code>slice()</code></h2>
@@ -745,8 +746,8 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…</code></pre>
 </div>
 </div>
 </section>
-<section id="the-pipe" class="slide level2">
-<h2>The pipe</h2>
+<section id="the-pipe-operator" class="slide level2">
+<h2>The pipe operator</h2>
 <div>
 <ul>
 <li class="fragment"><p>The <strong>pipe</strong>, <code>|&gt;</code>, is an operator (a tool) for passing information from one process to another.</p></li>
@@ -984,9 +985,9 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…</code></pre>
 <h2>Column operations</h2>
 <div>
 <ul>
-<li class="fragment"><code>select()</code>: changes whether or not a column is included.</li>
-<li class="fragment"><code>rename()</code>: changes the name of columns.</li>
-<li class="fragment"><code>mutate()</code>: changes the values of columns and creates new columns.</li>
+<li class="fragment"><code>select()</code>: changes whether or not a column is included</li>
+<li class="fragment"><code>rename()</code>: changes the names of columns</li>
+<li class="fragment"><code>mutate()</code>: changes the values of columns or creates new columns</li>
 </ul>
 </div>
 </section>
@@ -994,9 +995,9 @@ $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…</code></pre>
 <h2>Groups of rows</h2>
 <div>
 <ul>
-<li class="fragment"><code>summarize()</code>: collapses a group into a single row.</li>
-<li class="fragment"><code>count()</code>: count unique values of one or more variables.</li>
 <li class="fragment"><code>group_by()</code>: perform calculations separately for each value of a variable</li>
+<li class="fragment"><code>summarize()</code>: collapses a group into a single row</li>
+<li class="fragment"><code>count()</code>: count unique values of one or more variables</li>
 </ul>
 </div>
 

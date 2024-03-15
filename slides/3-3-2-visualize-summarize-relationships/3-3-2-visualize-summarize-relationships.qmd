@@ -3,8 +3,6 @@ title: "Visualizing and summarizing relationships"
 format: 
   revealjs:
     auto-stretch: true
-editor_options: 
-  chunk_output_type: console
 ---
 
 ```{r}

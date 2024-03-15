@@ -168,174 +168,6 @@
     "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#nyc-flights",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#nyc-flights",
-    "title": "Grammar of data transformation",
-    "section": "NYC Flights",
-    "text": "NYC Flights\n\nTo demonstrate data wrangling we will use flights, a tibble in the nycflights13 R package.\nThe data set includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.\n\n\nlibrary(tidyverse)\nlibrary(nycflights13)"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-dimensions",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-dimensions",
-    "title": "Grammar of data transformation",
-    "section": "flights – dimensions",
-    "text": "flights – dimensions\n\nNumber of rows:\n\n\nnrow(flights)\n\n[1] 336776\n\n\n\n\nNumber of columns:\n\n\nncol(flights)\n\n[1] 19"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-glimpse",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-glimpse",
-    "title": "Grammar of data transformation",
-    "section": "flights – first look with glimpse()",
-    "text": "flights – first look with glimpse()\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013,…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, …\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\",…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 5…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", …\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", …\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, …\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1…\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6,…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, …\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-names",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-names",
-    "title": "Grammar of data transformation",
-    "section": "flights – first look with names()",
-    "text": "flights – first look with names()\n\nnames(flights)\n\n [1] \"year\"           \"month\"          \"day\"           \n [4] \"dep_time\"       \"sched_dep_time\" \"dep_delay\"     \n [7] \"arr_time\"       \"sched_arr_time\" \"arr_delay\"     \n[10] \"carrier\"        \"flight\"         \"tailnum\"       \n[13] \"origin\"         \"dest\"           \"air_time\"      \n[16] \"distance\"       \"hour\"           \"minute\"        \n[19] \"time_hour\""
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-head",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-head",
-    "title": "Grammar of data transformation",
-    "section": "flights – first look with head()",
-    "text": "flights – first look with head()\n\nhead(flights)\n\n# A tibble: 6 × 19\n   year month   day dep_time sched_dep_time dep_delay\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n1  2013     1     1      517            515         2\n2  2013     1     1      533            529         4\n3  2013     1     1      542            540         2\n4  2013     1     1      544            545        -1\n5  2013     1     1      554            600        -6\n6  2013     1     1      554            558        -4\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#tibble-vs.-data-frame",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#tibble-vs.-data-frame",
-    "title": "Grammar of data transformation",
-    "section": "tibble vs. data frame",
-    "text": "tibble vs. data frame\n\n\ntibble: an opinionated version of the R data frame\nAll tibbles are data frames, but not all data frames are tibbles!\nTwo main differences between a tibble and a data frame:\n\nPrinting\nStricter subsetting"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---tibbles",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---tibbles",
-    "title": "Grammar of data transformation",
-    "section": "Printing - tibbles",
-    "text": "Printing - tibbles\nDisplay first 10 rows and all of the columns that fit on the screen will display, along with the type of each column.\n\nflights\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
-    "title": "Grammar of data transformation",
-    "section": "Printing - data.frames",
-    "text": "Printing - data.frames\n(Attempt to) display all of the data, or die (crash) trying (if the dataset is too large)!\n\ncars\n\n   speed dist\n1      4    2\n2      4   10\n3      7    4\n4      7   22\n5      8   16\n6      9   10\n7     10   18\n8     10   26\n9     10   34\n10    11   17\n11    11   28\n12    12   14\n13    12   20\n14    12   24\n15    12   28\n16    13   26\n17    13   34\n18    13   34\n19    13   46\n20    14   26\n21    14   36\n22    14   60\n23    14   80\n24    15   20\n25    15   26\n26    15   54\n27    16   32\n28    16   40\n29    17   32\n30    17   40\n31    17   50\n32    18   42\n33    18   56\n34    18   76\n35    18   84\n36    19   36\n37    19   46\n38    19   68\n39    20   32\n40    20   48\n41    20   52\n42    20   56\n43    20   64\n44    22   66\n45    23   54\n46    24   70\n47    24   92\n48    24   93\n49    24  120\n50    25   85"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",
-    "title": "Grammar of data transformation",
-    "section": "Stricter subsetting – tibbles",
-    "text": "Stricter subsetting – tibbles\nWarning + NULL if variable not found.\n\nflights$apple\n\nWarning: Unknown or uninitialised column: `apple`.\n\n\nNULL"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-data.frames",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-data.frames",
-    "title": "Grammar of data transformation",
-    "section": "Stricter subsetting – data.frames",
-    "text": "Stricter subsetting – data.frames\nOnly NULL if variable not found.\n\ncars$apple\n\nNULL"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr",
-    "title": "Grammar of data transformation",
-    "section": "dplyr",
-    "text": "dplyr"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr-in-tidyverse",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr-in-tidyverse",
-    "title": "Grammar of data transformation",
-    "section": "dplyr \\(\\in\\) tidyverse",
-    "text": "dplyr \\(\\in\\) tidyverse\n\n\n\ndplyr is tidyverse’s primary package for data wrangling\nPackage website: dplyr.tidyverse.org"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#row-operations",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#row-operations",
-    "title": "Grammar of data transformation",
-    "section": "Row operations",
-    "text": "Row operations\n\nslice(): chooses rows based on location\nfilter():chooses rows based on column values\narrange(): changes the order of the rows\nsample_n(): take a random subset of the rows"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#slice",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#slice",
-    "title": "Grammar of data transformation",
-    "section": "slice()",
-    "text": "slice()\nDisplay the first five rows of flights:\n\n1flights |&gt;\n2  slice(1:5)\n\n\n1\n\nTake the flights data frame, and then,\n\n2\n\nSlice its first five rows\n\n\n\n\n# A tibble: 5 × 19\n   year month   day dep_time sched_dep_time dep_delay\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n1  2013     1     1      517            515         2\n2  2013     1     1      533            529         4\n3  2013     1     1      542            540         2\n4  2013     1     1      544            545        -1\n5  2013     1     1      554            600        -6\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#filter",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#filter",
-    "title": "Grammar of data transformation",
-    "section": "filter()",
-    "text": "filter()\nFilter for flights to RDU in flights:\n\n1flights |&gt;\n2  filter(dest == \"RDU\")\n\n\n1\n\nTake the flights data frame, and then,\n\n2\n\nFilter for rows where dest is equal to RDU\n\n\n\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe",
-    "title": "Grammar of data transformation",
-    "section": "The pipe",
-    "text": "The pipe\n\n\nThe pipe, |&gt;, is an operator (a tool) for passing information from one process to another.\nUse |&gt; mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.\nWhen reading code “in English”, say “and then” whenever you see a pipe."
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#delayed-flights-to-rdu",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#delayed-flights-to-rdu",
-    "title": "Grammar of data transformation",
-    "section": "Delayed flights to RDU",
-    "text": "Delayed flights to RDU\n\nWhich airline is the most delayed, on average, arriving in RDU from a New York City airport?\n\n\nGoal:\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 UA               56   \n2 B6               13.3 \n3 EV               12.2 \n4 9E                9.67\n5 MQ                8.82"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights\n\n\n1\n\nTake the flights data frame\n\n\n\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-1",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-1",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\")\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU\n\n\n\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-2",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-2",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier)\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier\n\n\n\n\n# A tibble: 8,163 × 19\n# Groups:   carrier [5]\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-3",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-3",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier) |&gt;\n4  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE))\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier,\n\n4\n\nand then calculate the mean arrival delay for each carrier\n\n\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 9E                9.67\n2 B6               13.3 \n3 EV               12.2 \n4 MQ                8.82\n5 UA               56"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-4",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-4",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier) |&gt;\n4  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE)) |&gt;\n5  arrange(desc(mean_arr_delay))\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier,\n\n4\n\nand then calculate the mean arrival delay for each carrier,\n\n5\n\nand then arrange in descending order of mean arrival delay.\n\n\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 UA               56   \n2 B6               13.3 \n3 EV               12.2 \n4 9E                9.67\n5 MQ                8.82"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#column-operations",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#column-operations",
-    "title": "Grammar of data transformation",
-    "section": "Column operations",
-    "text": "Column operations\n\n\nselect(): changes whether or not a column is included.\nrename(): changes the name of columns.\nmutate(): changes the values of columns and creates new columns."
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#groups-of-rows",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#groups-of-rows",
-    "title": "Grammar of data transformation",
-    "section": "Groups of rows",
-    "text": "Groups of rows\n\n\nsummarize(): collapses a group into a single row.\ncount(): count unique values of one or more variables.\ngroup_by(): perform calculations separately for each value of a variable"
-  },
-  {
     "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
     "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
     "title": "Building a plotstep-by-step with ggplot2",
@@ -721,18 +553,32 @@
     "text": "Relative frequency table with multiple variables\n\nloans |&gt;\n  count(homeownership, term) |&gt;\n  group_by(homeownership) |&gt;\n  mutate(proportion = n / sum(n))\n\n# A tibble: 6 × 4\n# Groups:   homeownership [3]\n  homeownership  term     n proportion\n  &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;\n1 MORTGAGE         36  3071      0.641\n2 MORTGAGE         60  1718      0.359\n3 OWN              36   998      0.738\n4 OWN              60   355      0.262\n5 RENT             36  2901      0.752\n6 RENT             60   957      0.248"
   },
   {
-    "objectID": "sample-videos/sample-ggplot2-slides/script.html",
-    "href": "sample-videos/sample-ggplot2-slides/script.html",
-    "title": "Data visualization and transformation",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": " Data visualization and transformation",
     "section": "",
-    "text": "Hello, in this video we’re going to talk about the specifics and syntax of visualizing data with the ggplot2 package and we’re going to do so using data on penguins!\n\n\n\n\n\nA quick reminder that ggplot2 is tidyverse’s data visualization package\n\n\nThe structure of ggplot2 code looks almost always is the same: we start with the ggplot function where the first argument is the data that you want to plot and the second argument defines the aesthetic mappings using the aes function – in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you’re passing a function, aes, as the argument of another function, ggplot. You’ll see more of this as we progress through the course, though more often you’ll see data frame or variable names being passed to function arguments. and then we add on another layer – a geom layer – which defines the geometric shapes with which you want to represent your data and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from.\n\n\n\n\n\n\n\nThe data that we’re working with is called penguins. It comes from the palmerpenguins package, and we also need the tidyverse package for our analyses.\n\n\nSo let’s load those packages first And then glimpse at the data. glimpse is a function that prints out the variables in the data frame, their types – which we’ll dig deeper into later in the course –, and the first few observations as comma separated values.\n\n\nThe data contains body measurements on three species of penguins, chinstrap, gentoo, and adelie. The bodu measurements include things like bill length and depth, flipper length, and body mass. We also know which island the penguin is on, their sec, and the year of data collection. There are a total of 8 columns, so 8 variables.\nThe output also shows that we have 344 rows, that is, we have data on 344 penguins.\n\n\n\n\n\nThe plot shown here is our final goal. We’ll plot bill length against bill depth, both measured in millimeters. We’ll represent each penguin with a point, colored by their species. The species mappings are summarized in the legend of the plot. The plot also has a title, a subtitle, and a caption.\n–&gt; [other tab] And the code for the plot is shown here. It looks like what we’ve seen before – ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let’s unpack it layer by layer.\n\n\n\n\n\nIn other words, let’s code out loud!\n\n\n\n\n\nWe start with the ggplot function and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.\n\n\n\n\n\nThem we map bill depth to the x-axis &gt;&gt; we can see the x-axis indicates the variable name, its range, and a reasonable breakpoint\n\n\n\n\n\nThen we map bill length to the y-axis &gt;&gt; we can see the y-axis mapped as well\n\n\n\n\n\nAnd finally &gt;&gt; we add a geom layer – a geom point, indicating that the data should be represented as points. There seems to be three clusters of points here, let’s see what happens if we also ask that the points be colored by species.\n\n\n\n\n\nSince this requires mapping another variable to a new aesthetic of the plot, we do this in the aesthetic mappings &gt;&gt; mapping color to species. Note that not only the points are colored, but we also gained a legend describing the mappings – red points represent Adelie penguins, green Chinstrap, blue Gentoo.\n\n\n\n\n\nNow that the data we want to see on our plot is there, let’s add some labels.\n\n\nLet’s set the title to Bill depth and length. Not a particularly informative title, but it’s a good starting point. We do this in the labs function, passing it to the title argument as a character string denoted with quotes. You can use double or single quotes in R, sticking to the tidyverse style guide we’ll use double quotes.\n\n\n\n\n\n\n\nLet’s also add a subtitle\n\n\nAgain in the labs function, passing it to the subtitle argument.\n\n\n\n\n\n\n\nAnd let’s fix up the x and y axis labels.\n\n\nBy default ggplot2 will use the variable names, but we can overwrite them by updating the x and y label of the plot, and using more human-friendly text like bill depth mm and bill length mm.\n\n\n\n\n\n\n\nAnd finally let’s relabel the legend as well\n\n\nWe do this also in the labs function, passing the desired label to the color argument. Note that the name of the argument matches the aesthetic mapping.\n\n\n\n\n\n\n\nAnd finally in the labels\n\n\nlet’s add a caption for the data source. This automatically gets placed below the plot.\n\n\n\n\n\n\n\nAnd before we finish up our plot we need to do one more thing – use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nWe do this in a new layer, a scale layer, using a pre-defined color palette called viridis. The underscore-d denotes we will use the discrete color scale in this palette. If you have red-green color vision deficiency up until this point some of the points on the plot may have been difficult to tell apart. The goal with this palette is to make sure all, or at least more, viewers can see the points as intended.\n\n\n\n\n\n\n\nPutting it altogether we have our code\n–&gt; The resulting plot –&gt; And the narrative we built with each layer of the plot\n\n\n\n\n\nBefore we wrap up this introduction to ggplot2, one quick note about argument names. It’s common in R to omit the names of the first two arguments. In the ggplot function\n\n\nthese are data and mapping So you’ll commonly see me and others write ggplot code in the second way, omitting these argument names from the code."
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
-    "href": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
-    "title": "Visualizing Starwars characters",
+    "objectID": "index.html#slides",
+    "href": "index.html#slides",
+    "title": " Data visualization and transformation",
     "section": "",
-    "text": "Load packages.\n\nGlimpse at the starwars data frame.\n\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nModify the following plot to change the color of all points to \"pink\".\n\n\nggplot(\n  starwars, \n  aes(x = height, y = mass, color = gender, size = birth_year)\n  ) +\n  geom_point(color = \"pink\")\n\nWarning: Removed 51 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nAdd labels for title, x and y axes, and size of points. Uncomment to see the effect.\n\n\nggplot(\n  starwars, \n  aes(x = height, y = mass, color = gender, size = birth_year)\n  ) +\n  geom_point(color = \"#30509C\") +\n  labs(\n    title = \"Mass vs. height of Starwars Characters\",\n    x = \"Height (cm)\", \n    y = \"Body mass (kg)\",\n    size = \"Birth year\"\n  )\n\nWarning: Removed 51 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nPick a single numerical variable and make a histogram of it. Select a reasonable binwidth for it.\n\n(A bit of starter code is provided below, and the code chunk is set to not be evaluated with eval: false because the current code in there is not valid code and hence the document wouldn’t knit. Once you replace the code with valid code, set the chunk option to eval: true, or remove the eval option altogether since it’s set to true by default.)\n\nggplot(starwars, aes(x = height)) +\n  geom_histogram(binwidth = 10)\n\n\n\n\n\n\n\n\n\nPick a numerical variable and a categorical variable and make a visualization (you pick the type!) to visualization the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n# add code here\n\nInterpretation goes here…\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\n# add code here\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n# add code here\n\nInterpretation goes here…\n\nPick two numerical variables and two categorical variables and make a visualization that incorporates all of them and provide an interpretation with your answer.\n\n(This time no starter code is provided, you’re on your own!)\n\n# add code here\n\nAdd your interpretation here."
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#code-alongs",
+    "href": "index.html#code-alongs",
+    "title": " Data visualization and transformation",
+    "section": "Code alongs",
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#exercises",
+    "href": "index.html#exercises",
+    "title": " Data visualization and transformation",
+    "section": "Exercises",
+    "text": "Exercises\n\n\n\n\n\nTitle\n\n\n\n\n\n\nMeet the toolkit: Programming exercises\n\n\n\n\nBechdel + data visualization\n\n\n\n\nMario games + data visualization\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "sample-videos/sample-ggplot2-slides/ggplot2.html#ggplot2-in-tidyverse",
@@ -847,32 +693,18 @@
     "text": "Argument names\n\n\n\n\n\n\nTip\n\n\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point() +\n  scale_color_viridis_d()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point() +\n  scale_color_viridis_d()"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": " Data visualization and transformation",
+    "objectID": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
+    "href": "sample-videos/sample-ggplot2-code-along/ggplot2.html",
+    "title": "Visualizing Starwars characters",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+    "text": "Load packages.\n\nGlimpse at the starwars data frame.\n\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nModify the following plot to change the color of all points to \"pink\".\n\n\nggplot(\n  starwars, \n  aes(x = height, y = mass, color = gender, size = birth_year)\n  ) +\n  geom_point(color = \"pink\")\n\nWarning: Removed 51 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nAdd labels for title, x and y axes, and size of points. Uncomment to see the effect.\n\n\nggplot(\n  starwars, \n  aes(x = height, y = mass, color = gender, size = birth_year)\n  ) +\n  geom_point(color = \"#30509C\") +\n  labs(\n    title = \"Mass vs. height of Starwars Characters\",\n    x = \"Height (cm)\", \n    y = \"Body mass (kg)\",\n    size = \"Birth year\"\n  )\n\nWarning: Removed 51 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\nPick a single numerical variable and make a histogram of it. Select a reasonable binwidth for it.\n\n(A bit of starter code is provided below, and the code chunk is set to not be evaluated with eval: false because the current code in there is not valid code and hence the document wouldn’t knit. Once you replace the code with valid code, set the chunk option to eval: true, or remove the eval option altogether since it’s set to true by default.)\n\nggplot(starwars, aes(x = height)) +\n  geom_histogram(binwidth = 10)\n\n\n\n\n\n\n\n\n\nPick a numerical variable and a categorical variable and make a visualization (you pick the type!) to visualization the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n# add code here\n\nInterpretation goes here…\n\nPick a single categorical variable from the data set and make a bar plot of its distribution.\n\n\n# add code here\n\n\nPick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.\n\n\n# add code here\n\nInterpretation goes here…\n\nPick two numerical variables and two categorical variables and make a visualization that incorporates all of them and provide an interpretation with your answer.\n\n(This time no starter code is provided, you’re on your own!)\n\n# add code here\n\nAdd your interpretation here."
   },
   {
-    "objectID": "index.html#slides",
-    "href": "index.html#slides",
-    "title": " Data visualization and transformation",
+    "objectID": "sample-videos/sample-ggplot2-slides/script.html",
+    "href": "sample-videos/sample-ggplot2-slides/script.html",
+    "title": "Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#code-alongs",
-    "href": "index.html#code-alongs",
-    "title": " Data visualization and transformation",
-    "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#exercises",
-    "href": "index.html#exercises",
-    "title": " Data visualization and transformation",
-    "section": "Exercises",
-    "text": "Exercises\n\n\n\n\n\nTitle\n\n\n\n\n\n\nMeet the toolkit: Programming exercises\n\n\n\n\nBechdel + data visualization\n\n\n\n\nMario games + data visualization\n\n\n\n\n\nNo matching items"
+    "text": "Hello, in this video we’re going to talk about the specifics and syntax of visualizing data with the ggplot2 package and we’re going to do so using data on penguins!\n\n\n\n\n\nA quick reminder that ggplot2 is tidyverse’s data visualization package\n\n\nThe structure of ggplot2 code looks almost always is the same: we start with the ggplot function where the first argument is the data that you want to plot and the second argument defines the aesthetic mappings using the aes function – in this template we have only defined the x and y aesthetics, for example. This one is somewhat unusual, you’re passing a function, aes, as the argument of another function, ggplot. You’ll see more of this as we progress through the course, though more often you’ll see data frame or variable names being passed to function arguments. and then we add on another layer – a geom layer – which defines the geometric shapes with which you want to represent your data and then optionally, though in many cases are recommendedly, we add further layers to the plot to make our plot a little bit easier to read, a little bit easier to glean information from.\n\n\n\n\n\n\n\nThe data that we’re working with is called penguins. It comes from the palmerpenguins package, and we also need the tidyverse package for our analyses.\n\n\nSo let’s load those packages first And then glimpse at the data. glimpse is a function that prints out the variables in the data frame, their types – which we’ll dig deeper into later in the course –, and the first few observations as comma separated values.\n\n\nThe data contains body measurements on three species of penguins, chinstrap, gentoo, and adelie. The bodu measurements include things like bill length and depth, flipper length, and body mass. We also know which island the penguin is on, their sec, and the year of data collection. There are a total of 8 columns, so 8 variables.\nThe output also shows that we have 344 rows, that is, we have data on 344 penguins.\n\n\n\n\n\nThe plot shown here is our final goal. We’ll plot bill length against bill depth, both measured in millimeters. We’ll represent each penguin with a point, colored by their species. The species mappings are summarized in the legend of the plot. The plot also has a title, a subtitle, and a caption.\n–&gt; [other tab] And the code for the plot is shown here. It looks like what we’ve seen before – ggplot function to start with, then the data, the aesthetic mappings, the geom, and some other layers for labels and color palette. This is a lot of code at once though, so let’s unpack it layer by layer.\n\n\n\n\n\nIn other words, let’s code out loud!\n\n\n\n\n\nWe start with the ggplot function and indicate that we want to plot the penguins data frame. As a result, we get an empty canvas that we can paint our data on.\n\n\n\n\n\nThem we map bill depth to the x-axis &gt;&gt; we can see the x-axis indicates the variable name, its range, and a reasonable breakpoint\n\n\n\n\n\nThen we map bill length to the y-axis &gt;&gt; we can see the y-axis mapped as well\n\n\n\n\n\nAnd finally &gt;&gt; we add a geom layer – a geom point, indicating that the data should be represented as points. There seems to be three clusters of points here, let’s see what happens if we also ask that the points be colored by species.\n\n\n\n\n\nSince this requires mapping another variable to a new aesthetic of the plot, we do this in the aesthetic mappings &gt;&gt; mapping color to species. Note that not only the points are colored, but we also gained a legend describing the mappings – red points represent Adelie penguins, green Chinstrap, blue Gentoo.\n\n\n\n\n\nNow that the data we want to see on our plot is there, let’s add some labels.\n\n\nLet’s set the title to Bill depth and length. Not a particularly informative title, but it’s a good starting point. We do this in the labs function, passing it to the title argument as a character string denoted with quotes. You can use double or single quotes in R, sticking to the tidyverse style guide we’ll use double quotes.\n\n\n\n\n\n\n\nLet’s also add a subtitle\n\n\nAgain in the labs function, passing it to the subtitle argument.\n\n\n\n\n\n\n\nAnd let’s fix up the x and y axis labels.\n\n\nBy default ggplot2 will use the variable names, but we can overwrite them by updating the x and y label of the plot, and using more human-friendly text like bill depth mm and bill length mm.\n\n\n\n\n\n\n\nAnd finally let’s relabel the legend as well\n\n\nWe do this also in the labs function, passing the desired label to the color argument. Note that the name of the argument matches the aesthetic mapping.\n\n\n\n\n\n\n\nAnd finally in the labels\n\n\nlet’s add a caption for the data source. This automatically gets placed below the plot.\n\n\n\n\n\n\n\nAnd before we finish up our plot we need to do one more thing – use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nWe do this in a new layer, a scale layer, using a pre-defined color palette called viridis. The underscore-d denotes we will use the discrete color scale in this palette. If you have red-green color vision deficiency up until this point some of the points on the plot may have been difficult to tell apart. The goal with this palette is to make sure all, or at least more, viewers can see the points as intended.\n\n\n\n\n\n\n\nPutting it altogether we have our code\n–&gt; The resulting plot –&gt; And the narrative we built with each layer of the plot\n\n\n\n\n\nBefore we wrap up this introduction to ggplot2, one quick note about argument names. It’s common in R to omit the names of the first two arguments. In the ggplot function\n\n\nthese are data and mapping So you’ll commonly see me and others write ggplot code in the second way, omitting these argument names from the code."
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#grammar-of-graphics-1",
@@ -1082,7 +914,7 @@
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
     "title": "Visualizing and summarizing numerical data",
     "section": "Outliers",
-    "text": "Outliers\nThere are no clear outliers in the loan amounts in this sample.\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_boxplot()"
+    "text": "Outliers\nThere are no clear outliers in the loan amounts in this sample."
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
@@ -1097,20 +929,6 @@
     "title": "Visualizing and summarizing numerical data",
     "section": "Histograms and binwidth",
     "text": "Histograms and binwidth\n\np_loans &lt;- ggplot(loans, aes(x = loan_amount))\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 1000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 5000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 20000\n  )"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-1",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-1",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histograms and binwidth",
-    "text": "Histograms and binwidth\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000)"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-2",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth-2",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histograms and binwidth",
-    "text": "Histograms and binwidth\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 20000)"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
@@ -1160,83 +978,6 @@
     "title": "Visualizing and summarizing numerical data",
     "section": "Sloppy summarize()\n",
     "text": "Sloppy summarize()\n\nsummarize() will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!\n\n\n\n# good\nloans |&gt;\n  summarize(\n    mean_loan_amt = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  `mean(loan_amount)`\n                &lt;dbl&gt;\n1              16362.\n\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    temp = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n    temp\n   &lt;dbl&gt;\n1 16362."
-  },
-  {
-    "objectID": "exercises/bechdel-data-visualization.html",
-    "href": "exercises/bechdel-data-visualization.html",
-    "title": "Bechdel + data visualization",
-    "section": "",
-    "text": "Programming Activity Guide\n\n\n\nPlease reference the webR-intro activity for information on the different types of code chunks, questions, and how to save your work to reference later."
-  },
-  {
-    "objectID": "exercises/bechdel-data-visualization.html#getting-started",
-    "href": "exercises/bechdel-data-visualization.html#getting-started",
-    "title": "Bechdel + data visualization",
-    "section": "Getting started",
-    "text": "Getting started\nPlease run the following code by clicking the green arrow just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data can be used for the following activity.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”.\nThis analysis is about the Bechdel test, a measure of the representation of women in fiction.\nPackages\nWe’ll use: tidyverse for majority of the analysis and scales for pretty plot labels later on. These are ready to use for you in this activity!\n\nlibrary(tidyverse)\nlibrary(scales)\n\nFOR MINE Do we need this note below? I modified it from the original AE, but it may not feel necessary for Coursera.\nFOR MINE Are you going to introduce the pipe before the activity? If so, I can change the code. If not, I can change the code in the mario acitivty to not have the pipe + will have to update a quiz question.\n\n\n\n\n\n\nNote\n\n\n\nThis a modified version of the bechdel dataset. It’s been modified to include some new variables derived from existing variables as well as to limit the scope of the data to movies released between 1990 and 2013. A link to the original dataset can be found here\n\n\nGet to know the data\nYour Turn: We can use the glimpse function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.\nWith your output, confirm that:\n\nThere are 1615 rows\nThere are 7 variables (columns) in the dataset\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you receive the error Error: object ‘bechdel’ not found, go back and read in your data above.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nglimpse(bechdel)\n\nRows: 1,615\nColumns: 7\n$ title       &lt;chr&gt; \"21 & Over\", \"Dredd 3D\", \"12 Years a Slave\", \"2 Guns\", \"42…\n$ year        &lt;int&gt; 2013, 2012, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013…\n$ gross_2013  &lt;dbl&gt; 67878146, 55078343, 211714070, 208105475, 190040426, 18416…\n$ budget_2013 &lt;int&gt; 13000000, 45658735, 20000000, 61000000, 40000000, 22500000…\n$ roi         &lt;dbl&gt; 5.221396, 1.206305, 10.585703, 3.411565, 4.751011, 0.81851…\n$ binary      &lt;chr&gt; \"FAIL\", \"PASS\", \"FAIL\", \"FAIL\", \"FAIL\", \"FAIL\", \"FAIL\", \"P…\n$ clean_test  &lt;chr&gt; \"notalk\", \"ok\", \"notalk\", \"notalk\", \"men\", \"men\", \"notalk\"…\n\n\n\n\n\nDemo: We can use slice to look at rows of our data. Run the following code. Change the 5 to another number to print that many rows!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\nWhat does each observation (row) in the data set represent?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nEach observation represents a movie."
-  },
-  {
-    "objectID": "exercises/bechdel-data-visualization.html#variables-of-interest",
-    "href": "exercises/bechdel-data-visualization.html#variables-of-interest",
-    "title": "Bechdel + data visualization",
-    "section": "Variables of Interest",
-    "text": "Variables of Interest\nThe variables we’ll focus on are the following:\n\n\nbudget_2013: Budget in 2013 inflation adjusted dollars.\n\ngross_2013: Gross (US and international combined) in 2013 inflation adjusted dollars.\n\nroi: Return on investment, calculated as the ratio of the gross to budget.\n\nclean_test: Bechdel test result:\n\n\nok = passes test\ndubious\n\nmen = women only talk about men\n\nnotalk = women don’t talk to each other\n\nnowomen = fewer than two women\n\n\n\nbinary: Bechdel Test PASS vs FAIL binary\n\nWe will also use the year of release in data prep and title of movie to take a deeper look at some outliers.\nThere are a few other variables in the dataset, but we won’t be using them in this analysis."
-  },
-  {
-    "objectID": "exercises/bechdel-data-visualization.html#visualizing-data-with-ggplot2",
-    "href": "exercises/bechdel-data-visualization.html#visualizing-data-with-ggplot2",
-    "title": "Bechdel + data visualization",
-    "section": "Visualizing data with ggplot2\n",
-    "text": "Visualizing data with ggplot2\n\nDemo: ggplot2 is the package and ggplot() is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!\n\n\nggplot() creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with data = bechdel, and run the following to create our base.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nThe mapping argument is paired with an aesthetic (aes()), which tells us how the variables in our data set should be mapped to the visual properties of the graph.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nAs we previously mentioned, we often omit the names of the first two arguments in R functions. So you’ll often see this written as:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNote that the result is exactly the same.\nYour Turn: The geom_xx function specifies the type of plot we want to use to represent the data. In the code below, we want to use geom_point, which creates a plot where each observation is represented by a point.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nNote that this results in a warning as well.\nThis warning represents the number of observations that were removed because there were missing data!"
-  },
-  {
-    "objectID": "exercises/bechdel-data-visualization.html#gross-revenue-vs.-budget",
-    "href": "exercises/bechdel-data-visualization.html#gross-revenue-vs.-budget",
-    "title": "Bechdel + data visualization",
-    "section": "Gross revenue vs. budget",
-    "text": "Gross revenue vs. budget\nStep 1\nDemo: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!\n\n\n\n\n\n\nTip\n\n\n\nSee http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf for many color options you can use by name in R or use the hex code for a color of your choice.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\nStep 2\nYour Turn: Add labels for the title and x and y axes using labs. Do this by modifying the existing code below.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013))+\n  geom_point(color = \"deepskyblue3\") + \n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nStep 3\nYour Turn: An aesthetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:\n\ncolor\nfill\nshape\nsize\nalpha (transparency)\n\nModify the plot below, so the color of the points is based on the variable binary, and make the size of your points based on roi.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point() + \n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nStep 4\nDemo: alpha is used within geom_point to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\nStep 5\nYour Turn: Expand on your plot from the previous step by using facet_wrap to display the association between budget and gross for different values of clean_test.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nggplot(bechdel, \n  aes(x = budget_2013, y = gross_2013,\n    color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_wrap(~ clean_test) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nStep 6\nDemo: Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.\n\n\n\n\n\n\nTip\n\n\n\nThis is done through the use of the scales package, specifically the scale_x_continuous() and scale_y_continuous() functions.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\nStep 7\nYour Turn: Expand on your plot from the previous step by using facet_grid to display the association between budget and gross for different combinations of clean_test and binary. Comment on whether this was a useful update.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIs this type of facet useful? Why or why not?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_grid(clean_test ~ binary) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\nThis was not a useful update as one of the levels of clean_test maps directly to one of the levels of binary."
-  },
-  {
-    "objectID": "exercises/meet-programming-exercises.html",
-    "href": "exercises/meet-programming-exercises.html",
-    "title": "Meet the toolkit: Programming exercises",
-    "section": "",
-    "text": "Programming exercises are designed to provide an opportunity for you to put what you learn in the videos and readings. These exercises feature interactive code chunks using a tool called WebR, which allow you to write, edit, and run R code without leaving your browser."
-  },
-  {
-    "objectID": "exercises/meet-programming-exercises.html#code-chunks",
-    "href": "exercises/meet-programming-exercises.html#code-chunks",
-    "title": "Meet the toolkit: Programming exercises",
-    "section": "Code chunks",
-    "text": "Code chunks\nInteractive code chunks look like the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nMajority of the code chunks in these documents will be interactive, like the one shown above. However, some code chunks will be static and include code that you can’t edit and you are just meant to read and review the output of. These will look like the following:\n\n1 + 1\n\n[1] 2\n\n\nFor example, we’ll use the tidyverse package in every programming exercise. Therefore, each exercise will start with a static code chunk that loads this package.\n\nlibrary(tidyverse)"
-  },
-  {
-    "objectID": "exercises/meet-programming-exercises.html#questions",
-    "href": "exercises/meet-programming-exercises.html#questions",
-    "title": "Meet the toolkit: Programming exercises",
-    "section": "Questions",
-    "text": "Questions\nMany of the questions in the programming exercises require you to actively do something – edit existing code, write code from scratch, write a narrative, etc. Code goes in interactive code chunks that have a Run Code button, narrative goes in text boxes.\nHowever, some questions come with complete code that you don’t need to edit, but still need to run to view the output. These questions will also often invite you to make modifications to explore alternatives.\n\n\n\n\n\n\nSaving Your Work\n\n\n\nYour work does not automatically save.\nFor most browsers, the most efficient way to save your work is by using the Print feature. This may be useful if you want to come back and reference your work after you’ve completed it.\n\nRight click anywhere on this html page.\nSelect Print….\nUnder Destination drop-down menu, select Save as PDF.\nClick on Save and navigate to where you wish to save your work."
-  },
-  {
-    "objectID": "exercises/meet-programming-exercises.html#calculator",
-    "href": "exercises/meet-programming-exercises.html#calculator",
-    "title": "Meet the toolkit: Programming exercises",
-    "section": "Calculator",
-    "text": "Calculator\nFirst, let’s get started by using R as a calculator.\nIn the interactive code chunk below, perform the following calculations by typing the code and then clicking Run Code.\n\n\nRun code: Run the code below as is.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nModify code: Modify the code below to multiply 3 by 6 instead of 3 by 5.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nWrite code: Use the code chunk below to calculate 10 divided by 2 (10 / 2):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n2 + 2 \n\n[1] 4\n\n3 * 6\n\n[1] 18\n\n10 / 2\n\n[1] 5"
-  },
-  {
-    "objectID": "exercises/meet-programming-exercises.html#functions",
-    "href": "exercises/meet-programming-exercises.html#functions",
-    "title": "Meet the toolkit: Programming exercises",
-    "section": "Functions",
-    "text": "Functions\nR is a functional language. Functions act as the name of algorithmic details that are used to accomplish a specific task. For example, if I wanted to round the value 3.23, I could accomplish this with the function round() in R. The number 3.23 is an argument to the function round(). An argument is an input to a function. A value is produced as a result.\nex.\n\nround(3.22)\n\n[1] 3\n\n\nOften times, functions can take on multiple arguments. Previously, we saw round(3.225) produce the value 3. This is because round defaults to producing a value to the nearest whole number. However, we can override the default inputing a second argument. You are not expected to memorize all arguments of every function you learn during this course. If you have R locally installed, you can run a ? in front of the function name in your console to pull up a help file that will define the arguments of a function for you. These help files can also be found on line. For example, here is the help file for round here\nFrom the documentation, you can see the second argument of the function round is digits.\nYour Turn Change the 0 to another number, and take note on how this changes the corresponding output when you click Run Code.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nround(3.22, digits = 1)\n\n[1] 3.2\n\n\n\n\n\nAs you may notice, the first argument and second argument are separated by a ,. This is consistent across all functions in R.\n\n\n\n\n\n\nTip\n\n\n\nIf you provide the arguments in the exact same order as they are defined in the help file, you do not have to include the name of the argument\n\n\n\nround(3.225, 1)\n\n[1] 3.2"
-  },
-  {
-    "objectID": "exercises/meet-programming-exercises.html#exploring-mtcars",
-    "href": "exercises/meet-programming-exercises.html#exploring-mtcars",
-    "title": "Meet the toolkit: Programming exercises",
-    "section": "Exploring mtcars\n",
-    "text": "Exploring mtcars\n\nFor the remainder of this activity, we are going to practice using functions on the mtcars data set. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).\nDemo Run the following code to see the first six lines of data below\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat is the name of the function used in the above code? What is the input?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe function is named head\nThe argument is the dataset mtcars\n\n\n\nWe can also get a better sense of the data we are working with by using the glimpse() function. This allows us to see how many rows and columns we have in our data set, the type of data we are working with, and the data inputs. For now, we just want to practice writing the function to initially explore these data.\nYour Turn Use the glimpse() function on the mtcars data set below.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHow many rows are in the mtcars data set? How many columns?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nglimpse(mtcars)\n\nRows: 32\nColumns: 11\n$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…\n$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…\n$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…\n$ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180…\n$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92,…\n$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.…\n$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…\n$ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,…\n$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,…\n$ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3,…\n$ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2,…\n\n\nThere are 32 rows in the mtcars data set\nThere are 11 columns in the mtcars data set\n\n\n\nYour Turn: There are many other functions we can use on data to explore it prior to making data visualizations. You are encouraged to explore the help files of the following:\n\ntail()\nslice()\n\nAfter doing so, try to answer answer the following questions!\nUse tail() to produce the last six lines of the mtcars data set.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\ntail(mtcars)\n\n                mpg cyl  disp  hp drat    wt qsec vs am gear carb\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2\nFord Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4\nFerrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6\nMaserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2\n\n\n\n\n\nNow, use slice to produce the first three lines of the mtcars data set.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nslice(mtcars, 1:3)\n\n               mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\n\n\n\n\n\nIn the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R."
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
@@ -1295,18 +1036,18 @@
     "text": "Filled histograms\n\nggplot(duke_forest, aes(x = price, fill = cooling)) +\n  geom_histogram(binwidth = 100000)"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plot",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plot",
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
     "title": "Visualizing and summarizing relationships",
-    "section": "Side-by-side box plot",
-    "text": "Side-by-side box plot\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_boxplot()"
+    "section": "Side-by-side box plots",
+    "text": "Side-by-side box plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_boxplot()"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#density-plots",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#density-plots",
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
     "title": "Visualizing and summarizing relationships",
-    "section": "Density plots",
-    "text": "Density plots\n\nggplot(duke_forest, aes(x = price, color = cooling, fill = cooling)) +\n  geom_density(alpha = 0.5)"
+    "section": "Filled density plots",
+    "text": "Filled density plots\n\nggplot(\n  duke_forest, \n  aes(x = price, color = cooling, fill = cooling)\n  ) +\n  geom_density(alpha = 0.5)"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
@@ -1323,20 +1064,6 @@
     "text": "Grouped summaries\n\nduke_forest |&gt;\n  summarize(median_price = median(price))\n\n# A tibble: 1 × 1\n  median_price\n         &lt;dbl&gt;\n1       540000\n\n\n\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    median_price = median(price), \n  )\n\n# A tibble: 2 × 2\n  cooling median_price\n  &lt;fct&gt;          &lt;dbl&gt;\n1 other         525000\n2 central       550000"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Side-by-side box plots",
-    "text": "Side-by-side box plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_boxplot()"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Filled density plots",
-    "text": "Filled density plots\n\nggplot(\n  duke_forest, \n  aes(x = price, color = cooling, fill = cooling)\n  ) +\n  geom_density(alpha = 0.5)"
-  },
-  {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
     "title": "Visualizing and summarizing relationships",
@@ -1349,13 +1076,6 @@
     "title": "Visualizing and summarizing relationships",
     "section": "Year built",
     "text": "Year built\n\nCreate a new variable called year_built_cat that takes on the value \"1970 or later\" if the house is built in 1970 or later, and \"1969 or earlier\" otherwise.\n\n\n\nduke_forest &lt;- duke_forest |&gt;\n  mutate(\n    year_built_cat = if_else(\n      year_built &gt;= 1970, \n      \"1970 or later\", \n      \"1969 or earlier\"\n    )\n   )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Stacked bar plot",
-    "text": "Stacked bar plot\n\nVisualize the relationship between year built (pre/post 1970) and cooling for houses in this sample.\n\n\n\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()\n\n\n\n\n\n\n\n\n\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar(position = \"fill\")"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
@@ -1468,5 +1188,257 @@
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling",
     "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest, by cooling type\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#nyc-flights",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#nyc-flights",
+    "title": "Grammar of data transformation",
+    "section": "NYC Flights",
+    "text": "NYC Flights\n\nTo demonstrate data transformation we will use flights, a tibble in the nycflights13 R package.\nThe data set includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.\n\n\nlibrary(tidyverse)\nlibrary(nycflights13)"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-dimensions",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-dimensions",
+    "title": "Grammar of data transformation",
+    "section": "flights – dimensions",
+    "text": "flights – dimensions\n\nNumber of rows:\n\n\nnrow(flights)\n\n[1] 336776\n\n\n\n\nNumber of columns:\n\n\nncol(flights)\n\n[1] 19"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-glimpse",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-glimpse",
+    "title": "Grammar of data transformation",
+    "section": "flights – first look with glimpse()",
+    "text": "flights – first look with glimpse()\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013,…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, …\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\",…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 5…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", …\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", …\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, …\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1…\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6,…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, …\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-names",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-names",
+    "title": "Grammar of data transformation",
+    "section": "flights – first look with names()",
+    "text": "flights – first look with names()\n\nnames(flights)\n\n [1] \"year\"           \"month\"          \"day\"           \n [4] \"dep_time\"       \"sched_dep_time\" \"dep_delay\"     \n [7] \"arr_time\"       \"sched_arr_time\" \"arr_delay\"     \n[10] \"carrier\"        \"flight\"         \"tailnum\"       \n[13] \"origin\"         \"dest\"           \"air_time\"      \n[16] \"distance\"       \"hour\"           \"minute\"        \n[19] \"time_hour\""
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-head",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-head",
+    "title": "Grammar of data transformation",
+    "section": "flights – first look with head()",
+    "text": "flights – first look with head()\n\nhead(flights)\n\n# A tibble: 6 × 19\n   year month   day dep_time sched_dep_time dep_delay\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n1  2013     1     1      517            515         2\n2  2013     1     1      533            529         4\n3  2013     1     1      542            540         2\n4  2013     1     1      544            545        -1\n5  2013     1     1      554            600        -6\n6  2013     1     1      554            558        -4\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#tibble-vs.-data-frame",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#tibble-vs.-data-frame",
+    "title": "Grammar of data transformation",
+    "section": "tibble vs. data frame",
+    "text": "tibble vs. data frame\n\n\ntibble: an opinionated version of the R data frame\nAll tibbles are data frames, but not all data frames are tibbles!\nTwo main differences between a tibble and a data frame:\n\nPrinting\nStricter subsetting"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---tibbles",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---tibbles",
+    "title": "Grammar of data transformation",
+    "section": "Printing - tibbles",
+    "text": "Printing - tibbles\nDisplay first 10 rows and all of the columns that fit on the screen will display, along with the type of each column.\n\nflights\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
+    "title": "Grammar of data transformation",
+    "section": "Printing - data.frames",
+    "text": "Printing - data.frames\n(Attempt to) display all of the data, or die (crash) trying (if the dataset is too large)!\n\ncars\n\n   speed dist\n1      4    2\n2      4   10\n3      7    4\n4      7   22\n5      8   16\n6      9   10\n7     10   18\n8     10   26\n9     10   34\n10    11   17\n11    11   28\n12    12   14\n13    12   20\n14    12   24\n15    12   28\n16    13   26\n17    13   34\n18    13   34\n19    13   46\n20    14   26\n21    14   36\n22    14   60\n23    14   80\n24    15   20\n25    15   26\n26    15   54\n27    16   32\n28    16   40\n29    17   32\n30    17   40\n31    17   50\n32    18   42\n33    18   56\n34    18   76\n35    18   84\n36    19   36\n37    19   46\n38    19   68\n39    20   32\n40    20   48\n41    20   52\n42    20   56\n43    20   64\n44    22   66\n45    23   54\n46    24   70\n47    24   92\n48    24   93\n49    24  120\n50    25   85"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",
+    "title": "Grammar of data transformation",
+    "section": "Stricter subsetting – tibbles",
+    "text": "Stricter subsetting – tibbles\nWarning + NULL if variable not found.\n\nflights$apple\n\nWarning: Unknown or uninitialised column: `apple`.\n\n\nNULL"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-data.frames",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-data.frames",
+    "title": "Grammar of data transformation",
+    "section": "Stricter subsetting – data.frames",
+    "text": "Stricter subsetting – data.frames\nOnly NULL if variable not found.\n\ncars$apple\n\nNULL"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr",
+    "title": "Grammar of data transformation",
+    "section": "dplyr",
+    "text": "dplyr"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr-in-tidyverse",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr-in-tidyverse",
+    "title": "Grammar of data transformation",
+    "section": "dplyr \\(\\in\\) tidyverse",
+    "text": "dplyr \\(\\in\\) tidyverse\n\n\n\n\ndplyr is tidyverse’s primary package for data transformation\nPackage website: dplyr.tidyverse.org"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#row-operations",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#row-operations",
+    "title": "Grammar of data transformation",
+    "section": "Row operations",
+    "text": "Row operations\n\n\nslice(): chooses rows based on location\nfilter(): chooses rows based on column values\narrange(): changes the order of the rows\nsample_n(): take a random subset of the rows"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#slice",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#slice",
+    "title": "Grammar of data transformation",
+    "section": "slice()",
+    "text": "slice()\nDisplay the first five rows of flights:\n\n1flights |&gt;\n2  slice(1:5)\n\n\n1\n\nTake the flights data frame, and then,\n\n2\n\nSlice its first five rows\n\n\n\n\n# A tibble: 5 × 19\n   year month   day dep_time sched_dep_time dep_delay\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n1  2013     1     1      517            515         2\n2  2013     1     1      533            529         4\n3  2013     1     1      542            540         2\n4  2013     1     1      544            545        -1\n5  2013     1     1      554            600        -6\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#filter",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#filter",
+    "title": "Grammar of data transformation",
+    "section": "filter()",
+    "text": "filter()\nFilter for flights to RDU in flights:\n\n1flights |&gt;\n2  filter(dest == \"RDU\")\n\n\n1\n\nTake the flights data frame, and then,\n\n2\n\nFilter for rows where dest is equal to RDU\n\n\n\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe",
+    "title": "Grammar of data transformation",
+    "section": "The pipe",
+    "text": "The pipe\n\n\nThe pipe, |&gt;, is an operator (a tool) for passing information from one process to another.\nUse |&gt; mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.\nWhen reading code “in English”, say “and then” whenever you see a pipe."
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#delayed-flights-to-rdu",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#delayed-flights-to-rdu",
+    "title": "Grammar of data transformation",
+    "section": "Delayed flights to RDU",
+    "text": "Delayed flights to RDU\n\nWhich airline is the most delayed, on average, arriving in RDU from a New York City airport?\n\n\nGoal:\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 UA               56   \n2 B6               13.3 \n3 EV               12.2 \n4 9E                9.67\n5 MQ                8.82"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights\n\n\n1\n\nTake the flights data frame\n\n\n\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-1",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-1",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\")\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU\n\n\n\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-2",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-2",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier)\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier\n\n\n\n\n# A tibble: 8,163 × 19\n# Groups:   carrier [5]\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-3",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-3",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier) |&gt;\n4  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE))\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier,\n\n4\n\nand then calculate the mean arrival delay for each carrier\n\n\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 9E                9.67\n2 B6               13.3 \n3 EV               12.2 \n4 MQ                8.82\n5 UA               56"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-4",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-4",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier) |&gt;\n4  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE)) |&gt;\n5  arrange(desc(mean_arr_delay))\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier,\n\n4\n\nand then calculate the mean arrival delay for each carrier,\n\n5\n\nand then arrange in descending order of mean arrival delay.\n\n\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 UA               56   \n2 B6               13.3 \n3 EV               12.2 \n4 9E                9.67\n5 MQ                8.82"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#column-operations",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#column-operations",
+    "title": "Grammar of data transformation",
+    "section": "Column operations",
+    "text": "Column operations\n\n\nselect(): changes whether or not a column is included\nrename(): changes the names of columns\nmutate(): changes the values of columns or creates new columns"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#groups-of-rows",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#groups-of-rows",
+    "title": "Grammar of data transformation",
+    "section": "Groups of rows",
+    "text": "Groups of rows\n\n\ngroup_by(): perform calculations separately for each value of a variable\nsummarize(): collapses a group into a single row\ncount(): count unique values of one or more variables"
+  },
+  {
+    "objectID": "exercises/bechdel-data-visualization.html",
+    "href": "exercises/bechdel-data-visualization.html",
+    "title": "Bechdel + data visualization",
+    "section": "",
+    "text": "Programming Activity Guide\n\n\n\nPlease reference the webR-intro activity for information on the different types of code chunks, questions, and how to save your work to reference later."
+  },
+  {
+    "objectID": "exercises/bechdel-data-visualization.html#getting-started",
+    "href": "exercises/bechdel-data-visualization.html#getting-started",
+    "title": "Bechdel + data visualization",
+    "section": "Getting started",
+    "text": "Getting started\nPlease run the following code by clicking the green arrow just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data can be used for the following activity.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn this mini analysis we work with the data used in the FiveThirtyEight story titled “The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”.\nThis analysis is about the Bechdel test, a measure of the representation of women in fiction.\nPackages\nWe’ll use: tidyverse for majority of the analysis and scales for pretty plot labels later on. These are ready to use for you in this activity!\n\nlibrary(tidyverse)\nlibrary(scales)\n\nFOR MINE Do we need this note below? I modified it from the original AE, but it may not feel necessary for Coursera.\nFOR MINE Are you going to introduce the pipe before the activity? If so, I can change the code. If not, I can change the code in the mario acitivty to not have the pipe + will have to update a quiz question.\n\n\n\n\n\n\nNote\n\n\n\nThis a modified version of the bechdel dataset. It’s been modified to include some new variables derived from existing variables as well as to limit the scope of the data to movies released between 1990 and 2013. A link to the original dataset can be found here\n\n\nGet to know the data\nYour Turn: We can use the glimpse function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.\nWith your output, confirm that:\n\nThere are 1615 rows\nThere are 7 variables (columns) in the dataset\n\n\n\n\n\n\n\nWarning\n\n\n\nIf you receive the error Error: object ‘bechdel’ not found, go back and read in your data above.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nglimpse(bechdel)\n\nRows: 1,615\nColumns: 7\n$ title       &lt;chr&gt; \"21 & Over\", \"Dredd 3D\", \"12 Years a Slave\", \"2 Guns\", \"42…\n$ year        &lt;int&gt; 2013, 2012, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013…\n$ gross_2013  &lt;dbl&gt; 67878146, 55078343, 211714070, 208105475, 190040426, 18416…\n$ budget_2013 &lt;int&gt; 13000000, 45658735, 20000000, 61000000, 40000000, 22500000…\n$ roi         &lt;dbl&gt; 5.221396, 1.206305, 10.585703, 3.411565, 4.751011, 0.81851…\n$ binary      &lt;chr&gt; \"FAIL\", \"PASS\", \"FAIL\", \"FAIL\", \"FAIL\", \"FAIL\", \"FAIL\", \"P…\n$ clean_test  &lt;chr&gt; \"notalk\", \"ok\", \"notalk\", \"notalk\", \"men\", \"men\", \"notalk\"…\n\n\n\n\n\nDemo: We can use slice to look at rows of our data. Run the following code. Change the 5 to another number to print that many rows!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\nWhat does each observation (row) in the data set represent?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nEach observation represents a movie."
+  },
+  {
+    "objectID": "exercises/bechdel-data-visualization.html#variables-of-interest",
+    "href": "exercises/bechdel-data-visualization.html#variables-of-interest",
+    "title": "Bechdel + data visualization",
+    "section": "Variables of Interest",
+    "text": "Variables of Interest\nThe variables we’ll focus on are the following:\n\n\nbudget_2013: Budget in 2013 inflation adjusted dollars.\n\ngross_2013: Gross (US and international combined) in 2013 inflation adjusted dollars.\n\nroi: Return on investment, calculated as the ratio of the gross to budget.\n\nclean_test: Bechdel test result:\n\n\nok = passes test\ndubious\n\nmen = women only talk about men\n\nnotalk = women don’t talk to each other\n\nnowomen = fewer than two women\n\n\n\nbinary: Bechdel Test PASS vs FAIL binary\n\nWe will also use the year of release in data prep and title of movie to take a deeper look at some outliers.\nThere are a few other variables in the dataset, but we won’t be using them in this analysis."
+  },
+  {
+    "objectID": "exercises/bechdel-data-visualization.html#visualizing-data-with-ggplot2",
+    "href": "exercises/bechdel-data-visualization.html#visualizing-data-with-ggplot2",
+    "title": "Bechdel + data visualization",
+    "section": "Visualizing data with ggplot2\n",
+    "text": "Visualizing data with ggplot2\n\nDemo: ggplot2 is the package and ggplot() is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!\n\n\nggplot() creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with data = bechdel, and run the following to create our base.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nThe mapping argument is paired with an aesthetic (aes()), which tells us how the variables in our data set should be mapped to the visual properties of the graph.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nAs we previously mentioned, we often omit the names of the first two arguments in R functions. So you’ll often see this written as:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNote that the result is exactly the same.\nYour Turn: The geom_xx function specifies the type of plot we want to use to represent the data. In the code below, we want to use geom_point, which creates a plot where each observation is represented by a point.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nNote that this results in a warning as well.\nThis warning represents the number of observations that were removed because there were missing data!"
+  },
+  {
+    "objectID": "exercises/bechdel-data-visualization.html#gross-revenue-vs.-budget",
+    "href": "exercises/bechdel-data-visualization.html#gross-revenue-vs.-budget",
+    "title": "Bechdel + data visualization",
+    "section": "Gross revenue vs. budget",
+    "text": "Gross revenue vs. budget\nStep 1\nDemo: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!\n\n\n\n\n\n\nTip\n\n\n\nSee http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf for many color options you can use by name in R or use the hex code for a color of your choice.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\nStep 2\nYour Turn: Add labels for the title and x and y axes using labs. Do this by modifying the existing code below.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013))+\n  geom_point(color = \"deepskyblue3\") + \n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nStep 3\nYour Turn: An aesthetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:\n\ncolor\nfill\nshape\nsize\nalpha (transparency)\n\nModify the plot below, so the color of the points is based on the variable binary, and make the size of your points based on roi.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point() + \n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nStep 4\nDemo: alpha is used within geom_point to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\nStep 5\nYour Turn: Expand on your plot from the previous step by using facet_wrap to display the association between budget and gross for different values of clean_test.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nggplot(bechdel, \n  aes(x = budget_2013, y = gross_2013,\n    color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_wrap(~ clean_test) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\n\n\nStep 6\nDemo: Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.\n\n\n\n\n\n\nTip\n\n\n\nThis is done through the use of the scales package, specifically the scale_x_continuous() and scale_y_continuous() functions.\n\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNotes: \n\nStep 7\nYour Turn: Expand on your plot from the previous step by using facet_grid to display the association between budget and gross for different combinations of clean_test and binary. Comment on whether this was a useful update.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIs this type of facet useful? Why or why not?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_grid(clean_test ~ binary) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )\n\nWarning: Removed 15 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\nThis was not a useful update as one of the levels of clean_test maps directly to one of the levels of binary."
+  },
+  {
+    "objectID": "exercises/meet-programming-exercises.html",
+    "href": "exercises/meet-programming-exercises.html",
+    "title": "Meet the toolkit: Programming exercises",
+    "section": "",
+    "text": "Programming exercises are designed to provide an opportunity for you to put what you learn in the videos and readings. These exercises feature interactive code chunks using a tool called WebR, which allow you to write, edit, and run R code without leaving your browser."
+  },
+  {
+    "objectID": "exercises/meet-programming-exercises.html#code-chunks",
+    "href": "exercises/meet-programming-exercises.html#code-chunks",
+    "title": "Meet the toolkit: Programming exercises",
+    "section": "Code chunks",
+    "text": "Code chunks\nInteractive code chunks look like the following:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nMajority of the code chunks in these documents will be interactive, like the one shown above. However, some code chunks will be static and include code that you can’t edit and you are just meant to read and review the output of. These will look like the following:\n\n1 + 1\n\n[1] 2\n\n\nFor example, we’ll use the tidyverse package in every programming exercise. Therefore, each exercise will start with a static code chunk that loads this package.\n\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "exercises/meet-programming-exercises.html#questions",
+    "href": "exercises/meet-programming-exercises.html#questions",
+    "title": "Meet the toolkit: Programming exercises",
+    "section": "Questions",
+    "text": "Questions\nMany of the questions in the programming exercises require you to actively do something – edit existing code, write code from scratch, write a narrative, etc. Code goes in interactive code chunks that have a Run Code button, narrative goes in text boxes.\nHowever, some questions come with complete code that you don’t need to edit, but still need to run to view the output. These questions will also often invite you to make modifications to explore alternatives.\n\n\n\n\n\n\nSaving Your Work\n\n\n\nYour work does not automatically save.\nFor most browsers, the most efficient way to save your work is by using the Print feature. This may be useful if you want to come back and reference your work after you’ve completed it.\n\nRight click anywhere on this html page.\nSelect Print….\nUnder Destination drop-down menu, select Save as PDF.\nClick on Save and navigate to where you wish to save your work."
+  },
+  {
+    "objectID": "exercises/meet-programming-exercises.html#calculator",
+    "href": "exercises/meet-programming-exercises.html#calculator",
+    "title": "Meet the toolkit: Programming exercises",
+    "section": "Calculator",
+    "text": "Calculator\nFirst, let’s get started by using R as a calculator.\nIn the interactive code chunk below, perform the following calculations by typing the code and then clicking Run Code.\n\n\nRun code: Run the code below as is.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nModify code: Modify the code below to multiply 3 by 6 instead of 3 by 5.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\nWrite code: Use the code chunk below to calculate 10 divided by 2 (10 / 2):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\n2 + 2 \n\n[1] 4\n\n3 * 6\n\n[1] 18\n\n10 / 2\n\n[1] 5"
+  },
+  {
+    "objectID": "exercises/meet-programming-exercises.html#functions",
+    "href": "exercises/meet-programming-exercises.html#functions",
+    "title": "Meet the toolkit: Programming exercises",
+    "section": "Functions",
+    "text": "Functions\nR is a functional language. Functions act as the name of algorithmic details that are used to accomplish a specific task. For example, if I wanted to round the value 3.23, I could accomplish this with the function round() in R. The number 3.23 is an argument to the function round(). An argument is an input to a function. A value is produced as a result.\nex.\n\nround(3.22)\n\n[1] 3\n\n\nOften times, functions can take on multiple arguments. Previously, we saw round(3.225) produce the value 3. This is because round defaults to producing a value to the nearest whole number. However, we can override the default inputing a second argument. You are not expected to memorize all arguments of every function you learn during this course. If you have R locally installed, you can run a ? in front of the function name in your console to pull up a help file that will define the arguments of a function for you. These help files can also be found on line. For example, here is the help file for round here\nFrom the documentation, you can see the second argument of the function round is digits.\nYour Turn Change the 0 to another number, and take note on how this changes the corresponding output when you click Run Code.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nround(3.22, digits = 1)\n\n[1] 3.2\n\n\n\n\n\nAs you may notice, the first argument and second argument are separated by a ,. This is consistent across all functions in R.\n\n\n\n\n\n\nTip\n\n\n\nIf you provide the arguments in the exact same order as they are defined in the help file, you do not have to include the name of the argument\n\n\n\nround(3.225, 1)\n\n[1] 3.2"
+  },
+  {
+    "objectID": "exercises/meet-programming-exercises.html#exploring-mtcars",
+    "href": "exercises/meet-programming-exercises.html#exploring-mtcars",
+    "title": "Meet the toolkit: Programming exercises",
+    "section": "Exploring mtcars\n",
+    "text": "Exploring mtcars\n\nFor the remainder of this activity, we are going to practice using functions on the mtcars data set. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).\nDemo Run the following code to see the first six lines of data below\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWhat is the name of the function used in the above code? What is the input?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\nThe function is named head\nThe argument is the dataset mtcars\n\n\n\nWe can also get a better sense of the data we are working with by using the glimpse() function. This allows us to see how many rows and columns we have in our data set, the type of data we are working with, and the data inputs. For now, we just want to practice writing the function to initially explore these data.\nYour Turn Use the glimpse() function on the mtcars data set below.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nHow many rows are in the mtcars data set? How many columns?\nAnswer: \n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nglimpse(mtcars)\n\nRows: 32\nColumns: 11\n$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8,…\n$ cyl  &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8,…\n$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 16…\n$ hp   &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180…\n$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92,…\n$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.…\n$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18…\n$ vs   &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0,…\n$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0,…\n$ gear &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3,…\n$ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2,…\n\n\nThere are 32 rows in the mtcars data set\nThere are 11 columns in the mtcars data set\n\n\n\nYour Turn: There are many other functions we can use on data to explore it prior to making data visualizations. You are encouraged to explore the help files of the following:\n\ntail()\nslice()\n\nAfter doing so, try to answer answer the following questions!\nUse tail() to produce the last six lines of the mtcars data set.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\ntail(mtcars)\n\n                mpg cyl  disp  hp drat    wt qsec vs am gear carb\nPorsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2\nLotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2\nFord Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4\nFerrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6\nMaserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8\nVolvo 142E     21.4   4 121.0 109 4.11 2.780 18.6  1  1    4    2\n\n\n\n\n\nNow, use slice to produce the first three lines of the mtcars data set.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nslice(mtcars, 1:3)\n\n               mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\n\n\n\n\n\nIn the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R."
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-operator",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-operator",
+    "title": "Grammar of data transformation",
+    "section": "The pipe operator",
+    "text": "The pipe operator\n\n\nThe pipe, |&gt;, is an operator (a tool) for passing information from one process to another.\nUse |&gt; mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.\nWhen reading code “in English”, say “and then” whenever you see a pipe."
   }
 ]
