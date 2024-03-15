@@ -62,7 +62,7 @@ This a modified version of the `bechdel` dataset. It's been modified to include 
 
 ### Get to know the data
 
-**Your Turn**: We can use the `glimpse()` function to get an overview (or "glimpse") of the data. Write the following code below to accomplish this task.
+We can use the `glimpse()` function to get an overview (or "glimpse") of the data. Write the following code below to accomplish this task.
 
 With your output, confirm that:
 
@@ -166,7 +166,7 @@ ggplot(bechdel,
 
 Note that the result is exactly the same.
 
-**Your Turn**: The `geom_xx()` function specifies the type of plot we want to use to represent the data. In the code below, we want to use `geom_point()`, which creates a plot where each observation is represented by a point.
+The `geom_xx()` function specifies the type of plot we want to use to represent the data. In the code below, we want to use `geom_point()`, which creates a plot where each observation is represented by a point.
 
 ```{webr-r}
 #| label: plot-point
@@ -219,7 +219,7 @@ ggplot(bechdel,
 
 ### Step 2
 
-**Your Turn**: Add labels for the title and x and y axes using [labs()](https://ggplot2.tidyverse.org/reference/labs.html). Do this by modifying the existing code below.
+Add labels for the title and x and y axes using [labs()](https://ggplot2.tidyverse.org/reference/labs.html). Do this by modifying the existing code below.
 
 ```{webr-r}
 #| label: plot-labs
@@ -249,7 +249,7 @@ ggplot(bechdel,
 
 ### Step 3
 
-**Your Turn**: An `aes`thetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:
+An `aes`thetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:
 
 -   color
 -   fill
@@ -319,7 +319,7 @@ ggplot(bechdel,
 
 ### Step 5
 
-**Your Turn**: Expand on your plot from the previous step by using `facet_wrap()` to display the association between budget and gross for different values of `clean_test`.
+Expand on your plot from the previous step by using `facet_wrap()` to display the association between budget and gross for different values of `clean_test`.
 
 ```{webr-r}
 #| label: plot-facet-wrap
@@ -390,7 +390,7 @@ ggplot(bechdel,
 
 ### Step 7
 
-**Your Turn**: Expand on your plot from the previous step by using `facet_grid()` to display the association between budget and gross for different combinations of `clean_test` and `binary`. Comment on whether this was a useful update.
+Expand on your plot from the previous step by using `facet_grid()` to display the association between budget and gross for different combinations of `clean_test` and `binary`. Comment on whether this was a useful update.
 
 ```{webr-r}
 #| label: plot-facet-grid
