@@ -6,14 +6,12 @@ webr:
 ---
 
 ::: {.callout-important}
-## Programming Activity Guide
-
-Please reference the `webR-intro` activity for information on the different types of code chunks, questions, and how to save your work to reference later.
+Please reference the `webR-intro` programming exercise for information on the different types of code chunks, questions, and how to save your work to reference later.
 :::
 
 ## Getting started
 
-Please run the following code by clicking the [green arrow]{style="color:green;"} just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data can be used for the following activity.
+Please run the following code by clicking the [green arrow]{style="color:green;"} just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data can be used for the following programming exercise.
 
 ```{webr-r}
 #| context: setup
@@ -39,7 +37,7 @@ This analysis is about the [Bechdel test](https://en.wikipedia.org/wiki/Bechdel_
 
 ### Packages
 
-We'll use: **tidyverse** for majority of the analysis and **scales** for pretty plot labels later on. These are ready to use for you in this activity!
+We'll use: **tidyverse** for majority of the analysis and **scales** for pretty plot labels later on. These are ready to use for you in this programming exercise!
 
 ```{r}
 #| label: load-packages
@@ -57,9 +55,6 @@ library(scales)
 
 ```
 
-**FOR MINE** Do we need this note below? I modified it from the original AE, but it may not feel necessary for Coursera.
-
-**FOR MINE** Are you going to introduce the pipe before the activity? If so, I can change the code. If not, I can change the code in the mario acitivty to not have the pipe + will have to update a quiz question. 
 
 ::: callout-note
 This a modified version of the `bechdel` dataset. It's been modified to include some new variables derived from existing variables as well as to limit the scope of the data to movies released between 1990 and 2013. A link to the original dataset can be found [here](https://github.com/fivethirtyeight/data/blob/master/bechdel/movies.csv)
