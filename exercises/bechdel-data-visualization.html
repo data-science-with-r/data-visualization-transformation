@@ -1042,7 +1042,7 @@ Note
 </section>
 <section id="get-to-know-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="get-to-know-the-data">Get to know the data</h3>
-<p><strong>Your Turn</strong>: We can use the <code>glimpse</code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
+<p><strong>Your Turn</strong>: We can use the <code>glimpse()</code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
 <p>With your output, confirm that:</p>
 <ul>
 <li><p>There are 1615 rows</p></li>
@@ -1109,7 +1109,7 @@ $ clean_test  &lt;chr&gt; "notalk", "ok", "notalk", "notalk", "men", "men", "not
 </div>
 </div>
 </div>
-<p><strong>Demo</strong>: We can use <code>slice</code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
+<p><strong>Demo</strong>: We can use <code>slice()</code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
 <div id="qwebr-insertion-location-4"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1246,7 +1246,7 @@ qwebrCreateMonacoEditorInstance(
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Note that the result is exactly the same.</p>
-<p><strong>Your Turn</strong>: The <code>geom_xx</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point</code>, which creates a plot where each observation is represented by a point.</p>
+<p><strong>Your Turn</strong>: The <code>geom_xx()</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point()</code>, which creates a plot where each observation is represented by a point.</p>
 <div id="qwebr-insertion-location-8"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1344,7 +1344,7 @@ ggplot(bechdel,
 </section>
 <section id="step-2" class="level3">
 <h3 class="anchored" data-anchor-id="step-2">Step 2</h3>
-<p><strong>Your Turn</strong>: Add labels for the title and x and y axes using <a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a>. Do this by modifying the existing code below.</p>
+<p><strong>Your Turn</strong>: Add labels for the title and x and y axes using <a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a>. Do this by modifying the existing code below.</p>
 <div id="qwebr-insertion-location-10"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1481,7 +1481,7 @@ Solution
 </section>
 <section id="step-4" class="level3">
 <h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
-<p><strong>Demo</strong>: <code>alpha</code> is used within <code>geom_point</code> to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent.</p>
+<p><strong>Demo</strong>: <code>alpha</code> is used within <code>geom_point()</code> to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent.</p>
 <div id="qwebr-insertion-location-12"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1516,7 +1516,7 @@ ggplot(bechdel,
 </section>
 <section id="step-5" class="level3">
 <h3 class="anchored" data-anchor-id="step-5">Step 5</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_wrap</code> to display the association between budget and gross for different values of <code>clean_test</code>.</p>
+<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_wrap()</code> to display the association between budget and gross for different values of <code>clean_test</code>.</p>
 <div id="qwebr-insertion-location-13"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1637,7 +1637,7 @@ ggplot(bechdel,
 </section>
 <section id="step-7" class="level3">
 <h3 class="anchored" data-anchor-id="step-7">Step 7</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_grid</code> to display the association between budget and gross for different combinations of <code>clean_test</code> and <code>binary</code>. Comment on whether this was a useful update.</p>
+<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_grid()</code> to display the association between budget and gross for different combinations of <code>clean_test</code> and <code>binary</code>. Comment on whether this was a useful update.</p>
 <div id="qwebr-insertion-location-15"></div>
 <script type="module">
 // Retrieve the insertion point
