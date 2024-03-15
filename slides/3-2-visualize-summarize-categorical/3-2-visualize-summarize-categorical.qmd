@@ -8,9 +8,6 @@ format:
 ```{r}
 #| include: false
 
-library(tidyverse)
-library(openintro)
-
 ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 ```
 
@@ -54,6 +51,8 @@ ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 ## Take a peek at data
 
 ```{r output.lines=18}
+#| message: false
+library(tidyverse)
 library(openintro)
 glimpse(loans_full_schema)
 ```
@@ -61,6 +60,7 @@ glimpse(loans_full_schema)
 ## Selected variables
 
 ```{r}
+#| code-line-numbers: "|2-5|1|6"
 loans <- loans_full_schema |>
   select(
     loan_amount, interest_rate, term, grade, 
@@ -178,7 +178,7 @@ loans |>
 ## Customizing bar plots {.smaller .nostretch}
 
 ```{r}
-#| code-line-numbers: "|4|5-9|10"
+#| code-line-numbers: "|3|5-9|10"
 #| fig-width: 10
 #| fig-asp: 0.4
 

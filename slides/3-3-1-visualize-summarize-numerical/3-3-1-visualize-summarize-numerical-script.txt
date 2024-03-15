@@ -1,0 +1,66 @@
+In this video we introduce techniques for visualizing and summarizing numerical data
+
+>>
+
+Let's set up our analysis
+
+>>
+
+We'll use the tidyverse package for data wrangling and visualization, the openintro package for the data, and the scales package for pretty axis labels. This last one is new, I'll introduce it shortly. Let's load all three packages with library.
+
+>>
+
+And we'll continue to work with the Lending Club data, focusing our analysis on a subset of the variables. I create this subset with select, and save the result as a new data frame called loans. it has 10000 rows and 8 columns.
+
+>>
+
+First, let's introduce how we discuss distributions of numerical variables.
+
+>>
+
+The variable of interest is loan amount. Here is a histogram of this variable.
+
+>>
+
+The first characteristic
+
+>> is the shape of the distribution. When discussin the shape, we mention something about modality (whether it's unimodal with a single promiment hump, bimodal with two prominent humps, or multimodal).
+
+>> next is the center of the distribution. This is generally the mean or median, depending on whether the distribution is symmetric or skewed. for symmetric distributions we use the mean to describe the center, while for skewed distributions, particularly for very skewed ones, the mean is not a good measure of the center as it's not robust to extreme values. for example, if we had one more loan in our data that was much much larger than any of the other loans, the mean would be affected by its amount, but the median would not be.
+
+>> the decision of how to describe the spread is similar. for symmetric distributions we use the standard deviation, which tells us the average deviation from the mean. and for skewed distributions we use the interquartile range, commonly referred to as IQR, which gives us the range for the middle 50% of the data
+
+>> finally, we mention wheter there are any outliers and where they are located -- higher or lower end. if feasible, it's good practice to identify these outliers in the data and look into them to try to understand why they stand out from the rest -- could this be a data entry error or do the differences make sense in the context of the data?
+
+>>
+
+The shape of the loan amount distribution is unimodal and right-skewed. [say something about smooth curve]
+
+>>
+
+Since the distribution is skewed, we use the median to describe the center. The median loan amount in thsi sample is 14,500 dollars. So these are small loans, not large home loans...
+
+>>
+
+And the middle 50% of the loans are between 8000 and 24000 dollars.
+
+>>
+
+Finally, there are no clear outliers in the loan amounts in this sample.
+
+In this description of the distribution of loan amounts, we used a variety of visualizations and summary statistics. Next you'll learn about how to create and compute these.
+
+>>
+
+Let's start with visualization.
+
+>>
+
+Histograms are helpful for identifying shapes of distributions and allow us to see both modality and skewness.
+
+They require a careful selection of binwidth, and if you don't make this selection, ggplot2 will get sad and give you this message: `stat_bin()` using `bins = 30`. Pick better value with
+
+>>
+
+[from here on read from slides]
+

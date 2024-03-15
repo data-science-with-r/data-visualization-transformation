@@ -52,10 +52,11 @@ ggplot(duke_forest, aes(x = area, y = price, color = cooling, shape = cooling)) 
 
 # Relationship between two numerical variables
 
-## Scatterplot
+## Scatterplot {.nostretch}
 
 ```{r}
 #| label: area-price-scatter
+#| fig-width: 12
 ggplot(duke_forest, aes(x = area, y = price)) +
   geom_point()
 ```
@@ -72,14 +73,12 @@ duke_forest |>
 *between two numerical variables*
 
 ::: columns
-::: {.column .fragment width="30%"}
-::: incremental
+::: {.column width="30%"}
 -   **Direction:** Positive
 
--   **Form:** Linear
-
 -   **Strength:** Moderately strong
-:::
+
+-   **Form:** Linear
 :::
 
 ::: {.column width="40%"}
@@ -117,6 +116,7 @@ ggplot(duke_forest, aes(x = price, y = cooling)) +
 ## Filled density plots
 
 ```{r}
+#| code-line-numbers: "|3|5"
 ggplot(
   duke_forest, 
   aes(x = price, color = cooling, fill = cooling)
@@ -134,19 +134,10 @@ ggplot(duke_forest, aes(x = price, y = cooling)) +
 ## Grouped summaries
 
 ```{r}
-duke_forest |>
-  summarize(median_price = median(price))
-```
-
-. . .
-
-```{r}
-#| code-line-numbers: "|2"
+#| code-line-numbers: "|2|3"
 duke_forest |>
   group_by(cooling) |>
-  summarize(
-    median_price = median(price), 
-  )
+  summarize(median_price = median(price))
 ```
 
 ## Multiple summary statistics
@@ -174,7 +165,7 @@ Create a new variable called `year_built_cat` that takes on the value `"1970 or 
 . . .
 
 ```{r}
-#| code-line-numbers: "|2|3-7|4|5|6|1"
+#| code-line-numbers: "|2,8|3-7|4|5|6|1"
 duke_forest <- duke_forest |>
   mutate(
     year_built_cat = if_else(
@@ -202,6 +193,7 @@ ggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +
 ## Stacked bar plot -- proportions
 
 ```{r}
+#| code-line-numbers: "2"
 ggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +
   geom_bar(position = "fill")
 ```
@@ -224,38 +216,47 @@ duke_forest |>
 
 # Relationships between many variables
 
-## Price vs. area and cooling {.smaller}
+## Price vs. area and cooling - 1 {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "|1,4|2|3|5"
+#| code-line-numbers: "|1,7|2|3-6|8"
 ggplot(
   duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
+  aes(
+    x = area, y = price, 
+    color = cooling, shape = cooling
+    )
   ) +
   geom_point()
 ```
 
-## Price vs. area and cooling {.smaller}
+## Price vs. area and cooling - 2 {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "5"
+#| code-line-numbers: "8"
 ggplot(
   duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
+  aes(
+    x = area, y = price, 
+    color = cooling, shape = cooling
+    )
   ) +
   geom_point(alpha = 0.7, size = 4)
 ```
 
-## Price vs. area and cooling {.smaller}
+## Price vs. area and cooling - 3 {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "6-13"
+#| code-line-numbers: "9-16"
 ggplot(
   duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
+  aes(
+    x = area, y = price, 
+    color = cooling, shape = cooling
+    )
   ) +
   geom_point(alpha = 0.7, size = 4) +
   labs(
@@ -268,17 +269,22 @@ ggplot(
   )
 ```
 
-## Price vs. area and cooling {.smaller}
+## Price vs. area and cooling - 4 {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "6"
+#| code-line-numbers: "9-11"
 ggplot(
   duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
+  aes(
+    x = area, y = price, 
+    color = cooling, shape = cooling
+    )
   ) +
   geom_point(alpha = 0.7, size = 4) +
-  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  scale_color_manual(
+    values = c("central" = "darkblue", "other" = "lightsalmon3")
+    ) +
   labs(
     title = "Houses in Duke Forest",
     subtitle = "Durham, NC",
@@ -289,41 +295,23 @@ ggplot(
   )
 ```
 
-## Price vs. area and cooling {.smaller}
+## Price vs. area and cooling - 5 {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "6"
+#| code-line-numbers: "9"
 ggplot(
   duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
-  ) +
-  geom_point(alpha = 0.7, size = 4) +
-  scale_x_continuous(labels = label_number(big.mark = ",")) +
-  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
-  labs(
-    title = "Houses in Duke Forest",
-    subtitle = "Durham, NC",
-    color = "Cooling", shape = "Cooling",
-    x = "Area (square feet)",
-    y = "Price (USD)",
-    caption = "Source: Zillow, November 2020"
-  )
-```
-
-## Price vs. area and cooling {.smaller}
-
-```{r}
-#| output-location: column
-#| code-line-numbers: "7"
-ggplot(
-  duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
+  aes(
+    x = area, y = price, 
+    color = cooling, shape = cooling
+    )
   ) +
   geom_point(alpha = 0.7, size = 4) +
   scale_x_continuous(labels = label_number(big.mark = ",")) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  scale_color_manual(
+    values = c("central" = "darkblue", "other" = "lightsalmon3")
+    ) +
   labs(
     title = "Houses in Duke Forest",
     subtitle = "Durham, NC",
@@ -334,19 +322,24 @@ ggplot(
   )
 ```
 
-## Price vs. area and cooling {.smaller}
+## Price vs. area and cooling - 6 {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "17"
+#| code-line-numbers: "10"
 ggplot(
   duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
+  aes(
+    x = area, y = price, 
+    color = cooling, shape = cooling
+    )
   ) +
   geom_point(alpha = 0.7, size = 4) +
   scale_x_continuous(labels = label_number(big.mark = ",")) +
   scale_y_continuous(labels = label_dollar()) +
-  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  scale_color_manual(
+    values = c("central" = "darkblue", "other" = "lightsalmon3")
+    ) +
   labs(
     title = "Houses in Duke Forest",
     subtitle = "Durham, NC",
@@ -354,36 +347,10 @@ ggplot(
     x = "Area (square feet)",
     y = "Price (USD)",
     caption = "Source: Zillow, November 2020"
-  ) +
-  theme_minimal()
+  )
 ```
 
-## Price vs. area and cooling {.smaller}
-
-```{r}
-#| output-location: column
-#| code-line-numbers: "18"
-ggplot(
-  duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
-  ) +
-  geom_point(alpha = 0.7, size = 4) +
-  scale_x_continuous(labels = label_number(big.mark = ",")) +
-  scale_y_continuous(labels = label_dollar()) +
-  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
-  labs(
-    title = "Houses in Duke Forest",
-    subtitle = "Durham, NC",
-    color = "Cooling", shape = "Cooling",
-    x = "Area (square feet)",
-    y = "Price (USD)",
-    caption = "Source: Zillow, November 2020"
-  ) +
-  theme_minimal() +
-  theme(legend.position = c(0.15, 0.8))
-```
-
-## Price vs. area and cooling
+## Price vs. area and cooling - 7
 
 ```{r}
 duke_forest |>
@@ -391,20 +358,25 @@ duke_forest |>
   summarize(r = cor(price, area))
 ```
 
-## Price vs. area and cooling  {.smaller}
+## Price vs. area and cooling - 8  {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "18"
+#| code-line-numbers: "24"
 #| fig-asp: 1
 ggplot(
   duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
+  aes(
+    x = area, y = price, 
+    color = cooling, shape = cooling
+    )
   ) +
   geom_point(alpha = 0.7, size = 4) +
   scale_x_continuous(labels = label_number(big.mark = ",")) +
   scale_y_continuous(labels = label_dollar()) +
-  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  scale_color_manual(
+    values = c("central" = "darkblue", "other" = "lightsalmon3")
+    ) +
   labs(
     title = "Houses in Duke Forest",
     subtitle = "Durham, NC",
@@ -413,24 +385,29 @@ ggplot(
     y = "Price (USD)",
     caption = "Source: Zillow, November 2020"
   ) +
-  theme_minimal() +
   facet_wrap(~cooling, ncol = 1)
 ```
 
-## Price vs. area and cooling {.smaller}
+## Price vs. area and cooling - 9 {.smaller}
 
 ```{r}
+#| label: multivar-plot
 #| output-location: column
-#| code-line-numbers: "5,10"
+#| code-line-numbers: "8,15"
 #| fig-asp: 1
 ggplot(
   duke_forest, 
-  aes(x = area, y = price, color = cooling, shape = cooling)
+  aes(
+    x = area, y = price, 
+    color = cooling, shape = cooling
+    )
   ) +
   geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +
   scale_x_continuous(labels = label_number(big.mark = ",")) +
   scale_y_continuous(labels = label_dollar()) +
-  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  scale_color_manual(
+    values = c("central" = "darkblue", "other" = "lightsalmon3")
+    ) +
   labs(
     title = "Houses in Duke Forest, by cooling type",
     subtitle = "Durham, NC",
@@ -439,6 +416,26 @@ ggplot(
     y = "Price (USD)",
     caption = "Source: Zillow, November 2020"
   ) +
-  theme_minimal() +
   facet_wrap(~cooling, ncol = 1)
 ```
+
+## Price vs. area and cooling {.smaller}
+
+
+::: columns
+::: {.column width="30%"}
+::: incremental
+- The relationship between area and price of homes in Duke Forest is positive and relatively strong, regardless of cooling type.
+- The relationship appears to be stronger, with a larger correlation coefficient (0.854 vs. 0.459), for homes cooled with central air. 
+- However the large difference in correlation coefficients for these two groups might be due to the three potential outliers in the other group with high areas and low price.
+:::
+:::
+::: {.column width="40%"}
+
+```{r}
+#| ref.label: multivar-plot
+#| fig-asp: 1
+#| echo: false
+```
+:::
+:::

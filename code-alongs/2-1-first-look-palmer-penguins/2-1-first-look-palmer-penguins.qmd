@@ -1,0 +1,172 @@
+---
+title: "First look at Palmer Penguin"
+---
+
+# Introduction
+
+How do sizes of penguins vary across species, islands, and sexes?
+What about other characteristics?
+
+## Packages
+
+We will use the **tidyverse** packages for data wrangling and visualization and the **palmerpenguins** package for the data.
+
+```{r}
+#| label: load-packages
+#| warning: false
+
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Data
+
+The dataset we will visualize is called `penguins`.
+Let's `glimpse()` at it.
+
+```{r}
+#| label: glimpse
+
+# add code here
+```
+
+# Penguin weights
+
+Create visualizations of the distribution of `weight`s of penguins.
+
+1.  Make a histogram. Set an appropriate binwidth.
+
+```{r}
+#| label: histogram-weight
+
+# add code here
+```
+
+2.  Make a boxplot.
+
+```{r}
+#| label: boxplot-weight
+
+# add code here
+```
+
+3.  Based on these, determine if each of the following statements about the shape of the distribution is true or false.
+    -   The distribution of penguin weights in this sample is left skewed. **FALSE**
+    -   The distribution of penguin weights in this sample is unimodal. **TRUE**
+
+## Two variables
+
+::: callout-note
+Analyzing the relationship between two variables is called **bivariate** analysis.
+:::
+
+Create visualizations of the distribution of `weight`s of penguins by `species`.
+
+4.  Make a single histogram. Set an appropriate binwidth.
+
+```{r}
+#| label: histogram-weight-species
+
+# add code here
+```
+
+5.  Use multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.
+
+```{r}
+#| label: histogram-weight-species-facet
+
+# add code here
+```
+
+6.  Use side-by-side box plots. Add color as you see fit and turn off legends if not needed.
+
+```{r}
+#| label: boxplot-weight-species
+
+# add code here
+```
+
+7.  Use density plots. Add color as you see fit.
+
+```{r}
+#| label: density-weight-species
+
+# add code here
+```
+
+8.  Use violin plots. Add color as you see fit and turn off legends if not needed.
+
+```{r}
+#| label: violin-weight-species
+
+# add code here
+```
+
+9.  Make a jittered scatter plot. Add color as you see fit and turn off legends if not needed.
+
+```{r}
+#| label: jitter-weight-species
+
+# add code here
+```
+
+10. Use beeswarm plots. Add color as you see fit and turn off legends if not needed.
+
+```{r}
+#| label: beeswarm-weight-species
+
+# add code here
+```
+
+11. Use multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.
+
+```{r}
+#| label: multi-geoms
+
+# add code here
+```
+
+## Multiple variables
+
+::: callout-note
+Analyzing the relationship between three or more variables is called **multivariate** analysis.
+:::
+
+12. Facet the plot you created in the previous exercise by `island`. Adjust labels accordingly.
+
+```{r}
+#| label: multi-geoms-facet
+
+# add code here
+```
+
+Before you continue, let's turn off all warnings the code chunks generate and resize all figures.
+We'll do this by editing the YAML.
+
+# Visualizing other variables
+
+13. Pick a single categorical variable from the data set and make a bar plot of its distribution.
+
+```{r}
+#| label: barplot
+
+# add code here
+```
+
+14. Pick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.
+
+```{r}
+#| label: cat-cat
+
+# add code here
+```
+
+Interpretation goes here...
+
+15. Make another plot that uses at least three variables. At least one should be numeric and at least one categorical. In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted. Don't forget to label your code chunk.
+
+```{r}
+# add code here
+```
+
+Interpretation goes here...

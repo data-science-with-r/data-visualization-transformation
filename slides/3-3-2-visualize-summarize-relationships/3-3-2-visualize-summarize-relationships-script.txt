@@ -1,0 +1,182 @@
+In this video we'll discuss tools and techniques for exploring relationships between variables.
+
+>>
+
+Let's set up our analysis
+
+>>
+
+We'll use the tidyverse package for data wrangling and visualization, the openintro package for the data, and the scales package for pretty axis labels. This last one is new, I'll introduce it shortly. Let's load all three packages with library.
+
+>>
+
+The data we'll use comes from Duke Forest -- a neighborhood in Durham, NC where Duke University is located. To construct this dataset, data on home prices as well as other attributes of homes was scraped from Zillow in November 2020. The dataset is distributed with the openintro package and it's called duke_forest. Glimpsing at the data shows 98 observations and 13 columns.
+
+What would you expect the relationship between prices and areas of homes to be? Postive or negative. I'd expect positive!
+
+>>
+
+Here is a multivariate plot of these data, visualizing the relationship between prices and areas of homes, based on their cooling type -- central air or some other system. Let's keep this plot in mind, we'll work our way back to it.
+
+>>
+
+A scatterplot is a great starting point for visualizing the relationship between two numerical variables. We can make a scatterplot by mapping x and y aesthetics to variables in our data, and then representing the data with points with geom_point.
+
+>>
+
+We can also quantify this relationship with the correlation coefficient. Since this is a summary statistic, we calculate it in a summarize statement, and the R function for calculating the correlation coefficient is cor().
+
+A correlation coefficient of -1 is a perfect negative relationship, and +1 is a perfect positive relationship. With 0.667, this seems like a moderately strong relationship.
+
+>>
+
+One other aspect of the relationship we should evaluate is its form, specifically whether it's linear or not. In fact, we should evaluate this before calculating the correlation coefficient. Correlation is the measure of linear association between two numerical variables. If the association is not linear, we shouldn't be calculating a correlation coefficient in the first place.
+
+>>
+
+And how about relationships between a numerical and a categorical variable?
+
+>>
+
+Here is a histogram of prices of houses. A unimodal and somewhat right-skewed distribution.
+
+>>
+
+We can bring in a categorical variable by coloring the bars based on the values of this second variable -- by mapping the fill aesthetic to this variable.
+
+Unfortunately, the result isn't very helpful. I find these plots difficult to make sense of.
+
+>>
+
+A better alternative is side-by-side box plots, which we can achieve by mapping the y aesthetic to the categorical variable of interest.
+
+This display allows us to compare medians, IQR, and outliers across the groups.
+
+>>
+
+Filled density plots are also helpful, particularly for comparing shapes across groups.
+
+>> To make this plot I've mapped the color and fill aesthetics to the categorical variable cooling.
+
+>> Note that I also set a value for alpha so we can see both curves easily.
+
+>>
+
+Another useful representation is violin plots. They're like boxplot and density plots coming together together, and can be created with geom_violin.
+
+>>
+
+In addition to visualizing the relationship, we should also summarize it quantitatively. To do so, we can group the data by cooling, and then summarize to find, for example, the median home price in each group.
+
+>>
+
+We can also use the same approach to calculate many summary statistics at once, separated by commas, and informatively named.
+
+Values such as minimums and maxiumums, medians and IQRs, for each group, can be helpful in building a narrative for describing the relationship between price and cooling type.
+
+>>
+
+Next up, relationships between two categorical variables!
+
+>>
+
+We don't actually have a great second categorical variable in the dataset, so let's first create one. We'll call the new variable year_built_cat and its values will depend on the year_built variable -- "1970 or later" if the house is built in 1970 or later, and "1969 or earlier" otherwise
+
+>> Since we're creating a new variable, we use mutate
+>> In the mutate statement, we define the new variable's name and then write a logic for creating it using the if_else() function
+>> the first argument is the condition, if year built is greater than or equal to 1970
+>> make year_built_cat "1970 or later"
+>> if not, make it "1969 or earlier"
+>> and assign the whole thing back to duke_forest so that the duke_forest data frame is overwritten with this updated version that contains the new variable
+
+>>
+
+It's a good idea to check your work, so let's do that
+
+by selecting the relevant columns from duke_forest we can spot check that the values for year_built_cat are correct -- they seem to be
+
+Note that to select the relevant variables I used a selection helper -- I selected for columns that contain the character string "year_built" in their names
+
+>>
+
+Now we can make a segmented bar plot that shows how cooling types vary between newer and older homes.
+
+Since there are much fewer newer homes, we can also look at proportions
+
+>>
+
+with position fill in the geom bar
+
+>>
+
+We can also calculate how many homes fall into each of these categories using count
+
+>>
+
+And then we can calculate the respective proportions as well
+
+It appears that for newer homes, built in 1970 or later, a higher proportion have central air while older homes have a higher proportion of other setups for cooling.
+
+>>
+
+Finally, let's talk a bit about visualizing and summarizing relationships between multiple variables.
+
+>>
+
+Here is a scatterplot of price vs. area of homes, where each home is represented with a point, and the color and shape of the points are determined based on their cooling type.
+
+>> As usual, set up the plot with ggplot()
+>> specify the data name
+>> specify aesthetic mappings
+>> and specify a geom
+
+>>
+
+then, set a larger size and slight transparency for the points so we can see them a bit better on the plot
+
+>>
+
+add some informative labels
+
+>>
+
+manually set colors for different cooling types -- i chose these colors based on personal preference but you could select a diffrent pair.
+
+>>
+
+prettify x-axis labels with label_number
+
+>>
+
+and y-axis labels with label_dollar
+
+>>
+
+given that the relationship appears to be linear, let's also calculate the correlation coefficients for the relationship between price and area for each of the cooling groups
+
+the correlation coefficient is a lot higher (0.854 vs. 0.459) for the central air group
+
+this is surprising, to me at least, as in the plot the two groups didn't seem very different. but the business of the plot might have made it hard to see the patterns.
+
+a good way to avoid overplotting is faceting, so let's do that
+
+>>
+
+we have a single variable we're faceting by, cooling, so we'll use facet_wrap with the quirky syntax -- tilde cooling.
+let's also place the two facets on top of each other, with ncol = 1 to organize them into a single column.
+
+now that we faceted the plots, the color and shape legend is redundant, so we can turn that off and gain some space.
+
+>>
+
+to do so, go to the relevant geom functon, geom point in this case, and set show.legend to FALSE. Note that TRUE and FALSE are always uppercase in R. We can also adjust the title to reflect this update.
+
+>>
+
+Here is our plot, one more time.
+
+>> The relationship between area and price of homes in Duke Forest is positive and relatively strong, regardless of cooling type.
+
+>> The relationship appears to be stronger, with a larger correlation coefficient (0.854 vs. 0.459), for homes cooled with central air.
+
+>> However the large difference in correlation coefficients for these two groups might be due to the three potential outliers in the other group with high areas and low price.

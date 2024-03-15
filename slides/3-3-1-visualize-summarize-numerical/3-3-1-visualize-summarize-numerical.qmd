@@ -200,11 +200,11 @@ p_loans +
 
 ::::
 
-## Histogram customization
+## Histogram customization {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "|2|3-7|8|9"
+#| code-line-numbers: "|2|3-7|8-10|11-13"
 ggplot(loans, aes(x = loan_amount)) +
   geom_histogram(binwidth = 5000) +
   labs(
@@ -264,16 +264,13 @@ ggplot(loans, aes(x = interest_rate)) +
   geom_boxplot()
 ```
 
-## Box plot customization
+## Box plot customization  {.smaller}
 
 ```{r}
 #| output-location: column
-#| code-line-numbers: "|3-5|6-10|11-14"
+#| code-line-numbers: "|3-7|8-11"
 ggplot(loans, aes(x = interest_rate)) +
   geom_boxplot() +
-  scale_x_continuous(
-    labels = label_percent()
-  ) +
   labs(
     x = "Interest rate", 
     y = NULL,

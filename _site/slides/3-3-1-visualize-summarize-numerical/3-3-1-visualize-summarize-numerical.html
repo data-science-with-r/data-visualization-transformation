@@ -566,10 +566,10 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div>
 </div>
-</section><section id="histogram-customization" class="slide level2"><h2>Histogram customization</h2>
+</section><section id="histogram-customization" class="slide level2 smaller"><h2>Histogram customization</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|2|3-7|8|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|2|3-7|8-10|11-13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
 <span id="cb10-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5000</span>) <span class="sc">+</span></span>
 <span id="cb10-3"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb10-4"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
@@ -648,23 +648,20 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div>
 </div>
-</section><section id="box-plot-customization" class="slide level2"><h2>Box plot customization</h2>
+</section><section id="box-plot-customization" class="slide level2 smaller"><h2>Box plot customization</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="|3-5|6-10|11-14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="|3-7|8-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
 <span id="cb15-2"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb15-4"><a></a>    <span class="at">labels =</span> <span class="fu">label_percent</span>()</span>
-<span id="cb15-5"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb15-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-7"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate"</span>, </span>
-<span id="cb15-8"><a></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
-<span id="cb15-9"><a></a>    <span class="at">title =</span> <span class="st">"Interest rates of Lending Club loans"</span></span>
-<span id="cb15-10"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb15-11"><a></a>  <span class="fu">theme</span>(</span>
-<span id="cb15-12"><a></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb15-13"><a></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb15-14"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-4"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate"</span>, </span>
+<span id="cb15-5"><a></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-6"><a></a>    <span class="at">title =</span> <span class="st">"Interest rates of Lending Club loans"</span></span>
+<span id="cb15-7"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb15-8"><a></a>  <span class="fu">theme</span>(</span>
+<span id="cb15-9"><a></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-10"><a></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb15-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>

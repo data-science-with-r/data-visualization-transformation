@@ -1,0 +1,153 @@
+In this video we're going to talk about tools and techniques for visualizing and summarizing categorical data.
+
+>>
+
+But before we get into focusing on categorical data alone, let's introduce some terminology first.
+
+>>
+
+First, we'll categorize the types of analyses we're doing into three, based on the numbers of variables involved
+
+>> Univariate data analysis is analysis of the distribution of single variable, which is what we'll focus on in this video, and we'll focus specifically univariate analyses for categorical variables
+>> Bivariate data analysis is the analysis of the relationship between two variables
+>> and Multivariate data analysis is the relationship between many variables at once, usually focusing on the relationship between two while conditioning for others
+
+As you can imagine, the last one, multivariate data analysis, most closely reflects reality. Chances are the relationship between two variables has other variables that play a role. For example, your energy level for the day isn't just related to the number of hours of sleep you got, but also the calories you consumed, the amount of exercise you got, etc.
+
+Our goal is to work our way up to multivariate analyses after tooling up a bit with univariate and bivariate analyses.
+
+>>
+
+And since we mentioned we'll focus on categorical variables, let's define what we mean by that too.
+
+>> Numerical variables can be classified as continuous or discrete based on whether or not the variable can take on an infinite number of values or only non-negative whole numbers, respectively.
+>> On the other hand, If the variable is categorical, we can determine if it is ordinal based on whether or not the levels have a natural ordering.
+
+>>
+
+And the data we'll use for this video comes from Lending club, a plat form  that allows individuals to lend to other individuals. The data are thousands of loans made through lending club.
+
+>> Not all loans are created equal – the ease of getting a loan depends on the apparent ability to pay back the loan, so in addition to informaton on the loan itself, like the loan amount and interest, we also have some data on the borrower, like their income and debt
+
+>> And note that the data we'll work with includes loans made, not loan applications
+
+>>
+
+Let's load the tidyverse and the openintro packages. the openintro package contains the data we'll work with, called loans_full_schema. Let's take a glimpse!
+
+It has lots of variables, 55 to be exact, and 10000 rows. We'll work with a subset of these variables only, so let's reduce our scope.
+
+>>
+
+We'll create a new data frame called loans, where we select eight variable from the full set of 55:     loan_amount, interest_rate, term, grade, state, annual_income, homeownership, debt_to_income.
+
+>> We then save this new data frame as loans, using the assignment operator, which looks like an arrow with a less than sign followed by a dash, 
+
+>> and then we glimpse at it.
+
+>>
+
+Here is a description of each of the variables
+
+[READ FROM SLIDE]
+
+>>
+
+Once we get a sense of what each variable is about, we can then determine whether they are numeric or categorical, and further determine whether they're continuous or discrete or ordinal or not.
+
+[READ FROM SLIDE]
+
+>>
+
+Alrigt, let's visualize some catgorical data!
+
+>>
+
+For a single categorical variable, we can use a bar plot, with geom_bar(). Here is a bar plot of homeownership.
+
+[READ FROM SLIDE]
+
+>>
+
+If we want to bring in another categorical variable, we can use a segmented bar plot by filling in the existing bars based on the values of a second variable.
+
+This means we now use two aesthetic mappings, x and fill, but still the same geom
+
+[READ FROM SLIDE]
+
+>>
+
+But what happens if we try the same with a new variable, term.
+
+We're getting a warning. [READ FROM SLIDE]
+
+Note that R calls categorical data factors, this is a term we'll come back to over and over throughout the course, and you'll most definitely encounter when you're doing your own analyses with R.
+
+>>
+
+So, 
+
+>> let's first convert the term variable to factor. We do this with the as.factor function, and do it in a mutate statement, which allows us to change the values in a column of a data frame.
+
+>> and then we fill the bars with this updated version of the term variable
+
+>> and use the same geom again. and voila!
+
+One challenge with the plot we made here is that the frequencies of various homeownership levels are not consistent -- more people rent or mortgage their homes than own their homes. So it's hard to compare rates of different terms across these levels.
+
+>>
+
+To do this properly, we need a stacked bar plot that shows proportions of different terms, not frequencies.
+
+>> we can obtain this with a new argument in geom_bar, position fill, which means let the bars fill the whole space.
+
+[READ FROM SLIDE]
+
+>>
+
+So, Which bar plot is a more useful representation for visualizing the relationship between homeownership and term?
+
+[PAUSE, then read from slide]
+
+>>
+
+Let's customize this plot a bit!
+
+>> First, we can change the aesthetic mapping so our bars are horizontal
+>> then add some labels like title, subtitle, caption as well as x, y, and legend labels
+>> and finally we can choose our own colors
+
+R can use hex codes for colors or it has a large number of pre-defined colors you can choose from. Here I've chosen lightblue and darkgreen.
+
+>>
+
+We've visualized the data, but this is half the story. Let's also summarize it!
+
+>> 
+
+If we want to know how many people mortgage, rent, or own their homes, we can create a frequency table with 
+
+>> count [read from slide]
+
+>>
+
+Then, we can add a new column to our frequency table 
+
+>> with mutate, and calculate the proportions using the formula n over sum of n.
+
+Note that i gave this new column a new name: proportion. I really could have called it anything, but it's good practice to use short and evocative names.
+
+>>
+
+We can also create frequency tables for multiple categorical variables
+
+>> here we count how many 36 and 60 month loans in each level of homeownership.
+
+>> 
+
+and then, we can use the same approach as before to calculate proportions.
+
+>> but we do one new thing: group_by [read from slide]
+
+>> and then finally mutate [read from slide]
+
