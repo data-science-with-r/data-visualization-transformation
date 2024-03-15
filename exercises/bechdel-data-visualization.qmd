@@ -94,7 +94,6 @@ We can use `slice()` to look at rows of our data. Run the following code. Change
 slice(bechdel, 1:5)
 ```
 
-<label>Notes:</label> <br>
 
 ```{=html}
 <textarea rows="4" cols="50">
@@ -209,7 +208,6 @@ ggplot(bechdel,
   geom_point(color = "coral") 
 ```
 
-<label>Notes:</label> <br>
 
 ```{=html}
 <textarea rows="4" cols="50">
@@ -308,7 +306,6 @@ ggplot(bechdel,
     )
 ```
 
-<label>Notes:</label> <br>
 
 ```{=html}
 <textarea rows="4" cols="50">
@@ -380,7 +377,6 @@ ggplot(bechdel,
     )
 ```
 
-<label>Notes:</label> <br>
 
 ```{=html}
 <textarea rows="4" cols="50">
