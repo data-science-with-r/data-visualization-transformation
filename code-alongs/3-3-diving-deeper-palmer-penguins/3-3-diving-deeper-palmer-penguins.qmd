@@ -1,5 +1,5 @@
 ---
-title: "First look at Palmer Penguin"
+title: "Diving deeper with Palmer Penguin"
 ---
 
 # Introduction
@@ -13,8 +13,7 @@ We will use the **tidyverse** packages for data wrangling and visualization and 
 
 ```{r}
 #| label: load-packages
-#| warning: false
-
+#| message: false
 library(tidyverse)
 library(palmerpenguins)
 ```
@@ -26,7 +25,6 @@ Let's `glimpse()` at it.
 
 ```{r}
 #| label: glimpse
-
 # add code here
 ```
 
@@ -44,7 +42,6 @@ Create visualizations of the distribution of `weight`s of penguins.
 
 ```{r}
 #| label: histogram-weight
-
 # add code here
 ```
 
@@ -52,7 +49,6 @@ Create visualizations of the distribution of `weight`s of penguins.
 
 ```{r}
 #| label: boxplot-weight
-
 # add code here
 ```
 
@@ -72,7 +68,6 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 
 ```{r}
 #| label: histogram-weight-species
-
 # add code here
 ```
 
@@ -80,7 +75,6 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 
 ```{r}
 #| label: histogram-weight-species-facet
-
 # add code here
 ```
 
@@ -88,7 +82,6 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 
 ```{r}
 #| label: boxplot-weight-species
-
 # add code here
 ```
 
@@ -96,7 +89,6 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 
 ```{r}
 #| label: density-weight-species
-
 # add code here
 ```
 
@@ -104,7 +96,6 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 
 ```{r}
 #| label: violin-weight-species
-
 # add code here
 ```
 
@@ -112,7 +103,6 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 
 ```{r}
 #| label: jitter-weight-species
-
 # add code here
 ```
 
@@ -120,7 +110,6 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 
 ```{r}
 #| label: beeswarm-weight-species
-
 # add code here
 ```
 
@@ -128,7 +117,6 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 
 ```{r}
 #| label: multi-geoms
-
 # add code here
 ```
 
@@ -142,7 +130,6 @@ Analyzing the relationship between three or more variables is called **multivari
 
 ```{r}
 #| label: multi-geoms-facet
-
 # add code here
 ```
 
@@ -155,7 +142,6 @@ We'll do this by editing the YAML.
 
 ```{r}
 #| label: barplot
-
 # add code here
 ```
 
@@ -163,11 +149,10 @@ We'll do this by editing the YAML.
 
 ```{r}
 #| label: cat-cat
-
 # add code here
 ```
 
-Interpretation goes here...
+Add interpretation here.
 
 15. Make another plot that uses at least three variables. At least one should be numeric and at least one categorical. In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted. Don't forget to label your code chunk.
 
@@ -175,4 +160,4 @@ Interpretation goes here...
 # add code here
 ```
 
-Interpretation goes here...
+Add interpretation here.

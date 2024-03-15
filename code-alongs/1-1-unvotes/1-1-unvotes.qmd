@@ -14,7 +14,6 @@ We will use the **tidyverse** and **scales** packages for data wrangling and vis
 ```{r}
 #| label: load-packages
 #| message: false
-
 library(tidyverse)
 library(scales)
 library(DT)
@@ -27,6 +26,7 @@ The data we're using originally come from the **unvotes** package.
 In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.
 
 ```{r}
+#| label: join
 unvotes <- un_votes |>
   inner_join(un_roll_calls, by = "rcid") |>
   inner_join(un_roll_call_issues, by = "rcid", relationship =
@@ -46,7 +46,6 @@ See the [Appendix](#appendix) for a list of the countries in the data.
 #| message: false
 #| fig-width: 10
 #| fig-height: 6
-
 unvotes |>
   filter(country %in% c("United Kingdom", "United States", "Turkey")) |>
   mutate(year = year(date)) |>
@@ -79,7 +78,6 @@ Below is a list of countries in the dataset:
 ```{r}
 #| label: list-countries
 #| echo: false
-
 unvotes |> 
   select(country) |>
   arrange(country) |> 
