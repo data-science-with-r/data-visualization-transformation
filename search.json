@@ -23,42 +23,42 @@
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html",
-    "title": "First look at Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguin",
     "section": "",
     "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#packages",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#packages",
-    "title": "First look at Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguin",
     "section": "",
     "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#data",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#data",
-    "title": "First look at Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguin",
     "section": "",
     "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#single-variable",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#single-variable",
-    "title": "First look at Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguin",
     "section": "Single variable",
     "text": "Single variable\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the a single variable is called univariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins.\n\nMake a histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nMake a boxplot.\n\n\n# add code here\n\n\nBased on these, determine if each of the following statements about the shape of the distribution is true or false.\n\nThe distribution of penguin weights in this sample is left skewed. FALSE\nThe distribution of penguin weights in this sample is unimodal. TRUE"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#two-variables",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#two-variables",
-    "title": "First look at Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguin",
     "section": "Two variables",
     "text": "Two variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between two variables is called bivariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins by species.\n\nMake a single histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nUse multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.\n\n\n# add code here\n\n\nUse side-by-side box plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse density plots. Add color as you see fit.\n\n\n# add code here\n\n\nUse violin plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nMake a jittered scatter plot. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse beeswarm plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.\n\n\n# add code here"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#multiple-variables",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#multiple-variables",
-    "title": "First look at Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguin",
     "section": "Multiple variables",
     "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\n\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\n\n# add code here\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
   },
@@ -1439,7 +1439,7 @@
     "href": "index.html#code-alongs",
     "title": " Data visualization and transformation",
     "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguin\n\n\n\n\nFirst look at Palmer Penguin\n\n\n\n\n\nNo matching items"
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguin\n\n\n\n\nDiving deeper with Palmer Penguin\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#exercises",
@@ -1453,14 +1453,14 @@
     "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html",
     "title": "First look at Palmer Penguin",
     "section": "",
-    "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
+    "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)\n\n\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
   },
   {
     "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#packages",
     "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#packages",
     "title": "First look at Palmer Penguin",
     "section": "",
-    "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)"
+    "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(palmerpenguins)"
   },
   {
     "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#data",
@@ -1468,19 +1468,5 @@
     "title": "First look at Palmer Penguin",
     "section": "",
     "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
-  },
-  {
-    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#two-variables",
-    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#two-variables",
-    "title": "First look at Palmer Penguin",
-    "section": "Two variables",
-    "text": "Two variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between two variables is called bivariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins by species.\n\nMake a single histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nUse multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.\n\n\n# add code here\n\n\nUse side-by-side box plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse density plots. Add color as you see fit.\n\n\n# add code here\n\n\nUse violin plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nMake a jittered scatter plot. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse beeswarm plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.\n\n\n# add code here"
-  },
-  {
-    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#multiple-variables",
-    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#multiple-variables",
-    "title": "First look at Palmer Penguin",
-    "section": "Multiple variables",
-    "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\n\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\n\n# add code here\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
   }
 ]
