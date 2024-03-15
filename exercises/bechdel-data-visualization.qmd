@@ -103,7 +103,6 @@ slice(bechdel, 1:5)
 
 What does each observation (row) in the data set represent?
 
-<label>Answer:</label> <br>
 
 ```{=html}
 <textarea rows="4" cols="50">
@@ -407,7 +406,6 @@ ggplot(bechdel,
 
 Is this type of facet useful? Why or why not?
 
-<label>Answer:</label> <br>
 
 ```{=html}
 <textarea rows="4" cols="50">
