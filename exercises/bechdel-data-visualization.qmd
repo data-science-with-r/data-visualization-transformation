@@ -88,7 +88,7 @@ glimpse(bechdel)
 
 :::
 
-**Demo**: We can use `slice()` to look at rows of our data. Run the following code. Change the `5` to another number to print that many rows!
+We can use `slice()` to look at rows of our data. Run the following code. Change the `5` to another number to print that many rows!
 
 ```{webr-r}
 slice(bechdel, 1:5)
@@ -139,7 +139,7 @@ There are a few other variables in the dataset, but we won't be using them in th
 
 ## Visualizing data with `ggplot2`
 
-**Demo**: **ggplot2** is the package and `ggplot()` is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!
+**ggplot2** is the package and `ggplot()` is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!
 
 -   `ggplot()` creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with `data = bechdel`, and run the following to create our base.
 
@@ -195,7 +195,7 @@ This warning represents the number of observations that were removed because the
 
 ### Step 1
 
-**Demo**: The following code changes the color of all points to coral. Explore different colors by changing "coral" to different colors!
+The following code changes the color of all points to coral. Explore different colors by changing "coral" to different colors!
 
 ::: callout-tip
 See <http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf> for many color options you can use by name in R or use the [hex code](https://en.wikipedia.org/wiki/Web_colors) for a color of your choice.
@@ -292,7 +292,7 @@ ggplot(bechdel,
 
 ### Step 4
 
-**Demo**: `alpha` is used within `geom_point()` to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent. 
+`alpha` is used within `geom_point()` to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent. 
 
 ```{webr-r}
 #| label: plot-aes-alpha
@@ -357,7 +357,7 @@ ggplot(bechdel,
 
 ### Step 6
 
-**Demo**: Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.
+Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.
 
 ::: callout-tip
 This is done through the use of the [**scales**](https://scales.r-lib.org/) package, specifically the `scale_x_continuous()` and `scale_y_continuous()` functions.
