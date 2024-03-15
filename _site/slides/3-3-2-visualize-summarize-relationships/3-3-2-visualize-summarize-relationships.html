@@ -845,6 +845,79 @@ $ url        &lt;chr&gt; "https://www.zillow.com/homedetails/1-L…</code></pre>
 </div>
 </div>
 </div>
+</section><section id="price-vs.-area-and-cooling-8" class="slide level2"><h2>Price vs.&nbsp;area and cooling</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>duke_forest <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a></a>  <span class="fu">group_by</span>(cooling) <span class="sc">|&gt;</span></span>
+<span id="cb35-3"><a></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(price, area))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  cooling     r
+  &lt;fct&gt;   &lt;dbl&gt;
+1 other   0.459
+2 central 0.854</code></pre>
+</div>
+</div>
+</section><section id="price-vs.-area-and-cooling-9" class="slide level2 smaller"><h2>Price vs.&nbsp;area and cooling</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">ggplot</span>(</span>
+<span id="cb37-2"><a></a>  duke_forest, </span>
+<span id="cb37-3"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> area, <span class="at">y =</span> price, <span class="at">color =</span> cooling, <span class="at">shape =</span> cooling)</span>
+<span id="cb37-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb37-5"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb37-6"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">","</span>)) <span class="sc">+</span></span>
+<span id="cb37-7"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb37-8"><a></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"central"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"other"</span> <span class="ot">=</span> <span class="st">"lightsalmon3"</span>)) <span class="sc">+</span></span>
+<span id="cb37-9"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb37-10"><a></a>    <span class="at">title =</span> <span class="st">"Houses in Duke Forest"</span>,</span>
+<span id="cb37-11"><a></a>    <span class="at">subtitle =</span> <span class="st">"Durham, NC"</span>,</span>
+<span id="cb37-12"><a></a>    <span class="at">color =</span> <span class="st">"Cooling"</span>, <span class="at">shape =</span> <span class="st">"Cooling"</span>,</span>
+<span id="cb37-13"><a></a>    <span class="at">x =</span> <span class="st">"Area (square feet)"</span>,</span>
+<span id="cb37-14"><a></a>    <span class="at">y =</span> <span class="st">"Price (USD)"</span>,</span>
+<span id="cb37-15"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Zillow, November 2020"</span></span>
+<span id="cb37-16"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb37-17"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb37-18"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>cooling, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure><p><img data-src="3-3-2-visualize-summarize-relationships_files/figure-revealjs/unnamed-chunk-31-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section><section id="price-vs.-area-and-cooling-10" class="slide level2 smaller"><h2>Price vs.&nbsp;area and cooling</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb38" data-code-line-numbers="5,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">ggplot</span>(</span>
+<span id="cb38-2"><a></a>  duke_forest, </span>
+<span id="cb38-3"><a></a>  <span class="fu">aes</span>(<span class="at">x =</span> area, <span class="at">y =</span> price, <span class="at">color =</span> cooling, <span class="at">shape =</span> cooling)</span>
+<span id="cb38-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb38-5"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb38-6"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">","</span>)) <span class="sc">+</span></span>
+<span id="cb38-7"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb38-8"><a></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"central"</span> <span class="ot">=</span> <span class="st">"darkblue"</span>, <span class="st">"other"</span> <span class="ot">=</span> <span class="st">"lightsalmon3"</span>)) <span class="sc">+</span></span>
+<span id="cb38-9"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb38-10"><a></a>    <span class="at">title =</span> <span class="st">"Houses in Duke Forest, by cooling type"</span>,</span>
+<span id="cb38-11"><a></a>    <span class="at">subtitle =</span> <span class="st">"Durham, NC"</span>,</span>
+<span id="cb38-12"><a></a>    <span class="at">color =</span> <span class="st">"Cooling"</span>, <span class="at">shape =</span> <span class="st">"Cooling"</span>,</span>
+<span id="cb38-13"><a></a>    <span class="at">x =</span> <span class="st">"Area (square feet)"</span>,</span>
+<span id="cb38-14"><a></a>    <span class="at">y =</span> <span class="st">"Price (USD)"</span>,</span>
+<span id="cb38-15"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Zillow, November 2020"</span></span>
+<span id="cb38-16"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb38-17"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb38-18"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>cooling, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure><p><img data-src="3-3-2-visualize-summarize-relationships_files/figure-revealjs/unnamed-chunk-32-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">

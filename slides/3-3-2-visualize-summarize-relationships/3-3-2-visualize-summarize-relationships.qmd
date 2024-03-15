@@ -384,3 +384,63 @@ ggplot(
   theme_minimal() +
   theme(legend.position = c(0.15, 0.8))
 ```
+
+## Price vs. area and cooling
+
+```{r}
+duke_forest |>
+  group_by(cooling) |>
+  summarize(r = cor(price, area))
+```
+
+## Price vs. area and cooling  {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "18"
+#| fig-asp: 1
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4) +
+  scale_x_continuous(labels = label_number(big.mark = ",")) +
+  scale_y_continuous(labels = label_dollar()) +
+  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  labs(
+    title = "Houses in Duke Forest",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  ) +
+  theme_minimal() +
+  facet_wrap(~cooling, ncol = 1)
+```
+
+## Price vs. area and cooling {.smaller}
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "5,10"
+#| fig-asp: 1
+ggplot(
+  duke_forest, 
+  aes(x = area, y = price, color = cooling, shape = cooling)
+  ) +
+  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +
+  scale_x_continuous(labels = label_number(big.mark = ",")) +
+  scale_y_continuous(labels = label_dollar()) +
+  scale_color_manual(values = c("central" = "darkblue", "other" = "lightsalmon3")) +
+  labs(
+    title = "Houses in Duke Forest, by cooling type",
+    subtitle = "Durham, NC",
+    color = "Cooling", shape = "Cooling",
+    x = "Area (square feet)",
+    y = "Price (USD)",
+    caption = "Source: Zillow, November 2020"
+  ) +
+  theme_minimal() +
+  facet_wrap(~cooling, ncol = 1)
+```
