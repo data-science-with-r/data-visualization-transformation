@@ -112,116 +112,165 @@
     "text": "Count vs Proportion\nYour Turn: Up to this point, our bar plot has counted up the number of observations for each condition of game, and has been segmented by the count of shipping method. Perhaps it is easier to compare shipping method across condition of game if we looked at the proportion of shipping method within each game. This can be achieved using position = \"fill\" in the geom statement. Alter the code below so that it includes position = fill, and comment on the relationship between condition and shipping method.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nAnswer: \n\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nmario |&gt;\n  ggplot(\n    aes(x = cond , fill = ship_sp)) + \n   geom_bar(position = \"fill\")\n\n\n\n\n\n\n\n\nIt appears that new Mario games were mainly shipped using upsGround, while used Mario games were shipped using standard shipping."
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-science",
-    "title": "Welcome",
-    "section": "Data science",
-    "text": "Data science\n\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nYou’re going to learn to do this the tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#nyc-flights",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#nyc-flights",
+    "title": "Grammar of data transformation",
+    "section": "NYC Flights",
+    "text": "NYC Flights\n\nTo demonstrate data transformation we will use flights, a tibble in the nycflights13 R package.\nThe data set includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.\n\n\nlibrary(tidyverse)\nlibrary(nycflights13)"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#course-faq",
-    "href": "slides/1-1-welcome/1-1-welcome.html#course-faq",
-    "title": "Welcome",
-    "section": "Course FAQ",
-    "text": "Course FAQ\nQ: What data science background does this course assume?\nA: None. But it does require a willingness to learn and a motivation to work with data.\n\nQ: Will we be doing computing?\nA: Yes.\n\n\nQ: What computing language will we learn?\nA: R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-dimensions",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-dimensions",
+    "title": "Grammar of data transformation",
+    "section": "flights – dimensions",
+    "text": "flights – dimensions\n\nNumber of rows:\n\n\nnrow(flights)\n\n[1] 336776\n\n\n\n\nNumber of columns:\n\n\nncol(flights)\n\n[1] 19"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#excel-not",
-    "href": "slides/1-1-welcome/1-1-welcome.html#excel-not",
-    "title": "Welcome",
-    "section": "Excel, not…",
-    "text": "Excel, not…"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-glimpse",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-glimpse",
+    "title": "Grammar of data transformation",
+    "section": "flights – first look with glimpse()",
+    "text": "flights – first look with glimpse()\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013,…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, …\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\",…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 5…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", …\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", …\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, …\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1…\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6,…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, …\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#r",
-    "href": "slides/1-1-welcome/1-1-welcome.html#r",
-    "title": "Welcome",
-    "section": "R",
-    "text": "R"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-names",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-names",
+    "title": "Grammar of data transformation",
+    "section": "flights – first look with names()",
+    "text": "flights – first look with names()\n\nnames(flights)\n\n [1] \"year\"           \"month\"          \"day\"           \n [4] \"dep_time\"       \"sched_dep_time\" \"dep_delay\"     \n [7] \"arr_time\"       \"sched_arr_time\" \"arr_delay\"     \n[10] \"carrier\"        \"flight\"         \"tailnum\"       \n[13] \"origin\"         \"dest\"           \"air_time\"      \n[16] \"distance\"       \"hour\"           \"minute\"        \n[19] \"time_hour\""
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#rstudio",
-    "href": "slides/1-1-welcome/1-1-welcome.html#rstudio",
-    "title": "Welcome",
-    "section": "RStudio",
-    "text": "RStudio"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-head",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-head",
+    "title": "Grammar of data transformation",
+    "section": "flights – first look with head()",
+    "text": "flights – first look with head()\n\nhead(flights)\n\n# A tibble: 6 × 19\n   year month   day dep_time sched_dep_time dep_delay\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n1  2013     1     1      517            515         2\n2  2013     1     1      533            529         4\n3  2013     1     1      542            540         2\n4  2013     1     1      544            545        -1\n5  2013     1     1      554            600        -6\n6  2013     1     1      554            558        -4\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
-    "title": "Welcome",
-    "section": "Data science life cycle",
-    "text": "Data science life cycle\n\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#tibble-vs.-data-frame",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#tibble-vs.-data-frame",
+    "title": "Grammar of data transformation",
+    "section": "tibble vs. data frame",
+    "text": "tibble vs. data frame\n\n\ntibble: an opinionated version of the R data frame\nAll tibbles are data frames, but not all data frames are tibbles!\nTwo main differences between a tibble and a data frame:\n\nPrinting\nStricter subsetting"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#import",
-    "href": "slides/1-1-welcome/1-1-welcome.html#import",
-    "title": "Welcome",
-    "section": "Import",
-    "text": "Import"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---tibbles",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---tibbles",
+    "title": "Grammar of data transformation",
+    "section": "Printing - tibbles",
+    "text": "Printing - tibbles\nDisplay first 10 rows and all of the columns that fit on the screen will display, along with the type of each column.\n\nflights\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
-    "href": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
-    "title": "Welcome",
-    "section": "Tidy -> transform",
-    "text": "Tidy -&gt; transform"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
+    "title": "Grammar of data transformation",
+    "section": "Printing - data.frames",
+    "text": "Printing - data.frames\n(Attempt to) display all of the data, or die (crash) trying (if the dataset is too large)!\n\ncars\n\n   speed dist\n1      4    2\n2      4   10\n3      7    4\n4      7   22\n5      8   16\n6      9   10\n7     10   18\n8     10   26\n9     10   34\n10    11   17\n11    11   28\n12    12   14\n13    12   20\n14    12   24\n15    12   28\n16    13   26\n17    13   34\n18    13   34\n19    13   46\n20    14   26\n21    14   36\n22    14   60\n23    14   80\n24    15   20\n25    15   26\n26    15   54\n27    16   32\n28    16   40\n29    17   32\n30    17   40\n31    17   50\n32    18   42\n33    18   56\n34    18   76\n35    18   84\n36    19   36\n37    19   46\n38    19   68\n39    20   32\n40    20   48\n41    20   52\n42    20   56\n43    20   64\n44    22   66\n45    23   54\n46    24   70\n47    24   92\n48    24   93\n49    24  120\n50    25   85"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#visualize",
-    "href": "slides/1-1-welcome/1-1-welcome.html#visualize",
-    "title": "Welcome",
-    "section": "Visualize",
-    "text": "Visualize"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",
+    "title": "Grammar of data transformation",
+    "section": "Stricter subsetting – tibbles",
+    "text": "Stricter subsetting – tibbles\nWarning + NULL if variable not found.\n\nflights$apple\n\nWarning: Unknown or uninitialised column: `apple`.\n\n\nNULL"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#model",
-    "href": "slides/1-1-welcome/1-1-welcome.html#model",
-    "title": "Welcome",
-    "section": "Model",
-    "text": "Model"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-data.frames",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-data.frames",
+    "title": "Grammar of data transformation",
+    "section": "Stricter subsetting – data.frames",
+    "text": "Stricter subsetting – data.frames\nOnly NULL if variable not found.\n\ncars$apple\n\nNULL"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand",
-    "title": "Welcome",
-    "section": "Understand",
-    "text": "Understand"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr-in-tidyverse",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr-in-tidyverse",
+    "title": "Grammar of data transformation",
+    "section": "dplyr \\(\\in\\) tidyverse",
+    "text": "dplyr \\(\\in\\) tidyverse\n\n\n\n\ndplyr is tidyverse’s primary package for data transformation\nPackage website: dplyr.tidyverse.org"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#communicate",
-    "href": "slides/1-1-welcome/1-1-welcome.html#communicate",
-    "title": "Welcome",
-    "section": "Communicate",
-    "text": "Communicate"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#row-operations",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#row-operations",
+    "title": "Grammar of data transformation",
+    "section": "Row operations",
+    "text": "Row operations\n\n\nslice(): chooses rows based on location\nfilter(): chooses rows based on column values\narrange(): changes the order of the rows\nsample_n(): take a random subset of the rows"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-1",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand-1",
-    "title": "Welcome",
-    "section": "Understand",
-    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#slice",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#slice",
+    "title": "Grammar of data transformation",
+    "section": "slice()",
+    "text": "slice()\nDisplay the first five rows of flights:\n\n1flights |&gt;\n2  slice(1:5)\n\n\n1\n\nTake the flights data frame, and then,\n\n2\n\nSlice its first five rows\n\n\n\n\n# A tibble: 5 × 19\n   year month   day dep_time sched_dep_time dep_delay\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n1  2013     1     1      517            515         2\n2  2013     1     1      533            529         4\n3  2013     1     1      542            540         2\n4  2013     1     1      544            545        -1\n5  2013     1     1      554            600        -6\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
-    "title": "Welcome",
-    "section": "Understand + communicate",
-    "text": "Understand + communicate"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#filter",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#filter",
+    "title": "Grammar of data transformation",
+    "section": "filter()",
+    "text": "filter()\nFilter for flights to RDU in flights:\n\n1flights |&gt;\n2  filter(dest == \"RDU\")\n\n\n1\n\nTake the flights data frame, and then,\n\n2\n\nFilter for rows where dest is equal to RDU\n\n\n\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#program",
-    "href": "slides/1-1-welcome/1-1-welcome.html#program",
-    "title": "Welcome",
-    "section": "Program",
-    "text": "Program"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-operator",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-operator",
+    "title": "Grammar of data transformation",
+    "section": "The pipe operator",
+    "text": "The pipe operator\n\n\nThe pipe, |&gt;, is an operator (a tool) for passing information from one process to another.\nUse |&gt; mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.\nWhen reading code “in English”, say “and then” whenever you see a pipe."
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
-    "title": "Welcome",
-    "section": "Data visualization and transformation",
-    "text": "Data visualization and transformation"
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#delayed-flights-to-rdu",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#delayed-flights-to-rdu",
+    "title": "Grammar of data transformation",
+    "section": "Delayed flights to RDU",
+    "text": "Delayed flights to RDU\n\nWhich airline is the most delayed, on average, arriving in RDU from a New York City airport?\n\n\nGoal:\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 UA               56   \n2 B6               13.3 \n3 EV               12.2 \n4 9E                9.67\n5 MQ                8.82"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights\n\n\n1\n\nTake the flights data frame\n\n\n\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-1",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-1",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\")\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU\n\n\n\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-2",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-2",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier)\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier\n\n\n\n\n# A tibble: 8,163 × 19\n# Groups:   carrier [5]\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-3",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-3",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier) |&gt;\n4  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE))\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier,\n\n4\n\nand then calculate the mean arrival delay for each carrier\n\n\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 9E                9.67\n2 B6               13.3 \n3 EV               12.2 \n4 MQ                8.82\n5 UA               56"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-4",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-4",
+    "title": "Grammar of data transformation",
+    "section": "The pipe, in action",
+    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier) |&gt;\n4  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE)) |&gt;\n5  arrange(desc(mean_arr_delay))\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier,\n\n4\n\nand then calculate the mean arrival delay for each carrier,\n\n5\n\nand then arrange in descending order of mean arrival delay.\n\n\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 UA               56   \n2 B6               13.3 \n3 EV               12.2 \n4 9E                9.67\n5 MQ                8.82"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#column-operations",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#column-operations",
+    "title": "Grammar of data transformation",
+    "section": "Column operations",
+    "text": "Column operations\n\n\nselect(): changes whether or not a column is included\nrename(): changes the names of columns\nmutate(): changes the values of columns or creates new columns"
+  },
+  {
+    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#groups-of-rows",
+    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#groups-of-rows",
+    "title": "Grammar of data transformation",
+    "section": "Groups of rows",
+    "text": "Groups of rows\n\n\ngroup_by(): perform calculations separately for each value of a variable\nsummarize(): collapses a group into a single row\ncount(): count unique values of one or more variables"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
@@ -277,7 +326,7 @@
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
     "title": "Visualizing and summarizing numerical data",
     "section": "Outliers",
-    "text": "Outliers\nThere are no clear outliers in the loan amounts in this sample.\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_boxplot()"
+    "text": "Outliers\nThere are no clear outliers in the loan amounts in this sample."
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
@@ -343,151 +392,214 @@
     "text": "Sloppy summarize()\nsummarize() will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!\n\n\n\n# good\nloans |&gt;\n  summarize(\n    mean_loan_amt = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  `mean(loan_amount)`\n                &lt;dbl&gt;\n1              16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    temp = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n    temp\n   &lt;dbl&gt;\n1 16362."
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "ggplot2 \\(\\in\\) tidyverse",
-    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\nggplot2 is tidyverse’s data visualization package\n\nlibrary(tidyverse)\n\ngg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson\n\n\n\n\n\n\n\n\n\n\n\n\nPackage website: ggplot2.tidyverse.org\nStructure of the code for plots can be summarized as\n\nggplot(\n  data = [dataset], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Mass vs. height",
-    "text": "Mass vs. height\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values\n(`geom_point()`)."
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Data: Houses in Duke Forest",
+    "text": "Data: Houses in Duke Forest\n\nglimpse(duke_forest)\n\nRows: 98\nColumns: 13\n$ address    &lt;chr&gt; \"1 Learned Pl, Durham, NC 27705\", \"1616…\n$ price      &lt;dbl&gt; 1520000, 1030000, 420000, 680000, 42850…\n$ bed        &lt;dbl&gt; 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, …\n$ bath       &lt;dbl&gt; 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0,…\n$ area       &lt;dbl&gt; 6040, 4475, 1745, 2091, 1772, 1950, 390…\n$ type       &lt;chr&gt; \"Single Family\", \"Single Family\", \"Sing…\n$ year_built &lt;dbl&gt; 1972, 1969, 1959, 1961, 2020, 2014, 196…\n$ heating    &lt;chr&gt; \"Other, Gas\", \"Forced air, Gas\", \"Force…\n$ cooling    &lt;fct&gt; central, central, central, central, cen…\n$ parking    &lt;chr&gt; \"0 spaces\", \"Carport, Covered\", \"Garage…\n$ lot        &lt;dbl&gt; 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.9…\n$ hoa        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ url        &lt;chr&gt; \"https://www.zillow.com/homedetails/1-L…"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Data: Palmer Penguins",
-    "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex."
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area",
+    "text": "Price vs. area"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Data",
-    "text": "Data\n\nlibrary(palmerpenguins)\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, …\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen,…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3…\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6…\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650…\n$ sex               &lt;fct&gt; male, female, female, NA, female…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#scatterplot",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#scatterplot",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Scatterplot",
+    "text": "Scatterplot\n\nggplot(duke_forest, aes(x = area, y = price)) +\n  geom_point()"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Plot",
-    "text": "Plot"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#correlation-coefficient",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#correlation-coefficient",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Correlation coefficient",
+    "text": "Correlation coefficient\n\nduke_forest |&gt;\n  summarize(r = cor(area, price))\n\n# A tibble: 1 × 1\n      r\n  &lt;dbl&gt;\n1 0.667"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Code",
-    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species\n  )\n) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Characteristics of a relationship",
+    "text": "Characteristics of a relationship\nbetween two numerical variables\n\n\n\n\nDirection: Positive\nForm: Linear\nStrength: Moderately strong"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 1",
-    "text": "Step 1\nStart with the penguins data frame\n\n\nggplot(\n  data = penguins\n  )"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Distribution of house prices",
+    "text": "Distribution of house prices\n\nggplot(duke_forest, aes(x = price)) +\n  geom_histogram(binwidth = 100000)"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 2",
-    "text": "Step 2\nStart with the penguins data frame, map bill depth to the x-axis\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm)\n  )"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-histograms",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-histograms",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Filled histograms",
+    "text": "Filled histograms\n\nggplot(duke_forest, aes(x = price, fill = cooling)) +\n  geom_histogram(binwidth = 100000)"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 3",
-    "text": "Step 3\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Side-by-side box plots",
+    "text": "Side-by-side box plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_boxplot()"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 4",
-    "text": "Step 4\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Filled density plots",
+    "text": "Filled density plots\n\nggplot(\n  duke_forest, \n  aes(x = price, color = cooling, fill = cooling)\n  ) +\n  geom_density(alpha = 0.5)"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 5",
-    "text": "Step 5\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Violin plots",
+    "text": "Violin plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_violin()"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 6",
-    "text": "Step 6\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\"\n  )"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Grouped summaries",
+    "text": "Grouped summaries\n\nduke_forest |&gt;\n  summarize(median_price = median(price))\n\n# A tibble: 1 × 1\n  median_price\n         &lt;dbl&gt;\n1       540000\n\n\n\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    median_price = median(price), \n  )\n\n# A tibble: 2 × 2\n  cooling median_price\n  &lt;fct&gt;          &lt;dbl&gt;\n1 other         525000\n2 central       550000"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 7",
-    "text": "Step 7\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Multiple summary statistics",
+    "text": "Multiple summary statistics\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    min_price = min(price),\n    median_price = median(price), \n    iqr_price = IQR(price),\n    max_price = max(price)\n  )\n\n# A tibble: 2 × 5\n  cooling min_price median_price iqr_price max_price\n  &lt;fct&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 other       95000       525000    156500   1020000\n2 central    265000       550000    221500   1520000"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 8",
-    "text": "Step 8\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\"\n  )"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Year built",
+    "text": "Year built\n\nCreate a new variable called year_built_cat that takes on the value \"1970 or later\" if the house is built in 1970 or later, and \"1969 or earlier\" otherwise.\n\n\n\nduke_forest &lt;- duke_forest |&gt;\n  mutate(\n    year_built_cat = if_else(\n      year_built &gt;= 1970, \n      \"1970 or later\", \n      \"1969 or earlier\"\n    )\n   )"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 9",
-    "text": "Step 9\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\"\n  )"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Year built",
+    "text": "Year built\n\nduke_forest |&gt;\n  select(contains(\"year_built\"))\n\n# A tibble: 98 × 2\n   year_built year_built_cat \n        &lt;dbl&gt; &lt;chr&gt;          \n 1       1972 1970 or later  \n 2       1969 1969 or earlier\n 3       1959 1969 or earlier\n 4       1961 1969 or earlier\n 5       2020 1970 or later  \n 6       2014 1970 or later  \n 7       1968 1969 or earlier\n 8       1973 1970 or later  \n 9       1972 1970 or later  \n10       1964 1969 or earlier\n# ℹ 88 more rows"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 10",
-    "text": "Step 10\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Stacked bar plot – frequencites",
+    "text": "Stacked bar plot – frequencites\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 11",
-    "text": "Step 11\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Stacked bar plot – proportions",
+    "text": "Stacked bar plot – proportions\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar(position = \"fill\")"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Plot",
-    "text": "Plot\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#frequencies",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#frequencies",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Frequencies",
+    "text": "Frequencies\n\nduke_forest |&gt;\n  count(year_built_cat, cooling)\n\n# A tibble: 4 × 3\n  year_built_cat  cooling     n\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt;\n1 1969 or earlier other      39\n2 1969 or earlier central    27\n3 1970 or later   other      14\n4 1970 or later   central    18"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Code",
-    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#proportions",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#proportions",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Proportions",
+    "text": "Proportions\n\nduke_forest |&gt;\n  count(year_built_cat, cooling) |&gt;\n  group_by(year_built_cat) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 4 × 4\n# Groups:   year_built_cat [2]\n  year_built_cat  cooling     n  prop\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt; &lt;dbl&gt;\n1 1969 or earlier other      39 0.591\n2 1969 or earlier central    27 0.409\n3 1970 or later   other      14 0.438\n4 1970 or later   central    18 0.562"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Narrative",
-    "text": "Narrative\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Argument names",
-    "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  theme(legend.position = c(0.15, 0.8))"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-8",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-8",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(r = cor(price, area))\n\n# A tibble: 2 × 2\n  cooling     r\n  &lt;fct&gt;   &lt;dbl&gt;\n1 other   0.459\n2 central 0.854"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-9",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-9",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-10",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-10",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling",
+    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest, by cooling type\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
   },
   {
     "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
@@ -840,214 +952,151 @@
     "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "ggplot2 \\(\\in\\) tidyverse",
+    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\nggplot2 is tidyverse’s data visualization package\n\nlibrary(tidyverse)\n\ngg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson\n\n\n\n\n\n\n\n\n\n\n\n\nPackage website: ggplot2.tidyverse.org\nStructure of the code for plots can be summarized as\n\nggplot(\n  data = [dataset], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#data-houses-in-duke-forest",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Data: Houses in Duke Forest",
-    "text": "Data: Houses in Duke Forest\n\nglimpse(duke_forest)\n\nRows: 98\nColumns: 13\n$ address    &lt;chr&gt; \"1 Learned Pl, Durham, NC 27705\", \"1616…\n$ price      &lt;dbl&gt; 1520000, 1030000, 420000, 680000, 42850…\n$ bed        &lt;dbl&gt; 3, 5, 2, 4, 4, 3, 5, 4, 4, 3, 4, 4, 3, …\n$ bath       &lt;dbl&gt; 4.0, 4.0, 3.0, 3.0, 3.0, 3.0, 5.0, 3.0,…\n$ area       &lt;dbl&gt; 6040, 4475, 1745, 2091, 1772, 1950, 390…\n$ type       &lt;chr&gt; \"Single Family\", \"Single Family\", \"Sing…\n$ year_built &lt;dbl&gt; 1972, 1969, 1959, 1961, 2020, 2014, 196…\n$ heating    &lt;chr&gt; \"Other, Gas\", \"Forced air, Gas\", \"Force…\n$ cooling    &lt;fct&gt; central, central, central, central, cen…\n$ parking    &lt;chr&gt; \"0 spaces\", \"Carport, Covered\", \"Garage…\n$ lot        &lt;dbl&gt; 0.97, 1.38, 0.51, 0.84, 0.16, 0.45, 0.9…\n$ hoa        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n$ url        &lt;chr&gt; \"https://www.zillow.com/homedetails/1-L…"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Mass vs. height",
+    "text": "Mass vs. height\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values\n(`geom_point()`)."
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area",
-    "text": "Price vs. area"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Data: Palmer Penguins",
+    "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex."
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#scatterplot",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#scatterplot",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Scatterplot",
-    "text": "Scatterplot\n\nggplot(duke_forest, aes(x = area, y = price)) +\n  geom_point()"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Data",
+    "text": "Data\n\nlibrary(palmerpenguins)\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, …\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen,…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3…\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6…\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650…\n$ sex               &lt;fct&gt; male, female, female, NA, female…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#correlation-coefficient",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#correlation-coefficient",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Correlation coefficient",
-    "text": "Correlation coefficient\n\nduke_forest |&gt;\n  summarize(r = cor(area, price))\n\n# A tibble: 1 × 1\n      r\n  &lt;dbl&gt;\n1 0.667"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Plot",
+    "text": "Plot"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Characteristics of a relationship",
-    "text": "Characteristics of a relationship\nbetween two numerical variables\n\n\n\n\nDirection: Positive\nForm: Linear\nStrength: Moderately strong"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Code",
+    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species\n  )\n) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Distribution of house prices",
-    "text": "Distribution of house prices\n\nggplot(duke_forest, aes(x = price)) +\n  geom_histogram(binwidth = 100000)"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 1",
+    "text": "Step 1\nStart with the penguins data frame\n\n\nggplot(\n  data = penguins\n  )"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-histograms",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-histograms",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Filled histograms",
-    "text": "Filled histograms\n\nggplot(duke_forest, aes(x = price, fill = cooling)) +\n  geom_histogram(binwidth = 100000)"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 2",
+    "text": "Step 2\nStart with the penguins data frame, map bill depth to the x-axis\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm)\n  )"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#side-by-side-box-plots",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Side-by-side box plots",
-    "text": "Side-by-side box plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_boxplot()"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 3",
+    "text": "Step 3\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#filled-density-plots",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Filled density plots",
-    "text": "Filled density plots\n\nggplot(\n  duke_forest, \n  aes(x = price, color = cooling, fill = cooling)\n  ) +\n  geom_density(alpha = 0.5)"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 4",
+    "text": "Step 4\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#violin-plots",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Violin plots",
-    "text": "Violin plots\n\nggplot(duke_forest, aes(x = price, y = cooling)) +\n  geom_violin()"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 5",
+    "text": "Step 5\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Grouped summaries",
-    "text": "Grouped summaries\n\nduke_forest |&gt;\n  summarize(median_price = median(price))\n\n# A tibble: 1 × 1\n  median_price\n         &lt;dbl&gt;\n1       540000\n\n\n\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    median_price = median(price), \n  )\n\n# A tibble: 2 × 2\n  cooling median_price\n  &lt;fct&gt;          &lt;dbl&gt;\n1 other         525000\n2 central       550000"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 6",
+    "text": "Step 6\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\"\n  )"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Multiple summary statistics",
-    "text": "Multiple summary statistics\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    min_price = min(price),\n    median_price = median(price), \n    iqr_price = IQR(price),\n    max_price = max(price)\n  )\n\n# A tibble: 2 × 5\n  cooling min_price median_price iqr_price max_price\n  &lt;fct&gt;       &lt;dbl&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;\n1 other       95000       525000    156500   1020000\n2 central    265000       550000    221500   1520000"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 7",
+    "text": "Step 7\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Year built",
-    "text": "Year built\n\nCreate a new variable called year_built_cat that takes on the value \"1970 or later\" if the house is built in 1970 or later, and \"1969 or earlier\" otherwise.\n\n\n\nduke_forest &lt;- duke_forest |&gt;\n  mutate(\n    year_built_cat = if_else(\n      year_built &gt;= 1970, \n      \"1970 or later\", \n      \"1969 or earlier\"\n    )\n   )"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 8",
+    "text": "Step 8\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\"\n  )"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#year-built-1",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Year built",
-    "text": "Year built\n\nduke_forest |&gt;\n  select(contains(\"year_built\"))\n\n# A tibble: 98 × 2\n   year_built year_built_cat \n        &lt;dbl&gt; &lt;chr&gt;          \n 1       1972 1970 or later  \n 2       1969 1969 or earlier\n 3       1959 1969 or earlier\n 4       1961 1969 or earlier\n 5       2020 1970 or later  \n 6       2014 1970 or later  \n 7       1968 1969 or earlier\n 8       1973 1970 or later  \n 9       1972 1970 or later  \n10       1964 1969 or earlier\n# ℹ 88 more rows"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 9",
+    "text": "Step 9\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\"\n  )"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Stacked bar plot – frequencites",
-    "text": "Stacked bar plot – frequencites\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 10",
+    "text": "Step 10\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Stacked bar plot – proportions",
-    "text": "Stacked bar plot – proportions\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar(position = \"fill\")"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 11",
+    "text": "Step 11\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#frequencies",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#frequencies",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Frequencies",
-    "text": "Frequencies\n\nduke_forest |&gt;\n  count(year_built_cat, cooling)\n\n# A tibble: 4 × 3\n  year_built_cat  cooling     n\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt;\n1 1969 or earlier other      39\n2 1969 or earlier central    27\n3 1970 or later   other      14\n4 1970 or later   central    18"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Plot",
+    "text": "Plot\n\n\nWarning: Removed 2 rows containing missing values\n(`geom_point()`)."
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#proportions",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#proportions",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Proportions",
-    "text": "Proportions\n\nduke_forest |&gt;\n  count(year_built_cat, cooling) |&gt;\n  group_by(year_built_cat) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 4 × 4\n# Groups:   year_built_cat [2]\n  year_built_cat  cooling     n  prop\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt; &lt;dbl&gt;\n1 1969 or earlier other      39 0.591\n2 1969 or earlier central    27 0.409\n3 1970 or later   other      14 0.438\n4 1970 or later   central    18 0.562"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Code",
+    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point()"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Narrative",
+    "text": "Narrative\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4)"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal()"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  theme(legend.position = c(0.15, 0.8))"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-8",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-8",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(r = cor(price, area))\n\n# A tibble: 2 × 2\n  cooling     r\n  &lt;fct&gt;   &lt;dbl&gt;\n1 other   0.459\n2 central 0.854"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-9",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-9",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-10",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-10",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest, by cooling type\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Argument names",
+    "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#grammar-of-graphics-1",
@@ -1204,172 +1253,116 @@
     "text": "theme()\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) + \n  geom_point() +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nand many more throughout the course…"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#nyc-flights",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#nyc-flights",
-    "title": "Grammar of data transformation",
-    "section": "NYC Flights",
-    "text": "NYC Flights\n\nTo demonstrate data wrangling we will use flights, a tibble in the nycflights13 R package.\nThe data set includes characteristics of all flights departing from New York City (JFK, LGA, EWR) in 2013.\n\n\nlibrary(tidyverse)\nlibrary(nycflights13)"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-science",
+    "title": "Welcome",
+    "section": "Data science",
+    "text": "Data science\n\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nYou’re going to learn to do this the tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-dimensions",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-dimensions",
-    "title": "Grammar of data transformation",
-    "section": "flights – dimensions",
-    "text": "flights – dimensions\n\nNumber of rows:\n\n\nnrow(flights)\n\n[1] 336776\n\n\n\n\nNumber of columns:\n\n\nncol(flights)\n\n[1] 19"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#course-faq",
+    "href": "slides/1-1-welcome/1-1-welcome.html#course-faq",
+    "title": "Welcome",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ: What data science background does this course assume?\nA: None. But it does require a willingness to learn and a motivation to work with data.\n\nQ: Will we be doing computing?\nA: Yes.\n\n\nQ: What computing language will we learn?\nA: R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-glimpse",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-glimpse",
-    "title": "Grammar of data transformation",
-    "section": "flights – first look with glimpse()",
-    "text": "flights – first look with glimpse()\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013,…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, …\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\",…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 5…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", …\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", …\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, …\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1…\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6,…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, …\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05…"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#excel-not",
+    "href": "slides/1-1-welcome/1-1-welcome.html#excel-not",
+    "title": "Welcome",
+    "section": "Excel, not…",
+    "text": "Excel, not…"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-names",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-names",
-    "title": "Grammar of data transformation",
-    "section": "flights – first look with names()",
-    "text": "flights – first look with names()\n\nnames(flights)\n\n [1] \"year\"           \"month\"          \"day\"           \n [4] \"dep_time\"       \"sched_dep_time\" \"dep_delay\"     \n [7] \"arr_time\"       \"sched_arr_time\" \"arr_delay\"     \n[10] \"carrier\"        \"flight\"         \"tailnum\"       \n[13] \"origin\"         \"dest\"           \"air_time\"      \n[16] \"distance\"       \"hour\"           \"minute\"        \n[19] \"time_hour\""
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#r",
+    "href": "slides/1-1-welcome/1-1-welcome.html#r",
+    "title": "Welcome",
+    "section": "R",
+    "text": "R"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-head",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#flights-first-look-with-head",
-    "title": "Grammar of data transformation",
-    "section": "flights – first look with head()",
-    "text": "flights – first look with head()\n\nhead(flights)\n\n# A tibble: 6 × 19\n   year month   day dep_time sched_dep_time dep_delay\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n1  2013     1     1      517            515         2\n2  2013     1     1      533            529         4\n3  2013     1     1      542            540         2\n4  2013     1     1      544            545        -1\n5  2013     1     1      554            600        -6\n6  2013     1     1      554            558        -4\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#rstudio",
+    "href": "slides/1-1-welcome/1-1-welcome.html#rstudio",
+    "title": "Welcome",
+    "section": "RStudio",
+    "text": "RStudio"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#tibble-vs.-data-frame",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#tibble-vs.-data-frame",
-    "title": "Grammar of data transformation",
-    "section": "tibble vs. data frame",
-    "text": "tibble vs. data frame\n\n\ntibble: an opinionated version of the R data frame\nAll tibbles are data frames, but not all data frames are tibbles!\nTwo main differences between a tibble and a data frame:\n\nPrinting\nStricter subsetting"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
+    "title": "Welcome",
+    "section": "Data science life cycle",
+    "text": "Data science life cycle\n\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---tibbles",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---tibbles",
-    "title": "Grammar of data transformation",
-    "section": "Printing - tibbles",
-    "text": "Printing - tibbles\nDisplay first 10 rows and all of the columns that fit on the screen will display, along with the type of each column.\n\nflights\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#import",
+    "href": "slides/1-1-welcome/1-1-welcome.html#import",
+    "title": "Welcome",
+    "section": "Import",
+    "text": "Import"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#printing---data.frames",
-    "title": "Grammar of data transformation",
-    "section": "Printing - data.frames",
-    "text": "Printing - data.frames\n(Attempt to) display all of the data, or die (crash) trying (if the dataset is too large)!\n\ncars\n\n   speed dist\n1      4    2\n2      4   10\n3      7    4\n4      7   22\n5      8   16\n6      9   10\n7     10   18\n8     10   26\n9     10   34\n10    11   17\n11    11   28\n12    12   14\n13    12   20\n14    12   24\n15    12   28\n16    13   26\n17    13   34\n18    13   34\n19    13   46\n20    14   26\n21    14   36\n22    14   60\n23    14   80\n24    15   20\n25    15   26\n26    15   54\n27    16   32\n28    16   40\n29    17   32\n30    17   40\n31    17   50\n32    18   42\n33    18   56\n34    18   76\n35    18   84\n36    19   36\n37    19   46\n38    19   68\n39    20   32\n40    20   48\n41    20   52\n42    20   56\n43    20   64\n44    22   66\n45    23   54\n46    24   70\n47    24   92\n48    24   93\n49    24  120\n50    25   85"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
+    "href": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
+    "title": "Welcome",
+    "section": "Tidy -> transform",
+    "text": "Tidy -&gt; transform"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-tibbles",
-    "title": "Grammar of data transformation",
-    "section": "Stricter subsetting – tibbles",
-    "text": "Stricter subsetting – tibbles\nWarning + NULL if variable not found.\n\nflights$apple\n\nWarning: Unknown or uninitialised column: `apple`.\n\n\nNULL"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#visualize",
+    "href": "slides/1-1-welcome/1-1-welcome.html#visualize",
+    "title": "Welcome",
+    "section": "Visualize",
+    "text": "Visualize"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-data.frames",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#stricter-subsetting-data.frames",
-    "title": "Grammar of data transformation",
-    "section": "Stricter subsetting – data.frames",
-    "text": "Stricter subsetting – data.frames\nOnly NULL if variable not found.\n\ncars$apple\n\nNULL"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#model",
+    "href": "slides/1-1-welcome/1-1-welcome.html#model",
+    "title": "Welcome",
+    "section": "Model",
+    "text": "Model"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr",
-    "title": "Grammar of data transformation",
-    "section": "dplyr",
-    "text": "dplyr"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr-in-tidyverse",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#dplyr-in-tidyverse",
-    "title": "Grammar of data transformation",
-    "section": "dplyr \\(\\in\\) tidyverse",
-    "text": "dplyr \\(\\in\\) tidyverse\n\n\n\ndplyr is tidyverse’s primary package for data wrangling\nPackage website: dplyr.tidyverse.org"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#communicate",
+    "href": "slides/1-1-welcome/1-1-welcome.html#communicate",
+    "title": "Welcome",
+    "section": "Communicate",
+    "text": "Communicate"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#row-operations",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#row-operations",
-    "title": "Grammar of data transformation",
-    "section": "Row operations",
-    "text": "Row operations\n\nslice(): chooses rows based on location\nfilter():chooses rows based on column values\narrange(): changes the order of the rows\nsample_n(): take a random subset of the rows"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-1",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-1",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#slice",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#slice",
-    "title": "Grammar of data transformation",
-    "section": "slice()",
-    "text": "slice()\nDisplay the first five rows of flights:\n\n1flights |&gt;\n2  slice(1:5)\n\n\n1\n\nTake the flights data frame, and then,\n\n2\n\nSlice its first five rows\n\n\n\n\n# A tibble: 5 × 19\n   year month   day dep_time sched_dep_time dep_delay\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n1  2013     1     1      517            515         2\n2  2013     1     1      533            529         4\n3  2013     1     1      542            540         2\n4  2013     1     1      544            545        -1\n5  2013     1     1      554            600        -6\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
+    "title": "Welcome",
+    "section": "Understand + communicate",
+    "text": "Understand + communicate"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#filter",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#filter",
-    "title": "Grammar of data transformation",
-    "section": "filter()",
-    "text": "filter()\nFilter for flights to RDU in flights:\n\n1flights |&gt;\n2  filter(dest == \"RDU\")\n\n\n1\n\nTake the flights data frame, and then,\n\n2\n\nFilter for rows where dest is equal to RDU\n\n\n\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#program",
+    "href": "slides/1-1-welcome/1-1-welcome.html#program",
+    "title": "Welcome",
+    "section": "Program",
+    "text": "Program"
   },
   {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe",
-    "title": "Grammar of data transformation",
-    "section": "The pipe",
-    "text": "The pipe\n\n\nThe pipe, |&gt;, is an operator (a tool) for passing information from one process to another.\nUse |&gt; mainly in data pipelines to pass the output of the previous line of code as the first input of the next line of code.\nWhen reading code “in English”, say “and then” whenever you see a pipe."
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#delayed-flights-to-rdu",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#delayed-flights-to-rdu",
-    "title": "Grammar of data transformation",
-    "section": "Delayed flights to RDU",
-    "text": "Delayed flights to RDU\n\nWhich airline is the most delayed, on average, arriving in RDU from a New York City airport?\n\n\nGoal:\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 UA               56   \n2 B6               13.3 \n3 EV               12.2 \n4 9E                9.67\n5 MQ                8.82"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights\n\n\n1\n\nTake the flights data frame\n\n\n\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-1",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-1",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\")\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU\n\n\n\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-2",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-2",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier)\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier\n\n\n\n\n# A tibble: 8,163 × 19\n# Groups:   carrier [5]\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      800            810       -10\n 2  2013     1     1      832            840        -8\n 3  2013     1     1      851            851         0\n 4  2013     1     1      917            920        -3\n 5  2013     1     1     1024           1030        -6\n 6  2013     1     1     1127           1129        -2\n 7  2013     1     1     1157           1205        -8\n 8  2013     1     1     1240           1235         5\n 9  2013     1     1     1317           1325        -8\n10  2013     1     1     1449           1450        -1\n# ℹ 8,153 more rows\n# ℹ 13 more variables: arr_time &lt;int&gt;,\n#   sched_arr_time &lt;int&gt;, arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;,\n#   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,\n#   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-3",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-3",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier) |&gt;\n4  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE))\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier,\n\n4\n\nand then calculate the mean arrival delay for each carrier\n\n\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 9E                9.67\n2 B6               13.3 \n3 EV               12.2 \n4 MQ                8.82\n5 UA               56"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-4",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#the-pipe-in-action-4",
-    "title": "Grammar of data transformation",
-    "section": "The pipe, in action",
-    "text": "The pipe, in action\n\n1flights |&gt;\n2  filter(dest == \"RDU\") |&gt;\n3  group_by(carrier) |&gt;\n4  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE)) |&gt;\n5  arrange(desc(mean_arr_delay))\n\n\n1\n\nTake the flights data frame,\n\n2\n\nand then filter for flights going to RDU,\n\n3\n\nand then group by carrier,\n\n4\n\nand then calculate the mean arrival delay for each carrier,\n\n5\n\nand then arrange in descending order of mean arrival delay.\n\n\n\n\n# A tibble: 5 × 2\n  carrier mean_arr_delay\n  &lt;chr&gt;            &lt;dbl&gt;\n1 UA               56   \n2 B6               13.3 \n3 EV               12.2 \n4 9E                9.67\n5 MQ                8.82"
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#column-operations",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#column-operations",
-    "title": "Grammar of data transformation",
-    "section": "Column operations",
-    "text": "Column operations\n\n\nselect(): changes whether or not a column is included.\nrename(): changes the name of columns.\nmutate(): changes the values of columns and creates new columns."
-  },
-  {
-    "objectID": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#groups-of-rows",
-    "href": "slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html#groups-of-rows",
-    "title": "Grammar of data transformation",
-    "section": "Groups of rows",
-    "text": "Groups of rows\n\n\nsummarize(): collapses a group into a single row.\ncount(): count unique values of one or more variables.\ngroup_by(): perform calculations separately for each value of a variable"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
+    "title": "Welcome",
+    "section": "Data visualization and transformation",
+    "text": "Data visualization and transformation"
   },
   {
     "objectID": "exercises/bechdel-data-visualization.html",

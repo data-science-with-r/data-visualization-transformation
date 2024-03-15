@@ -640,23 +640,35 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <h1>Visualizing categorical data</h1>
 
 </section>
-<section id="bar-plot" class="slide level2">
+<section id="bar-plot" class="slide level2 nostretch">
 <h2>Bar plot</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> homeownership)) <span class="sc">+</span></span>
 <span id="cb5-2"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-4-1.png" width="672"></p>
+</figure>
 </div>
-<img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-4-1.png" width="576" class="r-stretch"></section>
-<section id="segmented-bar-plot" class="slide level2">
+</div>
+</div>
+</section>
+<section id="segmented-bar-plot" class="slide level2 nostretch">
 <h2>Segmented bar plot</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> grade)) <span class="sc">+</span></span>
 <span id="cb6-2"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-5-1.png" width="672"></p>
+</figure>
 </div>
-<img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-5-1.png" width="576" class="r-stretch"></section>
-<section id="segmented-bar-plot-1" class="slide level2">
+</div>
+</div>
+</section>
+<section id="segmented-bar-plot-1" class="slide level2 nostretch">
 <h2>Segmented bar plot</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> term)) <span class="sc">+</span></span>
@@ -674,7 +686,7 @@ transformation: fill
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-6-1.png" width="576"></p>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-6-1.png" width="672"></p>
 </figure>
 </div>
 </div>

@@ -476,7 +476,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-5-1.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -489,7 +489,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-6-1.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -502,7 +502,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-7-1.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -512,12 +512,10 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <h2>Outliers</h2>
 <p>There are no clear outliers in the loan amounts in this sample.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-8-1.png" width="576"></p>
+<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-8-1.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -535,8 +533,8 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <li>Requires a careful selection of binwidth</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb5-2"><a></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with
 `binwidth`.</code></pre>
@@ -553,16 +551,16 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <section id="histograms-and-binwidth" class="slide level2">
 <h2>Histograms and binwidth</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>p_loans <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>p_loans <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><br></p>
 <div class="columns">
 <div class="column fragment" style="width:33%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb8-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb8-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">1000</span></span>
-<span id="cb8-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>p_loans <span class="sc">+</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb7-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">1000</span></span>
+<span id="cb7-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -573,10 +571,10 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div><div class="column fragment" style="width:33%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb9-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb9-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span></span>
-<span id="cb9-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>p_loans <span class="sc">+</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb8-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span></span>
+<span id="cb8-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -587,10 +585,10 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div><div class="column fragment" style="width:33%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb10-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb10-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">20000</span></span>
-<span id="cb10-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>p_loans <span class="sc">+</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb9-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">20000</span></span>
+<span id="cb9-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -606,19 +604,19 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <h2>Histogram customization</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|2|3-7|8|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb11-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5000</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-4"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
-<span id="cb11-5"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb11-6"><a></a>    <span class="at">title =</span> <span class="st">"Amounts of Lending Club loans"</span></span>
-<span id="cb11-7"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb11-8"><a></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb11-9"><a></a>    <span class="at">labels =</span> <span class="fu">label_dollar</span>()</span>
-<span id="cb11-10"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb11-11"><a></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb11-12"><a></a>    <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">","</span>)</span>
-<span id="cb11-13"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|2|3-7|8|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5000</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-4"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
+<span id="cb10-5"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
+<span id="cb10-6"><a></a>    <span class="at">title =</span> <span class="st">"Amounts of Lending Club loans"</span></span>
+<span id="cb10-7"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb10-8"><a></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb10-9"><a></a>    <span class="at">labels =</span> <span class="fu">label_dollar</span>()</span>
+<span id="cb10-10"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb10-11"><a></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb10-12"><a></a>    <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">","</span>)</span>
+<span id="cb10-13"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -639,8 +637,8 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>p_loans<span class="sc">+</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p_loans<span class="sc">+</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -651,8 +649,8 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div><div class="column" style="width:35%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>p_loans <span class="sc">+</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -672,8 +670,8 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <li>Makes outliers very clear (according to a strict definition of an outlier)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>p_loans <span class="sc">+</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -686,8 +684,8 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <section id="box-plot-and-outliers" class="slide level2 nostretch">
 <h2>Box plot and outliers</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb15-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -701,20 +699,20 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <h2>Box plot customization</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="|3-5|6-10|11-14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb16-2"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb16-4"><a></a>    <span class="at">labels =</span> <span class="fu">label_percent</span>()</span>
-<span id="cb16-5"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb16-6"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb16-7"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate"</span>, </span>
-<span id="cb16-8"><a></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
-<span id="cb16-9"><a></a>    <span class="at">title =</span> <span class="st">"Interest rates of Lending Club loans"</span></span>
-<span id="cb16-10"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb16-11"><a></a>  <span class="fu">theme</span>(</span>
-<span id="cb16-12"><a></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb16-13"><a></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb16-14"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="|3-5|6-10|11-14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb15-4"><a></a>    <span class="at">labels =</span> <span class="fu">label_percent</span>()</span>
+<span id="cb15-5"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb15-6"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-7"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate"</span>, </span>
+<span id="cb15-8"><a></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb15-9"><a></a>    <span class="at">title =</span> <span class="st">"Interest rates of Lending Club loans"</span></span>
+<span id="cb15-10"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb15-11"><a></a>  <span class="fu">theme</span>(</span>
+<span id="cb15-12"><a></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-13"><a></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb15-14"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -731,14 +729,14 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <h1>Summarizing numerical data</h1>
 
 </section>
-<section id="summarize" class="slide level2">
+<section id="summarize" class="slide level2 smaller">
 <h2><code>summarize()</code></h2>
 <ul>
 <li><code>summarize()</code> returns for a summary statistic for all observations in the data:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_loan_amt =</span> <span class="fu">mean</span>(loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_loan_amt =</span> <span class="fu">mean</span>(loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_loan_amt
@@ -751,11 +749,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <li><code>summarize()</code> can be used to calculate multiple summary statistics as well:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb19-3"><a></a>    <span class="at">q25 =</span> <span class="fu">quantile</span>(loan_amount, <span class="fl">0.25</span>),</span>
-<span id="cb19-4"><a></a>    <span class="at">q75 =</span> <span class="fu">quantile</span>(loan_amount, <span class="fl">0.75</span>)</span>
-<span id="cb19-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb18-3"><a></a>    <span class="at">q25 =</span> <span class="fu">quantile</span>(loan_amount, <span class="fl">0.25</span>),</span>
+<span id="cb18-4"><a></a>    <span class="at">q75 =</span> <span class="fu">quantile</span>(loan_amount, <span class="fl">0.75</span>)</span>
+<span id="cb18-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
     q25   q75
@@ -771,11 +769,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="columns">
 <div class="column fragment" style="width:25%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># good</span></span>
-<span id="cb21-2"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb21-3"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb21-4"><a></a>    <span class="at">mean_loan_amt =</span> <span class="fu">mean</span>(loan_amount)</span>
-<span id="cb21-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># good</span></span>
+<span id="cb20-2"><a></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb20-4"><a></a>    <span class="at">mean_loan_amt =</span> <span class="fu">mean</span>(loan_amount)</span>
+<span id="cb20-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   mean_loan_amt
@@ -785,11 +783,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div><div class="column fragment" style="width:25%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># bad</span></span>
-<span id="cb23-2"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb23-4"><a></a>    <span class="fu">mean</span>(loan_amount)</span>
-<span id="cb23-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># bad</span></span>
+<span id="cb22-2"><a></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb22-4"><a></a>    <span class="fu">mean</span>(loan_amount)</span>
+<span id="cb22-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   `mean(loan_amount)`
@@ -799,11 +797,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div><div class="column fragment" style="width:25%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># bad</span></span>
-<span id="cb25-2"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb25-3"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb25-4"><a></a>    <span class="at">temp =</span> <span class="fu">mean</span>(loan_amount)</span>
-<span id="cb25-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># bad</span></span>
+<span id="cb24-2"><a></a>loans <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb24-4"><a></a>    <span class="at">temp =</span> <span class="fu">mean</span>(loan_amount)</span>
+<span id="cb24-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
     temp
