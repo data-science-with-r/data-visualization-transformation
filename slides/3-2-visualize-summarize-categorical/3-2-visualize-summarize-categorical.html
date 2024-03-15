@@ -455,8 +455,9 @@
 <section id="take-a-peek-at-data" class="slide level2">
 <h2>Take a peek at data</h2>
 <div class="cell" data-output.lines="18">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(openintro)</span>
-<span id="cb1-2"><a></a><span class="fu">glimpse</span>(loans_full_schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(openintro)</span>
+<span id="cb1-3"><a></a><span class="fu">glimpse</span>(loans_full_schema)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 10,000
 Columns: 55
@@ -521,7 +522,7 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0,…</code></pre>
 <section id="selected-variables" class="slide level2">
 <h2>Selected variables</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|2-5|1|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">select</span>(</span>
 <span id="cb3-3"><a></a>    loan_amount, interest_rate, term, grade, </span>
 <span id="cb3-4"><a></a>    state, annual_income, homeownership, debt_to_income</span>
@@ -756,7 +757,7 @@ transformation: fill
 <section id="customizing-bar-plots" class="slide level2 smaller nostretch">
 <h2>Customizing bar plots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|4|5-9|10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>loans <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|3|5-9|10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as.factor</span>(term)) <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> homeownership, <span class="at">fill =</span> term)) <span class="sc">+</span></span>
 <span id="cb11-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>

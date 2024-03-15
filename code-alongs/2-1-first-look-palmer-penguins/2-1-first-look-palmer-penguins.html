@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mine Çetinkaya-Rundel + Elijah Meyer">
 
-<title>Data visualization and transformation -  Data visualization and transformation</title>
+<title>Data visualization and transformation - First look at Palmer Penguin</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,29 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,121 +102,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-slides .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-slides'] = new List('listing-slides', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-code-alongs .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-code-alongs'] = new List('listing-code-alongs', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-exercises .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-exercises'] = new List('listing-exercises', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -196,7 +113,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data visualization and transformation</span>
     </a>
   </div>
@@ -207,7 +124,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -227,9 +144,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#code-alongs" id="toc-code-alongs" class="nav-link" data-scroll-target="#code-alongs">Code alongs</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  </ul></li>
+  <li><a href="#penguin-weights" id="toc-penguin-weights" class="nav-link" data-scroll-target="#penguin-weights">Penguin weights</a>
+  <ul class="collapse">
+  <li><a href="#two-variables" id="toc-two-variables" class="nav-link" data-scroll-target="#two-variables">Two variables</a></li>
+  <li><a href="#multiple-variables" id="toc-multiple-variables" class="nav-link" data-scroll-target="#multiple-variables">Multiple variables</a></li>
+  </ul></li>
+  <li><a href="#visualizing-other-variables" id="toc-visualizing-other-variables" class="nav-link" data-scroll-target="#visualizing-other-variables">Visualizing other variables</a></li>
   </ul>
 </nav>
     </div>
@@ -238,20 +163,14 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</h1>
-<p class="subtitle lead"><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
+<h1 class="title">First look at Palmer Penguin</h1>
+<p class="subtitle lead"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation<br><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Mine Çetinkaya-Rundel + Elijah Meyer </p>
-          </div>
-  </div>
     
   
     
@@ -262,133 +181,158 @@ window.Quarto = {
 </header>
 
 
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<div id="listing-slides" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1710521057240" data-listing-reading-time-sort="2" data-listing-word-count-sort="240" data-listing-title-sort="Welcome" data-listing-filename-sort="1-1-welcome.qmd">
-<td>
-<a href="./slides/1-1-welcome/1-1-welcome.html" class="title listing-title">Welcome</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1710521057268" data-listing-reading-time-sort="4" data-listing-word-count-sort="644" data-listing-title-sort="Visualizing data" data-listing-filename-sort="2-1-1-visualizing-data.qmd">
-<td>
-<a href="./slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html" class="title listing-title">Visualizing data</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1710521057276" data-listing-reading-time-sort="8" data-listing-word-count-sort="1569" data-listing-title-sort="Building a plot<br>step-by-step with ggplot2" data-listing-filename-sort="2-1-2-step-by-step-ggplot2.qmd">
-<td>
-<a href="./slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html" class="title listing-title">Building a plot<br>step-by-step with ggplot2</a>
-</td>
-</tr>
-<tr data-index="3" data-listing-file-modified-sort="1710521057280" data-listing-reading-time-sort="9" data-listing-word-count-sort="1627" data-listing-title-sort="Grammar of graphics" data-listing-filename-sort="2-2-grammar-of-graphics.qmd">
-<td>
-<a href="./slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html" class="title listing-title">Grammar of graphics</a>
-</td>
-</tr>
-<tr data-index="4" data-listing-file-modified-sort="1710521057284" data-listing-reading-time-sort="5" data-listing-word-count-sort="858" data-listing-title-sort="Grammar of data transformation" data-listing-filename-sort="3-1-grammar-of-data-transformation.qmd">
-<td>
-<a href="./slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html" class="title listing-title">Grammar of data transformation</a>
-</td>
-</tr>
-<tr data-index="5" data-listing-file-modified-sort="1710521057284" data-listing-reading-time-sort="7" data-listing-word-count-sort="1372" data-listing-title-sort="Visualizing and summarizing categorical data" data-listing-filename-sort="3-2-visualize-summarize-categorical.qmd">
-<td>
-<a href="./slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html" class="title listing-title">Visualizing and summarizing categorical data</a>
-</td>
-</tr>
-<tr data-index="6" data-listing-file-modified-sort="1710521057284" data-listing-reading-time-sort="5" data-listing-word-count-sort="894" data-listing-title-sort="Visualizing and summarizing numerical data" data-listing-filename-sort="3-3-1-visualize-summarize-numerical.qmd">
-<td>
-<a href="./slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html" class="title listing-title">Visualizing and summarizing numerical data</a>
-</td>
-</tr>
-<tr data-index="7" data-listing-file-modified-sort="1710521057284" data-listing-reading-time-sort="8" data-listing-word-count-sort="1464" data-listing-title-sort="Visualizing and summarizing relationships" data-listing-filename-sort="3-3-2-visualize-summarize-relationships.qmd">
-<td>
-<a href="./slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html" class="title listing-title">Visualizing and summarizing relationships</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?</p>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>We will use the <strong>tidyverse</strong> packages for data wrangling and visualization and the <strong>palmerpenguins</strong> package for the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="code-alongs" class="level2">
-<h2 class="anchored" data-anchor-id="code-alongs">Code alongs</h2>
-<div id="listing-code-alongs" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1710521057208" data-listing-reading-time-sort="3" data-listing-word-count-sort="412" data-listing-title-sort="UN Votes" data-listing-filename-sort="1-1-unvotes.qmd">
-<td>
-<a href="./code-alongs/1-1-unvotes/1-1-unvotes.html" class="title listing-title">UN Votes</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1710521057208" data-listing-reading-time-sort="3" data-listing-word-count-sort="508" data-listing-title-sort="First look at Palmer Penguin" data-listing-filename-sort="2-1-first-look-palmer-penguins.qmd">
-<td>
-<a href="./code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html" class="title listing-title">First look at Palmer Penguin</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1710521057208" data-listing-reading-time-sort="3" data-listing-word-count-sort="520" data-listing-title-sort="First look at Palmer Penguin" data-listing-filename-sort="3-3-diving-deeper-palmer-penguins.qmd">
-<td>
-<a href="./code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html" class="title listing-title">First look at Palmer Penguin</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The dataset we will visualize is called <code>penguins</code>. Let’s <code>glimpse()</code> at it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="listing-exercises" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1710521057212" data-listing-reading-time-sort="5" data-listing-word-count-sort="958" data-listing-title-sort="Meet the toolkit: Programming exercises" data-listing-filename-sort="meet-programming-exercises.qmd">
-<td>
-<a href="./exercises/meet-programming-exercises.html" class="title listing-title">Meet the toolkit: Programming exercises</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1710521057208" data-listing-reading-time-sort="10" data-listing-word-count-sort="1925" data-listing-title-sort="Bechdel + data visualization" data-listing-filename-sort="bechdel-data-visualization.qmd">
-<td>
-<a href="./exercises/bechdel-data-visualization.html" class="title listing-title">Bechdel + data visualization</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1710521057212" data-listing-reading-time-sort="14" data-listing-word-count-sort="2793" data-listing-title-sort="Mario games + data visualization" data-listing-filename-sort="mario-data-visualization.qmd">
-<td>
-<a href="./exercises/mario-data-visualization.html" class="title listing-title">Mario games + data visualization</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+</section>
+<section id="penguin-weights" class="level1">
+<h1>Penguin weights</h1>
+<p>Create visualizations of the distribution of <code>weight</code>s of penguins.</p>
+<ol type="1">
+<li>Make a histogram. Set an appropriate binwidth.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Make a boxplot.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Based on these, determine if each of the following statements about the shape of the distribution is true or false.
+<ul>
+<li>The distribution of penguin weights in this sample is left skewed. <strong>FALSE</strong></li>
+<li>The distribution of penguin weights in this sample is unimodal. <strong>TRUE</strong></li>
+</ul></li>
+</ol>
+<section id="two-variables" class="level2">
+<h2 class="anchored" data-anchor-id="two-variables">Two variables</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-
+<div class="callout-body-container callout-body">
+<p>Analyzing the relationship between two variables is called <strong>bivariate</strong> analysis.</p>
+</div>
+</div>
+<p>Create visualizations of the distribution of <code>weight</code>s of penguins by <code>species</code>.</p>
+<ol start="4" type="1">
+<li>Make a single histogram. Set an appropriate binwidth.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="5" type="1">
+<li>Use multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>Use side-by-side box plots. Add color as you see fit and turn off legends if not needed.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>Use density plots. Add color as you see fit.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="8" type="1">
+<li>Use violin plots. Add color as you see fit and turn off legends if not needed.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="9" type="1">
+<li>Make a jittered scatter plot. Add color as you see fit and turn off legends if not needed.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="10" type="1">
+<li>Use beeswarm plots. Add color as you see fit and turn off legends if not needed.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="11" type="1">
+<li>Use multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="multiple-variables" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-variables">Multiple variables</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Analyzing the relationship between three or more variables is called <strong>multivariate</strong> analysis.</p>
+</div>
+</div>
+<ol start="12" type="1">
+<li>Facet the plot you created in the previous exercise by <code>island</code>. Adjust labels accordingly.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Before you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML.</p>
+</section>
+</section>
+<section id="visualizing-other-variables" class="level1">
+<h1>Visualizing other variables</h1>
+<ol start="13" type="1">
+<li>Pick a single categorical variable from the data set and make a bar plot of its distribution.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="14" type="1">
+<li>Pick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Interpretation goes here…</p>
+<ol start="15" type="1">
+<li>Make another plot that uses at least three variables. At least one should be numeric and at least one categorical. In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted. Don’t forget to label your code chunk.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Interpretation goes here…</p>
 
 
 </section>

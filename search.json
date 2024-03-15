@@ -7,32 +7,60 @@
     "text": "How do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues? Answering these questions (at a high level) is the focus of this analysis.\n\n\nWe will use the tidyverse and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)\n\n\n\n\nThe data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship =\n  \"many-to-many\")"
   },
   {
-    "objectID": "code-alongs/1-1-unvotes/1-1-unvotes.html#introduction",
-    "href": "code-alongs/1-1-unvotes/1-1-unvotes.html#introduction",
+    "objectID": "code-alongs/1-1-unvotes/1-1-unvotes.html#packages",
+    "href": "code-alongs/1-1-unvotes/1-1-unvotes.html#packages",
     "title": "UN Votes",
     "section": "",
-    "text": "How do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues? Answering these questions (at a high level) is the focus of this analysis.\n\n\nWe will use the tidyverse and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)\n\n\n\n\nThe data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship =\n  \"many-to-many\")"
+    "text": "We will use the tidyverse and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)"
   },
   {
-    "objectID": "code-alongs/1-1-unvotes/1-1-unvotes.html#un-voting-patterns",
-    "href": "code-alongs/1-1-unvotes/1-1-unvotes.html#un-voting-patterns",
+    "objectID": "code-alongs/1-1-unvotes/1-1-unvotes.html#data",
+    "href": "code-alongs/1-1-unvotes/1-1-unvotes.html#data",
     "title": "UN Votes",
-    "section": "UN voting patterns",
-    "text": "UN voting patterns\nLet’s create a data visualisation that displays how the voting record of the UK & NI changed over time on a variety of issues, and compares it to two other countries: US and Turkey.\nWe can easily change which countries are being plotted by changing which countries the code above filters for. Note that the country name should be spelled and capitalized exactly the same way as it appears in the data. See the Appendix for a list of the countries in the data.\n\nunvotes |&gt;\n  filter(country %in% c(\"United Kingdom\", \"United States\", \"Turkey\")) |&gt;\n  mutate(year = year(date)) |&gt;\n  group_by(country, year, issue) |&gt;\n  summarize(percent_yes = mean(vote == \"yes\")) |&gt;\n  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +\n  geom_point(alpha = 0.4) +\n  geom_smooth(method = \"loess\", se = FALSE) +\n  facet_wrap(~issue) +\n  scale_y_continuous(labels = percent) +\n  labs(\n    title = \"Percentage of 'Yes' votes in the UN General Assembly\",\n    subtitle = \"1946 to 2019\",\n    y = \"% Yes\",\n    x = \"Year\",\n    color = \"Country\"\n  )"
+    "section": "",
+    "text": "The data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship =\n  \"many-to-many\")"
   },
   {
-    "objectID": "code-alongs/1-1-unvotes/1-1-unvotes.html#references",
-    "href": "code-alongs/1-1-unvotes/1-1-unvotes.html#references",
-    "title": "UN Votes",
-    "section": "References",
-    "text": "References\n\nDavid Robinson (2017). unvotes: United Nations General Assembly Voting Data. R package version 0.2.0.\nErik Voeten “Data and Analyses of Voting in the UN General Assembly” Routledge Handbook of International Organization, edited by Bob Reinalda (published May 27, 2013).\nMuch of the analysis has been modeled on the examples presented in the unvotes package vignette."
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
   },
   {
-    "objectID": "code-alongs/1-1-unvotes/1-1-unvotes.html#appendix",
-    "href": "code-alongs/1-1-unvotes/1-1-unvotes.html#appendix",
-    "title": "UN Votes",
-    "section": "Appendix",
-    "text": "Appendix\nBelow is a list of countries in the dataset:"
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#packages",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#packages",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#data",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#data",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#single-variable",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#single-variable",
+    "title": "First look at Palmer Penguin",
+    "section": "Single variable",
+    "text": "Single variable\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the a single variable is called univariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins.\n\nMake a histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nMake a boxplot.\n\n\n# add code here\n\n\nBased on these, determine if each of the following statements about the shape of the distribution is true or false.\n\nThe distribution of penguin weights in this sample is left skewed. FALSE\nThe distribution of penguin weights in this sample is unimodal. TRUE"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#two-variables",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#two-variables",
+    "title": "First look at Palmer Penguin",
+    "section": "Two variables",
+    "text": "Two variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between two variables is called bivariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins by species.\n\nMake a single histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nUse multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.\n\n\n# add code here\n\n\nUse side-by-side box plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse density plots. Add color as you see fit.\n\n\n# add code here\n\n\nUse violin plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nMake a jittered scatter plot. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse beeswarm plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#multiple-variables",
+    "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#multiple-variables",
+    "title": "First look at Palmer Penguin",
+    "section": "Multiple variables",
+    "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\n\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\n\n# add code here\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
   },
   {
     "objectID": "exercises/meet-programming-exercises.html",
@@ -375,7 +403,7 @@
     "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
     "title": "Visualizing and summarizing numerical data",
     "section": "Box plot customization",
-    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  scale_x_continuous(\n    labels = label_percent()\n  ) +\n  labs(\n    x = \"Interest rate\", \n    y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
+    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  labs(\n    x = \"Interest rate\", \n    y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
@@ -431,7 +459,7 @@
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#characteristics-of-a-relationship",
     "title": "Visualizing and summarizing relationships",
     "section": "Characteristics of a relationship",
-    "text": "Characteristics of a relationship\nbetween two numerical variables\n\n\n\n\nDirection: Positive\nForm: Linear\nStrength: Moderately strong"
+    "text": "Characteristics of a relationship\nbetween two numerical variables\n\n\n\nDirection: Positive\nStrength: Moderately strong\nForm: Linear"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#distribution-of-house-prices",
@@ -473,7 +501,7 @@
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#grouped-summaries",
     "title": "Visualizing and summarizing relationships",
     "section": "Grouped summaries",
-    "text": "Grouped summaries\n\nduke_forest |&gt;\n  summarize(median_price = median(price))\n\n# A tibble: 1 × 1\n  median_price\n         &lt;dbl&gt;\n1       540000\n\n\n\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(\n    median_price = median(price), \n  )\n\n# A tibble: 2 × 2\n  cooling median_price\n  &lt;fct&gt;          &lt;dbl&gt;\n1 other         525000\n2 central       550000"
+    "text": "Grouped summaries\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(median_price = median(price))\n\n# A tibble: 2 × 2\n  cooling median_price\n  &lt;fct&gt;          &lt;dbl&gt;\n1 other         525000\n2 central       550000"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#multiple-summary-statistics",
@@ -525,81 +553,74 @@
     "text": "Proportions\n\nduke_forest |&gt;\n  count(year_built_cat, cooling) |&gt;\n  group_by(year_built_cat) |&gt;\n  mutate(prop = n / sum(n))\n\n# A tibble: 4 × 4\n# Groups:   year_built_cat [2]\n  year_built_cat  cooling     n  prop\n  &lt;chr&gt;           &lt;fct&gt;   &lt;int&gt; &lt;dbl&gt;\n1 1969 or earlier other      39 0.591\n2 1969 or earlier central    27 0.409\n3 1970 or later   other      14 0.438\n4 1970 or later   central    18 0.562"
   },
   {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---1",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---1",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 1",
+    "text": "Price vs. area and cooling - 1\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---2",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---2",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 2",
+    "text": "Price vs. area and cooling - 2\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---3",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---3",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 3",
+    "text": "Price vs. area and cooling - 3\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---4",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---4",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 4",
+    "text": "Price vs. area and cooling - 4\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---5",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---5",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 5",
+    "text": "Price vs. area and cooling - 5\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---6",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---6",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 6",
+    "text": "Price vs. area and cooling - 6\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---7",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---7",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 7",
+    "text": "Price vs. area and cooling - 7\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(r = cor(price, area))\n\n# A tibble: 2 × 2\n  cooling     r\n  &lt;fct&gt;   &lt;dbl&gt;\n1 other   0.459\n2 central 0.854"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---8",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---8",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 8",
+    "text": "Price vs. area and cooling - 8\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  facet_wrap(~cooling, ncol = 1)"
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---9",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling---9",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Price vs. area and cooling - 9",
+    "text": "Price vs. area and cooling - 9\n\n\nggplot(\n  duke_forest, \n  aes(\n    x = area, y = price, \n    color = cooling, shape = cooling\n    )\n  ) +\n  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(\n    values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")\n    ) +\n  labs(\n    title = \"Houses in Duke Forest, by cooling type\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  facet_wrap(~cooling, ncol = 1)"
+  },
+  {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling",
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point()"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-1",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4)"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-2",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-3",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-4",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-5",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  )"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-6",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal()"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-7",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  theme(legend.position = c(0.15, 0.8))"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-8",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-8",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\nduke_forest |&gt;\n  group_by(cooling) |&gt;\n  summarize(r = cor(price, area))\n\n# A tibble: 2 × 2\n  cooling     r\n  &lt;fct&gt;   &lt;dbl&gt;\n1 other   0.459\n2 central 0.854"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-9",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-9",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
-  },
-  {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-10",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#price-vs.-area-and-cooling-10",
-    "title": "Visualizing and summarizing relationships",
-    "section": "Price vs. area and cooling",
-    "text": "Price vs. area and cooling\n\n\nggplot(\n  duke_forest, \n  aes(x = area, y = price, color = cooling, shape = cooling)\n  ) +\n  geom_point(alpha = 0.7, size = 4, show.legend = FALSE) +\n  scale_x_continuous(labels = label_number(big.mark = \",\")) +\n  scale_y_continuous(labels = label_dollar()) +\n  scale_color_manual(values = c(\"central\" = \"darkblue\", \"other\" = \"lightsalmon3\")) +\n  labs(\n    title = \"Houses in Duke Forest, by cooling type\",\n    subtitle = \"Durham, NC\",\n    color = \"Cooling\", shape = \"Cooling\",\n    x = \"Area (square feet)\",\n    y = \"Price (USD)\",\n    caption = \"Source: Zillow, November 2020\"\n  ) +\n  theme_minimal() +\n  facet_wrap(~cooling, ncol = 1)"
+    "text": "Price vs. area and cooling\n\n\n\n\nThe relationship between area and price of homes in Duke Forest is positive and relatively strong, regardless of cooling type.\nThe relationship appears to be stronger, with a larger correlation coefficient (0.854 vs. 0.459), for homes cooled with central air.\nHowever the large difference in correlation coefficients for these two groups might be due to the three potential outliers in the other group with high areas and low price."
   },
   {
     "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
@@ -627,7 +648,7 @@
     "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#take-a-peek-at-data",
     "title": "Visualizing and summarizing categorical data",
     "section": "Take a peek at data",
-    "text": "Take a peek at data\n\nlibrary(openintro)\nglimpse(loans_full_schema)\n\nRows: 10,000\nColumns: 55\n$ emp_title                        &lt;chr&gt; \"global config en…\n$ emp_length                       &lt;dbl&gt; 3, 10, 3, 1, 10, …\n$ state                            &lt;fct&gt; NJ, HI, WI, PA, C…\n$ homeownership                    &lt;fct&gt; MORTGAGE, RENT, R…\n$ annual_income                    &lt;dbl&gt; 90000, 40000, 400…\n$ verified_income                  &lt;fct&gt; Verified, Not Ver…\n$ debt_to_income                   &lt;dbl&gt; 18.01, 5.04, 21.1…\n$ annual_income_joint              &lt;dbl&gt; NA, NA, NA, NA, 5…\n$ verification_income_joint        &lt;fct&gt; , , , , Verified,…\n$ debt_to_income_joint             &lt;dbl&gt; NA, NA, NA, NA, 3…\n$ delinq_2y                        &lt;int&gt; 0, 0, 0, 0, 0, 1,…\n$ months_since_last_delinq         &lt;int&gt; 38, NA, 28, NA, N…\n$ earliest_credit_line             &lt;dbl&gt; 2001, 1996, 2006,…\n$ inquiries_last_12m               &lt;int&gt; 6, 1, 4, 0, 7, 6,…\n$ total_credit_lines               &lt;int&gt; 28, 30, 31, 4, 22…\n$ open_credit_lines                &lt;int&gt; 10, 14, 10, 4, 16…\n$ total_credit_limit               &lt;int&gt; 70795, 28800, 241…\n$ total_credit_utilized            &lt;int&gt; 38767, 4321, 1600…\n$ num_collections_last_12m         &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_historical_failed_to_pay     &lt;int&gt; 0, 1, 0, 1, 0, 0,…\n$ months_since_90d_late            &lt;int&gt; 38, NA, 28, NA, N…\n$ current_accounts_delinq          &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ total_collection_amount_ever     &lt;int&gt; 1250, 0, 432, 0, …\n$ current_installment_accounts     &lt;int&gt; 2, 0, 1, 1, 1, 0,…\n$ accounts_opened_24m              &lt;int&gt; 5, 11, 13, 1, 6, …\n$ months_since_last_credit_inquiry &lt;int&gt; 5, 8, 7, 15, 4, 5…\n$ num_satisfactory_accounts        &lt;int&gt; 10, 14, 10, 4, 16…\n$ num_accounts_120d_past_due       &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_accounts_30d_past_due        &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_active_debit_accounts        &lt;int&gt; 2, 3, 3, 2, 10, 1…\n$ total_debit_limit                &lt;int&gt; 11100, 16500, 430…\n$ num_total_cc_accounts            &lt;int&gt; 14, 24, 14, 3, 20…\n$ num_open_cc_accounts             &lt;int&gt; 8, 14, 8, 3, 15, …\n$ num_cc_carrying_balance          &lt;int&gt; 6, 4, 6, 2, 13, 5…\n$ num_mort_accounts                &lt;int&gt; 1, 0, 0, 0, 0, 3,…\n$ account_never_delinq_percent     &lt;dbl&gt; 92.9, 100.0, 93.5…\n$ tax_liens                        &lt;int&gt; 0, 0, 0, 1, 0, 0,…\n$ public_record_bankrupt           &lt;int&gt; 0, 1, 0, 0, 0, 0,…\n$ loan_purpose                     &lt;fct&gt; moving, debt_cons…\n$ application_type                 &lt;fct&gt; individual, indiv…\n$ loan_amount                      &lt;int&gt; 28000, 5000, 2000…\n$ term                             &lt;dbl&gt; 60, 36, 36, 36, 3…\n$ interest_rate                    &lt;dbl&gt; 14.07, 12.61, 17.…\n$ installment                      &lt;dbl&gt; 652.53, 167.54, 7…\n$ grade                            &lt;fct&gt; C, C, D, A, C, A,…\n$ sub_grade                        &lt;fct&gt; C3, C1, D1, A3, C…\n$ issue_month                      &lt;fct&gt; Mar-2018, Feb-201…\n$ loan_status                      &lt;fct&gt; Current, Current,…\n$ initial_listing_status           &lt;fct&gt; whole, whole, fra…\n$ disbursement_method              &lt;fct&gt; Cash, Cash, Cash,…\n$ balance                          &lt;dbl&gt; 27015.86, 4651.37…\n$ paid_total                       &lt;dbl&gt; 1999.330, 499.120…\n$ paid_principal                   &lt;dbl&gt; 984.14, 348.63, 1…\n$ paid_interest                    &lt;dbl&gt; 1015.19, 150.49, …\n$ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0,…"
+    "text": "Take a peek at data\n\nlibrary(tidyverse)\nlibrary(openintro)\nglimpse(loans_full_schema)\n\nRows: 10,000\nColumns: 55\n$ emp_title                        &lt;chr&gt; \"global config en…\n$ emp_length                       &lt;dbl&gt; 3, 10, 3, 1, 10, …\n$ state                            &lt;fct&gt; NJ, HI, WI, PA, C…\n$ homeownership                    &lt;fct&gt; MORTGAGE, RENT, R…\n$ annual_income                    &lt;dbl&gt; 90000, 40000, 400…\n$ verified_income                  &lt;fct&gt; Verified, Not Ver…\n$ debt_to_income                   &lt;dbl&gt; 18.01, 5.04, 21.1…\n$ annual_income_joint              &lt;dbl&gt; NA, NA, NA, NA, 5…\n$ verification_income_joint        &lt;fct&gt; , , , , Verified,…\n$ debt_to_income_joint             &lt;dbl&gt; NA, NA, NA, NA, 3…\n$ delinq_2y                        &lt;int&gt; 0, 0, 0, 0, 0, 1,…\n$ months_since_last_delinq         &lt;int&gt; 38, NA, 28, NA, N…\n$ earliest_credit_line             &lt;dbl&gt; 2001, 1996, 2006,…\n$ inquiries_last_12m               &lt;int&gt; 6, 1, 4, 0, 7, 6,…\n$ total_credit_lines               &lt;int&gt; 28, 30, 31, 4, 22…\n$ open_credit_lines                &lt;int&gt; 10, 14, 10, 4, 16…\n$ total_credit_limit               &lt;int&gt; 70795, 28800, 241…\n$ total_credit_utilized            &lt;int&gt; 38767, 4321, 1600…\n$ num_collections_last_12m         &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_historical_failed_to_pay     &lt;int&gt; 0, 1, 0, 1, 0, 0,…\n$ months_since_90d_late            &lt;int&gt; 38, NA, 28, NA, N…\n$ current_accounts_delinq          &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ total_collection_amount_ever     &lt;int&gt; 1250, 0, 432, 0, …\n$ current_installment_accounts     &lt;int&gt; 2, 0, 1, 1, 1, 0,…\n$ accounts_opened_24m              &lt;int&gt; 5, 11, 13, 1, 6, …\n$ months_since_last_credit_inquiry &lt;int&gt; 5, 8, 7, 15, 4, 5…\n$ num_satisfactory_accounts        &lt;int&gt; 10, 14, 10, 4, 16…\n$ num_accounts_120d_past_due       &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_accounts_30d_past_due        &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_active_debit_accounts        &lt;int&gt; 2, 3, 3, 2, 10, 1…\n$ total_debit_limit                &lt;int&gt; 11100, 16500, 430…\n$ num_total_cc_accounts            &lt;int&gt; 14, 24, 14, 3, 20…\n$ num_open_cc_accounts             &lt;int&gt; 8, 14, 8, 3, 15, …\n$ num_cc_carrying_balance          &lt;int&gt; 6, 4, 6, 2, 13, 5…\n$ num_mort_accounts                &lt;int&gt; 1, 0, 0, 0, 0, 3,…\n$ account_never_delinq_percent     &lt;dbl&gt; 92.9, 100.0, 93.5…\n$ tax_liens                        &lt;int&gt; 0, 0, 0, 1, 0, 0,…\n$ public_record_bankrupt           &lt;int&gt; 0, 1, 0, 0, 0, 0,…\n$ loan_purpose                     &lt;fct&gt; moving, debt_cons…\n$ application_type                 &lt;fct&gt; individual, indiv…\n$ loan_amount                      &lt;int&gt; 28000, 5000, 2000…\n$ term                             &lt;dbl&gt; 60, 36, 36, 36, 3…\n$ interest_rate                    &lt;dbl&gt; 14.07, 12.61, 17.…\n$ installment                      &lt;dbl&gt; 652.53, 167.54, 7…\n$ grade                            &lt;fct&gt; C, C, D, A, C, A,…\n$ sub_grade                        &lt;fct&gt; C3, C1, D1, A3, C…\n$ issue_month                      &lt;fct&gt; Mar-2018, Feb-201…\n$ loan_status                      &lt;fct&gt; Current, Current,…\n$ initial_listing_status           &lt;fct&gt; whole, whole, fra…\n$ disbursement_method              &lt;fct&gt; Cash, Cash, Cash,…\n$ balance                          &lt;dbl&gt; 27015.86, 4651.37…\n$ paid_total                       &lt;dbl&gt; 1999.330, 499.120…\n$ paid_principal                   &lt;dbl&gt; 984.14, 348.63, 1…\n$ paid_interest                    &lt;dbl&gt; 1015.19, 150.49, …\n$ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0,…"
   },
   {
     "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables",
@@ -1418,7 +1439,7 @@
     "href": "index.html#code-alongs",
     "title": " Data visualization and transformation",
     "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\n\nNo matching items"
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguin\n\n\n\n\nFirst look at Palmer Penguin\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#exercises",
@@ -1426,5 +1447,40 @@
     "title": " Data visualization and transformation",
     "section": "Exercises",
     "text": "Exercises\n\n\n\n\n\nTitle\n\n\n\n\n\n\nMeet the toolkit: Programming exercises\n\n\n\n\nBechdel + data visualization\n\n\n\n\nMario games + data visualization\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html",
+    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#packages",
+    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#packages",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)"
+  },
+  {
+    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#data",
+    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#data",
+    "title": "First look at Palmer Penguin",
+    "section": "",
+    "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#two-variables",
+    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#two-variables",
+    "title": "First look at Palmer Penguin",
+    "section": "Two variables",
+    "text": "Two variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between two variables is called bivariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins by species.\n\nMake a single histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nUse multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.\n\n\n# add code here\n\n\nUse side-by-side box plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse density plots. Add color as you see fit.\n\n\n# add code here\n\n\nUse violin plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nMake a jittered scatter plot. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse beeswarm plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#multiple-variables",
+    "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html#multiple-variables",
+    "title": "First look at Palmer Penguin",
+    "section": "Multiple variables",
+    "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\n\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\n\n# add code here\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
   }
 ]
