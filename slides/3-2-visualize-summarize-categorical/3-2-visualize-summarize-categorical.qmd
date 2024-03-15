@@ -95,8 +95,6 @@ glimpse(loans)
 | `homeownership`  | categorical, not ordinal |
 | `debt_to_income` | numerical, continuous    |
 
-class: middle
-
 # Visualizing categorical data
 
 ## Bar plot

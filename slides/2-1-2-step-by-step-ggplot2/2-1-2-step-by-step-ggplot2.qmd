@@ -57,7 +57,7 @@ library(palmerpenguins)
 
 ```{r}
 #| label: mass-height
-#| code-line-numbers: "|1|2|3"
+#| code-line-numbers: "|1|2|3-7"
 
 ggplot(starwars, aes(x = height, y = mass)) +
   geom_point() +
@@ -112,7 +112,8 @@ ggplot(
     subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
     x = "Bill depth (mm)", 
     y = "Bill length (mm)",
-    color = "Species"
+    color = "Species",
+    caption = "Source: Palmer Station LTER / palmerpenguins package"
   )
 ```
 

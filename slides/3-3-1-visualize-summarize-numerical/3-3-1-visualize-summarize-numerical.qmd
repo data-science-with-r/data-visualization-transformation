@@ -7,14 +7,20 @@ format:
 
 ```{r}
 #| include: false
-
-library(tidyverse)
-library(openintro)
-
 ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 ```
 
-# Data
+# Setup
+
+## Packages
+
+```{r}
+#| label: packages
+#| message: false
+library(tidyverse) # for data wrangling and visualization
+library(openintro) # for data
+library(scales)    # for pretty axis labels
+```
 
 ## Data: Lending Club
 
@@ -27,9 +33,122 @@ loans <- loans_full_schema |>
 glimpse(loans)
 ```
 
-# Histogram {.section-break}
+# Distribution of a numerical variable
+
+## Loan amount {.nostretch}
+
+```{r}
+#| echo: false
+#| fig-width: 10
+loan_amount_hist <- ggplot(loans, aes(x = loan_amount)) +
+  geom_histogram(binwidth = 5000) +
+  scale_x_continuous(labels = label_dollar()) +
+  scale_y_continuous(labels = label_number()) +
+  theme_gray(base_size = 26) +
+  labs(
+    x = "Loan amount (USD)",
+    y = "Count"
+  )
+loan_amount_hist
+```
+
+## Characteristics of a distribution
+
+::: incremental
+- **Shape:** Modality and skewness
+- **Center:** Generally mean or median depending on whether the distribution is symmetric or skewed, respectively
+- **Spread:** Generally standard deviation or inter-quartile range (IQR) depending on whether the distribution is symmetric or skewed, respectively
+- **Outliers:** Whether there are any, where they are located, and if feasible to identify, which observations
+:::
+
+## Shape {.nostretch}
+
+The distribution of loan amounts in this sample is unimodal and right-skewed distribution.
+
+```{r}
+#| echo: false
+#| fig-width: 10
+ggplot(loans, aes(x = loan_amount)) +
+  geom_histogram(binwidth = 5000, aes(y = after_stat(density))) +
+  geom_density(adjust = 2, color = "pink", linewidth = 2) +
+  theme_gray(base_size = 26) +
+  scale_x_continuous(labels = label_dollar()) +
+  labs(
+    x = "Loan amount (USD)",
+    y = NULL
+  ) +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank()
+  )
+```
+
+## Center {.nostretch}
+
+Median loan amount in this sample is $14,500.
+
+```{r}
+#| echo: false
+#| fig-width: 10
+loan_amount_hist +
+  geom_vline(xintercept = median(loans$loan_amount), color = "pink", linewidth = 2) +
+  labs(
+    x = "Loan amount (USD)",
+    y = NULL
+  )
+```
+
+## Spread {.nostretch}
+
+In this sample, the middle 50% of the loan amounts are between $8,000 and $24,000.
+
+```{r}
+#| echo: false
+#| fig-width: 10
+
+loan_amout_summary <- loans |>
+  summarize(
+    q25 = quantile(loan_amount, 0.25),
+    q75 = quantile(loan_amount, 0.75)
+  )
+
+loan_amount_hist +
+  annotate(
+    "segment",
+    x = loan_amout_summary$q25, xend = loan_amout_summary$q75,
+    y = 500, yend = 500,
+    color = "pink", linewidth = 2
+  ) +
+  annotate(
+    "segment",
+    x = loan_amout_summary$q25, xend = loan_amout_summary$q25,
+    y = 450, yend = 550,
+    color = "pink", linewidth = 2
+  ) +
+  annotate(
+    "segment",
+    x = loan_amout_summary$q75, xend = loan_amout_summary$q75,
+    y = 450, yend = 550,
+    color = "pink", linewidth = 2
+  )
+
+```
+
+## Outliers {.nostretch}
+
+There are no clear outliers in the loan amounts in this sample.
+
+```{r}
+ggplot(loans, aes(x = loan_amount)) +
+  geom_boxplot()
+```
+
+# Visualizing numerical data {.section-break}
 
 ## Histogram {.nostretch}
+
+- Helpful for identifying shape (modality and skewness)
+- Requires a careful selection of binwidth
 
 ```{r}
 ggplot(loans, aes(x = loan_amount)) +
@@ -57,7 +176,7 @@ ggplot(loans, aes(x = loan_amount)) +
   geom_histogram(binwidth = 20000)
 ```
 
-## Customizing histograms
+## Histogram customization
 
 ```{r}
 #| output-location: column
@@ -71,98 +190,35 @@ ggplot(loans, aes(x = loan_amount)) +
   )
 ```
 
-## Fill with a categorical variable
-
-```{r}
-#| output-location: column
-#| code-line-numbers: "|5,10"
-#| fig-asp: 0.8
-ggplot(
-  loans, 
-  aes(
-    x = loan_amount, 
-    fill = homeownership
-    )
-  ) +
-  geom_histogram(
-    binwidth = 5000,
-    alpha = 0.5
-  ) +
-  labs(
-    x = "Loan amount ($)", y = "Frequency",
-    title = "Amounts of Lending Club loans",
-    fill = "Homeownership"
-  ) +
-  theme(legend.position = "bottom")
-```
-
-## Facet with a categorical variable
-
-```{r}
-#| output-location: column
-#| code-line-numbers: "|14"
-#| fig-asp: 1
-ggplot(
-  loans, 
-  aes(
-    x = loan_amount, 
-    fill = homeownership
-    )
-  ) +
-  geom_histogram(binwidth = 5000) +
-  labs(
-    x = "Loan amount ($)", y = "Frequency",
-    title = "Amounts of Lending Club loans",
-    fill = "Homeownership"
-  ) +
-  facet_wrap(~ homeownership, nrow = 3) +
-  theme(legend.position = "bottom")
-```
-
-# Density plot
-
 ## Density plot {.nostretch}
 
+- Helpful for identifying shape (modality and skewness)
+- Smoothness can be `adjust`ed
+
+:::: {.columns}
+
+::: {.column width="50%"}
 ```{r}
 ggplot(loans, aes(x = loan_amount)) +
   geom_density()
 ```
+:::
 
-## Customizing density plots {.nostretch}
-
+::: {.column width="50%"}
 ```{r}
-#| code-line-numbers: "|3-7"
 ggplot(loans, aes(x = loan_amount)) +
-  geom_density() +
-  labs(
-    x = "Loan amount ($)", y = "Density",
-    title = "Amounts of Lending Club loans"
-  )
+  geom_density(adjust = 2)
 ```
+:::
 
-## Adding a categorical variable
+::::
 
-```{r}
-#| output-location: column
-#| code-line-numbers: "|5,8"
-ggplot(
-  loans,
-  aes(
-    x = loan_amount, 
-    fill = homeownership
-    )
-  ) +
-  geom_density(alpha = 0.5) +
-  labs(
-    x = "Loan amount ($)", y = "Density",
-    title = "Amounts of Lending Club loans", 
-    fill = "Homeownership"
-  )
-```
-
-# Box plot
 
 ## Box plot {.nostretch}
+
+- Helpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile
+- Helpful for identifying shape (skewness, but not modality)
+- Makes outliers very clear (according to a strict definition of an outlier)
 
 ```{r}
 ggplot(loans, aes(x = interest_rate)) +
@@ -176,7 +232,7 @@ ggplot(loans, aes(x = annual_income)) +
   geom_boxplot()
 ```
 
-## Customizing box plots
+## Box plot customization
 
 ```{r}
 #| output-location: column
@@ -193,19 +249,66 @@ ggplot(loans, aes(x = interest_rate)) +
   )
 ```
 
-## Adding a categorical variable
+# Summarizing numerical data
+
+## `summarize()`
+
+- `summarize()` returns for a summary statistic for all observations in the data:
 
 ```{r}
-#| output-location: column
-#| code-line-numbers: "|3"
-ggplot(
-  loans, 
-  aes(x = interest_rate, y = grade)) +
-  geom_boxplot() +
-  labs(
-    x = "Interest rate (%)",
-    y = "Grade",
-    title = "Interest rates of Lending Club loans",
-    subtitle = "by grade of loan"
+loans |>
+  summarize(mean_loan_amt = mean(loan_amount))
+```
+
+. . .
+
+- `summarize()` can be used to calculate multiple summary statistics as well:
+
+```{r}
+loans |>
+  summarize(
+    q25 = quantile(loan_amount, 0.25),
+    q75 = quantile(loan_amount, 0.75)
   )
 ```
+
+## Sloppy `summarize()` {.smaller}
+
+`summarize()` will work even if you don't name your summary statistic, or give it a non-informative/bad name, but I don't recommend it!
+
+:::: {.columns}
+
+::: {.column width="25%"}
+```{r}
+#| code-line-numbers: "|3"
+# good
+loans |>
+  summarize(
+    mean_loan_amt = mean(loan_amount)
+  )
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| code-line-numbers: "|3"
+# bad
+loans |>
+  summarize(
+    mean(loan_amount)
+  )
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| code-line-numbers: "|3"
+# bad
+loans |>
+  summarize(
+    temp = mean(loan_amount)
+  )
+```
+:::
+
+::::

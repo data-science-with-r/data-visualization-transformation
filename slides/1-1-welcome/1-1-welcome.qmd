@@ -87,6 +87,10 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund.
 
 ![](images/data-science-cycle/data-science-cycle.006.png){fig-align="left" width="1280"}
 
+## Communicate
+
+![](images/data-science-cycle/data-science-cycle.007.png){fig-align="left" width="1280"}
+
 ## Understand
 
 ::: columns
@@ -117,10 +121,6 @@ travel
 ::: {.column width="30%"}
 :::
 :::
-
-## Communicate
-
-![](images/data-science-cycle/data-science-cycle.007.png){fig-align="left" width="1280"}
 
 ## Understand + communicate
 
