@@ -1,0 +1,49 @@
+---
+title: "First look at Palmer Penguins"
+---
+
+# Introduction
+
+How do bill sizes of penguins vary across species? And what happens if we don't take species into consideration?
+
+## Packages
+
+We will use the **tidyverse** packages for data wrangling and visualization and the **palmerpenguins** package for the data.
+
+```{r}
+#| label: load-packages
+library(tidyverse)
+library(palmerpenguins)
+```
+
+## Data
+
+The dataset we will visualize is called `penguins`.
+Let's `glimpse()` at it.
+
+```{r}
+#| label: glimpse
+# add code here
+```
+
+# Penguin bills
+
+1.  Create a scatterplot of `bill_depth` vs. `bill_length`s of `penguin`s. Overlay a line of best fit. Describe the relationship between the two variables.
+
+```{r}
+#| label: bill-depth-width
+# add code here
+```
+
+Add interpretation here.
+
+2.  Create a scatterplot of `bill_depth` vs. `bill_length`s of `penguin`s, colored by `species`. Overlay a line of best fit. Describe the relationship between the two variables for each of the species.
+
+```{r}
+#| label: bill-depth-width-species
+# add code here
+```
+
+Add interpretation here.
+
+3.  Reflect on the seemingly contradictory findings from the two visualizations you've created. Which one do you believe more, and why?

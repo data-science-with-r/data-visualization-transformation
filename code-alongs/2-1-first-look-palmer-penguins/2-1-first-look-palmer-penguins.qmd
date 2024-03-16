@@ -1,11 +1,12 @@
 ---
-title: "First look at Palmer Penguin"
+title: "First look at Palmer Penguins"
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Introduction
 
-How do sizes of penguins vary across species, islands, and sexes?
-What about other characteristics?
+How do bill sizes of penguins vary across species? And what happens if we don't take species into consideration?
 
 ## Packages
 
@@ -13,38 +14,44 @@ We will use the **tidyverse** packages for data wrangling and visualization and 
 
 ```{r}
 #| label: load-packages
+#| message: false
 library(tidyverse)
 library(palmerpenguins)
 ```
 
 ## Data
 
-The dataset we will visualize is called `penguins`.
-Let's `glimpse()` at it.
+The dataset we will visualize is called `penguins`. Let's `glimpse()` at it.
 
 ```{r}
 #| label: glimpse
-# add code here
+glimpse(penguins)
 ```
 
 # Penguin bills
 
-1.  Create a scatterplot of `bill_depth` vs. `bill_length`s of `penguin`s. Overlay a line of best fit. Describe the relationship between the two variables.
+1.  Create a scatterplot of `bill_depth_mm` vs. `bill_length_mm`s of `penguin`s. Overlay a line of best fit. Describe the relationship between the two variables.
 
 ```{r}
 #| label: bill-depth-width
-# add code here
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
 ```
 
-Add interpretation here.
+There is a negative relationship between bill depth and bill length. The relationship is somewhat weak and linear.
 
-2.  Create a scatterplot of `bill_depth` vs. `bill_length`s of `penguin`s, colored by `species`. Overlay a line of best fit. Describe the relationship between the two variables for each of the species.
+2.  Create a scatterplot of `bill_depth_mm` vs. `bill_length_mm`s of `penguin`s, colored by `species`. Overlay a line of best fit. Describe the relationship between the two variables for each of the species.
 
 ```{r}
 #| label: bill-depth-width-species
-# add code here
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
 ```
 
-Add interpretation here.
+There is a positive relationship between bill depth and bill length for each of the three species. The relationships are moderately strong and linear.
 
 3.  Reflect on the seemingly contradictory findings from the two visualizations you've created. Which one do you believe more, and why?
+
+I believe the second one more, we should be considering species when analyzing the relationship between bill depth and bill length for penguins.
