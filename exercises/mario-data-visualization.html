@@ -776,13 +776,15 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#get-to-know-the-data" id="toc-get-to-know-the-data" class="nav-link" data-scroll-target="#get-to-know-the-data">Get to know the data</a></li>
   </ul></li>
-  <li><a href="#variables-of-interest-update" id="toc-variables-of-interest-update" class="nav-link" data-scroll-target="#variables-of-interest-update">Variables of Interest (update)</a></li>
+  <li><a href="#variables-of-interest" id="toc-variables-of-interest" class="nav-link" data-scroll-target="#variables-of-interest">Variables of Interest</a></li>
   <li><a href="#visualizing-categorical-data-with-ggplot2" id="toc-visualizing-categorical-data-with-ggplot2" class="nav-link" data-scroll-target="#visualizing-categorical-data-with-ggplot2">Visualizing categorical data with <code>ggplot2</code></a></li>
   <li><a href="#count-vs-proportion" id="toc-count-vs-proportion" class="nav-link" data-scroll-target="#count-vs-proportion">Count vs Proportion</a></li>
-  <li><a href="#relationships-between-numerical-and-categorical-variables" id="toc-relationships-between-numerical-and-categorical-variables" class="nav-link" data-scroll-target="#relationships-between-numerical-and-categorical-variables">Relationships between numerical and categorical variables</a></li>
+  <li><a href="#relationships-between-numerical-and-categorical-variables" id="toc-relationships-between-numerical-and-categorical-variables" class="nav-link" data-scroll-target="#relationships-between-numerical-and-categorical-variables">Relationships between numerical and categorical variables</a>
+  <ul class="collapse">
   <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots">Boxplots</a></li>
   <li><a href="#violin-plot" id="toc-violin-plot" class="nav-link" data-scroll-target="#violin-plot">Violin plot</a></li>
   <li><a href="#ridge-plots" id="toc-ridge-plots" class="nav-link" data-scroll-target="#ridge-plots">Ridge plots</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1008,11 +1010,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `mario <- read.csv("Mariokart.csv")`, 
+  `mario <- read.csv("mariokart.csv")`, 
   2);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>In this mini analysis we work with the data from the <em>openintro</em> package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:</p>
+<p>In this mini analysis we work with the data from the <strong>openintro</strong> package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:</p>
 <table class="table">
 <colgroup>
 <col style="width: 9%">
@@ -1075,7 +1077,7 @@ qwebrCreateMonacoEditorInstance(
 </table>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
-<p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. <strong>ggridges</strong> allows us to make ridge plots, and <strong>gridExtra</strong> allows to arrange plots next to eachother. These are ready to use for you in this activity!</p>
+<p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. <strong>ggridges</strong> allows us to make ridge plots, and <strong>gridExtra</strong> allows to arrange plots next to each other. These are ready to use for you in this activity!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
@@ -1085,7 +1087,7 @@ qwebrCreateMonacoEditorInstance(
 </section>
 <section id="get-to-know-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="get-to-know-the-data">Get to know the data</h3>
-<p><strong>Your Turn</strong>: We can use the <code>glimpse</code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
+<p>We can use <code>glimpse()</code> to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
 <p>With your output, confirm that:</p>
 <ul>
 <li><p>There are 143 rows</p></li>
@@ -1159,19 +1161,32 @@ $ title       &lt;chr&gt; "~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BR
 </div>
 </section>
 </section>
-<section id="variables-of-interest-update" class="level2">
-<h2 class="anchored" data-anchor-id="variables-of-interest-update">Variables of Interest (update)</h2>
+<section id="variables-of-interest" class="level2">
+<h2 class="anchored" data-anchor-id="variables-of-interest">Variables of Interest</h2>
 <p>The variables we’ll focus on are the following:</p>
 <ul>
-<li><code>n_bids</code>: number of bids throughout the auction</li>
 <li><code>total_pr</code>: total price of game sold plus shipping in usd</li>
-<li><code>seller_rate</code>: The seller’s rating on Ebay</li>
-<li><code>cond</code>: Binary variable representing the condition of the video game</li>
+<li><code>ship_sp</code>: Shipping speed or method
+<ul>
+<li><code>firstClass</code></li>
+<li><code>media</code></li>
+<li><code>other</code></li>
+<li><code>parcel</code></li>
+<li><code>priority</code></li>
+<li><code>standard</code></li>
+<li><code>ups3Day</code></li>
+<li><code>upsGround</code></li>
+</ul></li>
+<li><code>cond</code>: Binary variable representing the condition of the video game
+<ul>
+<li><code>new</code></li>
+<li><code>used</code></li>
+</ul></li>
 </ul>
 </section>
 <section id="visualizing-categorical-data-with-ggplot2" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-categorical-data-with-ggplot2">Visualizing categorical data with <code>ggplot2</code></h2>
-<p><strong>Your Turn</strong>: First, let’s explore the variable <code>cond</code>. Specifically, let’s investigate how many <code>new</code> games were sold versus how many <code>used</code> games were sold by creating a barplot. Add the following correct <code>geom</code> to make a barplot of <code>cond</code>.</p>
+<p>First, let’s explore the variable <code>cond</code>. Specifically, let’s investigate how many <code>new</code> games were sold versus how many <code>used</code> games were sold by creating a barplot. Add the following correct <code>geom_xx()</code> to make a barplot of <code>cond</code> below.</p>
 <div id="qwebr-insertion-location-4"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1190,7 +1205,7 @@ qwebrCreateMonacoEditorInstance(
   `mario |>
   ggplot(
     aes(x = cond)) + 
-  #add geom here`, 
+  #add code here`, 
   4);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1240,7 +1255,7 @@ currentDocumentLocation.appendChild(initializedElement);
 qwebrCreateMonacoEditorInstance(
   `mario |>
   ggplot(
-    aes(x = cond , fill = ...)) + 
+    aes(x = cond , fill = #add code here)) + 
    geom_bar()`, 
   5);
 </script>
@@ -1273,7 +1288,7 @@ Expected Result
 </div>
 </div>
 </div>
-<p><strong>Demo</strong>: The code above uses <code>fill</code> to color the segments of the boxplot by another categorical variable. Below, we change <code>fill</code> to <code>color</code>. What happens? Why?</p>
+<p>The code above uses <code>fill</code> to color the segments of the boxplot by another categorical variable. Below, we change <code>fill</code> to <code>color</code>. What happens? Why?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -1287,7 +1302,7 @@ Expected Result
 </div>
 </div>
 </div>
-<p><label>Answer:</label> <br></p>
+<p><br></p>
 <textarea rows="4" cols="50"></textarea>
 <p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1309,7 +1324,7 @@ Solution
 </section>
 <section id="count-vs-proportion" class="level2">
 <h2 class="anchored" data-anchor-id="count-vs-proportion">Count vs Proportion</h2>
-<p><strong>Your Turn</strong>: Up to this point, our bar plot has counted up the number of observations for each condition of game, and has been segmented by the count of shipping method. Perhaps it is easier to compare shipping method across condition of game if we looked at the proportion of shipping method within each game. This can be achieved using <code>position = "fill"</code> in the <code>geom</code> statement. Alter the code below so that it includes <code>position = fill</code>, and comment on the relationship between condition and shipping method.</p>
+<p>Up to this point, our bar plot has counted up the number of observations for each condition of game, and has been segmented by the count of shipping method. Perhaps it is easier to compare shipping method across condition of game if we looked at the proportion of shipping method within each game. This can be achieved using <code>position = "fill"</code> in the <code>geom_xx()</code> statement. Alter the code below so that it includes <code>position = fill</code>, and comment on the relationship between condition and shipping method.</p>
 <div id="qwebr-insertion-location-6"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1327,12 +1342,12 @@ currentDocumentLocation.appendChild(initializedElement);
 qwebrCreateMonacoEditorInstance(
   `mario |>
   ggplot(
-    aes(x = cond , fill = ...)) + 
+    aes(x = cond , fill = ship_sp,  position = #add code here, #add code here)) + 
    geom_bar()`, 
   6);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Answer:</label> <br></p>
+<p><br></p>
 <textarea rows="4" cols="50"></textarea>
 <p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1365,13 +1380,12 @@ Solution
 </div>
 </div>
 </section>
-<section id="relationships-between-numerical-and-categorical-variables" class="level1">
-<h1>Relationships between numerical and categorical variables</h1>
+<section id="relationships-between-numerical-and-categorical-variables" class="level2">
+<h2 class="anchored" data-anchor-id="relationships-between-numerical-and-categorical-variables">Relationships between numerical and categorical variables</h2>
 <p>Up to this point, we have been visualizing the relationship between categorical variables. What if we wanted to look at the relationships between different types of variables?</p>
-</section>
-<section id="boxplots" class="level1">
-<h1>Boxplots</h1>
-<p>One way we can investigate the relationship between different types of variables is to create a boxplot. Below, we are going to create a boxplot using <code>geom_boxplot</code> between the variables <code>cond</code> and <code>total_pr</code>. What information can we gather from the boxplots?</p>
+<section id="boxplots" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots">Boxplots</h3>
+<p>One way we can investigate the relationship between different types of variables is to create a boxplot. Below, we are going to create a boxplot using <code>geom_boxplot()</code> between the variables <code>cond</code> and <code>total_pr</code>. What information can we gather from the boxplots?</p>
 <div id="qwebr-insertion-location-7"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1390,11 +1404,11 @@ qwebrCreateMonacoEditorInstance(
   `mario |>
   ggplot(
     aes(x = cond , y = total_pr)) + 
-   # insert geom here`, 
+   #add code here`, 
   7);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Answer:</label> <br></p>
+<p><br></p>
 <textarea rows="4" cols="50"></textarea>
 <p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1427,9 +1441,9 @@ Solution
 </div>
 </div>
 </section>
-<section id="violin-plot" class="level1">
-<h1>Violin plot</h1>
-<p><strong>Demo</strong>: A violin plot is a lot like a box plot, but also shows us information about the density of the quantitative variable. Below, we have a violin plot that again shows the relationship between the condition of the Mario game, and the total price of the game (cost + shipping). Describe the relationship below.</p>
+<section id="violin-plot" class="level3">
+<h3 class="anchored" data-anchor-id="violin-plot">Violin plot</h3>
+<p>A violin plot is a lot like a box plot, but also shows us information about the density of the quantitative variable. Below, we have a violin plot that again shows the relationship between the condition (<code>cond</code>) of the Mario game, and the total price (<code>total_pr</code>) of the game (cost + shipping). Describe the relationship below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
@@ -1443,7 +1457,7 @@ Solution
 </div>
 </div>
 </div>
-<p><label>Answer:</label> <br></p>
+<p><br></p>
 <textarea rows="4" cols="50"></textarea>
 <p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1463,9 +1477,9 @@ Solution
 </div>
 </div>
 </section>
-<section id="ridge-plots" class="level1">
-<h1>Ridge plots</h1>
-<p><strong>Your Turn</strong>: Ridge plots, similar to violin plots, shows the distribution of a numeric variable across the levels of a categorical variable. In order to make this plot, we will use <code>geom_density_ridges</code>. Please add this geom to the following code below to make the ridge plots. Within this geom, set alpha equal to 0.5.</p>
+<section id="ridge-plots" class="level3">
+<h3 class="anchored" data-anchor-id="ridge-plots">Ridge plots</h3>
+<p>Ridge plots, similar to violin plots, shows the distribution of a numeric variable across the levels of a categorical variable. In order to make this plot, we will use <code>geom_density_ridges()</code>. Add this geom to the following code below to make the ridge plots. Within this geom, set alpha equal to 0.5.</p>
 <div id="qwebr-insertion-location-8"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1484,7 +1498,7 @@ qwebrCreateMonacoEditorInstance(
   `mario |>
   ggplot(
     aes(x = total_pr , y = cond, fill = cond, color = cond)) + 
-   # insert geom here`, 
+   #add code here`, 
   8);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1519,9 +1533,9 @@ Solution
 </div>
 </div>
 </div>
-<p><strong>FOR MINE</strong>: I think I should add a big exploratory question to end these activities. what do you think?</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
