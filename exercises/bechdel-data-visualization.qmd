@@ -91,13 +91,6 @@ We can use `slice()` to look at rows of our data. Run the following code. Change
 slice(bechdel, 1:5)
 ```
 
-<br>
-```{=html}
-<textarea rows="4" cols="50">
-</textarea>
-```
-<br><br>
-
 What does each observation (row) in the data set represent?
 
 <br>
@@ -128,7 +121,6 @@ The variables we'll focus on are the following:
     -   `nowomen` = fewer than two women
 -   `binary`: Bechdel Test PASS vs FAIL binary
 
-We will also use the `year` of release in data prep and `title` of movie to take a deeper look at some outliers.
 
 There are a few other variables in the dataset, but we won't be using them in this analysis.
 
@@ -174,8 +166,8 @@ ggplot(bechdel,
 ## Solution
 
 ```{r}
-#| echo: false
-library(ggplot2)
+#| echo: true
+
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
   geom_point()
@@ -198,18 +190,11 @@ See <http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf> for many color optio
 
 ```{webr-r}
 #| label: plot-point-color
-
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
   geom_point(color = "coral") 
 ```
 
-<br>
-```{=html}
-<textarea rows="4" cols="50">
-</textarea>
-```
-<br><br>
 
 ### Step 2
 
@@ -228,7 +213,7 @@ ggplot(bechdel,
 
 ```{r}
 #| label: plot-labels
-
+#| echo: true
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013))+
   geom_point(color = "deepskyblue3") + 
@@ -269,6 +254,7 @@ ggplot(bechdel,
 
 ```{r}
 #| label: plot-aes-color-solution
+#| echo: true
 ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013,
            color = binary, size = roi)) +
@@ -298,17 +284,10 @@ ggplot(bechdel,
     )
 ```
 
-<br>
-```{=html}
-<textarea rows="4" cols="50">
-</textarea>
-```
-<br><br>
-
 
 ### Step 5
 
-Expand on your plot from the previous step by using `facet_wrap()` to display the association between budget and gross for different values of `clean_test`.
+Expand on your plot from the previous step by using `[facet_wrap()](https://ggplot2.tidyverse.org/reference/facet_wrap.html)` to display the association between `budget` and `gross` for different values of `clean_test`.
 
 ```{webr-r}
 #| label: plot-facet-wrap
@@ -316,7 +295,7 @@ ggplot(bechdel,
   aes(x = budget_2013, y = gross_2013,
     color = binary, size = roi)) +
   geom_point(alpha = 0.5) + 
-  facet_wrap(~#insert variable here) +
+  facet_wrap(~#add code here) +
   labs(
     x = "Budget (in 2013 $)", 
     y = "Gross revenue (in 2013 $)", 
@@ -329,7 +308,7 @@ ggplot(bechdel,
 
 ```{r}
 #| label: plot-facet-wrap-sol
-
+#| echo: true
 ggplot(bechdel, 
   aes(x = budget_2013, y = gross_2013,
     color = binary, size = roi)) +
@@ -348,7 +327,7 @@ ggplot(bechdel,
 Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.
 
 ::: callout-tip
-This is done through the use of the [**scales**](https://scales.r-lib.org/) package, specifically the `scale_x_continuous()` and `scale_y_continuous()` functions.
+This is done through the use of the [**scales**](https://scales.r-lib.org/) package, specifically the `[scale_x_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html)` and `[scale_y_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html)` functions.
 :::
 
 ```{webr-r}
@@ -367,16 +346,10 @@ ggplot(bechdel,
     )
 ```
 
-<br>
-```{=html}
-<textarea rows="4" cols="50">
-</textarea>
-```
-<br><br>
 
 ### Step 7
 
-Expand on your plot from the previous step by using `facet_grid()` to display the association between budget and gross for different combinations of `clean_test` and `binary`. Comment on whether this was a useful update.
+Expand on your plot from the previous step by using `[facet_grid()](https://ggplot2.tidyverse.org/reference/facet_grid.html)` to display the association between `budget` and `gross` for different combinations of `clean_test` and `binary`.
 
 ```{webr-r}
 #| label: plot-facet-grid
@@ -405,23 +378,6 @@ Is this type of facet useful? Why or why not?
 
 ::: {.callout-tip collapse="true"}
 ## Solution
-
-```{r}
-ggplot(bechdel, 
-       aes(x = budget_2013, y = gross_2013,
-           color = binary, size = roi)) +
-  geom_point(alpha = 0.5) + 
-  facet_grid(clean_test ~ binary) +
-  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +
-  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +
-  labs(
-    x = "Budget (in 2013 $)", 
-    y = "Gross revenue (in 2013 $)", 
-    title = "Gross revenue vs. budget, by Bechdel test result"
-    )
-```
-
-
 This was not a useful update as one of the levels of `clean_test` maps directly to one of the levels of `binary`.
 :::
 
