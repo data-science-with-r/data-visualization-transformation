@@ -776,7 +776,7 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#get-to-know-the-data" id="toc-get-to-know-the-data" class="nav-link" data-scroll-target="#get-to-know-the-data">Get to know the data</a></li>
   </ul></li>
-  <li><a href="#variables-of-interest" id="toc-variables-of-interest" class="nav-link" data-scroll-target="#variables-of-interest">Variables of Interest</a></li>
+  <li><a href="#variables-of-interest" id="toc-variables-of-interest" class="nav-link" data-scroll-target="#variables-of-interest">Variables of interest</a></li>
   <li><a href="#visualizing-categorical-data-with-ggplot2" id="toc-visualizing-categorical-data-with-ggplot2" class="nav-link" data-scroll-target="#visualizing-categorical-data-with-ggplot2">Visualizing categorical data with <code>ggplot2</code></a></li>
   <li><a href="#count-vs-proportion" id="toc-count-vs-proportion" class="nav-link" data-scroll-target="#count-vs-proportion">Count vs Proportion</a></li>
   <li><a href="#relationships-between-numerical-and-categorical-variables" id="toc-relationships-between-numerical-and-categorical-variables" class="nav-link" data-scroll-target="#relationships-between-numerical-and-categorical-variables">Relationships between numerical and categorical variables</a>
@@ -959,16 +959,16 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Programming Activity Guide
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please reference the <code>webR-intro</code> activity for information on the different types of code chunks, questions, and how to save your work to reference later.</p>
+<p>Please reference the <code>webR-intro</code> programming exercise for information and instructions on how to interact with the programming exercise below.</p>
 </div>
 </div>
 <section id="getting-started" class="level2">
 <h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.</p>
+<p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following programming exercise.</p>
 <div id="qwebr-insertion-location-1"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1039,7 +1039,7 @@ qwebrCreateMonacoEditorInstance(
 </tr>
 <tr class="odd">
 <td>cond</td>
-<td>Game condition, either <code>new</code> or <code>used</code></td>
+<td>Game condition, either new or used</td>
 </tr>
 <tr class="even">
 <td>start_pr</td>
@@ -1063,7 +1063,7 @@ qwebrCreateMonacoEditorInstance(
 </tr>
 <tr class="odd">
 <td>stock_photo</td>
-<td>Whether the auction feature photo was a stock photo or not, either <code>yes</code> or <code>no</code></td>
+<td>Whether the auction feature photo was a stock photo or not, either yes or no</td>
 </tr>
 <tr class="even">
 <td>wheels</td>
@@ -1077,7 +1077,7 @@ qwebrCreateMonacoEditorInstance(
 </table>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
-<p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. <strong>ggridges</strong> allows us to make ridge plots, and <strong>gridExtra</strong> allows to arrange plots next to each other. These are ready to use for you in this activity!</p>
+<p>We’ll use <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. <strong>ggridges</strong> allows us to make ridge plots, and <strong>gridExtra</strong> allows to arrange plots next to each other. These are ready to use for you in this programming exercise!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
@@ -1162,7 +1162,7 @@ $ title       &lt;chr&gt; "~~ Wii MARIO KART &amp;amp; WHEEL ~ NINTENDO Wii ~ BR
 </section>
 </section>
 <section id="variables-of-interest" class="level2">
-<h2 class="anchored" data-anchor-id="variables-of-interest">Variables of Interest</h2>
+<h2 class="anchored" data-anchor-id="variables-of-interest">Variables of interest</h2>
 <p>The variables we’ll focus on are the following:</p>
 <ul>
 <li><code>total_pr</code>: total price of game sold plus shipping in usd</li>
@@ -1266,7 +1266,7 @@ qwebrCreateMonacoEditorInstance(
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Expected Result
+Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1342,8 +1342,8 @@ currentDocumentLocation.appendChild(initializedElement);
 qwebrCreateMonacoEditorInstance(
   `mario |>
   ggplot(
-    aes(x = cond , fill = ship_sp,  position = #add code here, #add code here)) + 
-   geom_bar()`, 
+    aes(x = cond , fill = ship_sp)) + 
+   geom_bar(position = #add code here)`, 
   6);
 </script>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1448,7 +1448,7 @@ Solution
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">y =</span> total_pr)) <span class="sc">+</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
