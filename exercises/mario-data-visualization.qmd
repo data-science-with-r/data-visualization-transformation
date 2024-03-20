@@ -6,15 +6,13 @@ webr:
 ---
 
 ::: {.callout-important}
-## Programming Activity Guide
-
-Please reference the `webR-intro` activity for information on the different types of code chunks, questions, and how to save your work to reference later.
+Please reference the `webR-intro` programming exercise for information and instructions on how to interact with the programming exercise below. 
 :::
 
 
 ## Getting started
 
-Please run the following code by clicking the [green arrow]{style="color:green;"} just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following activity.
+Please run the following code by clicking the [green arrow]{style="color:green;"} just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data are read in and can be used for the following programming exercise.
 
 ```{webr-r}
 #| context: setup
@@ -42,19 +40,19 @@ In this mini analysis we work with the data from the **openintro** package in R.
 | id            | Auction ID assigned by Ebay.                                                                                                                       |
 | duration      | Auction length, in days                                                                                                                            |
 | n_bids        | Number of bids                                                                                                                                     |
-| cond          | Game condition, either `new` or `used`                                                                                                             |
+| cond          | Game condition, either new or used                                                                                                             |
 | start_pr      | Start price of the auction                                                                                                                         |
 | ship_pr       | Shipping price                                                                                                                                     |
 | total_pr      | Total price, which equals the auction price plus the shipping price                                                                                |
 | ship_sp       | Shipping speed or method                                                                                                                           |
 | seller_rate   | The seller's rating on Ebay. This is the number of positive ratings minus the number of negative ratings for the seller                            |
-| stock_photo   | Whether the auction feature photo was a stock photo or not, either `yes` or `no`                                                                   |
+| stock_photo   | Whether the auction feature photo was a stock photo or not, either yes or no                                                                   |
 | wheels        | Number of Wii wheels included in the auction. These are steering wheel attachments to make it seem as though you are actually driving in the game. |
 | title         | The title of the auctions                                                                                                                          |
 
 ### Packages
 
-We'll use: **tidyverse** for majority of the analysis and **scales** for pretty plot labels later on. **ggridges** allows us to make ridge plots, and **gridExtra** allows to arrange plots next to each other. These are ready to use for you in this activity!
+We'll use **tidyverse** for majority of the analysis and **scales** for pretty plot labels later on. **ggridges** allows us to make ridge plots, and **gridExtra** allows to arrange plots next to each other. These are ready to use for you in this programming exercise!
 
 ```{r}
 #| label: load-packages
@@ -97,14 +95,12 @@ If you receive the error [Error: object 'mario' not found]{style="color:red;"}, 
 
 ::: {.callout-tip collapse="true"}
 ## Solution
-
 ```{r}
 glimpse(mario)
 ```
-
 :::
 
-## Variables of Interest
+## Variables of interest
 
 The variables we'll focus on are the following:
 
@@ -155,7 +151,7 @@ mario |>
 ```
 
 ::: {.callout-tip collapse="true"}
-## Expected Result
+## Solution
 
 ```{r}
 #| label: plot-fill-solution
@@ -196,8 +192,8 @@ Up to this point, our bar plot has counted up the number of observations for eac
 ```{webr-r}
 mario |>
   ggplot(
-    aes(x = cond , fill = ship_sp,  position = #add code here, #add code here)) + 
-   geom_bar()
+    aes(x = cond , fill = ship_sp)) + 
+   geom_bar(position = #add code here)
 ```
 
 <br>
@@ -268,7 +264,7 @@ A violin plot is a lot like a box plot, but also shows us information about the 
 mario |>
   ggplot(
     aes(x = cond , y = total_pr)) + 
-   geom_violin()
+  geom_violin()
 ```
 
 <br>
