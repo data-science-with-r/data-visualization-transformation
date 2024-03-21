@@ -1,12 +1,12 @@
 ---
-title: "Bechdel + data visualization"
+title: "Bechdel + data visualization test for 3-21"
 order: 2
 webr:
   packages: ['tidyverse', 'scales']
 ---
 
 ::: {.callout-important}
-Please reference the `webR-intro` programming exercise for information on the different types of code chunks, questions, and how to save your work to reference later.
+Please reference the `webR-intro` programming exercise for information and instructions on how to interact with the programming exercise below.
 :::
 
 ## Getting started
@@ -106,7 +106,7 @@ What does each observation (row) in the data set represent?
 Each observation represents a **movie**.
 :::
 
-## Variables of Interest
+## Variables of interest
 
 The variables we'll focus on are the following:
 
