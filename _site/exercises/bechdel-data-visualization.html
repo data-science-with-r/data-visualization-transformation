@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.23">
+<meta name="generator" content="quarto-1.5.25">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Data visualization and transformation – Bechdel + data visualization</title>
+<title>Data visualization and transformation – Bechdel + data visualization test for 3-21</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -760,7 +760,7 @@ globalThis.qwebrCreateNonInteractiveSetupElement = function(qwebrCounter) {
   <li><a href="#get-to-know-the-data" id="toc-get-to-know-the-data" class="nav-link" data-scroll-target="#get-to-know-the-data">Get to know the data</a></li>
   </ul>
 </li>
-  <li><a href="#variables-of-interest" id="toc-variables-of-interest" class="nav-link" data-scroll-target="#variables-of-interest">Variables of Interest</a></li>
+  <li><a href="#variables-of-interest" id="toc-variables-of-interest" class="nav-link" data-scroll-target="#variables-of-interest">Variables of interest</a></li>
   <li><a href="#visualizing-data-with-ggplot2" id="toc-visualizing-data-with-ggplot2" class="nav-link" data-scroll-target="#visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code></a></li>
   <li>
 <a href="#gross-revenue-vs.-budget" id="toc-gross-revenue-vs.-budget" class="nav-link" data-scroll-target="#gross-revenue-vs.-budget">Gross revenue vs.&nbsp;budget</a>
@@ -917,7 +917,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
   };
 
 }</script><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Bechdel + data visualization</h1>
+<h1 class="title">Bechdel + data visualization test for 3-21</h1>
 <p class="subtitle lead"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation<br><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
 </div>
 
@@ -938,15 +938,15 @@ globalThis.qwebrCreateMonacoEditorInstance = function (
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Programming Activity Guide
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please reference the <code>webR-intro</code> activity for information on the different types of code chunks, questions, and how to save your work to reference later.</p>
+<p>Please reference the <code>webR-intro</code> programming exercise for information and instructions on how to interact with the programming exercise below.</p>
 </div>
 </div>
 <section id="getting-started" class="level2"><h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data can be used for the following activity.</p>
+<p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data can be used for the following programming exercise.</p>
 <div id="qwebr-insertion-location-1"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -993,13 +993,11 @@ qwebrCreateMonacoEditorInstance(
 <p>In this mini analysis we work with the data used in the FiveThirtyEight story titled <a href="https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/">“The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”</a>.</p>
 <p>This analysis is about the <a href="https://en.wikipedia.org/wiki/Bechdel_test">Bechdel test</a>, a measure of the representation of women in fiction.</p>
 <section id="packages" class="level3"><h3 class="anchored" data-anchor-id="packages">Packages</h3>
-<p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. These are ready to use for you in this activity!</p>
+<p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. These are ready to use for you in this programming exercise!</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>FOR MINE</strong> Do we need this note below? I modified it from the original AE, but it may not feel necessary for Coursera.</p>
-<p><strong>FOR MINE</strong> Are you going to introduce the pipe before the activity? If so, I can change the code. If not, I can change the code in the mario acitivty to not have the pipe + will have to update a quiz question.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1014,7 +1012,7 @@ Note
 </div>
 </div>
 </section><section id="get-to-know-the-data" class="level3"><h3 class="anchored" data-anchor-id="get-to-know-the-data">Get to know the data</h3>
-<p><strong>Your Turn</strong>: We can use the <code>glimpse</code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
+<p>We can use the <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
 <p>With your output, confirm that:</p>
 <ul>
 <li><p>There are 1615 rows</p></li>
@@ -1080,7 +1078,7 @@ $ clean_test  &lt;chr&gt; "notalk", "ok", "notalk", "notalk", "men", "men", "not
 </div>
 </div>
 </div>
-<p><strong>Demo</strong>: We can use <code>slice</code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
+<p>We can use <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
 <div id="qwebr-insertion-location-4"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1099,10 +1097,8 @@ qwebrCreateMonacoEditorInstance(
   `slice(bechdel, 1:5)`, 
   4);
 </script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Notes:</label> <br></p>
-<textarea rows="4" cols="50"></textarea><p><br><br></p>
 <p>What does each observation (row) in the data set represent?</p>
-<p><label>Answer:</label> <br></p>
+<p><br></p>
 <textarea rows="4" cols="50"></textarea><p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -1120,7 +1116,7 @@ Solution
 </div>
 </div>
 </div>
-</section></section><section id="variables-of-interest" class="level2"><h2 class="anchored" data-anchor-id="variables-of-interest">Variables of Interest</h2>
+</section></section><section id="variables-of-interest" class="level2"><h2 class="anchored" data-anchor-id="variables-of-interest">Variables of interest</h2>
 <p>The variables we’ll focus on are the following:</p>
 <ul>
 <li>
@@ -1146,11 +1142,10 @@ Solution
 <li>
 <code>binary</code>: Bechdel Test PASS vs FAIL binary</li>
 </ul>
-<p>We will also use the <code>year</code> of release in data prep and <code>title</code> of movie to take a deeper look at some outliers.</p>
 <p>There are a few other variables in the dataset, but we won’t be using them in this analysis.</p>
 </section><section id="visualizing-data-with-ggplot2" class="level2"><h2 class="anchored" data-anchor-id="visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code>
 </h2>
-<p><strong>Demo</strong>: <strong>ggplot2</strong> is the package and <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!</p>
+<p><strong>ggplot2</strong> is the package and <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!</p>
 <ul>
 <li>
 <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with <code>data = bechdel</code>, and run the following to create our base.</li>
@@ -1218,7 +1213,7 @@ qwebrCreateMonacoEditorInstance(
   7);
 </script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Note that the result is exactly the same.</p>
-<p><strong>Your Turn</strong>: The <code>geom_xx</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point</code>, which creates a plot where each observation is represented by a point.</p>
+<p>The <code>geom_xx()</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>, which creates a plot where each observation is represented by a point.</p>
 <div id="qwebr-insertion-location-8"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1236,7 +1231,7 @@ currentDocumentLocation.appendChild(initializedElement);
 qwebrCreateMonacoEditorInstance(
   `ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
-  # type geom_point() here!`, 
+  #add code here`, 
   8);
 </script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1252,8 +1247,12 @@ Solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bechdel</span>, </span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1269,7 +1268,7 @@ Solution
 <p>This warning represents the number of observations that were removed because there were missing data!</p>
 </section><section id="gross-revenue-vs.-budget" class="level2"><h2 class="anchored" data-anchor-id="gross-revenue-vs.-budget">Gross revenue vs.&nbsp;budget</h2>
 <section id="step-1" class="level3"><h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
-<p><strong>Demo</strong>: The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!</p>
+<p>The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1298,16 +1297,13 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
+  `ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
   geom_point(color = "coral") `, 
   9);
 </script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Notes:</label> <br></p>
-<textarea rows="4" cols="50"></textarea><p><br><br></p>
 </section><section id="step-2" class="level3"><h3 class="anchored" data-anchor-id="step-2">Step 2</h3>
-<p><strong>Your Turn</strong>: Add labels for the title and x and y axes using <a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a>. Do this by modifying the existing code below.</p>
+<p>Add labels for the title and x and y axes using <a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a>. Do this by modifying the existing code below.</p>
 <div id="qwebr-insertion-location-10"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1323,11 +1319,10 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
+  `ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
   geom_point(color = "coral") + 
-  # insert code here`, 
+  #add code here`, 
   10);
 </script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1343,7 +1338,7 @@ Solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bechdel</span>, </span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bechdel</span>, </span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"deepskyblue3"</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
@@ -1352,7 +1347,8 @@ Solution
 <span>    title <span class="op">=</span> <span class="st">"Gross revenue vs. budget"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1365,7 +1361,7 @@ Solution
 </div>
 </div>
 </section><section id="step-3" class="level3"><h3 class="anchored" data-anchor-id="step-3">Step 3</h3>
-<p><strong>Your Turn</strong>: An <code>aes</code>thetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:</p>
+<p>An <code>aes</code>thetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:</p>
 <ul>
 <li>color</li>
 <li>fill</li>
@@ -1389,8 +1385,7 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
+  `ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013)) +
   geom_point() + 
   labs(
@@ -1413,7 +1408,7 @@ Solution
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bechdel</span>, </span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bechdel</span>, </span>
 <span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span>,</span>
 <span>           color <span class="op">=</span> <span class="va">binary</span>, size <span class="op">=</span> <span class="va">roi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -1423,7 +1418,8 @@ Solution
 <span>    title <span class="op">=</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1436,7 +1432,7 @@ Solution
 </div>
 </div>
 </section><section id="step-4" class="level3"><h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
-<p><strong>Demo</strong>: <code>alpha</code> is used within <code>geom_point</code> to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent.</p>
+<p><code>alpha</code> is used within <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent.</p>
 <div id="qwebr-insertion-location-12"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1452,8 +1448,7 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
+  `ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013,
            color = binary, size = roi)) +
   geom_point(alpha = 1) + 
@@ -1464,10 +1459,8 @@ ggplot(bechdel,
     )`, 
   12);
 </script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Notes:</label> <br></p>
-<textarea rows="4" cols="50"></textarea><p><br><br></p>
 </section><section id="step-5" class="level3"><h3 class="anchored" data-anchor-id="step-5">Step 5</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_wrap</code> to display the association between budget and gross for different values of <code>clean_test</code>.</p>
+<p>Expand on your plot from the previous step by using <code>[facet_wrap()](https://ggplot2.tidyverse.org/reference/facet_wrap.html)</code> to display the association between <code>budget</code> and <code>gross</code> for different values of <code>clean_test</code>.</p>
 <div id="qwebr-insertion-location-13"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1483,12 +1476,11 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
+  `ggplot(bechdel, 
   aes(x = budget_2013, y = gross_2013,
     color = binary, size = roi)) +
   geom_point(alpha = 0.5) + 
-  facet_wrap(~#insert variable here) +
+  facet_wrap(~#add code here) +
   labs(
     x = "Budget (in 2013 $)", 
     y = "Gross revenue (in 2013 $)", 
@@ -1509,7 +1501,7 @@ Solution
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bechdel</span>, </span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bechdel</span>, </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span>,</span>
 <span>    color <span class="op">=</span> <span class="va">binary</span>, size <span class="op">=</span> <span class="va">roi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -1520,7 +1512,8 @@ Solution
 <span>    title <span class="op">=</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1533,7 +1526,7 @@ Solution
 </div>
 </div>
 </section><section id="step-6" class="level3"><h3 class="anchored" data-anchor-id="step-6">Step 6</h3>
-<p><strong>Demo</strong>: Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.</p>
+<p>Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1544,7 +1537,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is done through the use of the <a href="https://scales.r-lib.org/"><strong>scales</strong></a> package, specifically the <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous()</a></code> functions.</p>
+<p>This is done through the use of the <a href="https://scales.r-lib.org/"><strong>scales</strong></a> package, specifically the <code>[scale_x_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html)</code> and <code>[scale_y_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html)</code> functions.</p>
 </div>
 </div>
 <div id="qwebr-insertion-location-14"></div>
@@ -1562,8 +1555,7 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
+  `ggplot(bechdel, 
   aes(x = budget_2013, y = gross_2013,
     color = binary, size = roi)) +
   geom_point(alpha = 0.5) + 
@@ -1577,10 +1569,8 @@ ggplot(bechdel,
     )`, 
   14);
 </script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p><label>Notes:</label> <br></p>
-<textarea rows="4" cols="50"></textarea><p><br><br></p>
 </section><section id="step-7" class="level3"><h3 class="anchored" data-anchor-id="step-7">Step 7</h3>
-<p><strong>Your Turn</strong>: Expand on your plot from the previous step by using <code>facet_grid</code> to display the association between budget and gross for different combinations of <code>clean_test</code> and <code>binary</code>. Comment on whether this was a useful update.</p>
+<p>Expand on your plot from the previous step by using <code>[facet_grid()](https://ggplot2.tidyverse.org/reference/facet_grid.html)</code> to display the association between <code>budget</code> and <code>gross</code> for different combinations of <code>clean_test</code> and <code>binary</code>.</p>
 <div id="qwebr-insertion-location-15"></div>
 <script type="module">
 // Retrieve the insertion point
@@ -1596,8 +1586,7 @@ currentDocumentLocation.appendChild(initializedElement);
 
 // Initialize a Monaco Editor Instance
 qwebrCreateMonacoEditorInstance(
-  `
-ggplot(bechdel, 
+  `ggplot(bechdel, 
        aes(x = budget_2013, y = gross_2013,
            color = binary, size = roi)) +
   geom_point(alpha = 0.5) + 
@@ -1612,7 +1601,7 @@ ggplot(bechdel,
   15);
 </script><noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Is this type of facet useful? Why or why not?</p>
-<p><label>Answer:</label> <br></p>
+<p><br></p>
 <textarea rows="4" cols="50"></textarea><p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
@@ -1626,29 +1615,6 @@ Solution
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">bechdel</span>, </span>
-<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span>,</span>
-<span>           color <span class="op">=</span> <span class="va">binary</span>, size <span class="op">=</span> <span class="va">roi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">clean_test</span> <span class="op">~</span> <span class="va">binary</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/dollar_format.html">label_dollar</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/dollar_format.html">label_dollar</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">1000000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span>    y <span class="op">=</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span>    title <span class="op">=</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 15 rows containing missing values (`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="bechdel-data-visualization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 <p>This was not a useful update as one of the levels of <code>clean_test</code> maps directly to one of the levels of <code>binary</code>.</p>
 </div>
 </div>
@@ -1690,18 +1656,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1733,7 +1688,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1741,7 +1718,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
