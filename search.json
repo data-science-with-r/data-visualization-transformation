@@ -553,11 +553,11 @@
     "text": "Year built\n\nduke_forest |&gt;\n  select(contains(\"year_built\"))\n\n# A tibble: 98 × 2\n   year_built year_built_cat \n        &lt;dbl&gt; &lt;chr&gt;          \n 1       1972 1970 or later  \n 2       1969 1969 or earlier\n 3       1959 1969 or earlier\n 4       1961 1969 or earlier\n 5       2020 1970 or later  \n 6       2014 1970 or later  \n 7       1968 1969 or earlier\n 8       1973 1970 or later  \n 9       1972 1970 or later  \n10       1964 1969 or earlier\n# ℹ 88 more rows"
   },
   {
-    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
-    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencites",
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencies",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencies",
     "title": "Visualizing and summarizing relationships",
-    "section": "Stacked bar plot – frequencites",
-    "text": "Stacked bar plot – frequencites\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()"
+    "section": "Stacked bar plot – frequencies",
+    "text": "Stacked bar plot – frequencies\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-proportions",
