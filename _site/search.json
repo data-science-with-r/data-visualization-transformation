@@ -571,7 +571,7 @@
     "href": "index.html#code-alongs",
     "title": " Data visualization and transformation",
     "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguin\n\n\n\n\nDiving deeper with Palmer Penguin\n\n\n\n\n\nNo matching items"
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nDiving deeper with Palmer Penguin\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#exercises",
@@ -1601,5 +1601,12 @@
     "title": "Diving deeper with Palmer Penguin",
     "section": "Multiple variables",
     "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\n\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\n\n# add code here\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
+  },
+  {
+    "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencies",
+    "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#stacked-bar-plot-frequencies",
+    "title": "Visualizing and summarizing relationships",
+    "section": "Stacked bar plot – frequencies",
+    "text": "Stacked bar plot – frequencies\n\nggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +\n  geom_bar()"
   }
 ]

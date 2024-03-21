@@ -183,7 +183,7 @@ duke_forest |>
   select(contains("year_built"))
 ```
 
-## Stacked bar plot -- frequencites
+## Stacked bar plot -- frequencies
 
 ```{r}
 ggplot(duke_forest, aes(x = year_built_cat, fill = cooling)) +
