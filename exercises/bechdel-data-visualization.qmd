@@ -381,3 +381,5 @@ Is this type of facet useful? Why or why not?
 This was not a useful update as one of the levels of `clean_test` maps directly to one of the levels of `binary`.
 :::
 
+{{< include _reflection_question.qmd >}}
+
