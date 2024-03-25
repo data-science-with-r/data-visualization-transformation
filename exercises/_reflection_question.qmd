@@ -2,6 +2,31 @@
 title: ""
 ---
 
-## Reflection Question 
+## Reflection questions 
 
-This is a test
+- Why do you believe we are studying the content above? 
+
+<br>
+```{=html}
+<textarea rows="8" cols="50">
+</textarea>
+```
+<br><br>
+
+- List three topics that you feel very confident about from the content above.
+
+<br>
+```{=html}
+<textarea rows="8" cols="50">
+</textarea>
+```
+<br><br>
+
+- List three topics that you feel could use more practice (or you are more curious about) from the content above.
+
+<br>
+```{=html}
+<textarea rows="8" cols="50">
+</textarea>
+```
+<br><br>

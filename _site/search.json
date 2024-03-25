@@ -1453,7 +1453,7 @@
     "href": "exercises/meet-programming-exercises.html#questions",
     "title": "Meet the toolkit: Programming exercises",
     "section": "Questions",
-    "text": "Questions\nMany of the questions in the programming exercises require you to actively do something – edit existing code, write code from scratch, write a narrative, etc. Code goes in interactive code chunks that have a Run Code button, narrative goes in text boxes.\nHowever, some questions come with complete code that you don’t need to edit, but still need to run to view the output. These questions will also often invite you to make modifications to explore alternatives.\n\n\n\n\n\n\nSaving Your Work\n\n\n\nYour work does not automatically save.\nFor most browsers, the most efficient way to save your work is by using the Print feature. This may be useful if you want to come back and reference your work after you’ve completed it.\n\nRight click anywhere on this html page.\nSelect Print….\nUnder Destination drop-down menu, select Save as PDF.\nClick on Save and navigate to where you wish to save your work."
+    "text": "Questions\nMany of the questions in the programming exercises require you to actively do something – edit existing code, write code from scratch, write a narrative, etc. Code goes in interactive code chunks that have a Run Code button, narrative goes in text boxes.\nHowever, some questions come with complete code that you don’t need to edit, but still need to run to view the output. These questions will also often invite you to make modifications to explore alternatives.\nThe final question of each programming exercise will be a reflection question. This question is designed to help you think about the concepts you just performed, reflecting on what went well and what could use more practice.\n\n\n\n\n\n\nSaving Your Work\n\n\n\nYour work does not automatically save.\nFor most browsers, the most efficient way to save your work is by using the Print feature. This may be useful if you want to come back and reference your work after you’ve completed it.\n\nRight click anywhere on this html page.\nSelect Print….\nUnder Destination drop-down menu, select Save as PDF.\nClick on Save and navigate to where you wish to save your work."
   },
   {
     "objectID": "exercises/meet-programming-exercises.html#calculator",
@@ -1522,7 +1522,14 @@
     "objectID": "exercises/bechdel-data-visualization.html#reflection-question",
     "href": "exercises/bechdel-data-visualization.html#reflection-question",
     "title": "Data visualization and transformation",
-    "section": "Reflection Question",
-    "text": "Reflection Question\nThis is a test"
+    "section": "Reflection question",
+    "text": "Reflection question\n\nWhy do you believe we are studying the content above?\n\n\n\n\nList three topics that you feel very confident about from the content above.\n\n\n\n\nList three topics that you feel could use more practice (or you are more curious about) from the content above."
+  },
+  {
+    "objectID": "exercises/bechdel-data-visualization.html#reflection-questions",
+    "href": "exercises/bechdel-data-visualization.html#reflection-questions",
+    "title": "Data visualization and transformation",
+    "section": "Reflection questions",
+    "text": "Reflection questions\n\nWhy do you believe we are studying the content above?\n\n\n\n\nList three topics that you feel very confident about from the content above.\n\n\n\n\nList three topics that you feel could use more practice (or you are more curious about) from the content above."
   }
 ]
