@@ -1,5 +1,5 @@
 ---
-title: "Diving deeper with Palmer Penguin"
+title: "Diving deeper with Palmer Penguins"
 ---
 
 # Introduction
@@ -38,23 +38,31 @@ Analyzing the a single variable is called **univariate** analysis.
 
 Create visualizations of the distribution of `weight`s of penguins.
 
-1.  Make a histogram. Set an appropriate binwidth.
+### Exercise 1
+
+Make a histogram.
+Set an appropriate binwidth.
 
 ```{r}
 #| label: histogram-weight
 # add code here
 ```
 
-2.  Make a boxplot.
+### Exercise 2
+
+Make a boxplot.
 
 ```{r}
 #| label: boxplot-weight
 # add code here
 ```
 
-3.  Based on these, determine if each of the following statements about the shape of the distribution is true or false.
-    -   The distribution of penguin weights in this sample is left skewed. **FALSE**
-    -   The distribution of penguin weights in this sample is unimodal. **TRUE**
+### Exercise 3
+
+Based on these, determine if each of the following statements about the shape of the distribution is true or false.
+
+-   The distribution of penguin weights in this sample is left skewed.
+-   The distribution of penguin weights in this sample is unimodal.
 
 ## Two variables
 
@@ -64,56 +72,82 @@ Analyzing the relationship between two variables is called **bivariate** analysi
 
 Create visualizations of the distribution of `weight`s of penguins by `species`.
 
-4.  Make a single histogram. Set an appropriate binwidth.
+### Exercise 4
+
+Make a single histogram.
+Set an appropriate binwidth.
 
 ```{r}
 #| label: histogram-weight-species
 # add code here
 ```
 
-5.  Use multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.
+### Exercise 5
+
+Use multiple histograms via faceting, one for each species.
+Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.
 
 ```{r}
 #| label: histogram-weight-species-facet
 # add code here
 ```
 
-6.  Use side-by-side box plots. Add color as you see fit and turn off legends if not needed.
+### Exercise 6
+
+Use side-by-side box plots.
+Add color as you see fit and turn off legends if not needed.
 
 ```{r}
 #| label: boxplot-weight-species
 # add code here
 ```
 
-7.  Use density plots. Add color as you see fit.
+### Exercise 7
+
+Use density plots.
+Add color as you see fit.
 
 ```{r}
 #| label: density-weight-species
 # add code here
 ```
 
-8.  Use violin plots. Add color as you see fit and turn off legends if not needed.
+### Exercise 8
+
+Use violin plots.
+Add color as you see fit and turn off legends if not needed.
 
 ```{r}
 #| label: violin-weight-species
 # add code here
 ```
 
-9.  Make a jittered scatter plot. Add color as you see fit and turn off legends if not needed.
+### Exercise 9
+
+Make a jittered scatter plot.
+Add color as you see fit and turn off legends if not needed.
 
 ```{r}
 #| label: jitter-weight-species
 # add code here
 ```
 
-10. Use beeswarm plots. Add color as you see fit and turn off legends if not needed.
+### Exercise 10
+
+Use beeswarm plots.
+Add color as you see fit and turn off legends if not needed.
 
 ```{r}
 #| label: beeswarm-weight-species
 # add code here
 ```
 
-11. Use multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.
+### Exercise 11
+
+Use multiple geoms on a single plot.
+Be deliberate about the order of plotting.
+Change the theme and the color scale of the plot.
+Finally, add informative labels.
 
 ```{r}
 #| label: multi-geoms
@@ -126,7 +160,10 @@ Create visualizations of the distribution of `weight`s of penguins by `species`.
 Analyzing the relationship between three or more variables is called **multivariate** analysis.
 :::
 
-12. Facet the plot you created in the previous exercise by `island`. Adjust labels accordingly.
+### Exercise 12
+
+Facet the plot you created in the previous exercise by `island`.
+Adjust labels accordingly.
 
 ```{r}
 #| label: multi-geoms-facet
@@ -138,26 +175,36 @@ We'll do this by editing the YAML.
 
 # Visualizing other variables
 
-13. Pick a single categorical variable from the data set and make a bar plot of its distribution.
+### Exercise 13
+
+Pick a single categorical variable from the data set and make a bar plot of its distribution.
 
 ```{r}
 #| label: barplot
 # add code here
 ```
 
-14. Pick two categorical variables and make a visualization to visualize the relationship between the two variables. Along with your code and output, provide an interpretation of the visualization.
+### Exercise 14
+
+Pick two categorical variables and make a visualization to visualize the relationship between the two variables.
+Along with your code and output, provide an interpretation of the visualization.
+
+Add interpretation here.
 
 ```{r}
 #| label: cat-cat
 # add code here
 ```
 
-Add interpretation here.
+### Exercise 15
 
-15. Make another plot that uses at least three variables. At least one should be numeric and at least one categorical. In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted. Don't forget to label your code chunk.
+Make another plot that uses at least three variables.
+At least one should be numeric and at least one categorical.
+In 1-2 sentences, describe what the plot shows about the relationships between the variables you plotted.
+Don't forget to label your code chunk.
+
+Add interpretation here.
 
 ```{r}
 # add code here
 ```
-
-Add interpretation here.

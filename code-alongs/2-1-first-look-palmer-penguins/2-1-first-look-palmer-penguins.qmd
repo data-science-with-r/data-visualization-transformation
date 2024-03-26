@@ -1,12 +1,11 @@
 ---
 title: "First look at Palmer Penguins"
-editor_options: 
-  chunk_output_type: console
 ---
 
 # Introduction
 
-How do bill sizes of penguins vary across species? And what happens if we don't take species into consideration?
+How do bill sizes of penguins vary across species?
+And what happens if we don't take species into consideration?
 
 ## Packages
 
@@ -21,7 +20,8 @@ library(palmerpenguins)
 
 ## Data
 
-The dataset we will visualize is called `penguins`. Let's `glimpse()` at it.
+The dataset we will visualize is called `penguins`.
+Let's `glimpse()` at it.
 
 ```{r}
 #| label: glimpse
@@ -39,7 +39,8 @@ ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
   geom_smooth(method = "lm", se = FALSE)
 ```
 
-There is a negative relationship between bill depth and bill length. The relationship is somewhat weak and linear.
+There is a negative relationship between bill depth and bill length.
+The relationship is somewhat weak and linear.
 
 2.  Create a scatterplot of `bill_depth_mm` vs. `bill_length_mm`s of `penguin`s, colored by `species`. Overlay a line of best fit. Describe the relationship between the two variables for each of the species.
 
@@ -50,7 +51,8 @@ ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
   geom_smooth(method = "lm", se = FALSE)
 ```
 
-There is a positive relationship between bill depth and bill length for each of the three species. The relationships are moderately strong and linear.
+There is a positive relationship between bill depth and bill length for each of the three species.
+The relationships are moderately strong and linear.
 
 3.  Reflect on the seemingly contradictory findings from the two visualizations you've created. Which one do you believe more, and why?
 

@@ -2,44 +2,44 @@
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html",
-    "title": "Diving deeper with Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguins",
     "section": "",
     "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#packages",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#packages",
-    "title": "Diving deeper with Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguins",
     "section": "",
     "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#data",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#data",
-    "title": "Diving deeper with Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguins",
     "section": "",
     "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\n# add code here"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#single-variable",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#single-variable",
-    "title": "Diving deeper with Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguins",
     "section": "Single variable",
-    "text": "Single variable\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the a single variable is called univariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins.\n\nMake a histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nMake a boxplot.\n\n\n# add code here\n\n\nBased on these, determine if each of the following statements about the shape of the distribution is true or false.\n\nThe distribution of penguin weights in this sample is left skewed. FALSE\n\nThe distribution of penguin weights in this sample is unimodal. TRUE"
+    "text": "Single variable\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the a single variable is called univariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins.\nExercise 1\nMake a histogram. Set an appropriate binwidth.\n\n# add code here\n\nExercise 2\nMake a boxplot.\n\n# add code here\n\nExercise 3\nBased on these, determine if each of the following statements about the shape of the distribution is true or false.\n\nThe distribution of penguin weights in this sample is left skewed.\nThe distribution of penguin weights in this sample is unimodal."
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#two-variables",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#two-variables",
-    "title": "Diving deeper with Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguins",
     "section": "Two variables",
-    "text": "Two variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between two variables is called bivariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins by species.\n\nMake a single histogram. Set an appropriate binwidth.\n\n\n# add code here\n\n\nUse multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.\n\n\n# add code here\n\n\nUse side-by-side box plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse density plots. Add color as you see fit.\n\n\n# add code here\n\n\nUse violin plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nMake a jittered scatter plot. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse beeswarm plots. Add color as you see fit and turn off legends if not needed.\n\n\n# add code here\n\n\nUse multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.\n\n\n# add code here"
+    "text": "Two variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between two variables is called bivariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins by species.\nExercise 4\nMake a single histogram. Set an appropriate binwidth.\n\n# add code here\n\nExercise 5\nUse multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.\n\n# add code here\n\nExercise 6\nUse side-by-side box plots. Add color as you see fit and turn off legends if not needed.\n\n# add code here\n\nExercise 7\nUse density plots. Add color as you see fit.\n\n# add code here\n\nExercise 8\nUse violin plots. Add color as you see fit and turn off legends if not needed.\n\n# add code here\n\nExercise 9\nMake a jittered scatter plot. Add color as you see fit and turn off legends if not needed.\n\n# add code here\n\nExercise 10\nUse beeswarm plots. Add color as you see fit and turn off legends if not needed.\n\n# add code here\n\nExercise 11\nUse multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.\n\n# add code here"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#multiple-variables",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html#multiple-variables",
-    "title": "Diving deeper with Palmer Penguin",
+    "title": "Diving deeper with Palmer Penguins",
     "section": "Multiple variables",
-    "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\n\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\n\n# add code here\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
+    "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\nExercise 12\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\n# add code here\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
   },
   {
     "objectID": "code-alongs/1-1-unvotes/1-1-unvotes.html",
@@ -627,7 +627,7 @@
     "href": "index.html#code-alongs",
     "title": " Data visualization and transformation",
     "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nDiving deeper with Palmer Penguin\n\n\n\n\n\nNo matching items"
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFlights and pipes\n\n\n\n\nStarwars characters\n\n\n\n\nDiving deeper with Palmer Penguins\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#exercises",
@@ -1517,5 +1517,166 @@
     "title": "UN Votes",
     "section": "",
     "text": "The data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship =\n  \"many-to-many\")"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html",
+    "title": "Flights and pipes",
+    "section": "",
+    "text": "Have you ever had a flight delayed? How common is that? Which airlines are delayed more than others?\n\nWe will use the tidyverse packages for data wrangling and visualization and the nycflights13 package for the data.\n\nlibrary(tidyverse)\nlibrary(nycflights13)\n\n\nThe dataset we will explore is called flights. Let’s glimpse() at it.\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 558, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2, -1…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 849,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 851,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7, -1…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\", \"B6\", \"EV\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301, 4…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804JB\", \"N668DN\", \"N394…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", \"EWR\", \"EWR\", \"LGA\",…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", \"ORD\", \"FLL\", \"IAD\",…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149, 1…\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 733, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#packages",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#packages",
+    "title": "Flights and pipes",
+    "section": "",
+    "text": "We will use the tidyverse packages for data wrangling and visualization and the nycflights13 package for the data.\n\nlibrary(tidyverse)\nlibrary(nycflights13)"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#data",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#data",
+    "title": "Flights and pipes",
+    "section": "",
+    "text": "The dataset we will explore is called flights. Let’s glimpse() at it.\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 558, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2, -1…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 849,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 851,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7, -1…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\", \"B6\", \"EV\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301, 4…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804JB\", \"N668DN\", \"N394…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", \"EWR\", \"EWR\", \"LGA\",…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", \"ORD\", \"FLL\", \"IAD\",…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149, 1…\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 733, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-1",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-1",
+    "title": "Flights and pipes",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nFill in the blanks:\nThe flights data frame has ___ rows. Each row represents a ___."
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-2",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-2",
+    "title": "Flights and pipes",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nWhat are the names of the variables in flights.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-3---select",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-3---select",
+    "title": "Flights and pipes",
+    "section": "Exercise 3 - select()\n",
+    "text": "Exercise 3 - select()\n\n\nMake a data frame that only contains the variables dep_delay and arr_delay.\n\n\n# add code here\n\n\nMake a data frame that keeps every variable except dep_delay.\n\n\n# add code here\n\n\nMake a data frame that includes all variables between year through dep_delay (inclusive). These are all variables that provide information about the departure of each flight.\n\n\n# add code here\n\n\nUse the select helper contains() to make a data frame that includes the variables associated with the arrival, i.e., contains the string \"arr_\" in the name.\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-4---slice",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-4---slice",
+    "title": "Flights and pipes",
+    "section": "Exercise 4 - slice()\n",
+    "text": "Exercise 4 - slice()\n\n\nDisplay the first five rows of the flights data frame.\n\n\n# add code here\n\n\nDisplay the last two rows of the flights data frame.\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-5---arrange",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-5---arrange",
+    "title": "Flights and pipes",
+    "section": "Exercise 5 - arrange()\n",
+    "text": "Exercise 5 - arrange()\n\n\nLet’s arrange the data by departure delay, so the flights with the shortest departure delays will be at the top of the data frame.\n\n\n# add code here\n\n\nWhat does it mean for the dep_delay to have a negative value?\n\nAdd your response here.\n\nArrange the data by descending departure delay, so the flights with the longest departure delays will be at the top.\n\n\n# add code here\n\n\nCreate a data frame that only includes the plane tail number (tailnum), carrier (carrier), and departure delay for the flight with the longest departure delay. What is the plane tail number (tailnum) for this flight?\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-6---filter",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-6---filter",
+    "title": "Flights and pipes",
+    "section": "Exercise 6 - filter()\n",
+    "text": "Exercise 6 - filter()\n\n\nFilter for all rows where the destination airport is RDU.\n\n\n# add code here\n\n\nFilter for all rows where the destination airport is RDU and the arrival delay is less than 0.\n\n\n# add code here\n\n\nDescribe what the code is doing in words.\n\nAdd response here.\n\nflights |&gt;\n  filter(\n    dest %in% c(\"RDU\", \"GSO\"),\n    arr_delay &lt; 0 | dep_delay &lt; 0\n  )\n\n# A tibble: 6,203 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      800            810       -10      949            955\n 2  2013     1     1      832            840        -8     1006           1030\n 3  2013     1     1      851            851         0     1032           1036\n 4  2013     1     1      917            920        -3     1052           1108\n 5  2013     1     1     1024           1030        -6     1204           1215\n 6  2013     1     1     1127           1129        -2     1303           1309\n 7  2013     1     1     1157           1205        -8     1342           1345\n 8  2013     1     1     1317           1325        -8     1454           1505\n 9  2013     1     1     1449           1450        -1     1651           1640\n10  2013     1     1     1505           1510        -5     1654           1655\n# ℹ 6,193 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\nHint: Logical operators in R:\n\n\n\n\n\n\noperator\ndefinition\n\n\n\n&lt;\nis less than?\n\n\n&lt;=\nis less than or equal to?\n\n\n&gt;\nis greater than?\n\n\n&gt;=\nis greater than or equal to?\n\n\n==\nis exactly equal to?\n\n\n!=\nis not equal to?\n\n\nx & y\nis x AND y?\n\n\nx | y\nis x OR y?\n\n\nis.na(x)\nis x NA?\n\n\n!is.na(x)\nis x not NA?\n\n\nx %in% y\nis x in y?\n\n\n!(x %in% y)\nis x not in y?\n\n\n!x\nis not x? (only makes sense if x is TRUE or FALSE)"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-7---count",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-7---count",
+    "title": "Flights and pipes",
+    "section": "Exercise 7 - count()\n",
+    "text": "Exercise 7 - count()\n\n\nCreate a frequency table of the destination locations for flights from New York.\n\n\n# add code here\n\n\nIn which month was there the fewest number of flights? How many flights were there in that month?\n\n\n# add code here\n\n\nOn which date (month + day) was there the largest number of flights? How many flights were there on that day?\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-8---mutate",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-8---mutate",
+    "title": "Flights and pipes",
+    "section": "Exercise 8 - mutate()\n",
+    "text": "Exercise 8 - mutate()\n\n\nConvert air_time (minutes in the air) to hours and then create a new variable, mph, the miles per hour of the flight.\n\n\n# add code here\n\n\nFirst, count the number of flights each month, and then calculate the proportion of flights in each month. What proportion of flights take place in July?\n\n\n# add code here\n\n\nCreate a new variable, rdu_bound, which indicates whether the flight is to RDU or not. Then, for each departure airport (origin), calculate what proportion of flights originating from that airport are to RDU.\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-9---summarize",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-9---summarize",
+    "title": "Flights and pipes",
+    "section": "Exercise 9 - summarize()\n",
+    "text": "Exercise 9 - summarize()\n\n\nFind mean arrival delay for all flights.\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-10---group_by",
+    "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html#exercise-10---group_by",
+    "title": "Flights and pipes",
+    "section": "Exercise 10 - group_by()\n",
+    "text": "Exercise 10 - group_by()\n\n\nFind mean arrival delay for for each month.\n\n\n# add code here\n\n\nWhat is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay?\n\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html",
+    "title": "Starwars characters",
+    "section": "",
+    "text": "You might not be a Star Wars fan, but you’ve probably heard of the movie franchise!\n\nWe will use the tidyverse packages for data wrangling and for the data.\n\nThe dataset we will explore is called starwars."
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#packages",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#packages",
+    "title": "Starwars characters",
+    "section": "",
+    "text": "We will use the tidyverse packages for data wrangling and for the data."
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#data",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#data",
+    "title": "Starwars characters",
+    "section": "",
+    "text": "The dataset we will explore is called starwars."
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-1",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-1",
+    "title": "Starwars characters",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nGlimpse at the starwars data frame.\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…"
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-2",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-2",
+    "title": "Starwars characters",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nModify the following plot to change color the points by gender.\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point()\n\nWarning: Removed 28 rows containing missing values (`geom_point()`)."
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-3",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-3",
+    "title": "Starwars characters",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nModify the following plot to change the color of all points to \"pink\".\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point()\n\nWarning: Removed 28 rows containing missing values (`geom_point()`)."
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-4",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-4",
+    "title": "Starwars characters",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nAdd labels for title, x and y axes, and color of points.\n\nggplot(starwars, aes(x = height, y = mass, color = gender)) +\n  geom_point()\n\nWarning: Removed 28 rows containing missing values (`geom_point()`)."
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-5",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-5",
+    "title": "Starwars characters",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nPick a single categorical variable from the data set and make a bar plot of its distribution. Describe what you see in the plot.\nDescription goes here.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-6",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-6",
+    "title": "Starwars characters",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nPick two categorical variables and make a visualization to visualize the relationship between the these variables. Along with your code and output, provide an interpretation of the visualization.\nInterpretation goes here.\n\n# add code here"
+  },
+  {
+    "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-7",
+    "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters.html#exercise-7",
+    "title": "Starwars characters",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nPick three categorical variables and make a visualization to visualize the relationship between the these variables. Along with your code and output, provide an interpretation of the visualization.\nInterpretation goes here.\n\n# add code here"
   }
 ]

@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.25">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Mine Çetinkaya-Rundel + Elijah Meyer">
-
-<title>Data visualization and transformation –  Data visualization and transformation</title>
+<title>Data visualization and transformation – Starwars characters</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,30 +17,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -71,132 +97,13 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-slides .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-slides'] = new List('listing-slides', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-code-alongs .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-code-alongs'] = new List('listing-code-alongs', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-exercises .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-exercises'] = new List('listing-exercises', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Data visualization and transformation</span>
     </a>
   </div>
@@ -206,52 +113,54 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
     <a href="https://github.com/data-science-with-r" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#code-alongs" id="toc-code-alongs" class="nav-link" data-scroll-target="#code-alongs">Code alongs</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+<li>
+<a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+<li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#star-wars-characters" id="toc-star-wars-characters" class="nav-link" data-scroll-target="#star-wars-characters">Star Wars characters</a>
+  <ul class="collapse">
+<li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6">Exercise 6</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7">Exercise 7</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</h1>
-<p class="subtitle lead"><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Starwars characters</h1>
+<p class="subtitle lead"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation<br><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Mine Çetinkaya-Rundel + Elijah Meyer </p>
-          </div>
-  </div>
     
   
     
@@ -259,162 +168,102 @@ window.Quarto = {
   
 
 
-</header>
-
-
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<div id="listing-slides" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1710426284493" data-listing-reading-time-sort="2" data-listing-word-count-sort="240" data-listing-title-sort="Welcome" data-listing-filename-sort="1-1-welcome.qmd">
-<td>
-<a href="./slides/1-1-welcome/1-1-welcome.html" class="title listing-title">Welcome</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1710410956582" data-listing-reading-time-sort="4" data-listing-word-count-sort="644" data-listing-title-sort="Visualizing data" data-listing-filename-sort="2-1-1-visualizing-data.qmd">
-<td>
-<a href="./slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html" class="title listing-title">Visualizing data</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1710428514266" data-listing-reading-time-sort="8" data-listing-word-count-sort="1569" data-listing-title-sort="Building a plot<br>step-by-step with ggplot2" data-listing-filename-sort="2-1-2-step-by-step-ggplot2.qmd">
-<td>
-<a href="./slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html" class="title listing-title">Building a plot<br>step-by-step with ggplot2</a>
-</td>
-</tr>
-<tr data-index="3" data-listing-file-modified-sort="1710420172336" data-listing-reading-time-sort="9" data-listing-word-count-sort="1627" data-listing-title-sort="Grammar of graphics" data-listing-filename-sort="2-2-grammar-of-graphics.qmd">
-<td>
-<a href="./slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html" class="title listing-title">Grammar of graphics</a>
-</td>
-</tr>
-<tr data-index="4" data-listing-file-modified-sort="1710506231527" data-listing-reading-time-sort="5" data-listing-word-count-sort="858" data-listing-title-sort="Grammar of data transformation" data-listing-filename-sort="3-1-grammar-of-data-transformation.qmd">
-<td>
-<a href="./slides/3-1-grammar-of-data-transformation/3-1-grammar-of-data-transformation.html" class="title listing-title">Grammar of data transformation</a>
-</td>
-</tr>
-<tr data-index="5" data-listing-file-modified-sort="1710510458871" data-listing-reading-time-sort="7" data-listing-word-count-sort="1372" data-listing-title-sort="Visualizing and summarizing categorical data" data-listing-filename-sort="3-2-visualize-summarize-categorical.qmd">
-<td>
-<a href="./slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html" class="title listing-title">Visualizing and summarizing categorical data</a>
-</td>
-</tr>
-<tr data-index="6" data-listing-file-modified-sort="1710513471883" data-listing-reading-time-sort="5" data-listing-word-count-sort="894" data-listing-title-sort="Visualizing and summarizing numerical data" data-listing-filename-sort="3-3-1-visualize-summarize-numerical.qmd">
-<td>
-<a href="./slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html" class="title listing-title">Visualizing and summarizing numerical data</a>
-</td>
-</tr>
-<tr data-index="7" data-listing-file-modified-sort="1711050387045" data-listing-reading-time-sort="8" data-listing-word-count-sort="1464" data-listing-title-sort="Visualizing and summarizing relationships" data-listing-filename-sort="3-3-2-visualize-summarize-relationships.qmd">
-<td>
-<a href="./slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html" class="title listing-title">Visualizing and summarizing relationships</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+</header><section id="introduction" class="level1"><h1>Introduction</h1>
+<p>You might not be a Star Wars fan, but you’ve probably heard of the movie franchise!</p>
+<section id="packages" class="level2"><h2 class="anchored" data-anchor-id="packages">Packages</h2>
+<p>We will use the <strong>tidyverse</strong> packages for data wrangling and for the data.</p>
+</section><section id="data" class="level2"><h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The dataset we will explore is called <code>starwars</code>.</p>
+</section></section><section id="star-wars-characters" class="level1"><h1>Star Wars characters</h1>
+<section id="exercise-1" class="level2"><h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<p>Glimpse at the starwars data frame.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">glimpse</span><span class="op">(</span><span class="va">starwars</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 87
+Columns: 14
+$ name       &lt;chr&gt; "Luke Skywalker", "C-3PO", "R2-D2", "Darth Vader", "Leia Or…
+$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…
+$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…
+$ hair_color &lt;chr&gt; "blond", NA, NA, "none", "brown", "brown, grey", "brown", N…
+$ skin_color &lt;chr&gt; "fair", "gold", "white, blue", "white", "light", "light", "…
+$ eye_color  &lt;chr&gt; "blue", "yellow", "red", "yellow", "brown", "blue", "blue",…
+$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …
+$ sex        &lt;chr&gt; "male", "none", "none", "male", "female", "male", "female",…
+$ gender     &lt;chr&gt; "masculine", "masculine", "masculine", "masculine", "femini…
+$ homeworld  &lt;chr&gt; "Tatooine", "Tatooine", "Naboo", "Tatooine", "Alderaan", "T…
+$ species    &lt;chr&gt; "Human", "Droid", "Droid", "Human", "Human", "Human", "Huma…
+$ films      &lt;list&gt; &lt;"A New Hope", "The Empire Strikes Back", "Return of the J…
+$ vehicles   &lt;list&gt; &lt;"Snowspeeder", "Imperial Speeder Bike"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, "Imp…
+$ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&gt;, "TIE Advanced x1",…</code></pre>
 </div>
 </div>
-</section>
-<section id="code-alongs" class="level2">
-<h2 class="anchored" data-anchor-id="code-alongs">Code alongs</h2>
-<div id="listing-code-alongs" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1710523479570" data-listing-reading-time-sort="3" data-listing-word-count-sort="414" data-listing-title-sort="UN Votes" data-listing-filename-sort="1-1-unvotes-eov.qmd">
-<td>
-<a href="./code-alongs/1-1-unvotes/1-1-unvotes-eov.html" class="title listing-title">UN Votes</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1710524138659" data-listing-reading-time-sort="3" data-listing-word-count-sort="418" data-listing-title-sort="UN Votes" data-listing-filename-sort="1-1-unvotes.qmd">
-<td>
-<a href="./code-alongs/1-1-unvotes/1-1-unvotes.html" class="title listing-title">UN Votes</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1710524401879" data-listing-reading-time-sort="1" data-listing-word-count-sort="146" data-listing-title-sort="First look at Palmer Penguins" data-listing-filename-sort="2-1-first-look-palmer-penguins-eov.qmd">
-<td>
-<a href="./code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins-eov.html" class="title listing-title">First look at Palmer Penguins</a>
-</td>
-</tr>
-<tr data-index="3" data-listing-file-modified-sort="1711459094469" data-listing-reading-time-sort="2" data-listing-word-count-sort="231" data-listing-title-sort="First look at Palmer Penguins" data-listing-filename-sort="2-1-first-look-palmer-penguins.qmd">
-<td>
-<a href="./code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins.html" class="title listing-title">First look at Palmer Penguins</a>
-</td>
-</tr>
-<tr data-index="4" data-listing-file-modified-sort="1711459763752" data-listing-reading-time-sort="8" data-listing-word-count-sort="1419" data-listing-title-sort="Flights and pipes" data-listing-filename-sort="3-1-flights-and-pipes.qmd">
-<td>
-<a href="./code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes.html" class="title listing-title">Flights and pipes</a>
-</td>
-</tr>
-<tr data-index="5" data-listing-file-modified-sort="1711460663499" data-listing-reading-time-sort="2" data-listing-word-count-sort="229" data-listing-title-sort="Starwars characters" data-listing-filename-sort="3-2-starwars-characters.qmd">
-<td>
-<a href="./code-alongs/3-2-starwars-characters/3-2-starwars-characters.html" class="title listing-title">Starwars characters</a>
-</td>
-</tr>
-<tr data-index="6" data-listing-file-modified-sort="1711460670298" data-listing-reading-time-sort="3" data-listing-word-count-sort="500" data-listing-title-sort="Diving deeper with Palmer Penguins" data-listing-filename-sort="3-3-diving-deeper-palmer-penguins.qmd">
-<td>
-<a href="./code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins.html" class="title listing-title">Diving deeper with Palmer Penguins</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+</section><section id="exercise-2" class="level2"><h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<p>Modify the following plot to change color the points by gender.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">starwars</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">height</span>, y <span class="op">=</span> <span class="va">mass</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 28 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="3-2-starwars-characters_files/figure-html/scatterplot-gender-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="listing-exercises" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1710339865957" data-listing-reading-time-sort="5" data-listing-word-count-sort="958" data-listing-title-sort="Meet the toolkit: Programming exercises" data-listing-filename-sort="meet-programming-exercises.qmd">
-<td>
-<a href="./exercises/meet-programming-exercises.html" class="title listing-title">Meet the toolkit: Programming exercises</a>
-</td>
-</tr>
-<tr data-index="1" data-listing-file-modified-sort="1711050418698" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703" data-listing-title-sort="Bechdel + data visualization test for 3-21" data-listing-filename-sort="bechdel-data-visualization.qmd">
-<td>
-<a href="./exercises/bechdel-data-visualization.html" class="title listing-title">Bechdel + data visualization test for 3-21</a>
-</td>
-</tr>
-<tr data-index="2" data-listing-file-modified-sort="1711050418698" data-listing-reading-time-sort="15" data-listing-word-count-sort="2811" data-listing-title-sort="Mario games + data visualization" data-listing-filename-sort="mario-data-visualization.qmd">
-<td>
-<a href="./exercises/mario-data-visualization.html" class="title listing-title">Mario games + data visualization</a>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
 </div>
+</section><section id="exercise-3" class="level2"><h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
+<p>Modify the following plot to change the color of all points to <code>"pink"</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">starwars</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">height</span>, y <span class="op">=</span> <span class="va">mass</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 28 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="3-2-starwars-characters_files/figure-html/scatterplot-pink-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="exercise-4" class="level2"><h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
+<p>Add labels for title, x and y axes, and color of points.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">starwars</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">height</span>, y <span class="op">=</span> <span class="va">mass</span>, color <span class="op">=</span> <span class="va">gender</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 28 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="3-2-starwars-characters_files/figure-html/scatterplot-labels-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="exercise-5" class="level2"><h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
+<p>Pick a single categorical variable from the data set and make a bar plot of its distribution. Describe what you see in the plot.</p>
+<p>Description goes here.</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="exercise-6" class="level2"><h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
+<p>Pick two categorical variables and make a visualization to visualize the relationship between the these variables. Along with your code and output, provide an interpretation of the visualization.</p>
+<p>Interpretation goes here.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="exercise-7" class="level2"><h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
+<p>Pick three categorical variables and make a visualization to visualize the relationship between the these variables. Along with your code and output, provide an interpretation of the visualization.</p>
+<p>Interpretation goes here.</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># add code here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -835,7 +684,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-
 
 
 

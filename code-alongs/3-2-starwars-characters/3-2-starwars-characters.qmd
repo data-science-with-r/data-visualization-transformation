@@ -1,0 +1,106 @@
+---
+title: "Starwars characters"
+---
+
+# Introduction
+
+You might not be a Star Wars fan, but you've probably heard of the movie franchise!
+
+## Packages
+
+We will use the **tidyverse** packages for data wrangling and for the data.
+
+```{r}
+#| label: load-packages
+#| include: false
+
+library(tidyverse)
+```
+
+## Data
+
+The dataset we will explore is called `starwars`.
+
+# Star Wars characters
+
+## Exercise 1
+
+Glimpse at the starwars data frame.
+
+```{r}
+#| label: glimpse-starwars
+
+glimpse(starwars)
+```
+
+## Exercise 2
+
+Modify the following plot to change color the points by gender.
+
+```{r}
+#| label: scatterplot-gender
+
+ggplot(starwars, aes(x = height, y = mass)) +
+  geom_point()
+```
+
+## Exercise 3
+
+Modify the following plot to change the color of all points to `"pink"`.
+
+```{r}
+#| label: scatterplot-pink
+
+ggplot(starwars, aes(x = height, y = mass)) +
+  geom_point()
+```
+
+## Exercise 4
+
+Add labels for title, x and y axes, and color of points.
+
+```{r}
+#| label: scatterplot-labels
+
+ggplot(starwars, aes(x = height, y = mass, color = gender)) +
+  geom_point()
+```
+
+## Exercise 5
+
+Pick a single categorical variable from the data set and make a bar plot of its distribution.
+Describe what you see in the plot.
+
+Add description here.
+
+```{r}
+#| label: viz-cat
+
+# add code here
+```
+
+## Exercise 6
+
+Pick two categorical variables and make a visualization to visualize the relationship between the these variables.
+Along with your code and output, provide an interpretation of the visualization.
+
+Add interpretation here.
+
+```{r}
+#| label: viz-cat-cat
+
+# add code here
+```
+
+## Exercise 7
+
+Pick three categorical variables and make a visualization to visualize the relationship between the these variables.
+Along with your code and output, provide an interpretation of the visualization.
+
+Add interpretation here.
+
+```{r}
+#| label: viz-cat-cat-cat
+
+# add code here
+```
