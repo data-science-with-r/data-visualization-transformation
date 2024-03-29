@@ -9,13 +9,14 @@ What about other characteristics?
 
 ## Packages
 
-We will use the **tidyverse** packages for data wrangling and visualization and the **palmerpenguins** package for the data.
+We will use the **tidyverse** and **ggbeeswarm** packages for data wrangling and visualization and the **palmerpenguins** package for the data.
 
 ```{r}
 #| label: load-packages
 #| message: false
 library(tidyverse)
 library(palmerpenguins)
+library(ggbeeswarm)
 ```
 
 ## Data
