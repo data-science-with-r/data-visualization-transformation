@@ -9,17 +9,17 @@
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.25">
-<meta name="author" content=" Data Science with R">
-<title>Data visualization and transformation – Visualizing and summarizing categorical data</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
-<style>
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.25">
+
+  <meta name="author" content=" Data Science with R">
+  <title>Data visualization and transformation – Visualizing and summarizing categorical data</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +97,12 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
-<link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-<style type="text/css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -300,7 +300,7 @@
   }
 
   </style>
-<style type="text/css">
+  <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -392,8 +392,9 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Visualizing and summarizing categorical data</h1>
-  <p class="subtitle"><br><br><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Visualizing and summarizing categorical data</h1>
+  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -403,9 +404,14 @@
 </div>
 </div>
 
-</section><section><section id="terminology" class="title-slide slide level1 section-break center"><h1>Terminology</h1>
+</section>
+<section>
+<section id="terminology" class="title-slide slide level1 section-break center">
+<h1>Terminology</h1>
 
-</section><section id="number-of-variables-involved" class="slide level2"><h2>Number of variables involved</h2>
+</section>
+<section id="number-of-variables-involved" class="slide level2">
+<h2>Number of variables involved</h2>
 <div>
 <ul>
 <li class="fragment">Univariate data analysis - distribution of single variable</li>
@@ -413,17 +419,23 @@
 <li class="fragment">Multivariate data analysis - relationship between many variables at once, usually focusing on the relationship between two while conditioning for others</li>
 </ul>
 </div>
-</section><section id="types-of-variables" class="slide level2"><h2>Types of variables</h2>
+</section>
+<section id="types-of-variables" class="slide level2">
+<h2>Types of variables</h2>
 <div>
 <ul>
-<li class="fragment">
-<strong>Numerical variables</strong> can be classified as <strong>continuous</strong> or <strong>discrete</strong> based on whether or not the variable can take on an infinite number of values or only non-negative whole numbers, respectively.</li>
+<li class="fragment"><strong>Numerical variables</strong> can be classified as <strong>continuous</strong> or <strong>discrete</strong> based on whether or not the variable can take on an infinite number of values or only non-negative whole numbers, respectively.</li>
 <li class="fragment">If the variable is <strong>categorical</strong>, we can determine if it is <strong>ordinal</strong> based on whether or not the levels have a natural ordering.</li>
 </ul>
 </div>
-</section></section><section><section id="data" class="title-slide slide level1 center"><h1>Data</h1>
+</section></section>
+<section>
+<section id="data" class="title-slide slide level1 center">
+<h1>Data</h1>
 
-</section><section id="data-lending-club" class="slide level2"><h2>Data: Lending Club</h2>
+</section>
+<section id="data-lending-club" class="slide level2">
+<h2>Data: Lending Club</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
@@ -439,7 +451,9 @@
 <li class="fragment"><p>Data includes loans <em>made</em>, these are not loan applications</p></li>
 </ul>
 </div>
-</section><section id="take-a-peek-at-data" class="slide level2"><h2>Take a peek at data</h2>
+</section>
+<section id="take-a-peek-at-data" class="slide level2">
+<h2>Take a peek at data</h2>
 <div class="cell" data-output.lines="18">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(openintro)</span>
@@ -504,7 +518,9 @@ $ paid_interest                    &lt;dbl&gt; 1015.19, 150.49, …
 $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0,…</code></pre>
 </div>
 </div>
-</section><section id="selected-variables" class="slide level2"><h2>Selected variables</h2>
+</section>
+<section id="selected-variables" class="slide level2">
+<h2>Selected variables</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|2-5|1|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">select</span>(</span>
@@ -525,16 +541,20 @@ $ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…
 $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div>
-</section><section id="selected-variables-1" class="slide level2 midi"><h2>Selected variables</h2>
+</section>
+<section id="selected-variables-1" class="slide level2 midi">
+<h2>Selected variables</h2>
 <table>
 <colgroup>
 <col style="width: 32%">
 <col style="width: 67%">
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>variable</th>
 <th>description</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><code>loan_amount</code></td>
@@ -569,12 +589,17 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <td>Debt-to-income ratio</td>
 </tr>
 </tbody>
-</table></section><section id="variable-types" class="slide level2"><h2>Variable types</h2>
+</table>
+</section>
+<section id="variable-types" class="slide level2">
+<h2>Variable types</h2>
 <table>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th>variable</th>
 <th>type</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td><code>loan_amount</code></td>
@@ -609,31 +634,43 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <td>numerical, continuous</td>
 </tr>
 </tbody>
-</table></section></section><section><section id="visualizing-categorical-data" class="title-slide slide level1 center"><h1>Visualizing categorical data</h1>
+</table>
+</section></section>
+<section>
+<section id="visualizing-categorical-data" class="title-slide slide level1 center">
+<h1>Visualizing categorical data</h1>
 
-</section><section id="bar-plot" class="slide level2 nostretch"><h2>Bar plot</h2>
+</section>
+<section id="bar-plot" class="slide level2 nostretch">
+<h2>Bar plot</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> homeownership)) <span class="sc">+</span></span>
 <span id="cb5-2"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-4-1.png" width="672"></p>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-4-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="segmented-bar-plot" class="slide level2 nostretch"><h2>Segmented bar plot</h2>
+</section>
+<section id="segmented-bar-plot" class="slide level2 nostretch">
+<h2>Segmented bar plot</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> grade)) <span class="sc">+</span></span>
 <span id="cb6-2"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-5-1.png" width="672"></p>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-5-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="segmented-bar-plot-1" class="slide level2 nostretch"><h2>Segmented bar plot</h2>
+</section>
+<section id="segmented-bar-plot-1" class="slide level2 nostretch">
+<h2>Segmented bar plot</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> homeownership, <span class="at">fill =</span> term)) <span class="sc">+</span></span>
 <span id="cb7-2"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -649,12 +686,15 @@ transformation: fill
 </div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-6-1.png" width="672"></p>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-6-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="numerical-to-categorical" class="slide level2 nostretch"><h2>Numerical to categorical</h2>
+</section>
+<section id="numerical-to-categorical" class="slide level2 nostretch">
+<h2>Numerical to categorical</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|2|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb9-2"><a></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as.factor</span>(term)) <span class="sc">|&gt;</span></span>
@@ -662,12 +702,15 @@ transformation: fill
 <span id="cb9-4"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-7-1.png" width="672"></p>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-7-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="segmented-bar-plot---proportions" class="slide level2 nostretch"><h2>Segmented bar plot - proportions</h2>
+</section>
+<section id="segmented-bar-plot---proportions" class="slide level2 nostretch">
+<h2>Segmented bar plot - proportions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb10-2"><a></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as.factor</span>(term)) <span class="sc">|&gt;</span></span>
@@ -675,12 +718,15 @@ transformation: fill
 <span id="cb10-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-8-1.png" width="672"></p>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-8-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="frequencies-vs.-proportions" class="slide level2"><h2>Frequencies vs.&nbsp;proportions</h2>
+</section>
+<section id="frequencies-vs.-proportions" class="slide level2">
+<h2>Frequencies vs.&nbsp;proportions</h2>
 <div class="task">
 <p>Which bar plot is a more useful representation for visualizing the relationship between homeownership and term?</p>
 </div>
@@ -689,7 +735,8 @@ transformation: fill
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -698,14 +745,17 @@ transformation: fill
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-10-1.png" width="576"></p>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-10-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section><section id="customizing-bar-plots" class="slide level2 smaller nostretch"><h2>Customizing bar plots</h2>
+</section>
+<section id="customizing-bar-plots" class="slide level2 smaller nostretch">
+<h2>Customizing bar plots</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|3|5-9|10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb11-2"><a></a>  <span class="fu">mutate</span>(<span class="at">term =</span> <span class="fu">as.factor</span>(term)) <span class="sc">|&gt;</span></span>
@@ -719,14 +769,20 @@ transformation: fill
 <span id="cb11-10"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightblue"</span>, <span class="st">"darkgreen"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<figure>
+<p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-</section></section><section><section id="summarizing-categorical-data" class="title-slide slide level1 center"><h1>Summarizing categorical data</h1>
+</section></section>
+<section>
+<section id="summarizing-categorical-data" class="title-slide slide level1 center">
+<h1>Summarizing categorical data</h1>
 
-</section><section id="frequency-table" class="slide level2"><h2>Frequency table</h2>
+</section>
+<section id="frequency-table" class="slide level2">
+<h2>Frequency table</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a></a>  <span class="fu">count</span>(homeownership)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -739,7 +795,9 @@ transformation: fill
 3 RENT           3858</code></pre>
 </div>
 </div>
-</section><section id="relative-frequency-table" class="slide level2"><h2>Relative frequency table</h2>
+</section>
+<section id="relative-frequency-table" class="slide level2">
+<h2>Relative frequency table</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a></a>  <span class="fu">count</span>(homeownership) <span class="sc">|&gt;</span></span>
@@ -753,7 +811,9 @@ transformation: fill
 3 RENT           3858      0.386</code></pre>
 </div>
 </div>
-</section><section id="frequency-table-with-multiple-variables" class="slide level2"><h2>Frequency table with multiple variables</h2>
+</section>
+<section id="frequency-table-with-multiple-variables" class="slide level2">
+<h2>Frequency table with multiple variables</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb16-2"><a></a>  <span class="fu">count</span>(homeownership, term)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -769,7 +829,9 @@ transformation: fill
 6 RENT             60   957</code></pre>
 </div>
 </div>
-</section><section id="relative-frequency-table-with-multiple-variables" class="slide level2"><h2>Relative frequency table with multiple variables</h2>
+</section>
+<section id="relative-frequency-table-with-multiple-variables" class="slide level2">
+<h2>Relative frequency table with multiple variables</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18" data-code-line-numbers="|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>loans <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a></a>  <span class="fu">count</span>(homeownership, term) <span class="sc">|&gt;</span></span>
@@ -795,10 +857,26 @@ transformation: fill
 </div>
 </div>
 </section></section>
-</div>
+    </div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../../site_libs/revealjs/plugin/search/search.js"></script><script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -988,7 +1066,9 @@ transformation: fill
           RevealZoom
         ]
       });
-    </script><script>
+    </script>
+    
+    <script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -1023,7 +1103,9 @@ transformation: fill
         }
 
       })();
-    </script><script id="quarto-html-after-body" type="application/javascript">
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1210,6 +1292,6 @@ transformation: fill
       }
     });
     </script>
-
+    
 
 </body></html>
