@@ -68,7 +68,7 @@ ggplot(starwars, aes(x = height, y = mass)) +
   )
 ```
 
-# ggplot2 `r emo::ji("heart")` `r emo::ji("penguin")` {.section-break}
+# ggplot2 ❤️ 🐧 {.section-break}
 
 ## Data: Palmer Penguins
 
