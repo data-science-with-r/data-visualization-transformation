@@ -504,431 +504,207 @@
     "text": "Groups of rows\n\n\ngroup_by(): perform calculations separately for each value of a variable\nsummarize(): collapses a group into a single row\ncount(): count unique values of one or more variables"
   },
   {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#data-lending-club",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#data-lending-club",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Data: Lending Club",
-    "text": "Data: Lending Club\n\nloans &lt;- loans_full_schema |&gt;\n  select(\n    loan_amount, interest_rate, term, grade, \n    state, annual_income, homeownership, debt_to_income\n  )\nglimpse(loans)\n\nRows: 10,000\nColumns: 8\n$ loan_amount    &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 50…\n$ interest_rate  &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6…\n$ term           &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36,…\n$ grade          &lt;fct&gt; C, C, D, A, C, A, C, B, C, A, C, B,…\n$ state          &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV,…\n$ annual_income  &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, …\n$ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…\n$ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#loan-amount",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#loan-amount",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Loan amount",
-    "text": "Loan amount"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#characteristics-of-a-distribution",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#characteristics-of-a-distribution",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Characteristics of a distribution",
-    "text": "Characteristics of a distribution\n\n\nShape: Modality and skewness\nCenter: Generally mean or median depending on whether the distribution is symmetric or skewed, respectively\nSpread: Generally standard deviation or inter-quartile range (IQR) depending on whether the distribution is symmetric or skewed, respectively\nOutliers: Whether there are any, where they are located, and if feasible to identify, which observations"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#shape",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#shape",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Shape",
-    "text": "Shape\nThe distribution of loan amounts in this sample is unimodal and right-skewed distribution."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#center",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#center",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Center",
-    "text": "Center\nMedian loan amount in this sample is $14,500."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#spread",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#spread",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Spread",
-    "text": "Spread\nIn this sample, the middle 50% of the loan amounts are between $8,000 and $24,000."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Outliers",
-    "text": "Outliers\nThere are no clear outliers in the loan amounts in this sample."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histogram",
-    "text": "Histogram\n\nHelpful for identifying shape (modality and skewness)\nRequires a careful selection of binwidth\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with\n`binwidth`."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histograms and binwidth",
-    "text": "Histograms and binwidth\n\np_loans &lt;- ggplot(loans, aes(x = loan_amount))\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 1000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 5000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 20000\n  )"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histogram customization",
-    "text": "Histogram customization\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000) +\n  labs(\n    x = \"Loan amount ($)\",\n    y = \"Frequency\",\n    title = \"Amounts of Lending Club loans\"\n  ) +\n  scale_x_continuous(\n    labels = label_dollar()\n  ) +\n  scale_y_continuous(\n    labels = label_number(big.mark = \",\")\n  )"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Density plot",
-    "text": "Density plot\n\nHelpful for identifying shape (modality and skewness)\nSmoothness can be adjusted\n\n\n\n\np_loans+\n  geom_density()\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_density(adjust = 2)"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Box plot",
-    "text": "Box plot\n\nHelpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile\nHelpful for identifying shape (skewness, but not modality)\nMakes outliers very clear (according to a strict definition of an outlier)\n\n\np_loans +\n  geom_boxplot()"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Box plot and outliers",
-    "text": "Box plot and outliers\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot()"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Box plot customization",
-    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  labs(\n    x = \"Interest rate\", \n    y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "summarize()",
-    "text": "summarize()\n\nsummarize() returns for a summary statistic for all observations in the data:\n\n\nloans |&gt;\n  summarize(mean_loan_amt = mean(loan_amount))\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\nsummarize() can be used to calculate multiple summary statistics as well:\n\n\nloans |&gt;\n  summarize(\n    q25 = quantile(loan_amount, 0.25),\n    q75 = quantile(loan_amount, 0.75)\n  )\n\n# A tibble: 1 × 2\n    q25   q75\n  &lt;dbl&gt; &lt;dbl&gt;\n1  8000 24000"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Sloppy summarize()",
-    "text": "Sloppy summarize()\nsummarize() will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!\n\n\n\n# good\nloans |&gt;\n  summarize(\n    mean_loan_amt = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  `mean(loan_amount)`\n                &lt;dbl&gt;\n1              16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    temp = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n    temp\n   &lt;dbl&gt;\n1 16362."
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "By the end of the course, you will be able to…",
-    "text": "By the end of the course, you will be able to…\n\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
-    "title": "Meet the toolkit: R and RStudio",
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#by-the-end-of-the-course-you-will-be-able-to",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#by-the-end-of-the-course-you-will-be-able-to",
+    "title": "Meet the toolkit: Quarto",
     "section": "By the end of the course, you will be able to…",
     "text": "By the end of the course, you will be able to…\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
   },
   {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
-    "title": "Meet the toolkit: R and RStudio",
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#reproducibility-checklist",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#reproducibility-checklist",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for a data analysis to be “reproducible”?\n\n\n\nShort-term goals:\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done?\n\n\n\nLong-term goals:\n\nCan the code be used for other data?\nCan you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#toolkit-for-reproducibility",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#toolkit-for-reproducibility",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Toolkit for reproducibility",
+    "text": "Toolkit for reproducibility\n\nScriptability → R\nLiterate programming (code, narrative, output in one place) → Quarto\nVersion control → Git / GitHub"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#section",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#section",
+    "title": "Meet the toolkit: Quarto",
     "section": "",
-    "text": "Open-source statistical programming language\nAlso an environment for statistical computing and graphics"
+    "text": "Fully reproducible reports – each time you render the analysis is ran from the beginning\nCode goes in chunks narrative goes outside of chunks\nA visual editor for a familiar / Google docs-like editing experience"
   },
   {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
-    "title": "Meet the toolkit: R and RStudio",
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#section-1",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#section-1",
+    "title": "Meet the toolkit: Quarto",
     "section": "",
-    "text": "Convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\nNot a requirement for programming with R, but it’s very commonly used by R programmers and data scientists"
+    "text": "Let’s take a tour of"
   },
   {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "R vs. RStudio",
-    "text": "R vs. RStudio\n\n\n\n\n\n\n\n\n“engine”\n\n\n\n\n\n\n\n\n\n\n\n\n\n“dashboard”"
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#tour-recap-quarto",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#tour-recap-quarto",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Tour recap: Quarto",
+    "text": "Tour recap: Quarto"
   },
   {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "R packages",
-    "text": "R packages\n\n\nPackages are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data\nPackages are how the community extends R\nAs of April 2024, there are over 20,000 R packages available on CRAN (the Comprehensive R Archive Network)\nWe’re going to work with a small (but important) subset of these!"
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#environments",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#environments",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Environments",
+    "text": "Environments\n\n\n\n\n\n\nImportant\n\n\nThe environment of your Quarto document is separate from the Console!\n\n\n\nRemember this, and expect it to bite you a few times as you’re learning to work with Quarto!"
   },
   {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "",
-    "text": "Let’s take a tour of\n     and"
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#how-will-we-use-quarto",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#how-will-we-use-quarto",
+    "title": "Meet the toolkit: Quarto",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\n\nEvery code along is a Quarto document\nYou’ll always have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
   },
   {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "Tour recap: R and RStudio",
-    "text": "Tour recap: R and RStudio"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "ggplot2 \\(\\in\\) tidyverse",
+    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\nggplot2 is tidyverse’s data visualization package\n\nlibrary(tidyverse)\n\ngg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson\n\n\n\n\n\n\n\n\n\n\n\n\nPackage website: ggplot2.tidyverse.org\nStructure of the code for plots can be summarized as\n\nggplot(\n  data = [dataset], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
   },
   {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "A short list (for now) of R essentials",
-    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n\n\nPackages are installed with the install.packages() function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "R essentials (continued)",
-    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n\n\nObject documentation can be accessed with ?\n\n\n?mean"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "tidyverse",
-    "text": "tidyverse\n\n\n\n\n\ntidyverse.org\n\n\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "Acknowledgements",
-    "text": "Acknowledgements\n\nPhoto of car engine: Image by Davgood Kirshot from Pixabay\nPhoto of car dashboard: Image by VariousPhotography from Pixabay\nNumber of R packages: CRAN contributed packages"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
-    "title": "Visualizing data",
-    "section": "Dataset terminology",
-    "text": "Dataset terminology\n\n\nEach row is an observation\nEach column is a variable\n\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name         height  mass hair_color skin_color eye_color\n   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    \n 1 Luke Skywal…    172    77 blond      fair       blue     \n 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   \n 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      \n 4 Darth Vader     202   136 none       white      yellow   \n 5 Leia Organa     150    49 brown      light      brown    \n 6 Owen Lars       178   120 brown, gr… light      blue     \n 7 Beru Whites…    165    75 brown      light      blue     \n 8 R5-D4            97    32 &lt;NA&gt;       white, red red      \n 9 Biggs Darkl…    183    84 black      light      brown    \n10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray\n# ℹ 77 more rows\n# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,\n#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,\n#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
-    "title": "Visualizing data",
-    "section": "Luke Skywalker",
-    "text": "Luke Skywalker"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
-    "title": "Visualizing data",
-    "section": "What’s in the Star Wars data?",
-    "text": "What’s in the Star Wars data?\nTake a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Da…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 1…\n$ mass       &lt;dbl&gt; 77, 75, 32, 136, 49, 120, 75, 32, 84, 7…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brow…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\",…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"bro…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47…\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", …\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatoo…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Hu…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Bac…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;…"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
-    "title": "Visualizing data",
-    "section": "Get to know the data",
-    "text": "Get to know the data\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n\n?starwars"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
-    "title": "Visualizing data",
-    "section": "Dimensions of the data",
-    "text": "Dimensions of the data\n\nHow many rows and columns does this dataset have?\n\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
-    "title": "Visualizing data",
-    "section": "What is EDA?",
-    "text": "What is EDA?\nExploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:\n\n\nVisualize – this is what we’ll focus on first\nSummarize - this is what we’ll focus on next\nBoth of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
-    "title": "Visualizing data",
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
+    "title": "Building a plotstep-by-step with ggplot2",
     "section": "Mass vs. height",
-    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
+    "text": "Mass vs. height\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
   },
   {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
-    "title": "Visualizing data",
-    "section": "Jabba!",
-    "text": "Jabba!"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Data: Palmer Penguins",
+    "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex."
   },
   {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
-    "title": "Visualizing data",
-    "section": "Data visualization",
-    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\n\nData visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Data",
+    "text": "Data\n\nlibrary(palmerpenguins)\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, …\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen,…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3…\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6…\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650…\n$ sex               &lt;fct&gt; male, female, female, NA, female…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…"
   },
   {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Anscombe’s quartet",
-    "text": "Anscombe’s quartet\n\nlibrary(Tmisc)\nquartet\n\n   set  x     y\n1    I 10  8.04\n2    I  8  6.95\n3    I 13  7.58\n4    I  9  8.81\n5    I 11  8.33\n6    I 14  9.96\n7    I  6  7.24\n8    I  4  4.26\n9    I 12 10.84\n10   I  7  4.82\n11   I  5  5.68\n12  II 10  9.14\n13  II  8  8.14\n14  II 13  8.74\n15  II  9  8.77\n16  II 11  9.26\n17  II 14  8.10\n18  II  6  6.13\n19  II  4  3.10\n20  II 12  9.13\n21  II  7  7.26\n22  II  5  4.74\n23 III 10  7.46\n24 III  8  6.77\n25 III 13 12.74\n26 III  9  7.11\n27 III 11  7.81\n28 III 14  8.84\n29 III  6  6.08\n30 III  4  5.39\n31 III 12  8.15\n32 III  7  6.42\n33 III  5  5.73\n34  IV  8  6.58\n35  IV  8  5.76\n36  IV  8  7.71\n37  IV  8  8.84\n38  IV  8  8.47\n39  IV  8  7.04\n40  IV  8  5.25\n41  IV 19 12.50\n42  IV  8  5.56\n43  IV  8  7.91\n44  IV  8  6.89"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Plot",
+    "text": "Plot"
   },
   {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Summarizing Anscombe’s quartet",
-    "text": "Summarizing Anscombe’s quartet\n\nquartet |&gt;\n  group_by(set) |&gt;\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )\n\n# A tibble: 4 × 6\n  set   mean_x mean_y  sd_x  sd_y     r\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 I          9   7.50  3.32  2.03 0.816\n2 II         9   7.50  3.32  2.03 0.816\n3 III        9   7.5   3.32  2.03 0.816\n4 IV         9   7.50  3.32  2.03 0.817"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Code",
+    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species\n  )\n) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )\n\nWarning: Removed 2 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
   },
   {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Visualizing Anscombe’s quartet",
-    "text": "Visualizing Anscombe’s quartet\n\nggplot(quartet, aes(x = x, y = y)) +\n  geom_point() +\n  facet_wrap(~ set, ncol = 4)"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 1",
+    "text": "Step 1\nStart with the penguins data frame\n\n\nggplot(\n  data = penguins\n  )"
   },
   {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
-    "title": "Visualizing data",
-    "section": "Age at first kiss",
-    "text": "Age at first kiss\n\nA group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. Do you see anything out of the ordinary?"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 2",
+    "text": "Step 2\nStart with the penguins data frame, map bill depth to the x-axis\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm)\n  )"
   },
   {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
-    "title": "Visualizing data",
-    "section": "Facebook visits",
-    "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 3",
+    "text": "Step 3\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Number of variables involved",
-    "text": "Number of variables involved\n\n\nUnivariate data analysis - distribution of single variable\nBivariate data analysis - relationship between two variables\nMultivariate data analysis - relationship between many variables at once, usually focusing on the relationship between two while conditioning for others"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 4",
+    "text": "Step 4\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#types-of-variables",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#types-of-variables",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Types of variables",
-    "text": "Types of variables\n\n\nNumerical variables can be classified as continuous or discrete based on whether or not the variable can take on an infinite number of values or only non-negative whole numbers, respectively.\nIf the variable is categorical, we can determine if it is ordinal based on whether or not the levels have a natural ordering."
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 5",
+    "text": "Step 5\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#data-lending-club",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#data-lending-club",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Data: Lending Club",
-    "text": "Data: Lending Club\n\n\n\nThousands of loans made through the Lending Club, which is a platform that allows individuals to lend to other individuals\n\n\n\n\n\n\n\nNot all loans are created equal – ease of getting a loan depends on (apparent) ability to pay back the loan\nData includes loans made, these are not loan applications"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 6",
+    "text": "Step 6\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\"\n  )"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#take-a-peek-at-data",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#take-a-peek-at-data",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Take a peek at data",
-    "text": "Take a peek at data\n\nlibrary(tidyverse)\nlibrary(openintro)\nglimpse(loans_full_schema)\n\nRows: 10,000\nColumns: 55\n$ emp_title                        &lt;chr&gt; \"global config en…\n$ emp_length                       &lt;dbl&gt; 3, 10, 3, 1, 10, …\n$ state                            &lt;fct&gt; NJ, HI, WI, PA, C…\n$ homeownership                    &lt;fct&gt; MORTGAGE, RENT, R…\n$ annual_income                    &lt;dbl&gt; 90000, 40000, 400…\n$ verified_income                  &lt;fct&gt; Verified, Not Ver…\n$ debt_to_income                   &lt;dbl&gt; 18.01, 5.04, 21.1…\n$ annual_income_joint              &lt;dbl&gt; NA, NA, NA, NA, 5…\n$ verification_income_joint        &lt;fct&gt; , , , , Verified,…\n$ debt_to_income_joint             &lt;dbl&gt; NA, NA, NA, NA, 3…\n$ delinq_2y                        &lt;int&gt; 0, 0, 0, 0, 0, 1,…\n$ months_since_last_delinq         &lt;int&gt; 38, NA, 28, NA, N…\n$ earliest_credit_line             &lt;dbl&gt; 2001, 1996, 2006,…\n$ inquiries_last_12m               &lt;int&gt; 6, 1, 4, 0, 7, 6,…\n$ total_credit_lines               &lt;int&gt; 28, 30, 31, 4, 22…\n$ open_credit_lines                &lt;int&gt; 10, 14, 10, 4, 16…\n$ total_credit_limit               &lt;int&gt; 70795, 28800, 241…\n$ total_credit_utilized            &lt;int&gt; 38767, 4321, 1600…\n$ num_collections_last_12m         &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_historical_failed_to_pay     &lt;int&gt; 0, 1, 0, 1, 0, 0,…\n$ months_since_90d_late            &lt;int&gt; 38, NA, 28, NA, N…\n$ current_accounts_delinq          &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ total_collection_amount_ever     &lt;int&gt; 1250, 0, 432, 0, …\n$ current_installment_accounts     &lt;int&gt; 2, 0, 1, 1, 1, 0,…\n$ accounts_opened_24m              &lt;int&gt; 5, 11, 13, 1, 6, …\n$ months_since_last_credit_inquiry &lt;int&gt; 5, 8, 7, 15, 4, 5…\n$ num_satisfactory_accounts        &lt;int&gt; 10, 14, 10, 4, 16…\n$ num_accounts_120d_past_due       &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_accounts_30d_past_due        &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_active_debit_accounts        &lt;int&gt; 2, 3, 3, 2, 10, 1…\n$ total_debit_limit                &lt;int&gt; 11100, 16500, 430…\n$ num_total_cc_accounts            &lt;int&gt; 14, 24, 14, 3, 20…\n$ num_open_cc_accounts             &lt;int&gt; 8, 14, 8, 3, 15, …\n$ num_cc_carrying_balance          &lt;int&gt; 6, 4, 6, 2, 13, 5…\n$ num_mort_accounts                &lt;int&gt; 1, 0, 0, 0, 0, 3,…\n$ account_never_delinq_percent     &lt;dbl&gt; 92.9, 100.0, 93.5…\n$ tax_liens                        &lt;int&gt; 0, 0, 0, 1, 0, 0,…\n$ public_record_bankrupt           &lt;int&gt; 0, 1, 0, 0, 0, 0,…\n$ loan_purpose                     &lt;fct&gt; moving, debt_cons…\n$ application_type                 &lt;fct&gt; individual, indiv…\n$ loan_amount                      &lt;int&gt; 28000, 5000, 2000…\n$ term                             &lt;dbl&gt; 60, 36, 36, 36, 3…\n$ interest_rate                    &lt;dbl&gt; 14.07, 12.61, 17.…\n$ installment                      &lt;dbl&gt; 652.53, 167.54, 7…\n$ grade                            &lt;fct&gt; C, C, D, A, C, A,…\n$ sub_grade                        &lt;fct&gt; C3, C1, D1, A3, C…\n$ issue_month                      &lt;fct&gt; Mar-2018, Feb-201…\n$ loan_status                      &lt;fct&gt; Current, Current,…\n$ initial_listing_status           &lt;fct&gt; whole, whole, fra…\n$ disbursement_method              &lt;fct&gt; Cash, Cash, Cash,…\n$ balance                          &lt;dbl&gt; 27015.86, 4651.37…\n$ paid_total                       &lt;dbl&gt; 1999.330, 499.120…\n$ paid_principal                   &lt;dbl&gt; 984.14, 348.63, 1…\n$ paid_interest                    &lt;dbl&gt; 1015.19, 150.49, …\n$ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0,…"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 7",
+    "text": "Step 7\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Selected variables",
-    "text": "Selected variables\n\nloans &lt;- loans_full_schema |&gt;\n  select(\n    loan_amount, interest_rate, term, grade, \n    state, annual_income, homeownership, debt_to_income\n  )\nglimpse(loans)\n\nRows: 10,000\nColumns: 8\n$ loan_amount    &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 50…\n$ interest_rate  &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6…\n$ term           &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36,…\n$ grade          &lt;fct&gt; C, C, D, A, C, A, C, B, C, A, C, B,…\n$ state          &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV,…\n$ annual_income  &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, …\n$ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…\n$ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 8",
+    "text": "Step 8\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\"\n  )"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables-1",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables-1",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Selected variables",
-    "text": "Selected variables\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nloan_amount\nAmount of the loan received, in US dollars\n\n\ninterest_rate\nInterest rate on the loan, in an annual percentage\n\n\nterm\nThe length of the loan, which is always set as a whole number of months\n\n\ngrade\nLoan grade, which takes a values A through G and represents the quality of the loan and its likelihood of being repaid\n\n\nstate\nUS state where the borrower resides\n\n\nannual_income\nBorrower’s annual income, including any second income, in US dollars\n\n\nhomeownership\nIndicates whether the person owns, owns but has a mortgage, or rents\n\n\ndebt_to_income\nDebt-to-income ratio"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 9",
+    "text": "Step 9\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\"\n  )"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#variable-types",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#variable-types",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Variable types",
-    "text": "Variable types\n\n\n\nvariable\ntype\n\n\n\n\nloan_amount\nnumerical, continuous\n\n\ninterest_rate\nnumerical, continuous\n\n\nterm\nnumerical, discrete\n\n\ngrade\ncategorical, ordinal\n\n\nstate\ncategorical, not ordinal\n\n\nannual_income\nnumerical, continuous\n\n\nhomeownership\ncategorical, not ordinal\n\n\ndebt_to_income\nnumerical, continuous"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 10",
+    "text": "Step 10\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#bar-plot",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#bar-plot",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Bar plot",
-    "text": "Bar plot\n\nggplot(loans, aes(x = homeownership)) +\n  geom_bar()"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 11",
+    "text": "Step 11\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Segmented bar plot",
-    "text": "Segmented bar plot\n\nggplot(loans, aes(x = homeownership, fill = grade)) +\n  geom_bar()"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Plot",
+    "text": "Plot\n\n\nWarning: Removed 2 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot-1",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot-1",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Segmented bar plot",
-    "text": "Segmented bar plot\n\nggplot(loans, aes(x = homeownership, fill = term)) +\n  geom_bar()\n\n\n\nWarning: The following aesthetics were dropped during statistical\ntransformation: fill\nℹ This can happen when ggplot fails to infer the correct\n  grouping structure in the data.\nℹ Did you forget to specify a `group` aesthetic or to\n  convert a numerical variable into a factor?"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Code",
+    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#numerical-to-categorical",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#numerical-to-categorical",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Numerical to categorical",
-    "text": "Numerical to categorical\n\nloans |&gt;\n  mutate(term = as.factor(term)) |&gt;\n  ggplot(aes(x = homeownership, fill = term)) +\n  geom_bar()"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Narrative",
+    "text": "Narrative\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
   },
   {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot---proportions",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot---proportions",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Segmented bar plot - proportions",
-    "text": "Segmented bar plot - proportions\n\nloans |&gt;\n  mutate(term = as.factor(term)) |&gt;\n  ggplot(aes(x = homeownership, fill = term)) +\n  geom_bar(position = \"fill\")"
-  },
-  {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequencies-vs.-proportions",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequencies-vs.-proportions",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Frequencies vs. proportions",
-    "text": "Frequencies vs. proportions\n\nWhich bar plot is a more useful representation for visualizing the relationship between homeownership and term?"
-  },
-  {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#customizing-bar-plots",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#customizing-bar-plots",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Customizing bar plots",
-    "text": "Customizing bar plots\n\nloans |&gt;\n  mutate(term = as.factor(term)) |&gt;\n  ggplot(aes(y = homeownership, fill = term)) +\n  geom_bar(position = \"fill\") +\n  labs(\n    x = \"Proportion\", y = \"Homeownership\", fill = \"Term\",\n    title = \"Terms of Lending Club loans\",\n    subtitle = \"and homeownership of borrowers\"\n  ) +\n  scale_fill_manual(values = c(\"lightblue\", \"darkgreen\"))"
-  },
-  {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequency-table",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequency-table",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Frequency table",
-    "text": "Frequency table\n\nloans |&gt;\n  count(homeownership)\n\n# A tibble: 3 × 2\n  homeownership     n\n  &lt;fct&gt;         &lt;int&gt;\n1 MORTGAGE       4789\n2 OWN            1353\n3 RENT           3858"
-  },
-  {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#relative-frequency-table",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#relative-frequency-table",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Relative frequency table",
-    "text": "Relative frequency table\n\nloans |&gt;\n  count(homeownership) |&gt;\n  mutate(proportion = n / sum(n))\n\n# A tibble: 3 × 3\n  homeownership     n proportion\n  &lt;fct&gt;         &lt;int&gt;      &lt;dbl&gt;\n1 MORTGAGE       4789      0.479\n2 OWN            1353      0.135\n3 RENT           3858      0.386"
-  },
-  {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequency-table-with-multiple-variables",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequency-table-with-multiple-variables",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Frequency table with multiple variables",
-    "text": "Frequency table with multiple variables\n\nloans |&gt;\n  count(homeownership, term)\n\n# A tibble: 6 × 3\n  homeownership  term     n\n  &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;\n1 MORTGAGE         36  3071\n2 MORTGAGE         60  1718\n3 OWN              36   998\n4 OWN              60   355\n5 RENT             36  2901\n6 RENT             60   957"
-  },
-  {
-    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#relative-frequency-table-with-multiple-variables",
-    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#relative-frequency-table-with-multiple-variables",
-    "title": "Visualizing and summarizing categorical data",
-    "section": "Relative frequency table with multiple variables",
-    "text": "Relative frequency table with multiple variables\n\nloans |&gt;\n  count(homeownership, term) |&gt;\n  group_by(homeownership) |&gt;\n  mutate(proportion = n / sum(n))\n\n# A tibble: 6 × 4\n# Groups:   homeownership [3]\n  homeownership  term     n proportion\n  &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;\n1 MORTGAGE         36  3071      0.641\n2 MORTGAGE         60  1718      0.359\n3 OWN              36   998      0.738\n4 OWN              60   355      0.262\n5 RENT             36  2901      0.752\n6 RENT             60   957      0.248"
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Argument names",
+    "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
@@ -1134,151 +910,431 @@
     "text": "Price vs. area and cooling\n\n\n\n\nThe relationship between area and price of homes in Duke Forest is positive and relatively strong, regardless of cooling type.\nThe relationship appears to be stronger, with a larger correlation coefficient (0.854 vs. 0.459), for homes cooled with central air.\nHowever the large difference in correlation coefficients for these two groups might be due to the three potential outliers in the other group with high areas and low price."
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "ggplot2 \\(\\in\\) tidyverse",
-    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\nggplot2 is tidyverse’s data visualization package\n\nlibrary(tidyverse)\n\ngg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson\n\n\n\n\n\n\n\n\n\n\n\n\nPackage website: ggplot2.tidyverse.org\nStructure of the code for plots can be summarized as\n\nggplot(\n  data = [dataset], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Number of variables involved",
+    "text": "Number of variables involved\n\n\nUnivariate data analysis - distribution of single variable\nBivariate data analysis - relationship between two variables\nMultivariate data analysis - relationship between many variables at once, usually focusing on the relationship between two while conditioning for others"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
-    "title": "Building a plotstep-by-step with ggplot2",
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#types-of-variables",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#types-of-variables",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Types of variables",
+    "text": "Types of variables\n\n\nNumerical variables can be classified as continuous or discrete based on whether or not the variable can take on an infinite number of values or only non-negative whole numbers, respectively.\nIf the variable is categorical, we can determine if it is ordinal based on whether or not the levels have a natural ordering."
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#data-lending-club",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#data-lending-club",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Data: Lending Club",
+    "text": "Data: Lending Club\n\n\n\nThousands of loans made through the Lending Club, which is a platform that allows individuals to lend to other individuals\n\n\n\n\n\n\n\nNot all loans are created equal – ease of getting a loan depends on (apparent) ability to pay back the loan\nData includes loans made, these are not loan applications"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#take-a-peek-at-data",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#take-a-peek-at-data",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Take a peek at data",
+    "text": "Take a peek at data\n\nlibrary(tidyverse)\nlibrary(openintro)\nglimpse(loans_full_schema)\n\nRows: 10,000\nColumns: 55\n$ emp_title                        &lt;chr&gt; \"global config en…\n$ emp_length                       &lt;dbl&gt; 3, 10, 3, 1, 10, …\n$ state                            &lt;fct&gt; NJ, HI, WI, PA, C…\n$ homeownership                    &lt;fct&gt; MORTGAGE, RENT, R…\n$ annual_income                    &lt;dbl&gt; 90000, 40000, 400…\n$ verified_income                  &lt;fct&gt; Verified, Not Ver…\n$ debt_to_income                   &lt;dbl&gt; 18.01, 5.04, 21.1…\n$ annual_income_joint              &lt;dbl&gt; NA, NA, NA, NA, 5…\n$ verification_income_joint        &lt;fct&gt; , , , , Verified,…\n$ debt_to_income_joint             &lt;dbl&gt; NA, NA, NA, NA, 3…\n$ delinq_2y                        &lt;int&gt; 0, 0, 0, 0, 0, 1,…\n$ months_since_last_delinq         &lt;int&gt; 38, NA, 28, NA, N…\n$ earliest_credit_line             &lt;dbl&gt; 2001, 1996, 2006,…\n$ inquiries_last_12m               &lt;int&gt; 6, 1, 4, 0, 7, 6,…\n$ total_credit_lines               &lt;int&gt; 28, 30, 31, 4, 22…\n$ open_credit_lines                &lt;int&gt; 10, 14, 10, 4, 16…\n$ total_credit_limit               &lt;int&gt; 70795, 28800, 241…\n$ total_credit_utilized            &lt;int&gt; 38767, 4321, 1600…\n$ num_collections_last_12m         &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_historical_failed_to_pay     &lt;int&gt; 0, 1, 0, 1, 0, 0,…\n$ months_since_90d_late            &lt;int&gt; 38, NA, 28, NA, N…\n$ current_accounts_delinq          &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ total_collection_amount_ever     &lt;int&gt; 1250, 0, 432, 0, …\n$ current_installment_accounts     &lt;int&gt; 2, 0, 1, 1, 1, 0,…\n$ accounts_opened_24m              &lt;int&gt; 5, 11, 13, 1, 6, …\n$ months_since_last_credit_inquiry &lt;int&gt; 5, 8, 7, 15, 4, 5…\n$ num_satisfactory_accounts        &lt;int&gt; 10, 14, 10, 4, 16…\n$ num_accounts_120d_past_due       &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_accounts_30d_past_due        &lt;int&gt; 0, 0, 0, 0, 0, 0,…\n$ num_active_debit_accounts        &lt;int&gt; 2, 3, 3, 2, 10, 1…\n$ total_debit_limit                &lt;int&gt; 11100, 16500, 430…\n$ num_total_cc_accounts            &lt;int&gt; 14, 24, 14, 3, 20…\n$ num_open_cc_accounts             &lt;int&gt; 8, 14, 8, 3, 15, …\n$ num_cc_carrying_balance          &lt;int&gt; 6, 4, 6, 2, 13, 5…\n$ num_mort_accounts                &lt;int&gt; 1, 0, 0, 0, 0, 3,…\n$ account_never_delinq_percent     &lt;dbl&gt; 92.9, 100.0, 93.5…\n$ tax_liens                        &lt;int&gt; 0, 0, 0, 1, 0, 0,…\n$ public_record_bankrupt           &lt;int&gt; 0, 1, 0, 0, 0, 0,…\n$ loan_purpose                     &lt;fct&gt; moving, debt_cons…\n$ application_type                 &lt;fct&gt; individual, indiv…\n$ loan_amount                      &lt;int&gt; 28000, 5000, 2000…\n$ term                             &lt;dbl&gt; 60, 36, 36, 36, 3…\n$ interest_rate                    &lt;dbl&gt; 14.07, 12.61, 17.…\n$ installment                      &lt;dbl&gt; 652.53, 167.54, 7…\n$ grade                            &lt;fct&gt; C, C, D, A, C, A,…\n$ sub_grade                        &lt;fct&gt; C3, C1, D1, A3, C…\n$ issue_month                      &lt;fct&gt; Mar-2018, Feb-201…\n$ loan_status                      &lt;fct&gt; Current, Current,…\n$ initial_listing_status           &lt;fct&gt; whole, whole, fra…\n$ disbursement_method              &lt;fct&gt; Cash, Cash, Cash,…\n$ balance                          &lt;dbl&gt; 27015.86, 4651.37…\n$ paid_total                       &lt;dbl&gt; 1999.330, 499.120…\n$ paid_principal                   &lt;dbl&gt; 984.14, 348.63, 1…\n$ paid_interest                    &lt;dbl&gt; 1015.19, 150.49, …\n$ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0,…"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Selected variables",
+    "text": "Selected variables\n\nloans &lt;- loans_full_schema |&gt;\n  select(\n    loan_amount, interest_rate, term, grade, \n    state, annual_income, homeownership, debt_to_income\n  )\nglimpse(loans)\n\nRows: 10,000\nColumns: 8\n$ loan_amount    &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 50…\n$ interest_rate  &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6…\n$ term           &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36,…\n$ grade          &lt;fct&gt; C, C, D, A, C, A, C, B, C, A, C, B,…\n$ state          &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV,…\n$ annual_income  &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, …\n$ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…\n$ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables-1",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables-1",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Selected variables",
+    "text": "Selected variables\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nloan_amount\nAmount of the loan received, in US dollars\n\n\ninterest_rate\nInterest rate on the loan, in an annual percentage\n\n\nterm\nThe length of the loan, which is always set as a whole number of months\n\n\ngrade\nLoan grade, which takes a values A through G and represents the quality of the loan and its likelihood of being repaid\n\n\nstate\nUS state where the borrower resides\n\n\nannual_income\nBorrower’s annual income, including any second income, in US dollars\n\n\nhomeownership\nIndicates whether the person owns, owns but has a mortgage, or rents\n\n\ndebt_to_income\nDebt-to-income ratio"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#variable-types",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#variable-types",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Variable types",
+    "text": "Variable types\n\n\n\nvariable\ntype\n\n\n\n\nloan_amount\nnumerical, continuous\n\n\ninterest_rate\nnumerical, continuous\n\n\nterm\nnumerical, discrete\n\n\ngrade\ncategorical, ordinal\n\n\nstate\ncategorical, not ordinal\n\n\nannual_income\nnumerical, continuous\n\n\nhomeownership\ncategorical, not ordinal\n\n\ndebt_to_income\nnumerical, continuous"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#bar-plot",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#bar-plot",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Bar plot",
+    "text": "Bar plot\n\nggplot(loans, aes(x = homeownership)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Segmented bar plot",
+    "text": "Segmented bar plot\n\nggplot(loans, aes(x = homeownership, fill = grade)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot-1",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot-1",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Segmented bar plot",
+    "text": "Segmented bar plot\n\nggplot(loans, aes(x = homeownership, fill = term)) +\n  geom_bar()\n\n\n\nWarning: The following aesthetics were dropped during statistical\ntransformation: fill\nℹ This can happen when ggplot fails to infer the correct\n  grouping structure in the data.\nℹ Did you forget to specify a `group` aesthetic or to\n  convert a numerical variable into a factor?"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#numerical-to-categorical",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#numerical-to-categorical",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Numerical to categorical",
+    "text": "Numerical to categorical\n\nloans |&gt;\n  mutate(term = as.factor(term)) |&gt;\n  ggplot(aes(x = homeownership, fill = term)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot---proportions",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#segmented-bar-plot---proportions",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Segmented bar plot - proportions",
+    "text": "Segmented bar plot - proportions\n\nloans |&gt;\n  mutate(term = as.factor(term)) |&gt;\n  ggplot(aes(x = homeownership, fill = term)) +\n  geom_bar(position = \"fill\")"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequencies-vs.-proportions",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequencies-vs.-proportions",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Frequencies vs. proportions",
+    "text": "Frequencies vs. proportions\n\nWhich bar plot is a more useful representation for visualizing the relationship between homeownership and term?"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#customizing-bar-plots",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#customizing-bar-plots",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Customizing bar plots",
+    "text": "Customizing bar plots\n\nloans |&gt;\n  mutate(term = as.factor(term)) |&gt;\n  ggplot(aes(y = homeownership, fill = term)) +\n  geom_bar(position = \"fill\") +\n  labs(\n    x = \"Proportion\", y = \"Homeownership\", fill = \"Term\",\n    title = \"Terms of Lending Club loans\",\n    subtitle = \"and homeownership of borrowers\"\n  ) +\n  scale_fill_manual(values = c(\"lightblue\", \"darkgreen\"))"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequency-table",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequency-table",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Frequency table",
+    "text": "Frequency table\n\nloans |&gt;\n  count(homeownership)\n\n# A tibble: 3 × 2\n  homeownership     n\n  &lt;fct&gt;         &lt;int&gt;\n1 MORTGAGE       4789\n2 OWN            1353\n3 RENT           3858"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#relative-frequency-table",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#relative-frequency-table",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Relative frequency table",
+    "text": "Relative frequency table\n\nloans |&gt;\n  count(homeownership) |&gt;\n  mutate(proportion = n / sum(n))\n\n# A tibble: 3 × 3\n  homeownership     n proportion\n  &lt;fct&gt;         &lt;int&gt;      &lt;dbl&gt;\n1 MORTGAGE       4789      0.479\n2 OWN            1353      0.135\n3 RENT           3858      0.386"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequency-table-with-multiple-variables",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#frequency-table-with-multiple-variables",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Frequency table with multiple variables",
+    "text": "Frequency table with multiple variables\n\nloans |&gt;\n  count(homeownership, term)\n\n# A tibble: 6 × 3\n  homeownership  term     n\n  &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;\n1 MORTGAGE         36  3071\n2 MORTGAGE         60  1718\n3 OWN              36   998\n4 OWN              60   355\n5 RENT             36  2901\n6 RENT             60   957"
+  },
+  {
+    "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#relative-frequency-table-with-multiple-variables",
+    "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#relative-frequency-table-with-multiple-variables",
+    "title": "Visualizing and summarizing categorical data",
+    "section": "Relative frequency table with multiple variables",
+    "text": "Relative frequency table with multiple variables\n\nloans |&gt;\n  count(homeownership, term) |&gt;\n  group_by(homeownership) |&gt;\n  mutate(proportion = n / sum(n))\n\n# A tibble: 6 × 4\n# Groups:   homeownership [3]\n  homeownership  term     n proportion\n  &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;\n1 MORTGAGE         36  3071      0.641\n2 MORTGAGE         60  1718      0.359\n3 OWN              36   998      0.738\n4 OWN              60   355      0.262\n5 RENT             36  2901      0.752\n6 RENT             60   957      0.248"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
+    "title": "Visualizing data",
+    "section": "Dataset terminology",
+    "text": "Dataset terminology\n\n\nEach row is an observation\nEach column is a variable\n\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name         height  mass hair_color skin_color eye_color\n   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    \n 1 Luke Skywal…    172    77 blond      fair       blue     \n 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   \n 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      \n 4 Darth Vader     202   136 none       white      yellow   \n 5 Leia Organa     150    49 brown      light      brown    \n 6 Owen Lars       178   120 brown, gr… light      blue     \n 7 Beru Whites…    165    75 brown      light      blue     \n 8 R5-D4            97    32 &lt;NA&gt;       white, red red      \n 9 Biggs Darkl…    183    84 black      light      brown    \n10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray\n# ℹ 77 more rows\n# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,\n#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,\n#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
+    "title": "Visualizing data",
+    "section": "Luke Skywalker",
+    "text": "Luke Skywalker"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
+    "title": "Visualizing data",
+    "section": "What’s in the Star Wars data?",
+    "text": "What’s in the Star Wars data?\nTake a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Da…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 1…\n$ mass       &lt;dbl&gt; 77, 75, 32, 136, 49, 120, 75, 32, 84, 7…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brow…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\",…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"bro…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47…\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", …\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatoo…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Hu…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Bac…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;…"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
+    "title": "Visualizing data",
+    "section": "Get to know the data",
+    "text": "Get to know the data\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n\n?starwars"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
+    "title": "Visualizing data",
+    "section": "Dimensions of the data",
+    "text": "Dimensions of the data\n\nHow many rows and columns does this dataset have?\n\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
+    "title": "Visualizing data",
+    "section": "What is EDA?",
+    "text": "What is EDA?\nExploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:\n\n\nVisualize – this is what we’ll focus on first\nSummarize - this is what we’ll focus on next\nBoth of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
+    "title": "Visualizing data",
     "section": "Mass vs. height",
-    "text": "Mass vs. height\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
+    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Data: Palmer Penguins",
-    "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex."
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
+    "title": "Visualizing data",
+    "section": "Jabba!",
+    "text": "Jabba!"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Data",
-    "text": "Data\n\nlibrary(palmerpenguins)\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, …\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen,…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3…\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6…\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650…\n$ sex               &lt;fct&gt; male, female, female, NA, female…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…"
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
+    "title": "Visualizing data",
+    "section": "Data visualization",
+    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\n\nData visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Plot",
-    "text": "Plot"
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Anscombe’s quartet",
+    "text": "Anscombe’s quartet\n\nlibrary(Tmisc)\nquartet\n\n   set  x     y\n1    I 10  8.04\n2    I  8  6.95\n3    I 13  7.58\n4    I  9  8.81\n5    I 11  8.33\n6    I 14  9.96\n7    I  6  7.24\n8    I  4  4.26\n9    I 12 10.84\n10   I  7  4.82\n11   I  5  5.68\n12  II 10  9.14\n13  II  8  8.14\n14  II 13  8.74\n15  II  9  8.77\n16  II 11  9.26\n17  II 14  8.10\n18  II  6  6.13\n19  II  4  3.10\n20  II 12  9.13\n21  II  7  7.26\n22  II  5  4.74\n23 III 10  7.46\n24 III  8  6.77\n25 III 13 12.74\n26 III  9  7.11\n27 III 11  7.81\n28 III 14  8.84\n29 III  6  6.08\n30 III  4  5.39\n31 III 12  8.15\n32 III  7  6.42\n33 III  5  5.73\n34  IV  8  6.58\n35  IV  8  5.76\n36  IV  8  7.71\n37  IV  8  8.84\n38  IV  8  8.47\n39  IV  8  7.04\n40  IV  8  5.25\n41  IV 19 12.50\n42  IV  8  5.56\n43  IV  8  7.91\n44  IV  8  6.89"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Code",
-    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species\n  )\n) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )\n\nWarning: Removed 2 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Summarizing Anscombe’s quartet",
+    "text": "Summarizing Anscombe’s quartet\n\nquartet |&gt;\n  group_by(set) |&gt;\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )\n\n# A tibble: 4 × 6\n  set   mean_x mean_y  sd_x  sd_y     r\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 I          9   7.50  3.32  2.03 0.816\n2 II         9   7.50  3.32  2.03 0.816\n3 III        9   7.5   3.32  2.03 0.816\n4 IV         9   7.50  3.32  2.03 0.817"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 1",
-    "text": "Step 1\nStart with the penguins data frame\n\n\nggplot(\n  data = penguins\n  )"
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Visualizing Anscombe’s quartet",
+    "text": "Visualizing Anscombe’s quartet\n\nggplot(quartet, aes(x = x, y = y)) +\n  geom_point() +\n  facet_wrap(~ set, ncol = 4)"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 2",
-    "text": "Step 2\nStart with the penguins data frame, map bill depth to the x-axis\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm)\n  )"
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
+    "title": "Visualizing data",
+    "section": "Age at first kiss",
+    "text": "Age at first kiss\n\nA group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. Do you see anything out of the ordinary?"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 3",
-    "text": "Step 3\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
+    "title": "Visualizing data",
+    "section": "Facebook visits",
+    "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 4",
-    "text": "Step 4\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 5",
-    "text": "Step 5\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 6",
-    "text": "Step 6\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\"\n  )"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Open-source statistical programming language\nAlso an environment for statistical computing and graphics"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 7",
-    "text": "Step 7\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\nNot a requirement for programming with R, but it’s very commonly used by R programmers and data scientists"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 8",
-    "text": "Step 8\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\"\n  )"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R vs. RStudio",
+    "text": "R vs. RStudio\n\n\n\n\n\n\n\n\n“engine”\n\n\n\n\n\n\n\n\n\n\n\n\n\n“dashboard”"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 9",
-    "text": "Step 9\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\"\n  )"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R packages",
+    "text": "R packages\n\n\nPackages are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data\nPackages are how the community extends R\nAs of April 2024, there are over 20,000 R packages available on CRAN (the Comprehensive R Archive Network)\nWe’re going to work with a small (but important) subset of these!"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 10",
-    "text": "Step 10\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Let’s take a tour of\n     and"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 11",
-    "text": "Step 11\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "Tour recap: R and RStudio",
+    "text": "Tour recap: R and RStudio"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Plot",
-    "text": "Plot\n\n\nWarning: Removed 2 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "A short list (for now) of R essentials",
+    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n\n\nPackages are installed with the install.packages() function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Code",
-    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R essentials (continued)",
+    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n\n\nObject documentation can be accessed with ?\n\n\n?mean"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Narrative",
-    "text": "Narrative\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n\n\n\n\ntidyverse.org\n\n\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Argument names",
-    "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\nPhoto of car engine: Image by Davgood Kirshot from Pixabay\nPhoto of car dashboard: Image by VariousPhotography from Pixabay\nNumber of R packages: CRAN contributed packages"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#data-lending-club",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#data-lending-club",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Data: Lending Club",
+    "text": "Data: Lending Club\n\nloans &lt;- loans_full_schema |&gt;\n  select(\n    loan_amount, interest_rate, term, grade, \n    state, annual_income, homeownership, debt_to_income\n  )\nglimpse(loans)\n\nRows: 10,000\nColumns: 8\n$ loan_amount    &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 50…\n$ interest_rate  &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6…\n$ term           &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36,…\n$ grade          &lt;fct&gt; C, C, D, A, C, A, C, B, C, A, C, B,…\n$ state          &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV,…\n$ annual_income  &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, …\n$ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…\n$ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#loan-amount",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#loan-amount",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Loan amount",
+    "text": "Loan amount"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#characteristics-of-a-distribution",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#characteristics-of-a-distribution",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Characteristics of a distribution",
+    "text": "Characteristics of a distribution\n\n\nShape: Modality and skewness\nCenter: Generally mean or median depending on whether the distribution is symmetric or skewed, respectively\nSpread: Generally standard deviation or inter-quartile range (IQR) depending on whether the distribution is symmetric or skewed, respectively\nOutliers: Whether there are any, where they are located, and if feasible to identify, which observations"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#shape",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#shape",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Shape",
+    "text": "Shape\nThe distribution of loan amounts in this sample is unimodal and right-skewed distribution."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#center",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#center",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Center",
+    "text": "Center\nMedian loan amount in this sample is $14,500."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#spread",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#spread",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Spread",
+    "text": "Spread\nIn this sample, the middle 50% of the loan amounts are between $8,000 and $24,000."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Outliers",
+    "text": "Outliers\nThere are no clear outliers in the loan amounts in this sample."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Histogram",
+    "text": "Histogram\n\nHelpful for identifying shape (modality and skewness)\nRequires a careful selection of binwidth\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with\n`binwidth`."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Histograms and binwidth",
+    "text": "Histograms and binwidth\n\np_loans &lt;- ggplot(loans, aes(x = loan_amount))\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 1000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 5000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 20000\n  )"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Histogram customization",
+    "text": "Histogram customization\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000) +\n  labs(\n    x = \"Loan amount ($)\",\n    y = \"Frequency\",\n    title = \"Amounts of Lending Club loans\"\n  ) +\n  scale_x_continuous(\n    labels = label_dollar()\n  ) +\n  scale_y_continuous(\n    labels = label_number(big.mark = \",\")\n  )"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Density plot",
+    "text": "Density plot\n\nHelpful for identifying shape (modality and skewness)\nSmoothness can be adjusted\n\n\n\n\np_loans+\n  geom_density()\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_density(adjust = 2)"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Box plot",
+    "text": "Box plot\n\nHelpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile\nHelpful for identifying shape (skewness, but not modality)\nMakes outliers very clear (according to a strict definition of an outlier)\n\n\np_loans +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Box plot and outliers",
+    "text": "Box plot and outliers\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Box plot customization",
+    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  labs(\n    x = \"Interest rate\", \n    y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "summarize()",
+    "text": "summarize()\n\nsummarize() returns for a summary statistic for all observations in the data:\n\n\nloans |&gt;\n  summarize(mean_loan_amt = mean(loan_amount))\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\nsummarize() can be used to calculate multiple summary statistics as well:\n\n\nloans |&gt;\n  summarize(\n    q25 = quantile(loan_amount, 0.25),\n    q75 = quantile(loan_amount, 0.75)\n  )\n\n# A tibble: 1 × 2\n    q25   q75\n  &lt;dbl&gt; &lt;dbl&gt;\n1  8000 24000"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Sloppy summarize()",
+    "text": "Sloppy summarize()\nsummarize() will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!\n\n\n\n# good\nloans |&gt;\n  summarize(\n    mean_loan_amt = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  `mean(loan_amount)`\n                &lt;dbl&gt;\n1              16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    temp = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n    temp\n   &lt;dbl&gt;\n1 16362."
   },
   {
     "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#grammar-of-graphics-1",
@@ -1593,14 +1649,14 @@
     "href": "index.html",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
