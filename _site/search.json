@@ -550,7 +550,7 @@
     "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#reproducibility-checklist",
     "title": "Meet the toolkit: Quarto",
     "section": "Reproducibility checklist",
-    "text": "Reproducibility checklist\n\nWhat does it mean for a data analysis to be “reproducible”?\n\n\n\nShort-term goals:\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done?\n\n\n\nLong-term goals:\n\nCan the code be used for other data?\nCan you extend the code to do other things?"
+    "text": "Reproducibility checklist\n\nWhat does it mean for a data analysis to be “reproducible”?\n\n\n\nShort-term goals:\n\nTables and figures must be reproducible from the code and data\nThe code should actually do what you think it does\nIn addition to what was done, it should be clear why it was done\n\n\n\nLong-term goals:\n\nThe code should be usable for other data\nThe code should be extendable to do other things"
   },
   {
     "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#toolkit-for-reproducibility",
@@ -564,7 +564,7 @@
     "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#section",
     "title": "Meet the toolkit: Quarto",
     "section": "",
-    "text": "Fully reproducible reports – each time you render the analysis is ran from the beginning\nCode goes in chunks narrative goes outside of chunks\nA visual editor for a familiar / Google docs-like editing experience"
+    "text": "Open-source scientific and technical publishing system\nFully reproducible reports – each time you render the analysis is ran from the beginning\nCode goes in chunks narrative goes outside of chunks\nA visual editor for a familiar, Google Docs/MS Word-like editing experience"
   },
   {
     "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#section-1",

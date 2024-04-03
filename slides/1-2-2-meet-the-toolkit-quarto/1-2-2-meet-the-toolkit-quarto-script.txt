@@ -1,0 +1,91 @@
+Another tool in the course toolkit is Quarto.
+
+>>
+
+So where does Quarto fit in the learning goals for the course?
+
+>>
+
+We said previously that by the end of the course, you will be able to gain insights from data, using modern programming tools and techniques, reproducibly with literate programming
+
+and that's exactly where Quarto fits in
+
+>>
+
+Let's first introduce what we mean by reproducible data analysis
+
+>>
+
+what exactly does it mean for a data analysis to be reproducible?
+
+In a nutshell, it means that the same results should be obtained when the same analysis is run on the same data. This might seem obvious, but it's not always feasible. And choices of tooling and workflows used for the analysis can make all the diference. For example, if you're doing your data analysis in a spreadsheet software, like excel, and you decide to omit some observations from your analysis because you think they are data errors or outliers that don't belong in the analysis, you might just delete the corresponding rows from your spreadsheet. This is difficult, if not impossible to document. There's no way to really "reproduce" the deletion of something once it's been deleted. On the other hand, if you're doing this with a tool that allows you to script your steps, for example by writing R code, the original data remains untouched  and the corresponding rows get filtered out and this gets documented in your code. So, it's feasible for another analyst, or yourself months later, to actually reproduce this step.
+
+>> In the short term, we want to make sure that
+- Tables and figures are reproducible from the code and data
+- The code should actually does what you think it does
+- In addition to what was done, it should be clear why it was done
+
+>> In the long term, we also aim to
+- have our code be written in a way that it's usable for other data
+- and extendable to do other things
+
+>>
+
+How do we achieve these goals?
+- We need our data analysis to be scriptable, which we discussed we'll use R for
+- For reproducibility of results, we'll use literate programming, where our code, narrative, and output are all in one place with quarto
+- And ultimately we will also use Git and GitHub for our more in-depth projects for version control
+
+In this video we focus on the second bullet point, literate programming
+
+>>
+
+and use Quarto for it!
+
+>> 
+
+>> Quarto is an open-source scientific and technical publishing system
+
+>> With Quarto you can produce fully reproducible reports, where each time you render your document, the analysis is ran from the beginning
+
+>> Your code goes in areas we call "code chunks" or "code cells", and your narrative goes outside of them
+
+>> When writing Quarto in RStudio, you get to benefit from a familiar, Google docs or Word-like editing experience
+
+>> 
+
+So, let's take a tour of Quarto
+
+...
+
+>> 
+
+As a recap
+
+- The top of our document is called the YAML
+
+- Code goes in code chunks and is run when rendering
+
+- And we render with the Render button
+
+>>
+
+Something super important, and is sure to bite you a few times as you're learning is that the environment of your Quarto document is separate from the Console!
+
+So, all of your work, all variables you define, all packages you load, must be done in your Quarto document. When you hit render, that's all Quarto has access to, not any "loose" objects you might have laying around in your global environment.
+
+>>
+
+You might be wondering how we will we use Quarto in this course
+
+>> The basis of every code along will be a Quarto document
+
+>> You’ll always have a template Quarto document to start with
+
+>> And the amount of scaffolding in the template will decrease over the semester
+
+And, just as an FYI, all of these slides and your programming exercises are created with Quarto too!
+
+
+
+
