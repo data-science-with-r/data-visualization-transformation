@@ -1,0 +1,87 @@
+---
+title: "Meet the toolkit: Quarto"
+format: revealjs
+---
+
+# Learning goals
+
+## By the end of the course, you will be able to…
+
+-   gain insights from data
+
+-   gain insights from data, using modern programming tools and techniques
+
+-   [gain insights from data, using modern programming tools and techniques, reproducibly with literate programming]{.pink-bold}
+
+-   gain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control
+
+# Reproducible data analysis
+
+## Reproducibility checklist
+
+::: task
+What does it mean for a data analysis to be “reproducible”?
+:::
+
+. . .
+
+<br>
+
+**Short-term goals:**
+
+-   Are the tables and figures reproducible from the code and data?
+-   Does the code actually do what you think it does?
+-   In addition to what was done, is it clear why it was done?
+
+. . .
+
+**Long-term goals:**
+
+-   Can the code be used for other data?
+-   Can you extend the code to do other things?
+
+## Toolkit for reproducibility
+
+-   Scriptability → R
+
+-   Literate programming (code, narrative, output in one place) → Quarto
+
+-   Version control → Git / GitHub
+
+# Quarto
+
+## ![](images/quarto-logo.png){width="312"}
+
+::: incremental
+-   Fully reproducible reports – each time you render the analysis is ran from the beginning
+-   Code goes in chunks narrative goes outside of chunks
+-   A visual editor for a familiar / Google docs-like editing experience
+:::
+
+##  {.center}
+
+[Let's take a tour of]{.hand-blue-large}
+
+![](images/quarto-logo.png){width="416"}
+
+## Tour recap: Quarto
+
+![](images/tour-quarto.png){fig-align="center"}
+
+## Environments
+
+::: callout-important
+The environment of your Quarto document is separate from the Console!
+:::
+
+Remember this, and expect it to bite you a few times as you’re learning to work with Quarto!
+
+## How will we use Quarto?
+
+::: incremental
+-   Every code along is a Quarto document
+
+-   You’ll always have a template Quarto document to start with
+
+-   The amount of scaffolding in the template will decrease over the semester
+:::
