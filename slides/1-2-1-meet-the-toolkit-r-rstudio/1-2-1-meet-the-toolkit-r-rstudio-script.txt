@@ -1,0 +1,115 @@
+In this course and throughout the specialization, we'll use a number of modern data science tools. In this video we'll meet two of them, R and RStudio.
+
+>>
+
+Before we meet them, let's review our learning goals
+
+>>
+
+By the end of the course, you will be able to…
+
+>> gain insights from data, or to be more specific
+
+>> gain insights from data, using modern programming tools and techniques, or more specifically
+
+>> gain insights from data, using modern programming tools and techniques, reproducibly with literate programming, or even more specifically
+
+>> gain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control
+
+>>
+
+In this video, though, we'll focus on gaining insights from data, using modern programming tools and techniques 
+
+>>
+
+with R and RStudio
+
+>>
+
+So, what's R?
+
+>> R is an open-source statistical programming language
+
+>> It's also an environment for statistical computing and graphics
+
+>>
+
+And, RStudio?
+
+>> RStudio is a convenient interface for R called an IDE, an integrated development environment. For example, “I write R code in the RStudio IDE”.
+
+>> Using RStudio is mot a requirement for programming with R, but it’s very commonly used by R programmers and data scientists
+
+>>
+
+A good analogy for R vs. RStudio is
+
+>> a car engine
+
+>> vs. dashboard
+
+R is like the engine under the hood, RStudio is the dashboard via which you interact with the engine
+
+>>
+
+And R packages
+
+>> Packages are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data
+
+>> They are how the community extends R
+
+>> As of April 2024, there are over 20,000 R packages available on CRAN, the Comprehensive R Archive Network
+
+>> We’re going to work with a small (but important) subset of these!
+
+>>
+
+So, let's take a tour of R and RStudio
+
+...
+
+>> As a recap
+
+- we can use the R console as a calculator to do simple arithmetic
+- or for object assignment, which then shows up in the environment tab
+- we can load a package with library
+- we can view datas frames in the data viewer with View
+- we can access variables in a data frame with a question mark
+- R functions, like mean, are followed by parantheses, in which what the object we want to apply them to go
+- when a function gives an unexpected result, like the NA here, or an error, the best first place to go to is the function documentation, which can be accessed in the help pane or by typing question mark followed by name of function
+- further arguments that go into a function are separated by commas
+
+>> 
+
+Let's review a short list (for now) of R essentials
+
+>> Functions are (most often) verbs, followed by what they will be applied to in parentheses, like do this to that or do this, to this, to that, with those
+
+>> Packages are installed with the install.packages() function and loaded with the library function, once per session
+
+>>
+
+Columns (variables) in data frames are accessed with $, like dataframe dollar sign var_name
+
+>> and object documentation can be accessed with ?, like question mark mean
+
+>>
+
+and finally -- the tidyverse
+
+>> The tidyverse is an opinionated collection of R packages designed for data science
+
+>> All packages share an underlying philosophy and a common grammar
+
+[pause for acknowledgements]
+
+
+
+
+
+
+
+
+
+
+
