@@ -1,0 +1,157 @@
+---
+title: "Meet the toolkit: R and RStudio"
+format: revealjs
+---
+
+# Learning goals
+
+## By the end of the course, you will be able to…
+
+::: incremental
+-   gain insights from data
+
+-   gain insights from data, **using modern programming tools and techniques**
+
+-   gain insights from data, using modern programming tools and techniques, **reproducibly with literate programming**
+
+-   gain insights from data, using modern programming tools and techniques, reproducibly with literate programming **and version control**
+:::
+
+## By the end of the course, you will be able to…
+
+-   gain insights from data
+
+-   [gain insights from data, using modern programming tools and techniques]{.pink-bold}
+
+-   gain insights from data, using modern programming tools and techniques, reproducibly with literate programming
+
+-   gain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control
+
+# R and RStudio
+
+## ![](images/r-logo.png){width="194"}
+
+::: incremental
+-   Open-source statistical **programming language**
+-   Also an environment for statistical computing and graphics
+:::
+
+## ![](images/rstudio-logo.png){fig-align="center" width="427"}
+
+::: incremental
+-   Convenient interface for R called an **IDE** (integrated development environment), e.g. *"I write R code in the RStudio IDE"*
+-   Not a requirement for programming with R, but it's very commonly used by R programmers and data scientists
+:::
+
+## R vs. RStudio
+
+::: columns
+::: {.column width="40%" style="text-align: center;"}
+![](images/car-engine.png){fig-align="center" width="700"}
+
+::: fragment
+"engine"
+
+![](images/r-logo.png){fig-align="center" width="194"}
+:::
+:::
+
+::: {.column width="40%" style="text-align: center;"}
+![](images/car-dashboard.png){fig-align="center" width="700"}
+
+::: fragment
+"dashboard"
+
+![](images/rstudio-logo.png){fig-align="center" width="427"}
+:::
+:::
+:::
+
+## R packages
+
+::: incremental
+-   **Packages** are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data
+
+-   Packages are how the community extends R
+
+-   As of April 2024, there are over 20,000 R packages available on **CRAN** (the Comprehensive R Archive Network)
+
+-   We're going to work with a small (but important) subset of these!
+:::
+
+##  {.center}
+
+[Let's take a tour of]{.hand-blue-large}
+
+![](images/r-logo.png){width="194"}     [and]{.hand-blue-large}    
+![](images/rstudio-logo.png){width="427"}
+
+## Tour recap: R and RStudio
+
+<br>
+
+![](images/tour-r-rstudio.png){fig-align="center"} 
+
+## A short list (for now) of R essentials
+
+-   Functions are (most often) verbs, followed by what they will be applied to in parentheses:
+
+```{r}
+#| eval: false
+do_this(to_this)
+do_that(to_this, to_that, with_those)
+```
+
+. . .
+
+-   Packages are installed with the `install.packages()` function and loaded with the `library` function, once per session:
+
+```{r}
+#| eval: false
+install.packages("package_name")
+library(package_name)
+```
+
+## R essentials (continued)
+
+-   Columns (variables) in data frames are accessed with `$`:
+
+```{r}
+#| eval: false
+dataframe$var_name
+```
+
+. . .
+
+-   Object documentation can be accessed with `?`
+
+```{r}
+#| eval: false
+?mean
+```
+
+## tidyverse
+
+::: columns
+::: {.column width="40%"}
+![](images/tidyverse.png)
+:::
+
+::: {.column width="40%"}
+::: large
+[tidyverse.org](https://www.tidyverse.org/)
+:::
+
+::: incremental
+-   The **tidyverse** is an opinionated collection of R packages designed for data science
+
+-   All packages share an underlying philosophy and a common grammar
+:::
+:::
+:::
+
+## Acknowledgements
+
+-   Photo of car engine: Image by [Davgood Kirshot](https://pixabay.com/users/photoman-115455) from [Pixabay](https://pixabay.com/photos/car-engine-prius-c-motor-vehicle-231213)
+-   Photo of car dashboard: Image by [VariousPhotography](https://pixabay.com/users/variousphotography-1860391) from [Pixabay](https://pixabay.com/photos/car-speedometer-vehicle-dashboard-2370636)
+-   Number of R packages: [CRAN contributed packages](https://cran.r-project.org/web/packages/)

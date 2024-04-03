@@ -539,116 +539,389 @@
     "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-science",
-    "title": "Welcome",
-    "section": "Data science",
-    "text": "Data science\n\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nYou’re going to learn to do this the tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#course-faq",
-    "href": "slides/1-1-welcome/1-1-welcome.html#course-faq",
-    "title": "Welcome",
-    "section": "Course FAQ",
-    "text": "Course FAQ\nQ: What data science background does this course assume?\nA: None. But it does require a willingness to learn and a motivation to work with data.\n\nQ: Will we be doing computing?\nA: Yes.\n\n\nQ: What computing language will we learn?\nA: R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#excel-not",
-    "href": "slides/1-1-welcome/1-1-welcome.html#excel-not",
-    "title": "Welcome",
-    "section": "Excel, not…",
-    "text": "Excel, not…"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Open-source statistical programming language\n\nAlso an environment for statistical computing and graphics"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#r",
-    "href": "slides/1-1-welcome/1-1-welcome.html#r",
-    "title": "Welcome",
-    "section": "R",
-    "text": "R"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\n\nNot a requirement for programming with R, but it’s very commonly used by R programmers and data scientists"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#rstudio",
-    "href": "slides/1-1-welcome/1-1-welcome.html#rstudio",
-    "title": "Welcome",
-    "section": "RStudio",
-    "text": "RStudio"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R vs. RStudio",
+    "text": "R vs. RStudio\n\n\n\n\n\n\n\n“engine”\n\n\n\n\n\n\n\n\n\n\n\n“dashboard”"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
-    "title": "Welcome",
-    "section": "Data science life cycle",
-    "text": "Data science life cycle\n\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R packages",
+    "text": "R packages\n\n\nPackages are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data\nPackages are how the community extends R\nAs of April 2024, there are over 20,000 R packages available on CRAN (the Comprehensive R Archive Network)\nWe’re going to work with a small (but important) subset of these!"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#import",
-    "href": "slides/1-1-welcome/1-1-welcome.html#import",
-    "title": "Welcome",
-    "section": "Import",
-    "text": "Import"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Let’s take a tour of\n     and"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
-    "href": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
-    "title": "Welcome",
-    "section": "Tidy -> transform",
-    "text": "Tidy -&gt; transform"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "Tour recap: R and RStudio",
+    "text": "Tour recap: R and RStudio"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#visualize",
-    "href": "slides/1-1-welcome/1-1-welcome.html#visualize",
-    "title": "Welcome",
-    "section": "Visualize",
-    "text": "Visualize"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "A short list (for now) of R essentials",
+    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n\n\nPackages are installed with the install.packages() function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#model",
-    "href": "slides/1-1-welcome/1-1-welcome.html#model",
-    "title": "Welcome",
-    "section": "Model",
-    "text": "Model"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R essentials (continued)",
+    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n\n\nObject documentation can be accessed with ?\n\n\n\n?mean"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand",
-    "title": "Welcome",
-    "section": "Understand",
-    "text": "Understand"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n\n\n\n\ntidyverse.org\n\n\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#communicate",
-    "href": "slides/1-1-welcome/1-1-welcome.html#communicate",
-    "title": "Welcome",
-    "section": "Communicate",
-    "text": "Communicate"
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\nPhoto of car engine: Image by Davgood Kirshot from Pixabay\n\nPhoto of car dashboard: Image by VariousPhotography from Pixabay\n\nNumber of R packages: CRAN contributed packages"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-1",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand-1",
-    "title": "Welcome",
-    "section": "Understand",
-    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Packages",
+    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
-    "title": "Welcome",
-    "section": "Understand + communicate",
-    "text": "Understand + communicate"
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#data-lending-club",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#data-lending-club",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Data: Lending Club",
+    "text": "Data: Lending Club\n\nloans &lt;- loans_full_schema |&gt;\n  select(\n    loan_amount, interest_rate, term, grade, \n    state, annual_income, homeownership, debt_to_income\n  )\nglimpse(loans)\n\nRows: 10,000\nColumns: 8\n$ loan_amount    &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 50…\n$ interest_rate  &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6…\n$ term           &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36,…\n$ grade          &lt;fct&gt; C, C, D, A, C, A, C, B, C, A, C, B,…\n$ state          &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV,…\n$ annual_income  &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, …\n$ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…\n$ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#program",
-    "href": "slides/1-1-welcome/1-1-welcome.html#program",
-    "title": "Welcome",
-    "section": "Program",
-    "text": "Program"
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#loan-amount",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#loan-amount",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Loan amount",
+    "text": "Loan amount"
   },
   {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
-    "title": "Welcome",
-    "section": "Data visualization and transformation",
-    "text": "Data visualization and transformation"
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#characteristics-of-a-distribution",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#characteristics-of-a-distribution",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Characteristics of a distribution",
+    "text": "Characteristics of a distribution\n\n\n\nShape: Modality and skewness\n\nCenter: Generally mean or median depending on whether the distribution is symmetric or skewed, respectively\n\nSpread: Generally standard deviation or inter-quartile range (IQR) depending on whether the distribution is symmetric or skewed, respectively\n\nOutliers: Whether there are any, where they are located, and if feasible to identify, which observations"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#shape",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#shape",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Shape",
+    "text": "Shape\nThe distribution of loan amounts in this sample is unimodal and right-skewed distribution."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#center",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#center",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Center",
+    "text": "Center\nMedian loan amount in this sample is $14,500."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#spread",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#spread",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Spread",
+    "text": "Spread\nIn this sample, the middle 50% of the loan amounts are between $8,000 and $24,000."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Outliers",
+    "text": "Outliers\nThere are no clear outliers in the loan amounts in this sample."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Histogram",
+    "text": "Histogram\n\nHelpful for identifying shape (modality and skewness)\nRequires a careful selection of binwidth\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with\n`binwidth`."
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Histograms and binwidth",
+    "text": "Histograms and binwidth\n\np_loans &lt;- ggplot(loans, aes(x = loan_amount))\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 1000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 5000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 20000\n  )"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Histogram customization",
+    "text": "Histogram customization\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000) +\n  labs(\n    x = \"Loan amount ($)\",\n    y = \"Frequency\",\n    title = \"Amounts of Lending Club loans\"\n  ) +\n  scale_x_continuous(\n    labels = label_dollar()\n  ) +\n  scale_y_continuous(\n    labels = label_number(big.mark = \",\")\n  )"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Density plot",
+    "text": "Density plot\n\nHelpful for identifying shape (modality and skewness)\nSmoothness can be adjusted\n\n\n\n\np_loans+\n  geom_density()\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_density(adjust = 2)"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Box plot",
+    "text": "Box plot\n\nHelpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile\nHelpful for identifying shape (skewness, but not modality)\nMakes outliers very clear (according to a strict definition of an outlier)\n\n\np_loans +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Box plot and outliers",
+    "text": "Box plot and outliers\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot()"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Box plot customization",
+    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  labs(\n    x = \"Interest rate\", \n    y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "summarize()",
+    "text": "summarize()\n\n\nsummarize() returns for a summary statistic for all observations in the data:\n\n\nloans |&gt;\n  summarize(mean_loan_amt = mean(loan_amount))\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n\nsummarize() can be used to calculate multiple summary statistics as well:\n\n\nloans |&gt;\n  summarize(\n    q25 = quantile(loan_amount, 0.25),\n    q75 = quantile(loan_amount, 0.75)\n  )\n\n# A tibble: 1 × 2\n    q25   q75\n  &lt;dbl&gt; &lt;dbl&gt;\n1  8000 24000"
+  },
+  {
+    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
+    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
+    "title": "Visualizing and summarizing numerical data",
+    "section": "Sloppy summarize()\n",
+    "text": "Sloppy summarize()\n\nsummarize() will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!\n\n\n\n# good\nloans |&gt;\n  summarize(\n    mean_loan_amt = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  `mean(loan_amount)`\n                &lt;dbl&gt;\n1              16362.\n\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    temp = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n    temp\n   &lt;dbl&gt;\n1 16362."
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#grammar-of-graphics-1",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#grammar-of-graphics-1",
+    "title": "Grammar of graphics",
+    "section": "Grammar of Graphics",
+    "text": "Grammar of Graphics\n\n\n\n\nThe grammar of graphics is a tool that enables us to concisely describe the components of a graphic\nThe ggplot2 package, which is part of tidyverse, implements the grammar of graphics in R"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#layers",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#layers",
+    "title": "Grammar of graphics",
+    "section": "Layers",
+    "text": "Layers\nWith ggplot2, you can create a wide variety of plots layer-by-layer:"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#data",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#data",
+    "title": "Grammar of graphics",
+    "section": "Data",
+    "text": "Data\nFoundation of the plot that gives you the canvas on which you can “paint” your data:\n\nggplot(penguins)"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#aesthetics",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#aesthetics",
+    "title": "Grammar of graphics",
+    "section": "Aesthetics",
+    "text": "Aesthetics\nCharacteristics of plotting characters that can be mapped to a specific variable in the data, e.g.:\n\ncolor\nshape\nsize\n\nalpha (transparency)\n…"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color",
+    "title": "Grammar of graphics",
+    "section": "Color",
+    "text": "Color\nThe color aesthetic mapped to species:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#shape",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#shape",
+    "title": "Grammar of graphics",
+    "section": "Shape",
+    "text": "Shape\nThe shape aesthetic mapped to island:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = island\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color-and-shape",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color-and-shape",
+    "title": "Grammar of graphics",
+    "section": "Color and shape",
+    "text": "Color and shape\nThe color and shape aesthetics mapped to species:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#size",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#size",
+    "title": "Grammar of graphics",
+    "section": "Size",
+    "text": "Size\nThe size aesthetic mapped to body_mass_g:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species,\n    size = body_mass_g\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#alpha",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#alpha",
+    "title": "Grammar of graphics",
+    "section": "Alpha",
+    "text": "Alpha\nThe alpha aesthetic mapped to flipper_length_mm:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species,\n    size = body_mass_g,\n    alpha = flipper_length_mm\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting",
+    "title": "Grammar of graphics",
+    "section": "Mapping vs. setting",
+    "text": "Mapping vs. setting\n\n\nMapping:\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species,\n    size = body_mass_g\n    )\n  ) + \n  geom_point()\n\n\n\n\n\n\n\n\nSetting:\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, y = bill_length_mm\n    )\n  ) + \n  geom_point(\n    color = \"red\",\n    size = 3\n  )"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting-1",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting-1",
+    "title": "Grammar of graphics",
+    "section": "Mapping vs. setting",
+    "text": "Mapping vs. setting\n\n\nMapping:\nDetermine the size, alpha, etc. of points based on the values of a variable in the data – goes into aes():\n\n\n\n\n\n\n\n\n\n\n\nSetting:\nDetermine the size, alpha, etc. of points not based on the values of a variable in the data – goes into geom_*():"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geoms",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geoms",
+    "title": "Grammar of graphics",
+    "section": "Geoms",
+    "text": "Geoms\nVisual representations of data points:\n\n\nShort for geometric objects\n\ngeom_*() functions are used to add geoms to a plot\nEach geom adds a layer to the plot"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_point",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_point",
+    "title": "Grammar of graphics",
+    "section": "geom_point()",
+    "text": "geom_point()\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, y = bill_length_mm)\n  ) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_smooth",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_smooth",
+    "title": "Grammar of graphics",
+    "section": "geom_smooth()",
+    "text": "geom_smooth()\n\nggplot(\n  penguins,\n  aes(x = bill_depth_mm, y = bill_length_mm)\n  ) + \n  geom_point() +\n  geom_smooth()\n\n\n\n\n\n\n\n\n\nand many more soon…"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---what-and-why",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---what-and-why",
+    "title": "Grammar of graphics",
+    "section": "Faceting - what and why",
+    "text": "Faceting - what and why\n\n\nSmaller plots that each display different subsets of the data\nAlso referred to as small multiples\n\nUseful for exploring conditional relationships and large data"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how",
+    "title": "Grammar of graphics",
+    "section": "Faceting - how",
+    "text": "Faceting - how\n\n\nggplot(\n  penguins, \n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm)\n  ) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how-1",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how-1",
+    "title": "Grammar of graphics",
+    "section": "Faceting - how",
+    "text": "Faceting - how\n\n\nggplot(\n  penguins, \n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm)\n  ) + \n  geom_point() +\n  facet_grid(species ~ island)"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-two-variables",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-two-variables",
+    "title": "Grammar of graphics",
+    "section": "Faceting by two variables",
+    "text": "Faceting by two variables\n\n\nspecies on rows, island on columns:\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ island)\n\n\n\n\n\n\n\n\n\nisland on rows, species on columns:\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(island ~ species)"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-one-variable",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-one-variable",
+    "title": "Grammar of graphics",
+    "section": "Faceting by one variable",
+    "text": "Faceting by one variable\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species)\n\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species, ncol = 1)"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#themes",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#themes",
+    "title": "Grammar of graphics",
+    "section": "Themes",
+    "text": "Themes\nControl the non-data elements of the plot:\n\n\nSelect from pre-defined themes with theme_*() functions\nTake control of individual theme elements in the theme() function"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme_dark",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme_dark",
+    "title": "Grammar of graphics",
+    "section": "theme_dark()",
+    "text": "theme_dark()\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  theme_dark()"
+  },
+  {
+    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme",
+    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme",
+    "title": "Grammar of graphics",
+    "section": "theme()",
+    "text": "theme()\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) + \n  geom_point() +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\nand many more throughout the course…"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": " Data visualization and transformation",
+    "section": "",
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#slides",
+    "href": "index.html#slides",
+    "title": " Data visualization and transformation",
+    "section": "",
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#code-alongs",
+    "href": "index.html#code-alongs",
+    "title": " Data visualization and transformation",
+    "section": "Code alongs",
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFlights and pipes\n\n\n\n\nFlights and pipes\n\n\n\n\nStarwars characters\n\n\n\n\nStarwars characters\n\n\n\n\nDiving deeper with Palmer Penguins\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#exercises",
+    "href": "index.html#exercises",
+    "title": " Data visualization and transformation",
+    "section": "Exercises",
+    "text": "Exercises\n\n\n\n\n\nTitle\n\n\n\n\n\n\nMeet the toolkit: Programming exercises\n\n\n\n\nBechdel + data visualization test for 3-21\n\n\n\n\nMario games + data visualization\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#number-of-variables-involved",
@@ -662,7 +935,7 @@
     "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#types-of-variables",
     "title": "Visualizing and summarizing categorical data",
     "section": "Types of variables",
-    "text": "Types of variables\n\n\nNumerical variables can be classified as continuous or discrete based on whether or not the variable can take on an infinite number of values or only non-negative whole numbers, respectively.\nIf the variable is categorical, we can determine if it is ordinal based on whether or not the levels have a natural ordering."
+    "text": "Types of variables\n\n\n\nNumerical variables can be classified as continuous or discrete based on whether or not the variable can take on an infinite number of values or only non-negative whole numbers, respectively.\nIf the variable is categorical, we can determine if it is ordinal based on whether or not the levels have a natural ordering."
   },
   {
     "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#data-lending-club",
@@ -690,14 +963,14 @@
     "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#selected-variables-1",
     "title": "Visualizing and summarizing categorical data",
     "section": "Selected variables",
-    "text": "Selected variables\n\n\n\n\n\n\n\nvariable\ndescription\n\n\n\n\nloan_amount\nAmount of the loan received, in US dollars\n\n\ninterest_rate\nInterest rate on the loan, in an annual percentage\n\n\nterm\nThe length of the loan, which is always set as a whole number of months\n\n\ngrade\nLoan grade, which takes a values A through G and represents the quality of the loan and its likelihood of being repaid\n\n\nstate\nUS state where the borrower resides\n\n\nannual_income\nBorrower’s annual income, including any second income, in US dollars\n\n\nhomeownership\nIndicates whether the person owns, owns but has a mortgage, or rents\n\n\ndebt_to_income\nDebt-to-income ratio"
+    "text": "Selected variables\n\n\n\n\n\n\nvariable\ndescription\n\n\n\nloan_amount\nAmount of the loan received, in US dollars\n\n\ninterest_rate\nInterest rate on the loan, in an annual percentage\n\n\nterm\nThe length of the loan, which is always set as a whole number of months\n\n\ngrade\nLoan grade, which takes a values A through G and represents the quality of the loan and its likelihood of being repaid\n\n\nstate\nUS state where the borrower resides\n\n\nannual_income\nBorrower’s annual income, including any second income, in US dollars\n\n\nhomeownership\nIndicates whether the person owns, owns but has a mortgage, or rents\n\n\ndebt_to_income\nDebt-to-income ratio"
   },
   {
     "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#variable-types",
     "href": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#variable-types",
     "title": "Visualizing and summarizing categorical data",
     "section": "Variable types",
-    "text": "Variable types\n\n\n\nvariable\ntype\n\n\n\n\nloan_amount\nnumerical, continuous\n\n\ninterest_rate\nnumerical, continuous\n\n\nterm\nnumerical, discrete\n\n\ngrade\ncategorical, ordinal\n\n\nstate\ncategorical, not ordinal\n\n\nannual_income\nnumerical, continuous\n\n\nhomeownership\ncategorical, not ordinal\n\n\ndebt_to_income\nnumerical, continuous"
+    "text": "Variable types\n\n\nvariable\ntype\n\n\n\nloan_amount\nnumerical, continuous\n\n\ninterest_rate\nnumerical, continuous\n\n\nterm\nnumerical, discrete\n\n\ngrade\ncategorical, ordinal\n\n\nstate\ncategorical, not ordinal\n\n\nannual_income\nnumerical, continuous\n\n\nhomeownership\ncategorical, not ordinal\n\n\ndebt_to_income\nnumerical, continuous"
   },
   {
     "objectID": "slides/3-2-visualize-summarize-categorical/3-2-visualize-summarize-categorical.html#bar-plot",
@@ -777,305 +1050,116 @@
     "text": "Relative frequency table with multiple variables\n\nloans |&gt;\n  count(homeownership, term) |&gt;\n  group_by(homeownership) |&gt;\n  mutate(proportion = n / sum(n))\n\n# A tibble: 6 × 4\n# Groups:   homeownership [3]\n  homeownership  term     n proportion\n  &lt;fct&gt;         &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;\n1 MORTGAGE         36  3071      0.641\n2 MORTGAGE         60  1718      0.359\n3 OWN              36   998      0.738\n4 OWN              60   355      0.262\n5 RENT             36  2901      0.752\n6 RENT             60   957      0.248"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": " Data visualization and transformation",
-    "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-science",
+    "title": "Welcome",
+    "section": "Data science",
+    "text": "Data science\n\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nYou’re going to learn to do this the tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
   },
   {
-    "objectID": "index.html#slides",
-    "href": "index.html#slides",
-    "title": " Data visualization and transformation",
-    "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#course-faq",
+    "href": "slides/1-1-welcome/1-1-welcome.html#course-faq",
+    "title": "Welcome",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ: What data science background does this course assume?\nA: None. But it does require a willingness to learn and a motivation to work with data.\n\nQ: Will we be doing computing?\nA: Yes.\n\n\nQ: What computing language will we learn?\nA: R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
   },
   {
-    "objectID": "index.html#code-alongs",
-    "href": "index.html#code-alongs",
-    "title": " Data visualization and transformation",
-    "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFlights and pipes\n\n\n\n\nFlights and pipes\n\n\n\n\nStarwars characters\n\n\n\n\nStarwars characters\n\n\n\n\nDiving deeper with Palmer Penguins\n\n\n\n\n\nNo matching items"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#excel-not",
+    "href": "slides/1-1-welcome/1-1-welcome.html#excel-not",
+    "title": "Welcome",
+    "section": "Excel, not…",
+    "text": "Excel, not…"
   },
   {
-    "objectID": "index.html#exercises",
-    "href": "index.html#exercises",
-    "title": " Data visualization and transformation",
-    "section": "Exercises",
-    "text": "Exercises\n\n\n\n\n\nTitle\n\n\n\n\n\n\nMeet the toolkit: Programming exercises\n\n\n\n\nBechdel + data visualization test for 3-21\n\n\n\n\nMario games + data visualization\n\n\n\n\n\nNo matching items"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#r",
+    "href": "slides/1-1-welcome/1-1-welcome.html#r",
+    "title": "Welcome",
+    "section": "R",
+    "text": "R"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#grammar-of-graphics-1",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#grammar-of-graphics-1",
-    "title": "Grammar of graphics",
-    "section": "Grammar of Graphics",
-    "text": "Grammar of Graphics\n\n\n\n\nThe grammar of graphics is a tool that enables us to concisely describe the components of a graphic\nThe ggplot2 package, which is part of tidyverse, implements the grammar of graphics in R"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#rstudio",
+    "href": "slides/1-1-welcome/1-1-welcome.html#rstudio",
+    "title": "Welcome",
+    "section": "RStudio",
+    "text": "RStudio"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#layers",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#layers",
-    "title": "Grammar of graphics",
-    "section": "Layers",
-    "text": "Layers\nWith ggplot2, you can create a wide variety of plots layer-by-layer:"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
+    "title": "Welcome",
+    "section": "Data science life cycle",
+    "text": "Data science life cycle\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#data",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#data",
-    "title": "Grammar of graphics",
-    "section": "Data",
-    "text": "Data\nFoundation of the plot that gives you the canvas on which you can “paint” your data:\n\nggplot(penguins)"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#import",
+    "href": "slides/1-1-welcome/1-1-welcome.html#import",
+    "title": "Welcome",
+    "section": "Import",
+    "text": "Import"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#aesthetics",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#aesthetics",
-    "title": "Grammar of graphics",
-    "section": "Aesthetics",
-    "text": "Aesthetics\nCharacteristics of plotting characters that can be mapped to a specific variable in the data, e.g.:\n\ncolor\nshape\nsize\nalpha (transparency)\n…"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
+    "href": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
+    "title": "Welcome",
+    "section": "Tidy -> transform",
+    "text": "Tidy -&gt; transform"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color",
-    "title": "Grammar of graphics",
-    "section": "Color",
-    "text": "Color\nThe color aesthetic mapped to species:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#visualize",
+    "href": "slides/1-1-welcome/1-1-welcome.html#visualize",
+    "title": "Welcome",
+    "section": "Visualize",
+    "text": "Visualize"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#shape",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#shape",
-    "title": "Grammar of graphics",
-    "section": "Shape",
-    "text": "Shape\nThe shape aesthetic mapped to island:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = island\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#model",
+    "href": "slides/1-1-welcome/1-1-welcome.html#model",
+    "title": "Welcome",
+    "section": "Model",
+    "text": "Model"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color-and-shape",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#color-and-shape",
-    "title": "Grammar of graphics",
-    "section": "Color and shape",
-    "text": "Color and shape\nThe color and shape aesthetics mapped to species:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#size",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#size",
-    "title": "Grammar of graphics",
-    "section": "Size",
-    "text": "Size\nThe size aesthetic mapped to body_mass_g:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species,\n    size = body_mass_g\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#communicate",
+    "href": "slides/1-1-welcome/1-1-welcome.html#communicate",
+    "title": "Welcome",
+    "section": "Communicate",
+    "text": "Communicate"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#alpha",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#alpha",
-    "title": "Grammar of graphics",
-    "section": "Alpha",
-    "text": "Alpha\nThe alpha aesthetic mapped to flipper_length_mm:\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm,\n    color = species,\n    shape = species,\n    size = body_mass_g,\n    alpha = flipper_length_mm\n    )\n  ) +\n  geom_point()"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-1",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-1",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting",
-    "title": "Grammar of graphics",
-    "section": "Mapping vs. setting",
-    "text": "Mapping vs. setting\n\n\nMapping:\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species,\n    size = body_mass_g\n    )\n  ) + \n  geom_point()\n\n\n\n\n\n\n\n\n\nSetting:\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm, y = bill_length_mm\n    )\n  ) + \n  geom_point(\n    color = \"red\",\n    size = 3\n  )"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
+    "title": "Welcome",
+    "section": "Understand + communicate",
+    "text": "Understand + communicate"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting-1",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#mapping-vs.-setting-1",
-    "title": "Grammar of graphics",
-    "section": "Mapping vs. setting",
-    "text": "Mapping vs. setting\n\n\nMapping:\nDetermine the size, alpha, etc. of points based on the values of a variable in the data – goes into aes():\n\n\n\n\n\n\n\n\n\n\n\nSetting:\nDetermine the size, alpha, etc. of points not based on the values of a variable in the data – goes into geom_*():"
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#program",
+    "href": "slides/1-1-welcome/1-1-welcome.html#program",
+    "title": "Welcome",
+    "section": "Program",
+    "text": "Program"
   },
   {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geoms",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geoms",
-    "title": "Grammar of graphics",
-    "section": "Geoms",
-    "text": "Geoms\nVisual representations of data points:\n\n\nShort for geometric objects\ngeom_*() functions are used to add geoms to a plot\nEach geom adds a layer to the plot"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_point",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_point",
-    "title": "Grammar of graphics",
-    "section": "geom_point()",
-    "text": "geom_point()\n\nggplot(\n  penguins, \n  aes(x = bill_depth_mm, y = bill_length_mm)\n  ) + \n  geom_point()"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_smooth",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#geom_smooth",
-    "title": "Grammar of graphics",
-    "section": "geom_smooth()",
-    "text": "geom_smooth()\n\nggplot(\n  penguins,\n  aes(x = bill_depth_mm, y = bill_length_mm)\n  ) + \n  geom_point() +\n  geom_smooth()\n\n\n\n\n\n\n\n\n\n\nand many more soon…"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---what-and-why",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---what-and-why",
-    "title": "Grammar of graphics",
-    "section": "Faceting - what and why",
-    "text": "Faceting - what and why\n\n\nSmaller plots that each display different subsets of the data\nAlso referred to as small multiples\nUseful for exploring conditional relationships and large data"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how",
-    "title": "Grammar of graphics",
-    "section": "Faceting - how",
-    "text": "Faceting - how\n\n\nggplot(\n  penguins, \n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm)\n  ) + \n  geom_point()"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how-1",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting---how-1",
-    "title": "Grammar of graphics",
-    "section": "Faceting - how",
-    "text": "Faceting - how\n\n\nggplot(\n  penguins, \n  aes(\n    x = bill_depth_mm, \n    y = bill_length_mm)\n  ) + \n  geom_point() +\n  facet_grid(species ~ island)"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-two-variables",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-two-variables",
-    "title": "Grammar of graphics",
-    "section": "Faceting by two variables",
-    "text": "Faceting by two variables\n\n\nspecies on rows, island on columns:\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(species ~ island)\n\n\n\n\n\n\n\n\n\nisland on rows, species on columns:\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_grid(island ~ species)"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-one-variable",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#faceting-by-one-variable",
-    "title": "Grammar of graphics",
-    "section": "Faceting by one variable",
-    "text": "Faceting by one variable\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species)\n\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  facet_wrap(~ species, ncol = 1)"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#themes",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#themes",
-    "title": "Grammar of graphics",
-    "section": "Themes",
-    "text": "Themes\nControl the non-data elements of the plot:\n\n\nSelect from pre-defined themes with theme_*() functions\nTake control of individual theme elements in the theme() function"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme_dark",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme_dark",
-    "title": "Grammar of graphics",
-    "section": "theme_dark()",
-    "text": "theme_dark()\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) + \n  geom_point() +\n  theme_dark()"
-  },
-  {
-    "objectID": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme",
-    "href": "slides/2-2-grammar-of-graphics/2-2-grammar-of-graphics.html#theme",
-    "title": "Grammar of graphics",
-    "section": "theme()",
-    "text": "theme()\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) + \n  geom_point() +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nand many more throughout the course…"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Packages",
-    "text": "Packages\n\nlibrary(tidyverse) # for data wrangling and visualization\nlibrary(openintro) # for data\nlibrary(scales)    # for pretty axis labels"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#data-lending-club",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#data-lending-club",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Data: Lending Club",
-    "text": "Data: Lending Club\n\nloans &lt;- loans_full_schema |&gt;\n  select(\n    loan_amount, interest_rate, term, grade, \n    state, annual_income, homeownership, debt_to_income\n  )\nglimpse(loans)\n\nRows: 10,000\nColumns: 8\n$ loan_amount    &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 50…\n$ interest_rate  &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6…\n$ term           &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36,…\n$ grade          &lt;fct&gt; C, C, D, A, C, A, C, B, C, A, C, B,…\n$ state          &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV,…\n$ annual_income  &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, …\n$ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…\n$ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#loan-amount",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#loan-amount",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Loan amount",
-    "text": "Loan amount"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#characteristics-of-a-distribution",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#characteristics-of-a-distribution",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Characteristics of a distribution",
-    "text": "Characteristics of a distribution\n\n\nShape: Modality and skewness\nCenter: Generally mean or median depending on whether the distribution is symmetric or skewed, respectively\nSpread: Generally standard deviation or inter-quartile range (IQR) depending on whether the distribution is symmetric or skewed, respectively\nOutliers: Whether there are any, where they are located, and if feasible to identify, which observations"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#shape",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#shape",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Shape",
-    "text": "Shape\nThe distribution of loan amounts in this sample is unimodal and right-skewed distribution."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#center",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#center",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Center",
-    "text": "Center\nMedian loan amount in this sample is $14,500."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#spread",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#spread",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Spread",
-    "text": "Spread\nIn this sample, the middle 50% of the loan amounts are between $8,000 and $24,000."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#outliers",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Outliers",
-    "text": "Outliers\nThere are no clear outliers in the loan amounts in this sample."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histogram",
-    "text": "Histogram\n\nHelpful for identifying shape (modality and skewness)\nRequires a careful selection of binwidth\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram()\n\n`stat_bin()` using `bins = 30`. Pick better value with\n`binwidth`."
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histograms-and-binwidth",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histograms and binwidth",
-    "text": "Histograms and binwidth\n\np_loans &lt;- ggplot(loans, aes(x = loan_amount))\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 1000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 5000\n  )\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_histogram(\n    binwidth = 20000\n  )"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#histogram-customization",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Histogram customization",
-    "text": "Histogram customization\n\n\nggplot(loans, aes(x = loan_amount)) +\n  geom_histogram(binwidth = 5000) +\n  labs(\n    x = \"Loan amount ($)\",\n    y = \"Frequency\",\n    title = \"Amounts of Lending Club loans\"\n  ) +\n  scale_x_continuous(\n    labels = label_dollar()\n  ) +\n  scale_y_continuous(\n    labels = label_number(big.mark = \",\")\n  )"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#density-plot",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Density plot",
-    "text": "Density plot\n\nHelpful for identifying shape (modality and skewness)\nSmoothness can be adjusted\n\n\n\n\np_loans+\n  geom_density()\n\n\n\n\n\n\n\n\n\n\np_loans +\n  geom_density(adjust = 2)"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Box plot",
-    "text": "Box plot\n\nHelpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile\nHelpful for identifying shape (skewness, but not modality)\nMakes outliers very clear (according to a strict definition of an outlier)\n\n\np_loans +\n  geom_boxplot()"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-and-outliers",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Box plot and outliers",
-    "text": "Box plot and outliers\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot()"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#box-plot-customization",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Box plot customization",
-    "text": "Box plot customization\n\n\nggplot(loans, aes(x = interest_rate)) +\n  geom_boxplot() +\n  labs(\n    x = \"Interest rate\", \n    y = NULL,\n    title = \"Interest rates of Lending Club loans\"\n  ) +\n  theme(\n    axis.ticks.y = element_blank(),\n    axis.text.y = element_blank()\n  )"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#summarize",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "summarize()",
-    "text": "summarize()\n\nsummarize() returns for a summary statistic for all observations in the data:\n\n\nloans |&gt;\n  summarize(mean_loan_amt = mean(loan_amount))\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\nsummarize() can be used to calculate multiple summary statistics as well:\n\n\nloans |&gt;\n  summarize(\n    q25 = quantile(loan_amount, 0.25),\n    q75 = quantile(loan_amount, 0.75)\n  )\n\n# A tibble: 1 × 2\n    q25   q75\n  &lt;dbl&gt; &lt;dbl&gt;\n1  8000 24000"
-  },
-  {
-    "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
-    "href": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#sloppy-summarize",
-    "title": "Visualizing and summarizing numerical data",
-    "section": "Sloppy summarize()",
-    "text": "Sloppy summarize()\nsummarize() will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!\n\n\n\n# good\nloans |&gt;\n  summarize(\n    mean_loan_amt = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  mean_loan_amt\n          &lt;dbl&gt;\n1        16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n  `mean(loan_amount)`\n                &lt;dbl&gt;\n1              16362.\n\n\n\n\n# bad\nloans |&gt;\n  summarize(\n    temp = mean(loan_amount)\n  )\n\n# A tibble: 1 × 1\n    temp\n   &lt;dbl&gt;\n1 16362."
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
+    "title": "Welcome",
+    "section": "Data visualization and transformation",
+    "text": "Data visualization and transformation"
   },
   {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",

@@ -13,7 +13,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.25">
 <meta name="author" content=" Data Science with R">
-<title>Data visualization and transformation – Visualizing and summarizing numerical data</title>
+<title>Data visualization and transformation – Meet the toolkit: R and RStudio</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,7 +392,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Visualizing and summarizing numerical data</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Meet the toolkit: R and RStudio</h1>
   <p class="subtitle"><br><br><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
@@ -403,360 +403,145 @@
 </div>
 </div>
 
-</section><section><section id="setup" class="title-slide slide level1 center"><h1>Setup</h1>
+</section><section><section id="learning-goals" class="title-slide slide level1 center"><h1>Learning goals</h1>
 
-</section><section id="packages" class="slide level2"><h2>Packages</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) <span class="co"># for data wrangling and visualization</span></span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(openintro) <span class="co"># for data</span></span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(scales)    <span class="co"># for pretty axis labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="data-lending-club" class="slide level2"><h2>Data: Lending Club</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a></a>  <span class="fu">select</span>(</span>
-<span id="cb2-3"><a></a>    loan_amount, interest_rate, term, grade, </span>
-<span id="cb2-4"><a></a>    state, annual_income, homeownership, debt_to_income</span>
-<span id="cb2-5"><a></a>  )</span>
-<span id="cb2-6"><a></a><span class="fu">glimpse</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Rows: 10,000
-Columns: 8
-$ loan_amount    &lt;int&gt; 28000, 5000, 2000, 21600, 23000, 50…
-$ interest_rate  &lt;dbl&gt; 14.07, 12.61, 17.09, 6.72, 14.07, 6…
-$ term           &lt;dbl&gt; 60, 36, 36, 36, 36, 36, 60, 60, 36,…
-$ grade          &lt;fct&gt; C, C, D, A, C, A, C, B, C, A, C, B,…
-$ state          &lt;fct&gt; NJ, HI, WI, PA, CA, KY, MI, AZ, NV,…
-$ annual_income  &lt;dbl&gt; 90000, 40000, 40000, 30000, 35000, …
-$ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…
-$ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
-</div>
-</div>
-</section></section><section><section id="distribution-of-a-numerical-variable" class="title-slide slide level1 center"><h1>Distribution of a numerical variable</h1>
-
-</section><section id="loan-amount" class="slide level2 nostretch"><h2>Loan amount</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="characteristics-of-a-distribution" class="slide level2"><h2>Characteristics of a distribution</h2>
+</section><section id="by-the-end-of-the-course-you-will-be-able-to" class="slide level2"><h2>By the end of the course, you will be able to…</h2>
 <div>
 <ul>
-<li class="fragment">
-<strong>Shape:</strong> Modality and skewness</li>
-<li class="fragment">
-<strong>Center:</strong> Generally mean or median depending on whether the distribution is symmetric or skewed, respectively</li>
-<li class="fragment">
-<strong>Spread:</strong> Generally standard deviation or inter-quartile range (IQR) depending on whether the distribution is symmetric or skewed, respectively</li>
-<li class="fragment">
-<strong>Outliers:</strong> Whether there are any, where they are located, and if feasible to identify, which observations</li>
+<li class="fragment"><p>gain insights from data</p></li>
+<li class="fragment"><p>gain insights from data, <strong>using modern programming tools and techniques</strong></p></li>
+<li class="fragment"><p>gain insights from data, using modern programming tools and techniques, <strong>reproducibly with literate programming</strong></p></li>
+<li class="fragment"><p>gain insights from data, using modern programming tools and techniques, reproducibly with literate programming <strong>and version control</strong></p></li>
 </ul>
 </div>
-</section><section id="shape" class="slide level2 nostretch"><h2>Shape</h2>
-<p>The distribution of loan amounts in this sample is unimodal and right-skewed distribution.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-5-1.png" width="864"></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="center" class="slide level2 nostretch"><h2>Center</h2>
-<p>Median loan amount in this sample is $14,500.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-6-1.png" width="864"></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="spread" class="slide level2 nostretch"><h2>Spread</h2>
-<p>In this sample, the middle 50% of the loan amounts are between $8,000 and $24,000.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-7-1.png" width="864"></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="outliers" class="slide level2 nostretch"><h2>Outliers</h2>
-<p>There are no clear outliers in the loan amounts in this sample.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-8-1.png" width="864"></p>
-</figure>
-</div>
-</div>
-</div>
-</section></section><section><section id="visualizing-numerical-data" class="title-slide slide level1 section-break center"><h1>Visualizing numerical data</h1>
-
-</section><section id="histogram" class="slide level2 nostretch"><h2>Histogram</h2>
+</section><section id="by-the-end-of-the-course-you-will-be-able-to-1" class="slide level2"><h2>By the end of the course, you will be able to…</h2>
 <ul>
-<li>Helpful for identifying shape (modality and skewness)</li>
-<li>Requires a careful selection of binwidth</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb4-2"><a></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with
-`binwidth`.</code></pre>
-</div>
-<div class="cell-output-display">
+<li><p>gain insights from data</p></li>
+<li><p><span class="pink-bold">gain insights from data, using modern programming tools and techniques</span></p></li>
+<li><p>gain insights from data, using modern programming tools and techniques, reproducibly with literate programming</p></li>
+<li><p>gain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control</p></li>
+</ul></section></section><section><section id="r-and-rstudio" class="title-slide slide level1 center"><h1>R and RStudio</h1>
+
+</section><section id="section" class="slide level2"><h2><img data-src="images/r-logo.png" width="194"></h2>
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
+<ul>
+<li class="fragment">Open-source statistical <strong>programming language</strong>
+</li>
+<li class="fragment">Also an environment for statistical computing and graphics</li>
+</ul>
+</div>
+</section><section id="section-1" class="slide level2"><h2><img data-src="images/rstudio-logo.png" class="quarto-figure quarto-figure-center" width="427"></h2>
+<div>
+<ul>
+<li class="fragment">Convenient interface for R called an <strong>IDE</strong> (integrated development environment), e.g.&nbsp;<em>“I write R code in the RStudio IDE”</em>
+</li>
+<li class="fragment">Not a requirement for programming with R, but it’s very commonly used by R programmers and data scientists</li>
+</ul>
+</div>
+</section><section id="r-vs.-rstudio" class="slide level2"><h2>R vs.&nbsp;RStudio</h2>
+<div class="columns">
+<div class="column" style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/car-engine.png" class="quarto-figure quarto-figure-center" width="700"></p>
+</figure>
+</div>
+<div class="fragment">
+<p>“engine”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/r-logo.png" class="quarto-figure quarto-figure-center" width="194"></p>
+</figure>
+</div>
+</div>
+</div><div class="column" style="text-align: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/car-dashboard.png" class="quarto-figure quarto-figure-center" width="700"></p>
+</figure>
+</div>
+<div class="fragment">
+<p>“dashboard”</p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/rstudio-logo.png" class="quarto-figure quarto-figure-center" width="427"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section id="histograms-and-binwidth" class="slide level2"><h2>Histograms and binwidth</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>p_loans <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section><section id="r-packages" class="slide level2"><h2>R packages</h2>
+<div>
+<ul>
+<li class="fragment"><p><strong>Packages</strong> are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data</p></li>
+<li class="fragment"><p>Packages are how the community extends R</p></li>
+<li class="fragment"><p>As of April 2024, there are over 20,000 R packages available on <strong>CRAN</strong> (the Comprehensive R Archive Network)</p></li>
+<li class="fragment"><p>We’re going to work with a small (but important) subset of these!</p></li>
+</ul>
+</div>
+</section><section id="section-2" class="slide level2 center"><h2></h2>
+<p><span class="hand-blue-large">Let’s take a tour of</span></p>
+<p><img data-src="images/r-logo.png" width="194"> &nbsp;&nbsp;&nbsp; <span class="hand-blue-large">and</span> &nbsp;&nbsp;&nbsp; <img data-src="images/rstudio-logo.png" width="427"></p>
+</section><section id="tour-recap-r-and-rstudio" class="slide level2"><h2>Tour recap: R and RStudio</h2>
 <p><br></p>
-<div class="columns">
-<div class="column fragment" style="width:33%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb7-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">1000</span></span>
-<span id="cb7-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/tour-r-rstudio.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
-</div>
-<div class="column fragment" style="width:33%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb8-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb8-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">5000</span></span>
-<span id="cb8-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="column fragment" style="width:33%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb9-2"><a></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb9-3"><a></a>    <span class="at">binwidth =</span> <span class="dv">20000</span></span>
-<span id="cb9-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="histogram-customization" class="slide level2 smaller"><h2>Histogram customization</h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|2|3-7|8-10|11-13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
-<span id="cb10-2"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5000</span>) <span class="sc">+</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb10-4"><a></a>    <span class="at">x =</span> <span class="st">"Loan amount ($)"</span>,</span>
-<span id="cb10-5"><a></a>    <span class="at">y =</span> <span class="st">"Frequency"</span>,</span>
-<span id="cb10-6"><a></a>    <span class="at">title =</span> <span class="st">"Amounts of Lending Club loans"</span></span>
-<span id="cb10-7"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb10-8"><a></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb10-9"><a></a>    <span class="at">labels =</span> <span class="fu">label_dollar</span>()</span>
-<span id="cb10-10"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb10-11"><a></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb10-12"><a></a>    <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">","</span>)</span>
-<span id="cb10-13"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-14-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section><section id="density-plot" class="slide level2 nostretch"><h2>Density plot</h2>
+</section><section id="a-short-list-for-now-of-r-essentials" class="slide level2"><h2>A short list (for now) of R essentials</h2>
 <ul>
-<li>Helpful for identifying shape (modality and skewness)</li>
-<li>Smoothness can be <code>adjust</code>ed</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p_loans<span class="sc">+</span></span>
-<span id="cb11-2"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-15-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:35%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-16-1.png" width="480"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="box-plot" class="slide level2 nostretch"><h2>Box plot</h2>
-<ul>
-<li>Helpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile</li>
-<li>Helpful for identifying shape (skewness, but not modality)</li>
-<li>Makes outliers very clear (according to a strict definition of an outlier)</li>
+<li>Functions are (most often) verbs, followed by what they will be applied to in parentheses:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>p_loans <span class="sc">+</span></span>
-<span id="cb13-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-17-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="box-plot-and-outliers" class="slide level2 nostretch"><h2>Box plot and outliers</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-18-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</section><section id="box-plot-customization" class="slide level2 smaller"><h2>Box plot customization</h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="|3-7|8-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
-<span id="cb15-2"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-4"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate"</span>, </span>
-<span id="cb15-5"><a></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
-<span id="cb15-6"><a></a>    <span class="at">title =</span> <span class="st">"Interest rates of Lending Club loans"</span></span>
-<span id="cb15-7"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb15-8"><a></a>  <span class="fu">theme</span>(</span>
-<span id="cb15-9"><a></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb15-10"><a></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb15-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-19-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section></section><section><section id="summarizing-numerical-data" class="title-slide slide level1 center"><h1>Summarizing numerical data</h1>
-
-</section><section id="summarize" class="slide level2 smaller"><h2><code>summarize()</code></h2>
-<ul>
-<li>
-<code>summarize()</code> returns for a summary statistic for all observations in the data:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_loan_amt =</span> <span class="fu">mean</span>(loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  mean_loan_amt
-          &lt;dbl&gt;
-1        16362.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">do_this</span>(to_this)</span>
+<span id="cb1-2"><a></a><span class="fu">do_that</span>(to_this, to_that, with_those)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <ul>
-<li>
-<code>summarize()</code> can be used to calculate multiple summary statistics as well:</li>
+<li>Packages are installed with the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function and loaded with the <code>library</code> function, once per session:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb18-3"><a></a>    <span class="at">q25 =</span> <span class="fu">quantile</span>(loan_amount, <span class="fl">0.25</span>),</span>
-<span id="cb18-4"><a></a>    <span class="at">q75 =</span> <span class="fu">quantile</span>(loan_amount, <span class="fl">0.75</span>)</span>
-<span id="cb18-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-    q25   q75
-  &lt;dbl&gt; &lt;dbl&gt;
-1  8000 24000</code></pre>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="st">"package_name"</span>)</span>
+<span id="cb2-2"><a></a><span class="fu">library</span>(package_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+</section><section id="r-essentials-continued" class="slide level2"><h2>R essentials (continued)</h2>
+<ul>
+<li>Columns (variables) in data frames are accessed with <code>$</code>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>dataframe<span class="sc">$</span>var_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="sloppy-summarize" class="slide level2 smaller"><h2>Sloppy <code>summarize()</code>
-</h2>
-<p><code>summarize()</code> will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!</p>
+<div class="fragment">
+<ul>
+<li>Object documentation can be accessed with <code>?</code>
+</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>?mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section><section id="tidyverse" class="slide level2"><h2>tidyverse</h2>
 <div class="columns">
-<div class="column fragment" style="width:25%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="co"># good</span></span>
-<span id="cb20-2"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb20-4"><a></a>    <span class="at">mean_loan_amt =</span> <span class="fu">mean</span>(loan_amount)</span>
-<span id="cb20-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  mean_loan_amt
-          &lt;dbl&gt;
-1        16362.</code></pre>
+<div class="column" style="width:40%;">
+<p><img data-src="images/tidyverse.png"></p>
+</div><div class="column" style="width:40%;">
+<div class="large">
+<p><a href="https://www.tidyverse.org/">tidyverse.org</a></p>
+</div>
+<div>
+<ul>
+<li class="fragment"><p>The <strong>tidyverse</strong> is an opinionated collection of R packages designed for data science</p></li>
+<li class="fragment"><p>All packages share an underlying philosophy and a common grammar</p></li>
+</ul>
 </div>
 </div>
 </div>
-<div class="column fragment" style="width:25%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># bad</span></span>
-<span id="cb22-2"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb22-4"><a></a>    <span class="fu">mean</span>(loan_amount)</span>
-<span id="cb22-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-  `mean(loan_amount)`
-                &lt;dbl&gt;
-1              16362.</code></pre>
-</div>
-</div>
-</div>
-<div class="column fragment" style="width:25%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># bad</span></span>
-<span id="cb24-2"><a></a>loans <span class="sc">|&gt;</span></span>
-<span id="cb24-3"><a></a>  <span class="fu">summarize</span>(</span>
-<span id="cb24-4"><a></a>    <span class="at">temp =</span> <span class="fu">mean</span>(loan_amount)</span>
-<span id="cb24-5"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 1
-    temp
-   &lt;dbl&gt;
-1 16362.</code></pre>
-</div>
-</div>
-</div>
-</div>
+</section><section id="acknowledgements" class="slide level2"><h2>Acknowledgements</h2>
+<ul>
+<li>Photo of car engine: Image by <a href="https://pixabay.com/users/photoman-115455">Davgood Kirshot</a> from <a href="https://pixabay.com/photos/car-engine-prius-c-motor-vehicle-231213">Pixabay</a>
+</li>
+<li>Photo of car dashboard: Image by <a href="https://pixabay.com/users/variousphotography-1860391">VariousPhotography</a> from <a href="https://pixabay.com/photos/car-speedometer-vehicle-dashboard-2370636">Pixabay</a>
+</li>
+<li>Number of R packages: <a href="https://cran.r-project.org/web/packages/">CRAN contributed packages</a>
+</li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
