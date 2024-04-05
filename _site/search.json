@@ -1061,21 +1061,21 @@
     "href": "index.html",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": " Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
     "href": "index.html#code-alongs",
     "title": " Data visualization and transformation",
     "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes  End of video\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguins  End of video\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFlights and pipes  End of video\n\n\n\n\nFlights and pipes\n\n\n\n\nStarwars characters  End of video\n\n\n\n\nStarwars characters\n\n\n\n\nDiving deeper with Palmer Penguins  End of video\n\n\n\n\nDiving deeper with Palmer Penguins\n\n\n\n\n\nNo matching items"
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFlights and pipes\n\n\n\n\nFlights and pipes\n\n\n\n\nStarwars characters\n\n\n\n\nStarwars characters\n\n\n\n\nDiving deeper with Palmer Penguins  End of video\n\n\n\n\nDiving deeper with Palmer Penguins\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#exercises",
@@ -1916,5 +1916,89 @@
     "title": "Diving deeper with Palmer Penguins  End of video",
     "section": "Multiple variables",
     "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\nExercise 12\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\nggplot(penguins, aes(x = body_mass_g, y = species, color = species)) +\n  geom_boxplot(show.legend = FALSE) +\n  geom_beeswarm(show.legend = FALSE) +\n  facet_wrap(~island, ncol = 1) +\n  labs(\n    x = \"Weight (grams)\",\n    y = \"Species\",\n    title = \"Weights of penguins across species and islands\"\n  )\n\n\n\n\n\n\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#by-the-end-of-the-course-you-will-be-able-to",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#by-the-end-of-the-course-you-will-be-able-to",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\n–\n–\n–"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\n\n\n\n\n\n\n\n\nGit is a version control system – like “Track Changes” features from Microsoft Word, on steroids\nIt’s not the only version control system, but it’s a very popular one\n\n\n\n\n\n\n\n\nGitHub is the home for your Git-based projects on the internet – like DropBox but much, much better\nWe will use GitHub as a platform for web hosting and collaboration (and as our course management system!)"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-badly",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-badly",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Versioning - done badly",
+    "text": "Versioning - done badly"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-better",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-better",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Versioning - done better",
+    "text": "Versioning - done better"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-even-better",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-even-better",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Versioning - done even better",
+    "text": "Versioning - done even better\nwith human readable messages"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github-1",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github-1",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github-2",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github-2",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github-3",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github-3",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Git and GitHub tips",
+    "text": "Git and GitHub tips\n\nThere are many many git commands – but there are a lot of them – and very few people know them all. 99% of the time you will use git to push, commit, and pull."
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips-1",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips-1",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Git and GitHub tips",
+    "text": "Git and GitHub tips\n\n\nWe will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.\nThere is a great resource for working with git and R: happygitwithr.com. Some of the content in there is beyond the scope of this course, but it’s a good place to look for help."
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-git-github",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-git-github",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Tour: Git + GitHub",
+    "text": "Tour: Git + GitHub"
   }
 ]
