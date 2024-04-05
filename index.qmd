@@ -13,7 +13,7 @@ listing:
   - id: code-alongs
     contents: code-alongs/*/*.qmd
     type: table
-    fields: [title]
+    fields: [title, subtitle]
     filter-ui: false
     sort-ui: false
     sort: [filename]
