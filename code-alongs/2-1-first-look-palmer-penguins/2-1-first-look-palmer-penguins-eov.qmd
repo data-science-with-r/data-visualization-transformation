@@ -1,6 +1,5 @@
 ---
-title: "First look at Palmer Penguins"
-subtitle: "End of video"
+title: "First look at Palmer Penguins <br> End of video"
 ---
 
 # Introduction

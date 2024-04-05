@@ -1,6 +1,5 @@
 ---
-title: "UN Votes"
-subtitle: "End of video"
+title: "UN Votes <br> End of video"
 ---
 
 # Introduction

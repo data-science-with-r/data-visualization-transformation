@@ -1,6 +1,5 @@
 ---
-title: "Flights and pipes"
-subtitle: "End of video"
+title: "Flights and pipes <br> End of video"
 ---
 
 # Introduction

@@ -1,6 +1,5 @@
 ---
-title: "Diving deeper with Palmer Penguins"
-subtitle: "End of video"
+title: "Diving deeper with Palmer Penguins <br> End of video"
 execute: 
   warning: false
 fig-width: 6

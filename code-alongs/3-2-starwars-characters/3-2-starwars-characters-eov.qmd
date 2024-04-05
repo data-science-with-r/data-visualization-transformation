@@ -1,6 +1,5 @@
 ---
-title: "Starwars characters"
-subtitle: "End of video"
+title: "Starwars characters <br> End of video"
 ---
 
 # Introduction
