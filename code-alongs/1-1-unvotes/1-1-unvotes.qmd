@@ -4,7 +4,8 @@ title: "UN Votes"
 
 # Introduction
 
-How do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues? Answering these questions (at a high level) is the focus of this analysis.
+How do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues?
+Answering these questions (at a high level) is the focus of this analysis.
 
 ## Packages
 
@@ -21,7 +22,8 @@ library(unvotes)
 
 ## Data
 
-The data we're using originally come from the **unvotes** package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.
+The data we're using originally come from the **unvotes** package.
+In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.
 
 ```{r}
 #| label: join
@@ -35,7 +37,9 @@ unvotes <- un_votes |>
 
 Let's create a data visualisation that displays how the voting record of the UK & NI changed over time on a variety of issues, and compares it to two other countries: US and Turkey.
 
-We can easily change which countries are being plotted by changing which countries the code above `filter`s for. Note that the country name should be spelled and capitalized exactly the same way as it appears in the data. See the [Appendix](#appendix) for a list of the countries in the data.
+We can easily change which countries are being plotted by changing which countries the code above `filter`s for.
+Note that the country name should be spelled and capitalized exactly the same way as it appears in the data.
+See the [Appendix](#appendix) for a list of the countries in the data.
 
 ```{r}
 #| label: plot-yearly-yes-issue
@@ -43,7 +47,7 @@ We can easily change which countries are being plotted by changing which countri
 #| fig-width: 10
 #| fig-height: 6
 unvotes |>
-  filter(country %in% c("United Kingdom", "United States", "France")) |>
+  filter(country %in% c("United Kingdom", "United States", "Turkey")) |>
   mutate(year = year(date)) |>
   group_by(country, year, issue) |>
   summarize(percent_yes = mean(vote == "yes")) |>

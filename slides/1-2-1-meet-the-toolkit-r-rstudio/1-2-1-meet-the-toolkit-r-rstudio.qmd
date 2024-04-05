@@ -90,7 +90,7 @@ format: revealjs
 
 <br>
 
-![](images/tour-r-rstudio.png){fig-align="center"} 
+![](images/tour-r-rstudio.png){fig-align="center"}
 
 ## A short list (for now) of R essentials
 
