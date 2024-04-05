@@ -1,5 +1,6 @@
 ---
 title: "Diving deeper with Palmer Penguins"
+subtitle: "End of video"
 execute: 
   warning: false
 fig-width: 6

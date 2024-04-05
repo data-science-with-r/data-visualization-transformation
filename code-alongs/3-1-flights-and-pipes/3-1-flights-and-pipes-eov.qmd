@@ -1,7 +1,6 @@
 ---
 title: "Flights and pipes"
-editor_options: 
-  chunk_output_type: console
+subtitle: "End of video"
 ---
 
 # Introduction
