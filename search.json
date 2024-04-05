@@ -93,21 +93,21 @@
   {
     "objectID": "code-alongs/1-1-unvotes/1-1-unvotes-eov.html",
     "href": "code-alongs/1-1-unvotes/1-1-unvotes-eov.html",
-    "title": "UN Votes",
+    "title": "UN Votes  End of video",
     "section": "",
     "text": "How do various countries vote in the United Nations General Assembly, how have their voting patterns evolved throughout time, and how similarly or differently do they view certain issues? Answering these questions (at a high level) is the focus of this analysis.\n\n\nWe will use the tidyverse and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)\n\n\n\n\nThe data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship =\n  \"many-to-many\")"
   },
   {
     "objectID": "code-alongs/1-1-unvotes/1-1-unvotes-eov.html#packages",
     "href": "code-alongs/1-1-unvotes/1-1-unvotes-eov.html#packages",
-    "title": "UN Votes",
+    "title": "UN Votes  End of video",
     "section": "",
     "text": "We will use the tidyverse and scales packages for data wrangling and visualization, and the DT package for interactive display of tabular output, and the unvotes package for the data.\n\nlibrary(tidyverse)\nlibrary(scales)\nlibrary(DT)\nlibrary(unvotes)"
   },
   {
     "objectID": "code-alongs/1-1-unvotes/1-1-unvotes-eov.html#data",
     "href": "code-alongs/1-1-unvotes/1-1-unvotes-eov.html#data",
-    "title": "UN Votes",
+    "title": "UN Votes  End of video",
     "section": "",
     "text": "The data we’re using originally come from the unvotes package. In the chunk below we modify the data by joining the various data frames provided in the package to help you get started with the analysis.\n\nunvotes &lt;- un_votes |&gt;\n  inner_join(un_roll_calls, by = \"rcid\") |&gt;\n  inner_join(un_roll_call_issues, by = \"rcid\", relationship =\n  \"many-to-many\")"
   },
@@ -184,112 +184,112 @@
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "",
     "text": "Have you ever had a flight delayed? How common is that? Which airlines are delayed more than others?\n\n\nWe will use the tidyverse packages for data wrangling and visualization and the nycflights13 package for the data.\n\nlibrary(tidyverse)\nlibrary(nycflights13)\n\n\n\n\nThe dataset we will explore is called flights. Let’s glimpse() at it.\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 558, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2, -1…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 849,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 851,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7, -1…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\", \"B6\", \"EV\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301, 4…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804JB\", \"N668DN\", \"N394…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", \"EWR\", \"EWR\", \"LGA\",…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", \"ORD\", \"FLL\", \"IAD\",…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149, 1…\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 733, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#packages",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#packages",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "",
     "text": "We will use the tidyverse packages for data wrangling and visualization and the nycflights13 package for the data.\n\nlibrary(tidyverse)\nlibrary(nycflights13)"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#data",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#data",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "",
     "text": "The dataset we will explore is called flights. Let’s glimpse() at it.\n\nglimpse(flights)\n\nRows: 336,776\nColumns: 19\n$ year           &lt;int&gt; 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2…\n$ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…\n$ dep_time       &lt;int&gt; 517, 533, 542, 544, 554, 554, 555, 557, 557, 558, 558, …\n$ sched_dep_time &lt;int&gt; 515, 529, 540, 545, 600, 558, 600, 600, 600, 600, 600, …\n$ dep_delay      &lt;dbl&gt; 2, 4, 2, -1, -6, -4, -5, -3, -3, -2, -2, -2, -2, -2, -1…\n$ arr_time       &lt;int&gt; 830, 850, 923, 1004, 812, 740, 913, 709, 838, 753, 849,…\n$ sched_arr_time &lt;int&gt; 819, 830, 850, 1022, 837, 728, 854, 723, 846, 745, 851,…\n$ arr_delay      &lt;dbl&gt; 11, 20, 33, -18, -25, 12, 19, -14, -8, 8, -2, -3, 7, -1…\n$ carrier        &lt;chr&gt; \"UA\", \"UA\", \"AA\", \"B6\", \"DL\", \"UA\", \"B6\", \"EV\", \"B6\", \"…\n$ flight         &lt;int&gt; 1545, 1714, 1141, 725, 461, 1696, 507, 5708, 79, 301, 4…\n$ tailnum        &lt;chr&gt; \"N14228\", \"N24211\", \"N619AA\", \"N804JB\", \"N668DN\", \"N394…\n$ origin         &lt;chr&gt; \"EWR\", \"LGA\", \"JFK\", \"JFK\", \"LGA\", \"EWR\", \"EWR\", \"LGA\",…\n$ dest           &lt;chr&gt; \"IAH\", \"IAH\", \"MIA\", \"BQN\", \"ATL\", \"ORD\", \"FLL\", \"IAD\",…\n$ air_time       &lt;dbl&gt; 227, 227, 160, 183, 116, 150, 158, 53, 140, 138, 149, 1…\n$ distance       &lt;dbl&gt; 1400, 1416, 1089, 1576, 762, 719, 1065, 229, 944, 733, …\n$ hour           &lt;dbl&gt; 5, 5, 5, 5, 6, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6…\n$ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…\n$ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-1",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-1",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 1",
     "text": "Exercise 1\nFill in the blanks:\nThe flights data frame has 336776 rows. Each row represents a flight out of one of three NYC airports in 2013."
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-2",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-2",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 2",
     "text": "Exercise 2\nWhat are the names of the variables in flights.\n\nnames(flights)\n\n [1] \"year\"           \"month\"          \"day\"            \"dep_time\"      \n [5] \"sched_dep_time\" \"dep_delay\"      \"arr_time\"       \"sched_arr_time\"\n [9] \"arr_delay\"      \"carrier\"        \"flight\"         \"tailnum\"       \n[13] \"origin\"         \"dest\"           \"air_time\"       \"distance\"      \n[17] \"hour\"           \"minute\"         \"time_hour\""
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-3---select",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-3---select",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 3 - select()",
     "text": "Exercise 3 - select()\n\nMake a data frame that only contains the variables dep_delay and arr_delay.\n\n\nflights |&gt;\n  select(dep_delay, arr_delay)\n\n# A tibble: 336,776 × 2\n   dep_delay arr_delay\n       &lt;dbl&gt;     &lt;dbl&gt;\n 1         2        11\n 2         4        20\n 3         2        33\n 4        -1       -18\n 5        -6       -25\n 6        -4        12\n 7        -5        19\n 8        -3       -14\n 9        -3        -8\n10        -2         8\n# ℹ 336,766 more rows\n\n\n\nMake a data frame that keeps every variable except dep_delay.\n\n\nflights |&gt;\n  select(!dep_delay)\n\n# A tibble: 336,776 × 18\n    year month   day dep_time sched_dep_time arr_time sched_arr_time arr_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515      830            819        11\n 2  2013     1     1      533            529      850            830        20\n 3  2013     1     1      542            540      923            850        33\n 4  2013     1     1      544            545     1004           1022       -18\n 5  2013     1     1      554            600      812            837       -25\n 6  2013     1     1      554            558      740            728        12\n 7  2013     1     1      555            600      913            854        19\n 8  2013     1     1      557            600      709            723       -14\n 9  2013     1     1      557            600      838            846        -8\n10  2013     1     1      558            600      753            745         8\n# ℹ 336,766 more rows\n# ℹ 10 more variables: carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;,\n#   origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;,\n#   minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\n\nMake a data frame that includes all variables between year through dep_delay (inclusive). These are all variables that provide information about the departure of each flight.\n\n\nflights |&gt;\n  select(year:dep_delay)\n\n# A tibble: 336,776 × 6\n    year month   day dep_time sched_dep_time dep_delay\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1  2013     1     1      517            515         2\n 2  2013     1     1      533            529         4\n 3  2013     1     1      542            540         2\n 4  2013     1     1      544            545        -1\n 5  2013     1     1      554            600        -6\n 6  2013     1     1      554            558        -4\n 7  2013     1     1      555            600        -5\n 8  2013     1     1      557            600        -3\n 9  2013     1     1      557            600        -3\n10  2013     1     1      558            600        -2\n# ℹ 336,766 more rows\n\n\n\nUse the select helper contains() to make a data frame that includes the variables associated with the arrival, i.e., contains the string \"arr_\" in the name.\n\n\nflights |&gt;\n  select(contains(\"arr_\"))\n\n# A tibble: 336,776 × 3\n   arr_time sched_arr_time arr_delay\n      &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;\n 1      830            819        11\n 2      850            830        20\n 3      923            850        33\n 4     1004           1022       -18\n 5      812            837       -25\n 6      740            728        12\n 7      913            854        19\n 8      709            723       -14\n 9      838            846        -8\n10      753            745         8\n# ℹ 336,766 more rows"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-4---slice",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-4---slice",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 4 - slice()",
     "text": "Exercise 4 - slice()\n\nDisplay the first five rows of the flights data frame.\n\n\nflights |&gt;\n  slice(1:5)\n\n# A tibble: 5 × 19\n   year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n1  2013     1     1      517            515         2      830            819\n2  2013     1     1      533            529         4      850            830\n3  2013     1     1      542            540         2      923            850\n4  2013     1     1      544            545        -1     1004           1022\n5  2013     1     1      554            600        -6      812            837\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\n\nDisplay the last two rows of the flights data frame.\n\n\nflights |&gt;\n  slice_tail(n = 2)\n\n# A tibble: 2 × 19\n   year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n  &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n1  2013     9    30       NA           1159        NA       NA           1344\n2  2013     9    30       NA            840        NA       NA           1020\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-5---arrange",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-5---arrange",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 5 - arrange()",
     "text": "Exercise 5 - arrange()\n\nLet’s arrange the data by departure delay, so the flights with the shortest departure delays will be at the top of the data frame.\n\n\nflights |&gt;\n  arrange(dep_delay)\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013    12     7     2040           2123       -43       40           2352\n 2  2013     2     3     2022           2055       -33     2240           2338\n 3  2013    11    10     1408           1440       -32     1549           1559\n 4  2013     1    11     1900           1930       -30     2233           2243\n 5  2013     1    29     1703           1730       -27     1947           1957\n 6  2013     8     9      729            755       -26     1002            955\n 7  2013    10    23     1907           1932       -25     2143           2143\n 8  2013     3    30     2030           2055       -25     2213           2250\n 9  2013     3     2     1431           1455       -24     1601           1631\n10  2013     5     5      934            958       -24     1225           1309\n# ℹ 336,766 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\n\nWhat does it mean for the dep_delay to have a negative value?\n\nFlight took off 43 minutes earlier than it was scheduled.\n\nArrange the data by descending departure delay, so the flights with the longest departure delays will be at the top.\n\n\nflights |&gt;\n  arrange(desc(dep_delay))\n\n# A tibble: 336,776 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     9      641            900      1301     1242           1530\n 2  2013     6    15     1432           1935      1137     1607           2120\n 3  2013     1    10     1121           1635      1126     1239           1810\n 4  2013     9    20     1139           1845      1014     1457           2210\n 5  2013     7    22      845           1600      1005     1044           1815\n 6  2013     4    10     1100           1900       960     1342           2211\n 7  2013     3    17     2321            810       911      135           1020\n 8  2013     6    27      959           1900       899     1236           2226\n 9  2013     7    22     2257            759       898      121           1026\n10  2013    12     5      756           1700       896     1058           2020\n# ℹ 336,766 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\n\nCreate a data frame that only includes the plane tail number (tailnum), carrier (carrier), and departure delay for the flight with the longest departure delay. What is the plane tail number (tailnum) for this flight?\n\n\nflights |&gt;\n  arrange(desc(dep_delay)) |&gt;\n  slice_head(n = 1) |&gt;\n  select(tailnum, carrier, dep_delay)\n\n# A tibble: 1 × 3\n  tailnum carrier dep_delay\n  &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;\n1 N384HA  HA           1301"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-6---filter",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-6---filter",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 6 - filter()",
     "text": "Exercise 6 - filter()\n\nFilter for all rows where the destination airport is RDU.\n\n\nflights |&gt;\n  filter(dest == \"RDU\")\n\n# A tibble: 8,163 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      800            810       -10      949            955\n 2  2013     1     1      832            840        -8     1006           1030\n 3  2013     1     1      851            851         0     1032           1036\n 4  2013     1     1      917            920        -3     1052           1108\n 5  2013     1     1     1024           1030        -6     1204           1215\n 6  2013     1     1     1127           1129        -2     1303           1309\n 7  2013     1     1     1157           1205        -8     1342           1345\n 8  2013     1     1     1240           1235         5     1415           1415\n 9  2013     1     1     1317           1325        -8     1454           1505\n10  2013     1     1     1449           1450        -1     1651           1640\n# ℹ 8,153 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\n\nFilter for all rows where the destination airport is RDU and the arrival delay is less than 0.\n\n\nflights |&gt;\n  filter(dest == \"RDU\" & arr_delay &lt; 0)\n\n# A tibble: 4,232 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      800            810       -10      949            955\n 2  2013     1     1      832            840        -8     1006           1030\n 3  2013     1     1      851            851         0     1032           1036\n 4  2013     1     1      917            920        -3     1052           1108\n 5  2013     1     1     1024           1030        -6     1204           1215\n 6  2013     1     1     1127           1129        -2     1303           1309\n 7  2013     1     1     1157           1205        -8     1342           1345\n 8  2013     1     1     1317           1325        -8     1454           1505\n 9  2013     1     1     1505           1510        -5     1654           1655\n10  2013     1     1     1800           1800         0     1945           1951\n# ℹ 4,222 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\n\nDescribe what the code is doing in words.\n\nStart with the flights data frame, and then filter for rows where destination is RDU or GSO and arrival delay or departure delay is less than 0.\n\nflights |&gt;\n  filter(\n    dest %in% c(\"RDU\", \"GSO\"),\n    arr_delay &lt; 0 | dep_delay &lt; 0\n  )\n\n# A tibble: 6,203 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      800            810       -10      949            955\n 2  2013     1     1      832            840        -8     1006           1030\n 3  2013     1     1      851            851         0     1032           1036\n 4  2013     1     1      917            920        -3     1052           1108\n 5  2013     1     1     1024           1030        -6     1204           1215\n 6  2013     1     1     1127           1129        -2     1303           1309\n 7  2013     1     1     1157           1205        -8     1342           1345\n 8  2013     1     1     1317           1325        -8     1454           1505\n 9  2013     1     1     1449           1450        -1     1651           1640\n10  2013     1     1     1505           1510        -5     1654           1655\n# ℹ 6,193 more rows\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;\n\n\nHint: Logical operators in R:\n\n\n\n\n\n\n\noperator\ndefinition\n\n\n\n\n&lt;\nis less than?\n\n\n&lt;=\nis less than or equal to?\n\n\n&gt;\nis greater than?\n\n\n&gt;=\nis greater than or equal to?\n\n\n==\nis exactly equal to?\n\n\n!=\nis not equal to?\n\n\nx & y\nis x AND y?\n\n\nx | y\nis x OR y?\n\n\nis.na(x)\nis x NA?\n\n\n!is.na(x)\nis x not NA?\n\n\nx %in% y\nis x in y?\n\n\n!(x %in% y)\nis x not in y?\n\n\n!x\nis not x? (only makes sense if x is TRUE or FALSE)"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-7---count",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-7---count",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 7 - count()",
     "text": "Exercise 7 - count()\n\nCreate a frequency table of the destination locations for flights from New York.\n\n\nflights |&gt;\n  count(dest, sort = TRUE)\n\n# A tibble: 105 × 2\n   dest      n\n   &lt;chr&gt; &lt;int&gt;\n 1 ORD   17283\n 2 ATL   17215\n 3 LAX   16174\n 4 BOS   15508\n 5 MCO   14082\n 6 CLT   14064\n 7 SFO   13331\n 8 FLL   12055\n 9 MIA   11728\n10 DCA    9705\n# ℹ 95 more rows\n\n\n\nIn which month was there the fewest number of flights? How many flights were there in that month?\n\n\nflights |&gt;\n  count(month) |&gt;\n  arrange(n)\n\n# A tibble: 12 × 2\n   month     n\n   &lt;int&gt; &lt;int&gt;\n 1     2 24951\n 2     1 27004\n 3    11 27268\n 4     9 27574\n 5    12 28135\n 6     6 28243\n 7     4 28330\n 8     5 28796\n 9     3 28834\n10    10 28889\n11     8 29327\n12     7 29425\n\n\n\nOn which date (month + day) was there the largest number of flights? How many flights were there on that day?\n\n\nflights |&gt;\n  count(month, day, sort = TRUE)\n\n# A tibble: 365 × 3\n   month   day     n\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1    11    27  1014\n 2     7    11  1006\n 3     7     8  1004\n 4     7    10  1004\n 5    12     2  1004\n 6     7    18  1003\n 7     7    25  1003\n 8     7    12  1002\n 9     7     9  1001\n10     7    17  1001\n# ℹ 355 more rows"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-8---mutate",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-8---mutate",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 8 - mutate()",
     "text": "Exercise 8 - mutate()\n\nConvert air_time (minutes in the air) to hours and then create a new variable, mph, the miles per hour of the flight.\n\n\nflights |&gt;\n  mutate(\n    air_time_hr = air_time / 60,\n    mph = distance / air_time_hr\n  )\n\n# A tibble: 336,776 × 21\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     1     1      517            515         2      830            819\n 2  2013     1     1      533            529         4      850            830\n 3  2013     1     1      542            540         2      923            850\n 4  2013     1     1      544            545        -1     1004           1022\n 5  2013     1     1      554            600        -6      812            837\n 6  2013     1     1      554            558        -4      740            728\n 7  2013     1     1      555            600        -5      913            854\n 8  2013     1     1      557            600        -3      709            723\n 9  2013     1     1      557            600        -3      838            846\n10  2013     1     1      558            600        -2      753            745\n# ℹ 336,766 more rows\n# ℹ 13 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, air_time_hr &lt;dbl&gt;, mph &lt;dbl&gt;\n\n\n\nFirst, count the number of flights each month, and then calculate the proportion of flights in each month. What proportion of flights take place in July?\n\n\nflights |&gt;\n  count(month) |&gt;\n  mutate(prop = n / sum(n)) |&gt;\n  filter(month == 7)\n\n# A tibble: 1 × 3\n  month     n   prop\n  &lt;int&gt; &lt;int&gt;  &lt;dbl&gt;\n1     7 29425 0.0874"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-9---summarize",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-9---summarize",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 9 - summarize()",
     "text": "Exercise 9 - summarize()\n\nFind mean arrival delay for all flights.\n\n\nflights |&gt;\n  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE))\n\n# A tibble: 1 × 1\n  mean_arr_delay\n           &lt;dbl&gt;\n1           6.90"
   },
   {
     "objectID": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-10---group_by",
     "href": "code-alongs/3-1-flights-and-pipes/3-1-flights-and-pipes-eov.html#exercise-10---group_by",
-    "title": "Flights and pipes",
+    "title": "Flights and pipes  End of video",
     "section": "Exercise 10 - group_by()",
     "text": "Exercise 10 - group_by()\n\nFind mean arrival delay for for each month.\n\n\nflights |&gt;\n  group_by(month) |&gt;\n  summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE))\n\n# A tibble: 12 × 2\n   month mean_arr_delay\n   &lt;int&gt;          &lt;dbl&gt;\n 1     1          6.13 \n 2     2          5.61 \n 3     3          5.81 \n 4     4         11.2  \n 5     5          3.52 \n 6     6         16.5  \n 7     7         16.7  \n 8     8          6.04 \n 9     9         -4.02 \n10    10         -0.167\n11    11          0.461\n12    12         14.9  \n\n\n\nWhat is the median departure delay for each airports around NYC (origin)? Which airport has the shortest median departure delay?\n\n\nflights |&gt;\n  group_by(origin) |&gt;\n  summarize(median_dep_delay = median(dep_delay, na.rm = TRUE))\n\n# A tibble: 3 × 2\n  origin median_dep_delay\n  &lt;chr&gt;             &lt;dbl&gt;\n1 EWR                  -1\n2 JFK                  -1\n3 LGA                  -3"
   },
   {
     "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins-eov.html",
     "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins-eov.html",
-    "title": "First look at Palmer Penguins",
+    "title": "First look at Palmer Penguins  End of video",
     "section": "",
     "text": "How do bill sizes of penguins vary across species? And what happens if we don’t take species into consideration?\n\n\nWe will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
   },
   {
     "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins-eov.html#packages",
     "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins-eov.html#packages",
-    "title": "First look at Palmer Penguins",
+    "title": "First look at Palmer Penguins  End of video",
     "section": "",
     "text": "We will use the tidyverse packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)"
   },
   {
     "objectID": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins-eov.html#data",
     "href": "code-alongs/2-1-first-look-palmer-penguins/2-1-first-look-palmer-penguins-eov.html#data",
-    "title": "First look at Palmer Penguins",
+    "title": "First look at Palmer Penguins  End of video",
     "section": "",
     "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
   },
@@ -1026,7 +1026,7 @@
     "href": "index.html#code-alongs",
     "title": " Data visualization and transformation",
     "section": "Code alongs",
-    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\nSubtitle\n\n\n\n\n\n\nUN Votes\n\n\nEnd of video\n\n\n\n\nUN Votes\n\n\n Data visualization and transformation Data Science with R\n\n\n\n\nFirst look at Palmer Penguins\n\n\nEnd of video\n\n\n\n\nFirst look at Palmer Penguins\n\n\n Data visualization and transformation Data Science with R\n\n\n\n\nFlights and pipes\n\n\nEnd of video\n\n\n\n\nFlights and pipes\n\n\n Data visualization and transformation Data Science with R\n\n\n\n\nStarwars characters\n\n\nEnd of video\n\n\n\n\nStarwars characters\n\n\n Data visualization and transformation Data Science with R\n\n\n\n\nDiving deeper with Palmer Penguins\n\n\nEnd of video\n\n\n\n\nDiving deeper with Palmer Penguins\n\n\n Data visualization and transformation Data Science with R\n\n\n\n\n\nNo matching items"
+    "text": "Code alongs\n\n\n\n\n\nTitle\n\n\n\n\n\n\nUN Votes  End of video\n\n\n\n\nUN Votes\n\n\n\n\nFirst look at Palmer Penguins  End of video\n\n\n\n\nFirst look at Palmer Penguins\n\n\n\n\nFlights and pipes  End of video\n\n\n\n\nFlights and pipes\n\n\n\n\nStarwars characters  End of video\n\n\n\n\nStarwars characters\n\n\n\n\nDiving deeper with Palmer Penguins  End of video\n\n\n\n\nDiving deeper with Palmer Penguins\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#exercises",
@@ -1626,42 +1626,42 @@
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html",
-    "title": "Diving deeper with Palmer Penguins",
+    "title": "Diving deeper with Palmer Penguins  End of video",
     "section": "",
     "text": "How do sizes of penguins vary across species, islands, and sexes? What about other characteristics?\n\n\nWe will use the tidyverse and ggbeeswarm packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\nlibrary(ggbeeswarm)\n\n\n\n\nThe dataset we will visualize is called penguins. Let’s glimpse() at it.\n\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#packages",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#packages",
-    "title": "Diving deeper with Palmer Penguins",
+    "title": "Diving deeper with Palmer Penguins  End of video",
     "section": "",
     "text": "We will use the tidyverse and ggbeeswarm packages for data wrangling and visualization and the palmerpenguins package for the data.\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\nlibrary(ggbeeswarm)"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#data",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#data",
-    "title": "Diving deeper with Palmer Penguins",
+    "title": "Diving deeper with Palmer Penguins  End of video",
     "section": "",
     "text": "The dataset we will visualize is called penguins. Let’s glimpse() at it.\n\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#single-variable",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#single-variable",
-    "title": "Diving deeper with Palmer Penguins",
+    "title": "Diving deeper with Palmer Penguins  End of video",
     "section": "Single variable",
     "text": "Single variable\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the a single variable is called univariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins.\n\nExercise 1\nMake a histogram. Set an appropriate binwidth.\n\nggplot(penguins, aes(x = body_mass_g)) +\n  geom_histogram(binwidth = 250)\n\n\n\n\n\n\n\n\n\n\nExercise 2\nMake a boxplot.\n\nggplot(penguins, aes(x = body_mass_g)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\nExercise 3\nBased on these, determine if each of the following statements about the shape of the distribution is true or false.\n\nThe distribution of penguin weights in this sample is left skewed. FALSE\nThe distribution of penguin weights in this sample is unimodal. Difficult to determine, FALSE\n\n\nggplot(penguins, aes(x = body_mass_g)) +\n  geom_density()"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#two-variables",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#two-variables",
-    "title": "Diving deeper with Palmer Penguins",
+    "title": "Diving deeper with Palmer Penguins  End of video",
     "section": "Two variables",
     "text": "Two variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between two variables is called bivariate analysis.\n\n\nCreate visualizations of the distribution of weights of penguins by species.\n\nExercise 4\nMake a single histogram. Set an appropriate binwidth.\n\nggplot(penguins, aes(x = body_mass_g, fill = species)) +\n  geom_histogram(binwidth = 250)\n\n\n\n\n\n\n\n\n\n\nExercise 5\nUse multiple histograms via faceting, one for each species. Set an appropriate binwidth, add color as you see fit, and turn off legends if not needed.\n\nggplot(penguins, aes(x = body_mass_g, fill = species)) +\n  geom_histogram(binwidth = 250) +\n  facet_wrap(~species, ncol = 1)\n\n\n\n\n\n\n\n\n\n\nExercise 6\nUse side-by-side box plots. Add color as you see fit and turn off legends if not needed.\n\nggplot(penguins, aes(x = body_mass_g, y = species, fill = species)) +\n  geom_boxplot(show.legend = FALSE)\n\n\n\n\n\n\n\n\n\n\nExercise 7\nUse density plots. Add color as you see fit.\n\nggplot(penguins, aes(x = body_mass_g, fill = species, color = species)) +\n  geom_density(alpha = 0.5)\n\n\n\n\n\n\n\n\n\n\nExercise 8\nUse violin plots. Add color as you see fit and turn off legends if not needed.\n\nggplot(penguins, aes(x = body_mass_g, y = species, color = species, fill = species)) +\n  geom_violin(alpha = 0.2, show.legend = FALSE)\n\n\n\n\n\n\n\n\n\n\nExercise 9\nMake a jittered scatter plot. Add color as you see fit and turn off legends if not needed.\n\nset.seed(1234)\nggplot(penguins, aes(x = species, y = body_mass_g)) +\n  geom_jitter(alpha = 0.5)\n\n\n\n\n\n\n\n\n\n\nExercise 10\nUse beeswarm plots. Add color as you see fit and turn off legends if not needed.\n\nggplot(penguins, aes(x = species, y = body_mass_g, color = species, shape = species)) +\n  geom_beeswarm(show.legend = FALSE)\n\n\n\n\n\n\n\n\n\n\nExercise 11\nUse multiple geoms on a single plot. Be deliberate about the order of plotting. Change the theme and the color scale of the plot. Finally, add informative labels.\n\nggplot(penguins, aes(x = body_mass_g, y = species, color = species)) +\n  geom_boxplot() +\n  geom_beeswarm()"
   },
   {
     "objectID": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#multiple-variables",
     "href": "code-alongs/3-3-diving-deeper-palmer-penguins/3-3-diving-deeper-palmer-penguins-eov.html#multiple-variables",
-    "title": "Diving deeper with Palmer Penguins",
+    "title": "Diving deeper with Palmer Penguins  End of video",
     "section": "Multiple variables",
     "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\n\nExercise 12\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\nggplot(penguins, aes(x = body_mass_g, y = species, color = species)) +\n  geom_boxplot(show.legend = FALSE) +\n  geom_beeswarm(show.legend = FALSE) +\n  facet_wrap(~island, ncol = 1) +\n  labs(\n    x = \"Weight (grams)\",\n    y = \"Species\",\n    title = \"Weights of penguins across species and islands\"\n  )\n\n\n\n\n\n\n\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
   },
@@ -1780,70 +1780,70 @@
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "",
     "text": "You might not be a Star Wars fan, but you’ve probably heard of the movie franchise!\n\n\nWe will use the tidyverse packages for data wrangling and for the data.\n\n\n\nThe dataset we will explore is called starwars."
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#packages",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#packages",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "",
     "text": "We will use the tidyverse packages for data wrangling and for the data."
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#data",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#data",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "",
     "text": "The dataset we will explore is called starwars."
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-1",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-1",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "Exercise 1",
     "text": "Exercise 1\nGlimpse at the starwars data frame.\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…"
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-2",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-2",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "Exercise 2",
     "text": "Exercise 2\nModify the following plot to change the color of the points by gender.\n\nggplot(starwars, aes(x = height, y = mass, color = gender)) +\n  geom_point()\n\nWarning: Removed 28 rows containing missing values or values outside the scale range\n(`geom_point()`)."
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-3",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-3",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "Exercise 3",
     "text": "Exercise 3\nModify the following plot to change the color of all points to \"pink\".\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point(color = \"pink\")\n\nWarning: Removed 28 rows containing missing values or values outside the scale range\n(`geom_point()`)."
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-4",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-4",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "Exercise 4",
     "text": "Exercise 4\nAdd labels for title, x and y axes, and color of points.\n\nggplot(starwars, aes(x = height, y = mass, color = gender, shape = gender)) +\n  geom_point() +\n  labs(\n    title = \"Weights and heights of Star Wars characters\",\n    x = \"Height (cm)\",\n    y = \"Weight (kg)\",\n    color = \"Gender\",\n    shape = \"Gender\"\n  )\n\nWarning: Removed 31 rows containing missing values or values outside the scale range\n(`geom_point()`)."
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-5",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-5",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "Exercise 5",
     "text": "Exercise 5\nPick a single categorical variable from the data set and make a bar plot of its distribution. Describe what you see in the plot.\nAdd description here.\n\nggplot(starwars, aes(y = hair_color)) +\n  geom_bar()"
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-6",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-6",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "Exercise 6",
     "text": "Exercise 6\nPick two categorical variables and make a visualization to visualize the relationship between the these variables. Along with your code and output, provide an interpretation of the visualization.\nAdd interpretation here.\n\nggplot(starwars, aes(x = sex, fill = gender)) +\n  geom_bar()\n\n\n\n\n\n\n\nggplot(starwars, aes(x = gender, fill = sex)) +\n  geom_bar()"
   },
   {
     "objectID": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-7",
     "href": "code-alongs/3-2-starwars-characters/3-2-starwars-characters-eov.html#exercise-7",
-    "title": "Starwars characters",
+    "title": "Starwars characters  End of video",
     "section": "Exercise 7",
     "text": "Exercise 7\nPick three categorical variables and make a visualization to visualize the relationship between the these variables. Along with your code and output, provide an interpretation of the visualization.\nAdd interpretation here.\n\nggplot(starwars, aes(x = gender, fill = sex)) +\n  geom_bar() +\n  facet_wrap(~hair_color)"
   },
