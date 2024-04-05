@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation - adsf</title>
+  <title>Data visualization and transformation - Meet the toolkit: Git and GitHub</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -328,7 +328,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">adsf</h1>
+  <h1 class="title">Meet the toolkit: Git and GitHub</h1>
   <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
@@ -340,15 +340,136 @@
 </div>
 
 </section>
-<section class="slide level2">
+<section>
+<section id="learning-goals" class="title-slide slide level1 center">
+<h1>Learning goals</h1>
 
+</section>
+<section id="by-the-end-of-the-course-you-will-be-able-to" class="slide level2">
+<h2>By the end of the course, you will be able to…</h2>
+<div>
+<p>–</p>
+<p>–</p>
+<p>–</p>
+</div>
+</section></section>
+<section>
+<section id="toolkit-version-control-and-collaboration" class="title-slide slide level1 center">
+<h1>Toolkit: Version control and collaboration</h1>
+
+</section>
+<section id="git-and-github" class="slide level2 smaller">
+<h2>Git and GitHub</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/git-logo.png" class="quarto-figure quarto-figure-center" alt="Git logo" width="150"></p>
+</figure>
+</div>
+<ul>
+<li>Git is a version control system – like “Track Changes” features from Microsoft Word, on steroids</li>
+<li>It’s not the only version control system, but it’s a very popular one</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/github-logo.png" class="quarto-figure quarto-figure-center" alt="GitHub logo" width="150"></p>
+</figure>
+</div>
+<ul>
+<li><p>GitHub is the home for your Git-based projects on the internet – like DropBox but much, much better</p></li>
+<li><p>We will use GitHub as a platform for web hosting and collaboration (and as our course management system!)</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="versioning---done-badly" class="slide level2">
+<h2>Versioning - done badly</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/phd_comics_vc.gif" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="versioning---done-better" class="slide level2">
+<h2>Versioning - done better</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/lego-steps.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="versioning---done-even-better" class="slide level2">
+<h2>Versioning - done even better</h2>
+<h3 id="with-human-readable-messages">with human readable messages</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/lego-steps-commit-messages.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="how-will-we-use-git-and-github" class="slide level2">
+<h2>How will we use Git and GitHub?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/whole-game-01.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="how-will-we-use-git-and-github-1" class="slide level2">
+<h2>How will we use Git and GitHub?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/whole-game-02.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="how-will-we-use-git-and-github-2" class="slide level2">
+<h2>How will we use Git and GitHub?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/whole-game-03.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="how-will-we-use-git-and-github-3" class="slide level2">
+<h2>How will we use Git and GitHub?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/whole-game-04.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="git-and-github-tips" class="slide level2 smaller">
+<h2>Git and GitHub tips</h2>
+<ul>
+<li>There are many many git commands – but there are a lot of them – and very few people know them all. 99% of the time you will use git to push, commit, and pull.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/pcp-git.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="git-and-github-tips-1" class="slide level2 smaller">
+<h2>Git and GitHub tips</h2>
+<div>
+<ul>
+<li class="fragment">We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.</li>
+<li class="fragment">There is a great resource for working with git and R: <a href="http://happygitwithr.com/">happygitwithr.com</a>. Some of the content in there is beyond the scope of this course, but it’s a good place to look for help.</li>
+</ul>
+</div>
+</section>
+<section id="tour-git-github" class="slide level2">
+<h2>Tour: Git + GitHub</h2>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
