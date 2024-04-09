@@ -33,7 +33,6 @@ format: revealjs
 
 ![](images/lego-steps-commit-messages.png){fig-align="center"}
 
-# Toolkit: Version control and collaboration
 
 ## Git and GitHub {.smaller}
 
@@ -41,8 +40,10 @@ format: revealjs
 ::: {.column width="50%"}
 ![](images/git-logo.png){fig-alt="Git logo" fig-align="center" width="150"}
 
--   Git is a version control system -- like "Track Changes" features from Microsoft Word, on steroids
 -   It's not the only version control system, but it's a very popular one
+
+-   Git is a version control system -- like "Track Changes" features from Microsoft Word, on steroids
+
 :::
 
 ::: {.column width="50%"}
@@ -51,24 +52,9 @@ format: revealjs
 -   GitHub is the home for your Git-based projects on the internet -- like DropBox but much, much better
 
 -   We will use GitHub as a platform for your course projects
+
 :::
 :::
-
-## How will we use Git and GitHub?
-
-![](images/whole-game-01.png){fig-align="center"}
-
-## How will we use Git and GitHub?
-
-![](images/whole-game-02.png){fig-align="center"}
-
-## How will we use Git and GitHub?
-
-![](images/whole-game-03.png){fig-align="center"}
-
-## How will we use Git and GitHub?
-
-![](images/whole-game-04.png){fig-align="center"}
 
 ## Git and GitHub tips {.smaller}
 
@@ -76,50 +62,52 @@ There are many many git commands ... but there are a lot of them and very few pe
 
 ![](images/pcp-git.png){fig-align="center"}
 
+## Accessing your project
+
+![](images/whole-game-01.png){fig-align="center"}
+
+## Accessing your project
+
+![](images/whole-game-02.png){fig-align="center"}
+
+## Accessing your project
+
+![](images/whole-game-03.png){fig-align="center"}
+
+## Accessing your project
+
+![](images/whole-game-04.png){fig-align="center"}
+
+
 ## Git and GitHub tips {.smaller}
 
 -   There are many many git commands ... but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull
 
-::: incremental
 -   We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.
+
+::: incremental
 -   If you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: [happygitwithr.com](http://happygitwithr.com/). 
 :::
 
-## Before we begin - create GitHub account
+## Before we begin our tour 
 
-Go to [Github](https://github.com/) and walk through the steps for creating an account.
+How to create GitHub account
 
-You’ll need to choose a user name. I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
+-   Go to [Github](https://github.com/) and walk through the steps for creating an account.
+
+-   You’ll need to choose a user name. I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
 
 # Tour: Git + GitHub + Configuration
 
-
+# Project instructions 
 
 ## The project 
 ::: incremental
-**Introduction** - contains more information about your data set and the research question(s) you are tasked to investigate.  
+**Introduction** - contains information about your data set and the research question(s) you are tasked to investigate  
 
-**Methods** - visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions.
+**Methods** - should include visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions
 
-**Discussion** - written summary to discuss your overall findings, and describe the key results from your analysis.
+**Discussion** - should include a written summary discussing your overall findings, and describes the key results from your analysis
 :::
 
-## Set up your SSH key 
-
--   Go back to your RStudio container and type `credentials::ssh_setup_github()` into your console.
-
--   Open the browser when prompted, and paste your SSH key.
-
-## Configure Git 
-
-To do so, you will use the `use_git_config()` function from the usethis package.
-
-```{r}
-#| eval: false
-
-usethis::use_git_config(
-  user.name = "Elijah Meyer", 
-  user.email = "elijahcoursera@gmail.com"
-)
-```
 

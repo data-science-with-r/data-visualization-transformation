@@ -1,0 +1,87 @@
+In this course and throughout the specialization, we've learned a variety of techniques to visulaize and transform data in R. In this video, we will introduce the idea of version control, how to implement version control into your workflow, and discuss the final project for course 1. 
+
+>> 
+
+To start things off, let's review our learning goals. 
+
+>>
+
+*Read slide*
+
+>>
+
+So what is version control? Version control the process of tracking and managing online documents, allowing you to see what changes you and others are making. There are both good and not so good ways to go about this... 
+
+>> 
+
+Take this cartoon for example where a graduate student is working on some final document... receives some edits... and saves a new document after incorporating those edits. Many itterations of this later... and we have nothing but a mess of files, comments, suggestions that are near impossible to keep up with. 
+
+>>
+
+I like to think of good version control as building a lego house... where at each step you record or track what is happening so the process is easier to follow.   
+
+>> 
+
+This process becomes better and easier to track if you have short readable messages that describe what has been accomplished at each step. For example, you see step two has the message "build back and front of base", which could be a useful message to others you are working with, or to yourself if you are coming back to a project. 
+
+And when you are using version control for a project, you get to decide when to make these messages appear. This could could be after you've written a paragraph of a paper, or just finished creating a visualization, etc.  
+
+>>
+
+The version control software that allows us to do this process is called Git. Git is a popular version control software, especially in the statistics and data science community, and can be thought of similar to "Track Changes" in Word, but has much more user-functionality that may be helpful for us. 
+
+We are also going to use GitHub, which is a cloud-based hosting service for all of our Git projects. It is similar to "Dropbox", but also has much more user-functionality that may be helpful. Your project will can be found on GitHub.
+
+>> 
+
+There are many many git commands to help us with version control, but very few people know them all. To mimic the workflow described preivously, we will use Git commands  pull, commit, and push. The pull command, which will show up as a blue down arrow in RStudio, takes everything that is stored on GitHub and pulls it into your project so the you are working with the most current files. Once you start working, and want to "add a layer to your lego house", you can click Commit. Once your committs are staged, you can click the upwards green arrow to push these changes up to your GitHub repository with a helpful message for you and others to reference later.
+
+
+>>
+
+
+Our project is going to be contained in something called a GitHub repository. 
+
+>>
+
+A repository is a place where you can store files, code, and other documents. 
+
+>>
+
+You are going to clone this repository from GitHub into RStudio. This cloning process will initially bring in all the files in the repository to your local computer... and with these files, you will be able to use the R programming language, leverage functionality provided by R packages, and use verison control are files with Git.   
+
+
+>>
+
+We will be doing the pull, committ and push Git commands in RStudio. If you use google for additional information, you may come across ways to use Git in the command line, which is an option but not always necessary. Additional chapters past your required reading from the book Happy Git and GitHub for the useR is a great resource for more information on Git, GitHub and R. 
+
+>>
+
+We are now going to begin our tour of Git and GitHub and put to practice what we just talked about... but before we begin this tour will require you to have a GitHub account. If you already have a GitHub account, great! If not, I invite you to pause the video and follow the steps outlined on this slide. 
+
+>>
+
+Let's begin our tour! 
+
+>> Go to computer and demo the following
+
+-- Tour the repo
+-- Click green Code and show that we need an SSH key + configure 
+-- Go through that process
+-- Clone project 
+-- Demo a pull, committ, push 
+-- Go back to the repo and show this 
+-- Show that by clicking on commits, you can see each version of the file + the changes made 
+
+>>
+
+The project instructions, which can also be found in your project qmd, provide you a scenario and ask you to answer research questions with the skills you've learned thus far. 
+
+*Read Slide*
+Introduction -- 
+Methods -- 
+Discussion -- 
+
+Self assessment rubric items can be found at the end of the project document.
+
+When working on your project, we challange you to practice getting into the routine of using good version control practices as you build up your project report. 
