@@ -407,16 +407,14 @@
 
 </section><section id="by-the-end-of-the-course-you-will" class="slide level2"><h2>By the end of the course, you will …</h2>
 <div>
-<p>– understand what is and the importance of version control</p>
+<p>– understand the importance of version control</p>
 <p>– understand how we use Git &amp; GitHub for version control</p>
 <p>– authenticate and configure Git so that RStudio can communicate with GitHub</p>
 <p>– understand how to use version control for your final course project</p>
 </div>
-</section><section id="version-control" class="slide level2"><h2>Version control</h2>
-<ul>
-<li><p>keeping software system that has the potential for many versions tracked and well organized</p></li>
-<li><p>allows you to see what changes you and others are making</p></li>
-</ul></section><section id="versioning---done-badly" class="slide level2"><h2>Versioning - done badly</h2>
+</section></section><section><section id="version-control" class="title-slide slide level1 center"><h1>Version control</h1>
+
+</section><section id="versioning---done-badly" class="slide level2"><h2>Versioning - done badly</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="images/phd_comics_vc.gif" class="quarto-figure quarto-figure-center"></p>
 </figure>
@@ -452,7 +450,7 @@
 </div>
 <ul>
 <li><p>GitHub is the home for your Git-based projects on the internet – like DropBox but much, much better</p></li>
-<li><p>We will use GitHub as a platform for web hosting and collaboration (and as our course management system!)</p></li>
+<li><p>We will use GitHub as a platform for your course projects</p></li>
 </ul>
 </div>
 </div>
@@ -477,33 +475,32 @@
 </figure>
 </div>
 </section><section id="git-and-github-tips" class="slide level2 smaller"><h2>Git and GitHub tips</h2>
-<ul>
-<li>There are many many git commands – but there are a lot of them – and very few people know them all. 99% of the time you will use git to push, commit, and pull.</li>
-</ul>
+<p>There are many many git commands … but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull</p>
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="images/pcp-git.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </section><section id="git-and-github-tips-1" class="slide level2 smaller"><h2>Git and GitHub tips</h2>
 <ul>
-<li>There are many many git commands – but there are a lot of them – and very few people know them all. 99% of the time you will use git to push, commit, and pull.</li>
+<li>There are many many git commands … but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull</li>
 </ul>
 <div>
 <ul>
 <li class="fragment">We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.</li>
-<li class="fragment">There is a great resource for working with git and R: <a href="http://happygitwithr.com/">happygitwithr.com</a>. Some of the content in there is beyond the scope of this course, but it’s a good place to look for help.</li>
+<li class="fragment">If you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: <a href="http://happygitwithr.com/">happygitwithr.com</a>.</li>
 </ul>
 </div>
-</section><section id="tour-git-github" class="slide level2"><h2>Tour: Git + GitHub</h2>
+</section><section id="before-we-begin---create-github-account" class="slide level2"><h2>Before we begin - create GitHub account</h2>
+<p>Go to <a href="https://github.com/">Github</a> and walk through the steps for creating an account.</p>
+<p>You’ll need to choose a user name. I recommend reviewing the user name advice <a href="https://happygitwithr.com/github-acct#username-advice">here</a> before choosing a username.</p>
+</section></section><section><section id="tour-git-github-configuration" class="title-slide slide level1 center"><h1>Tour: Git + GitHub + Configuration</h1>
+
 </section><section id="the-project" class="slide level2"><h2>The project</h2>
 <div>
 <p><strong>Introduction</strong> - contains more information about your data set and the research question(s) you are tasked to investigate.</p>
 <p><strong>Methods</strong> - visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions.</p>
 <p><strong>Discussion</strong> - written summary to discuss your overall findings, and describe the key results from your analysis.</p>
 </div>
-</section><section id="create-a-github-account" class="slide level2"><h2>Create a GitHub account</h2>
-<p>Go to <a href="https://github.com/">Github</a> and walk through the steps for creating an account.</p>
-<p>You’ll need to choose a user name. I recommend reviewing the user name advice <a href="https://happygitwithr.com/github-acct#username-advice">here</a> before choosing a username.</p>
 </section><section id="set-up-your-ssh-key" class="slide level2"><h2>Set up your SSH key</h2>
 <ul>
 <li><p>Go back to your RStudio container and type <code><a href="https://docs.ropensci.org/credentials/reference/ssh_credentials.html">credentials::ssh_setup_github()</a></code> into your console.</p></li>

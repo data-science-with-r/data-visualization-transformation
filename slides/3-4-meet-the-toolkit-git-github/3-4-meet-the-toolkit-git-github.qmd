@@ -8,7 +8,7 @@ format: revealjs
 ## By the end of the course, you will ...
 
 ::: incremental
--- understand what is and the importance of version control
+-- understand the importance of version control
 
 -- understand how we use Git & GitHub for version control  
 
@@ -17,11 +17,7 @@ format: revealjs
 -- understand how to use version control for your final course project
 :::
 
-## Version control 
-
--   keeping software system that has the potential for many versions tracked and well organized 
-
--   allows you to see what changes you and others are making
+# Version control 
 
 ## Versioning - done badly
 
@@ -54,7 +50,7 @@ format: revealjs
 
 -   GitHub is the home for your Git-based projects on the internet -- like DropBox but much, much better
 
--   We will use GitHub as a platform for web hosting and collaboration (and as our course management system!)
+-   We will use GitHub as a platform for your course projects
 :::
 :::
 
@@ -76,20 +72,28 @@ format: revealjs
 
 ## Git and GitHub tips {.smaller}
 
--   There are many many git commands -- but there are a lot of them -- and very few people know them all. 99% of the time you will use git to push, commit, and pull.
+There are many many git commands ... but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull
 
 ![](images/pcp-git.png){fig-align="center"}
 
 ## Git and GitHub tips {.smaller}
 
--   There are many many git commands -- but there are a lot of them -- and very few people know them all. 99% of the time you will use git to push, commit, and pull.
+-   There are many many git commands ... but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull
 
 ::: incremental
 -   We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.
--   There is a great resource for working with git and R: [happygitwithr.com](http://happygitwithr.com/). Some of the content in there is beyond the scope of this course, but it's a good place to look for help.
+-   If you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: [happygitwithr.com](http://happygitwithr.com/). 
 :::
 
-## Tour: Git + GitHub
+## Before we begin - create GitHub account
+
+Go to [Github](https://github.com/) and walk through the steps for creating an account.
+
+You’ll need to choose a user name. I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
+
+# Tour: Git + GitHub + Configuration
+
+
 
 ## The project 
 ::: incremental
@@ -99,12 +103,6 @@ format: revealjs
 
 **Discussion** - written summary to discuss your overall findings, and describe the key results from your analysis.
 :::
-
-## Create a GitHub account 
-
-Go to [Github](https://github.com/) and walk through the steps for creating an account.
-
-You’ll need to choose a user name. I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
 
 ## Set up your SSH key 
 
