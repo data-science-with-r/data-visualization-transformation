@@ -99,3 +99,29 @@ format: revealjs
 
 **Discussion** - written summary to discuss your overall findings, and describe the key results from your analysis.
 :::
+
+## Create a GitHub account 
+
+Go to [Github](https://github.com/) and walk through the steps for creating an account.
+
+You’ll need to choose a user name. I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
+
+## Set up your SSH key 
+
+-   Go back to your RStudio container and type `credentials::ssh_setup_github()` into your console.
+
+-   Open the browser when prompted, and paste your SSH key.
+
+## Configure Git 
+
+To do so, you will use the `use_git_config()` function from the usethis package.
+
+```{r}
+#| eval: false
+
+usethis::use_git_config(
+  user.name = "Elijah Meyer", 
+  user.email = "elijahcoursera@gmail.com"
+)
+```
+
