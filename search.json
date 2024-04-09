@@ -739,14 +739,7 @@
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#by-the-end-of-the-course-you-will",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "By the end of the course, you will …",
-    "text": "By the end of the course, you will …\n\n– understand what is and the importance of version control\n– understand how we use Git & GitHub for version control\n– authenticate and configure Git so that RStudio can communicate with GitHub\n– understand how to use version control for your final course project"
-  },
-  {
-    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#version-control",
-    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#version-control",
-    "title": "Meet the toolkit: Git and GitHub",
-    "section": "Version control",
-    "text": "Version control\n\nkeeping software system that has the potential for many versions tracked and well organized\nallows you to see what changes you and others are making"
+    "text": "By the end of the course, you will …\n\n– understand the importance of version control\n– understand how we use Git & GitHub for version control\n– authenticate and configure Git so that RStudio can communicate with GitHub\n– understand how to use version control for your final course project"
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-badly",
@@ -774,7 +767,7 @@
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "Git and GitHub",
-    "text": "Git and GitHub\n\n\n\n\n\n\n\n\nGit is a version control system – like “Track Changes” features from Microsoft Word, on steroids\nIt’s not the only version control system, but it’s a very popular one\n\n\n\n\n\n\n\n\nGitHub is the home for your Git-based projects on the internet – like DropBox but much, much better\nWe will use GitHub as a platform for web hosting and collaboration (and as our course management system!)"
+    "text": "Git and GitHub\n\n\n\n\n\n\n\n\nGit is a version control system – like “Track Changes” features from Microsoft Word, on steroids\nIt’s not the only version control system, but it’s a very popular one\n\n\n\n\n\n\n\n\nGitHub is the home for your Git-based projects on the internet – like DropBox but much, much better\nWe will use GitHub as a platform for your course projects"
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#how-will-we-use-git-and-github",
@@ -809,21 +802,21 @@
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "Git and GitHub tips",
-    "text": "Git and GitHub tips\n\nThere are many many git commands – but there are a lot of them – and very few people know them all. 99% of the time you will use git to push, commit, and pull."
+    "text": "Git and GitHub tips\nThere are many many git commands … but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull"
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips-1",
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips-1",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "Git and GitHub tips",
-    "text": "Git and GitHub tips\n\nThere are many many git commands – but there are a lot of them – and very few people know them all. 99% of the time you will use git to push, commit, and pull.\n\n\n\nWe will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.\nThere is a great resource for working with git and R: happygitwithr.com. Some of the content in there is beyond the scope of this course, but it’s a good place to look for help."
+    "text": "Git and GitHub tips\n\nThere are many many git commands … but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull\n\n\n\nWe will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.\nIf you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: happygitwithr.com."
   },
   {
-    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-git-github",
-    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-git-github",
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#before-we-begin---create-github-account",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#before-we-begin---create-github-account",
     "title": "Meet the toolkit: Git and GitHub",
-    "section": "Tour: Git + GitHub",
-    "text": "Tour: Git + GitHub"
+    "section": "Before we begin - create GitHub account",
+    "text": "Before we begin - create GitHub account\nGo to Github and walk through the steps for creating an account.\nYou’ll need to choose a user name. I recommend reviewing the user name advice here before choosing a username."
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#the-project",
@@ -831,13 +824,6 @@
     "title": "Meet the toolkit: Git and GitHub",
     "section": "The project",
     "text": "The project\n\nIntroduction - contains more information about your data set and the research question(s) you are tasked to investigate.\nMethods - visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions.\nDiscussion - written summary to discuss your overall findings, and describe the key results from your analysis."
-  },
-  {
-    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#create-a-github-account",
-    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#create-a-github-account",
-    "title": "Meet the toolkit: Git and GitHub",
-    "section": "Create a GitHub account",
-    "text": "Create a GitHub account\nGo to Github and walk through the steps for creating an account.\nYou’ll need to choose a user name. I recommend reviewing the user name advice here before choosing a username."
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#set-up-your-ssh-key",
