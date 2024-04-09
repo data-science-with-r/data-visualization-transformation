@@ -833,6 +833,27 @@
     "text": "The project\n\nIntroduction - contains more information about your data set and the research question(s) you are tasked to investigate.\nMethods - visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions.\nDiscussion - written summary to discuss your overall findings, and describe the key results from your analysis."
   },
   {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#create-a-github-account",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#create-a-github-account",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Create a GitHub account",
+    "text": "Create a GitHub account\nGo to Github and walk through the steps for creating an account.\nYou’ll need to choose a user name. I recommend reviewing the user name advice here before choosing a username."
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#set-up-your-ssh-key",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#set-up-your-ssh-key",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Set up your SSH key",
+    "text": "Set up your SSH key\n\nGo back to your RStudio container and type credentials::ssh_setup_github() into your console.\nOpen the browser when prompted, and paste your SSH key."
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#configure-git",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#configure-git",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Configure Git",
+    "text": "Configure Git\nTo do so, you will use the use_git_config() function from the usethis package.\n\nusethis::use_git_config(\n  user.name = \"Elijah Meyer\", \n  user.email = \"elijahcoursera@gmail.com\"\n)"
+  },
+  {
     "objectID": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#by-the-end-of-the-course-you-will-be-able-to",
     "href": "slides/1-2-2-meet-the-toolkit-quarto/1-2-2-meet-the-toolkit-quarto.html#by-the-end-of-the-course-you-will-be-able-to",
     "title": "Meet the toolkit: Quarto",
