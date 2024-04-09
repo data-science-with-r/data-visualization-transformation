@@ -2006,7 +2006,7 @@
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#by-the-end-of-the-course-you-will",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "By the end of the course, you will …",
-    "text": "By the end of the course, you will …\n\n– understand what is and the importance of version control\n– understand how we use Git & GitHub for version control\n– authenticate and configure Git so that RStudio can communicate with GitHub"
+    "text": "By the end of the course, you will …\n\n– understand what is and the importance of version control\n– understand how we use Git & GitHub for version control\n– authenticate and configure Git so that RStudio can communicate with GitHub\n– understand how to use version control for your final course project"
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#version-control",
@@ -2014,5 +2014,12 @@
     "title": "Meet the toolkit: Git and GitHub",
     "section": "Version control",
     "text": "Version control\n\nkeeping software system that has the potential for many versions tracked and well organized\nallows you to see what changes you and others are making"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#the-project",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#the-project",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "The project",
+    "text": "The project\n\nIntroduction - contains more information about your data set and the research question(s) you are tasked to investigate.\nMethods - visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions.\nDiscussion - written summary to discuss your overall findings, and describe the key results from your analysis."
   }
 ]

@@ -13,6 +13,8 @@ format: revealjs
 -- understand how we use Git & GitHub for version control  
 
 -- authenticate and configure Git so that RStudio can communicate with GitHub
+
+-- understand how to use version control for your final course project
 :::
 
 ## Version control 
@@ -88,3 +90,12 @@ format: revealjs
 :::
 
 ## Tour: Git + GitHub
+
+## The project 
+::: incremental
+**Introduction** - contains more information about your data set and the research question(s) you are tasked to investigate.  
+
+**Methods** - visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions.
+
+**Discussion** - written summary to discuss your overall findings, and describe the key results from your analysis.
+:::
