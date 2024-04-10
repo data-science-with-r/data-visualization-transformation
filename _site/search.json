@@ -1985,7 +1985,7 @@
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "Git and GitHub tips",
-    "text": "Git and GitHub tips\nThere are many many git commands … but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull"
+    "text": "Git and GitHub tips\n\n\nThere are many many git commands … but very few people know them all. 99% of the time you will use git to push, commit, and pull\nIf you google for help you might come across methods for doing these things in the command line.\nIf you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: happygitwithr.com."
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github-tips-1",
@@ -2098,5 +2098,47 @@
     "title": "Meet the toolkit: Git and GitHub",
     "section": "",
     "text": "Let’s take a tour of"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-recap",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-recap",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Tour Recap",
+    "text": "Tour Recap\nCreate a GitHub account\n\nGo to Github and walk through the steps for creating an account.\nYou’ll need to choose a user name. I recommend reviewing the user name advice here before choosing a username."
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-recap-1",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-recap-1",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Tour Recap",
+    "text": "Tour Recap\n\nGet a personal access token (PAT): usethis::create_github_token()\nCopy your PAT\nInsert PAT to configure Git, GitHub and R gitcreds::gitcreds_set()\n\n&gt; gitcreds::gitcreds_set()\n\n? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n-&gt; Adding new credentials...\n-&gt; Removing credentials from cache...\n-&gt; Done."
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#slide-on-how-to-clone",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#slide-on-how-to-clone",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Slide on how to clone",
+    "text": "Slide on how to clone"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#version-control-workflow",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#version-control-workflow",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Version control workflow",
+    "text": "Version control workflow"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#environment-history-tab",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#environment-history-tab",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Environment / History Tab",
+    "text": "Environment / History Tab"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#environment-history-tab-1",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#environment-history-tab-1",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Environment / History Tab",
+    "text": "Environment / History Tab"
   }
 ]

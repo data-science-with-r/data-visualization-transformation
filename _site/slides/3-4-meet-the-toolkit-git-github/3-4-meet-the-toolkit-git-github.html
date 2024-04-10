@@ -387,7 +387,7 @@
 <section id="git-and-github" class="slide level2 smaller">
 <h2>Git and GitHub</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:35%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/git-logo.png" class="quarto-figure quarto-figure-center" alt="Git logo" width="150"></p>
@@ -397,7 +397,7 @@
 <li><p>It’s not the only version control system, but it’s a very popular one</p></li>
 <li><p>Git is a version control system – like “Track Changes” features from Microsoft Word, on steroids</p></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:35%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/github-logo.png" class="quarto-figure quarto-figure-center" alt="GitHub logo" width="150"></p>
@@ -419,83 +419,63 @@
 </figure>
 </div>
 </section>
-<section id="git-and-github-tips" class="slide level2 smaller">
-<h2>Git and GitHub tips</h2>
-<p>There are many many git commands … but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull</p>
+<section id="tour-recap" class="slide level2">
+<h2>Tour Recap</h2>
+<p>Create a GitHub account</p>
+<ul>
+<li><p>Go to <a href="https://github.com/">Github</a> and walk through the steps for creating an account.</p></li>
+<li><p>You’ll need to choose a user name. I recommend reviewing the user name advice <a href="https://happygitwithr.com/github-acct#username-advice">here</a> before choosing a username.</p></li>
+</ul>
+</section>
+<section id="tour-recap-1" class="slide level2">
+<h2>Tour Recap</h2>
+<ul>
+<li><p>Get a personal access token (PAT): <code>usethis::create_github_token()</code></p></li>
+<li><p>Copy your PAT</p></li>
+<li><p>Insert PAT to configure Git, GitHub and R <code>gitcreds::gitcreds_set()</code></p></li>
+</ul>
+<pre><code>&gt; gitcreds::gitcreds_set()
+
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-&gt; Adding new credentials...
+-&gt; Removing credentials from cache...
+-&gt; Done.</code></pre>
+</section>
+<section id="slide-on-how-to-clone" class="slide level2">
+<h2>Slide on how to clone</h2>
+</section>
+<section id="version-control-workflow" class="slide level2 smaller">
+<h2>Version control workflow</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/pcp-git.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </section>
-<section id="accessing-your-project" class="slide level2">
-<h2>Accessing your project</h2>
+<section id="environment-history-tab" class="slide level2">
+<h2>Environment / History Tab</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/whole-game-01.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="images/git-tab.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </section>
-<section id="accessing-your-project-1" class="slide level2">
-<h2>Accessing your project</h2>
+<section id="environment-history-tab-1" class="slide level2">
+<h2>Environment / History Tab</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="images/whole-game-02.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="images/buttons.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </section>
-<section id="accessing-your-project-2" class="slide level2">
-<h2>Accessing your project</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/whole-game-03.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</section>
-<section id="accessing-your-project-3" class="slide level2">
-<h2>Accessing your project</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/whole-game-04.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</section>
-<section id="git-and-github-tips-1" class="slide level2 smaller">
+<section id="git-and-github-tips" class="slide level2">
 <h2>Git and GitHub tips</h2>
-<ul>
-<li><p>There are many many git commands … but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull</p></li>
-<li><p>We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.</p></li>
-</ul>
 <div>
 <ul>
-<li class="fragment">If you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: <a href="http://happygitwithr.com/">happygitwithr.com</a>.</li>
+<li class="fragment"><p>There are many many git commands … but very few people know them all. 99% of the time you will use git to push, commit, and pull</p></li>
+<li class="fragment"><p>If you google for help you might come across methods for doing these things in the command line.</p></li>
+<li class="fragment"><p>If you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: <a href="http://happygitwithr.com/">happygitwithr.com</a>.</p></li>
 </ul>
-</div>
-</section>
-<section id="before-we-begin-our-tour" class="slide level2">
-<h2>Before we begin our tour</h2>
-<p>How to create GitHub account</p>
-<ul>
-<li><p>Go to <a href="https://github.com/">Github</a> and walk through the steps for creating an account.</p></li>
-<li><p>You’ll need to choose a user name. I recommend reviewing the user name advice <a href="https://happygitwithr.com/github-acct#username-advice">here</a> before choosing a username.</p></li>
-</ul>
-</section></section>
-<section id="tour-git-github-configuration" class="title-slide slide level1 center">
-<h1>Tour: Git + GitHub + Configuration</h1>
-
-</section>
-
-<section>
-<section id="project-instructions" class="title-slide slide level1 center">
-<h1>Project instructions</h1>
-
-</section>
-<section id="the-project" class="slide level2">
-<h2>The project</h2>
-<div>
-<p><strong>Introduction</strong> - contains information about your data set and the research question(s) you are tasked to investigate</p>
-<p><strong>Methods</strong> - should include visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions</p>
-<p><strong>Discussion</strong> - should include a written summary discussing your overall findings, and describes the key results from your analysis</p>
 </div>
 
 

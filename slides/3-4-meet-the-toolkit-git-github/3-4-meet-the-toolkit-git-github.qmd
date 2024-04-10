@@ -37,7 +37,7 @@ format: revealjs
 ## Git and GitHub {.smaller}
 
 ::: columns
-::: {.column width="50%"}
+::: {.column width="35%"}
 ![](images/git-logo.png){fig-alt="Git logo" fig-align="center" width="150"}
 
 -   It's not the only version control system, but it's a very popular one
@@ -46,7 +46,7 @@ format: revealjs
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="35%"}
 ![](images/github-logo.png){fig-alt="GitHub logo" fig-align="center" width="150"}
 
 -   GitHub is the home for your Git-based projects on the internet -- like DropBox but much, much better
@@ -64,58 +64,59 @@ format: revealjs
 ![](images/tech.png){fig-align="center"}
 
 
-## Git and GitHub tips {.smaller}
 
-There are many many git commands ... but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull
+## Tour Recap 
 
-![](images/pcp-git.png){fig-align="center"}
-
-## Accessing your project
-
-![](images/whole-game-01.png){fig-align="center"}
-
-## Accessing your project
-
-![](images/whole-game-02.png){fig-align="center"}
-
-## Accessing your project
-
-![](images/whole-game-03.png){fig-align="center"}
-
-## Accessing your project
-
-![](images/whole-game-04.png){fig-align="center"}
-
-
-## Git and GitHub tips {.smaller}
-
--   There are many many git commands ... but there are a lot of them and very few people know them all. 99% of the time you will use git to push, commit, and pull
-
--   We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line.
-
-::: incremental
--   If you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: [happygitwithr.com](http://happygitwithr.com/). 
-:::
-
-## Before we begin our tour 
-
-How to create GitHub account
+Create a GitHub account
 
 -   Go to [Github](https://github.com/) and walk through the steps for creating an account.
 
 -   You’ll need to choose a user name. I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
 
-# Tour: Git + GitHub + Configuration
+## Tour Recap
 
-# Project instructions 
+-   Get a personal access token (PAT): `usethis::create_github_token()`
 
-## The project 
+-   Copy your PAT 
+
+-   Insert PAT to configure Git, GitHub and R `gitcreds::gitcreds_set()`
+
+```
+> gitcreds::gitcreds_set()
+
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+## Slide on how to clone 
+
+
+
+## Version control workflow {.smaller}
+
+![](images/pcp-git.png){fig-align="center"}
+
+## Environment / History Tab
+
+![](images/git-tab.png){fig-align="center"}
+
+## Environment / History Tab
+
+![](images/buttons.png){fig-align="center"}
+
+
+## Git and GitHub tips
+
 ::: incremental
-**Introduction** - contains information about your data set and the research question(s) you are tasked to investigate  
+-   There are many many git commands ... but very few people know them all. 99% of the time you will use git to push, commit, and pull
 
-**Methods** - should include visualizations and summary statistics relevant to your research question(s). These should be accompanied with written descriptions
+-   If you google for help you might come across methods for doing these things in the command line. 
 
-**Discussion** - should include a written summary discussing your overall findings, and describes the key results from your analysis
+
+-   If you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: [happygitwithr.com](http://happygitwithr.com/). 
 :::
+
 
 
