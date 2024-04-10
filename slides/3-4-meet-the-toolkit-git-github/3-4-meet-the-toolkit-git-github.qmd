@@ -8,13 +8,13 @@ format: revealjs
 ## By the end of the course, you will ...
 
 ::: incremental
--- understand the importance of version control
+-   understand the importance of version control
 
--- understand how we use Git & GitHub for version control  
+-   understand how we use Git & GitHub for version control  
 
--- authenticate and configure Git so that RStudio can communicate with GitHub
+-   set up and configure a personal access token so that RStudio can communicate with GitHub
 
--- understand how to use version control for your final course project
+-   understand how to clone your course project
 :::
 
 # Version control 
@@ -98,11 +98,11 @@ Create a GitHub account
 
 ![](images/pcp-git.png){fig-align="center"}
 
-## Environment / History Tab
+## Environments window
 
 ![](images/git-tab.png){fig-align="center"}
 
-## Environment / History Tab
+## Environments window
 
 ![](images/buttons.png){fig-align="center"}
 
@@ -112,10 +112,8 @@ Create a GitHub account
 ::: incremental
 -   There are many many git commands ... but very few people know them all. 99% of the time you will use git to push, commit, and pull
 
--   If you google for help you might come across methods for doing these things in the command line. 
 
-
--   If you are looking for additional resources for working with git and R, check out: There is a great resource for working with git and R: [happygitwithr.com](http://happygitwithr.com/). 
+-   If you are looking for additional resources for working with git and R, continue reading: [happygitwithr.com](http://happygitwithr.com/). 
 :::
 
 
