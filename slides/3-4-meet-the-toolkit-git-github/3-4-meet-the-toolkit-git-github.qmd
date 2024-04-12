@@ -67,7 +67,7 @@ format: revealjs
 <p style="text-align: right;">[Project Repo](https://github.com/data-science-with-r/data-visualization-transformation-project)</p>
 
 
-## Tour Recap 
+## Tour recap 
 
 Create a GitHub account
 
@@ -75,7 +75,19 @@ Create a GitHub account
 
 -   You’ll need to choose a user name. I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
 
-## Tour Recap
+## Creating a new repository 
+
+-   [Project Repo](https://github.com/data-science-with-r/data-visualization-transformation-project)
+
+![](images/template.png){fig-align="left"}
+
+-   Make sure you are the owner
+
+-   We recommend naming your repo the same name as the origional
+
+
+
+## Personal access token
 
 -   Get a personal access token (PAT): `usethis::create_github_token()`
 
@@ -92,9 +104,25 @@ Create a GitHub account
 -> Done.
 ```
 
-## Slide on how to clone 
+## Clone repository
 
+![](images/code.png){fig-align="center"}
 
+## Clone repository
+
+![](images/https.png){fig-align="center"}
+
+## Clone repository 
+
+![](images/copy.png){fig-align="center"}
+
+## Project
+
+-   File -> New Project 
+
+-   Version control -> Git 
+
+-   Paste -> Create project 
 
 ## Version control workflow {.smaller}
 
