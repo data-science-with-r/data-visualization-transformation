@@ -780,22 +780,50 @@
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-recap",
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-recap",
     "title": "Meet the toolkit: Git and GitHub",
-    "section": "Tour Recap",
-    "text": "Tour Recap\nCreate a GitHub account\n\nGo to Github and walk through the steps for creating an account.\nYou’ll need to choose a user name. I recommend reviewing the user name advice here before choosing a username."
+    "section": "Tour recap",
+    "text": "Tour recap\nCreate a GitHub account\n\nGo to Github and walk through the steps for creating an account.\nYou’ll need to choose a user name. I recommend reviewing the user name advice here before choosing a username."
   },
   {
-    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-recap-1",
-    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#tour-recap-1",
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#creating-a-new-repository",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#creating-a-new-repository",
     "title": "Meet the toolkit: Git and GitHub",
-    "section": "Tour Recap",
-    "text": "Tour Recap\n\nGet a personal access token (PAT): usethis::create_github_token()\nCopy your PAT\nInsert PAT to configure Git, GitHub and R gitcreds::gitcreds_set()\n\n&gt; gitcreds::gitcreds_set()\n\n? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n-&gt; Adding new credentials...\n-&gt; Removing credentials from cache...\n-&gt; Done."
+    "section": "Creating a new repository",
+    "text": "Creating a new repository\n\nProject Repo\n\n\n\n\n\n\n\nMake sure you are the owner\nWe recommend naming your repo the same name as the origional"
   },
   {
-    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#slide-on-how-to-clone",
-    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#slide-on-how-to-clone",
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#personal-access-token",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#personal-access-token",
     "title": "Meet the toolkit: Git and GitHub",
-    "section": "Slide on how to clone",
-    "text": "Slide on how to clone"
+    "section": "Personal access token",
+    "text": "Personal access token\n\nGet a personal access token (PAT): usethis::create_github_token()\nCopy your PAT\nInsert PAT to configure Git, GitHub and R gitcreds::gitcreds_set()\n\n&gt; gitcreds::gitcreds_set()\n\n? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n-&gt; Adding new credentials...\n-&gt; Removing credentials from cache...\n-&gt; Done."
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#clone-repository",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#clone-repository",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Clone repository",
+    "text": "Clone repository"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#clone-repository-1",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#clone-repository-1",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Clone repository",
+    "text": "Clone repository"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#clone-repository-2",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#clone-repository-2",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Clone repository",
+    "text": "Clone repository"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#project",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#project",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Project",
+    "text": "Project\n\nFile -&gt; New Project\nVersion control -&gt; Git\nPaste -&gt; Create project"
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#version-control-workflow",
