@@ -64,6 +64,8 @@ format: revealjs
 ![](images/tech.png){fig-align="center"}
 
 
+<p style="text-align: right;">[Project Repo](https://github.com/data-science-with-r/data-visualization-transformation-project)</p>
+
 
 ## Tour Recap 
 
