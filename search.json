@@ -739,7 +739,7 @@
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#by-the-end-of-the-course-you-will",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "By the end of the course, you will …",
-    "text": "By the end of the course, you will …\n\n\nunderstand the importance of version control\nunderstand how we use Git & GitHub for version control\nset up and configure a personal access token so that RStudio can communicate with GitHub\nunderstand how to clone your course project"
+    "text": "By the end of the course, you will …\n\n\nunderstand the importance of version control\nunderstand how we use Git & GitHub for version control\nset up and configure a personal access token\nunderstand how to clone your course project"
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-badly",
