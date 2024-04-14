@@ -12,7 +12,7 @@ format: revealjs
 
 -   understand how we use Git & GitHub for version control  
 
--   set up and configure a personal access token so that RStudio can communicate with GitHub
+-   set up and configure a personal access token
 
 -   understand how to clone your course project
 :::
