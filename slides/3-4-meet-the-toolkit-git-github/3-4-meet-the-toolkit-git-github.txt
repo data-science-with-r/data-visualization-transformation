@@ -17,7 +17,7 @@ So what is version control? Version control the process of tracking and managing
 
 >> 
 
-Take this cartoon for example where a graduate student is working on some final document... they receive some edits... and save a new document after incorporating those edits. Many itterations of this later... and we have nothing but a mess of files, comments, suggestions that are near impossible to keep up with... which isn't all that useful for us.
+Take this cartoon for example where a graduate student is working on some final document... they receive some edits... and save a new document after incorporating those edits. Many itterations of this later... and we have nothing but a mess of files, comments, and suggestions that are near impossible to keep up with... which isn't all that useful for us.
 
 >>
 
@@ -27,7 +27,7 @@ I like to think of good version control as building a lego house... where at eac
 
 This process becomes better and easier to track if you have short readable messages that describe what has been accomplished at each step. For example, you see step two has the message "build back and front of base", which could be a useful message to others you are working with, or to yourself when coming back to a project. 
 
-And when you are using version control for a project, you get to decide when to make these messages appear. This could be after you've written a paragraph, just finished creating a visualization, etc.  
+And when you are using version control, you get to decide when to make these messages appear. This could be after you've written a paragraph or just finished creating a visualization.  
 
 >>
 

@@ -83,7 +83,7 @@ Create a GitHub account
 
 -   Make sure you are the owner
 
--   We recommend naming your repo the same name as the origional
+-   We recommend naming your repo the same name as the original
 
 
 
