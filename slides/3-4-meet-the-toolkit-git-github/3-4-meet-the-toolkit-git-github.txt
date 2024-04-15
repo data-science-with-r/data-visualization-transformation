@@ -21,7 +21,7 @@ Take this cartoon for example where a graduate student is working on some final 
 
 >>
 
-I like to think of good version control as building a lego house... where at each step you record or track what is happening so the process is easier to follow.  If you wanted to quickly see a change someone else made in a file, or revert that file back to a preivous step, it's going to be a lot easier if things are organized. 
+I like to think of good version control as building a lego house... where at each step you record or track what is happening so the process is easier to follow in one place.  If you wanted to quickly see a change someone else made in a file, or revert that file back to a preivous step, it's going to be a lot easier if things are organized. 
 
 >> 
 
