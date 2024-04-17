@@ -268,7 +268,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"out-height":"","classes":"","message":"true","out-width":"700px","autorun":"true","read-only":"false","label":"unnamed-chunk-1","warning":"true","output":"true","context":"setup","fig-height":5,"results":"markup","dpi":72,"comment":"","fig-cap":"","fig-width":7},"id":1,"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/Mariokart.csv\",\n  \"Mariokart.csv\"\n)"},{"options":{"out-height":"","echo":"false","warning":"true","results":"markup","fig-width":7,"classes":"","out-width":"700px","autorun":"false","label":"unnamed-chunk-2","output":"true","read-only":"false","message":"true","fig-cap":"","comment":"","dpi":72,"fig-height":5,"context":"interactive"},"id":2,"code":"mario <- read.csv(\"mariokart.csv\")"},{"options":{"out-height":"","classes":"","message":"true","out-width":"700px","autorun":"false","read-only":"false","label":"unnamed-chunk-3","warning":"true","output":"true","context":"interactive","fig-height":5,"results":"markup","dpi":72,"comment":"","fig-cap":"","fig-width":7},"id":3,"code":"# add code here"},{"options":{"out-height":"","classes":"","message":"true","out-width":"700px","autorun":"false","read-only":"false","label":"unnamed-chunk-4","warning":"true","output":"true","context":"interactive","fig-height":5,"results":"markup","dpi":72,"comment":"","fig-cap":"","fig-width":7},"id":4,"code":"mario |>\n  ggplot(\n    aes(x = cond)) + \n  #add code here"},{"options":{"out-height":"","classes":"","message":"true","out-width":"700px","autorun":"false","read-only":"false","label":"unnamed-chunk-5","warning":"true","output":"true","context":"interactive","fig-height":5,"results":"markup","dpi":72,"comment":"","fig-cap":"","fig-width":7},"id":5,"code":"mario |>\n  ggplot(\n    aes(x = cond , fill = #add code here)) + \n   geom_bar()"},{"options":{"out-height":"","classes":"","message":"true","out-width":"700px","autorun":"false","read-only":"false","label":"unnamed-chunk-6","warning":"true","output":"true","context":"interactive","fig-height":5,"results":"markup","dpi":72,"comment":"","fig-cap":"","fig-width":7},"id":6,"code":"mario |>\n  ggplot(\n    aes(x = cond , fill = ship_sp)) + \n   geom_bar(position = #add code here)"},{"options":{"out-height":"","classes":"","message":"true","out-width":"700px","autorun":"false","read-only":"false","label":"unnamed-chunk-7","warning":"true","output":"true","context":"interactive","fig-height":5,"results":"markup","dpi":72,"comment":"","fig-cap":"","fig-width":7},"id":7,"code":"mario |>\n  ggplot(\n    aes(x = cond , y = total_pr)) + \n   #add code here"},{"options":{"out-height":"","classes":"","message":"true","out-width":"700px","autorun":"false","read-only":"false","label":"unnamed-chunk-8","warning":"true","output":"true","context":"interactive","fig-height":5,"results":"markup","dpi":72,"comment":"","fig-cap":"","fig-width":7},"id":8,"code":"mario |>\n  ggplot(\n    aes(x = total_pr , y = cond, fill = cond, color = cond)) + \n   #add code here"}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"label":"unnamed-chunk-1","results":"markup","context":"setup","fig-width":7,"autorun":"true","warning":"true","classes":"","fig-cap":"","read-only":"false","dpi":72,"output":"true","comment":"","message":"true","out-width":"700px","fig-height":5,"out-height":""},"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/Mariokart.csv\",\n  \"Mariokart.csv\"\n)"},{"id":2,"options":{"label":"unnamed-chunk-2","fig-width":7,"classes":"","fig-cap":"","message":"true","output":"true","context":"interactive","echo":"false","out-height":"","fig-height":5,"results":"markup","out-width":"700px","comment":"","dpi":72,"autorun":"false","read-only":"false","warning":"true"},"code":"mario <- read.csv(\"mariokart.csv\")"},{"id":3,"options":{"label":"unnamed-chunk-3","results":"markup","context":"interactive","fig-width":7,"autorun":"false","warning":"true","classes":"","fig-cap":"","read-only":"false","dpi":72,"output":"true","comment":"","message":"true","out-width":"700px","fig-height":5,"out-height":""},"code":"# add code here"},{"id":4,"options":{"label":"unnamed-chunk-4","results":"markup","context":"interactive","fig-width":7,"autorun":"false","warning":"true","classes":"","fig-cap":"","read-only":"false","dpi":72,"output":"true","comment":"","message":"true","out-width":"700px","fig-height":5,"out-height":""},"code":"  ggplot(\n    mario,\n    aes(x = cond)\n  ) + \n  # add code here"},{"id":5,"options":{"label":"unnamed-chunk-5","results":"markup","context":"interactive","fig-width":7,"autorun":"false","warning":"true","classes":"","fig-cap":"","read-only":"false","dpi":72,"output":"true","comment":"","message":"true","out-width":"700px","fig-height":5,"out-height":""},"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = # add code here)) +\n    geom_bar()"},{"id":6,"options":{"label":"unnamed-chunk-6","results":"markup","context":"interactive","fig-width":7,"autorun":"false","warning":"true","classes":"","fig-cap":"","read-only":"false","dpi":72,"output":"true","comment":"","message":"true","out-width":"700px","fig-height":5,"out-height":""},"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = ship_sp)\n  ) +\n    geom_bar(position = #add code here)"},{"id":7,"options":{"label":"unnamed-chunk-7","results":"markup","context":"interactive","fig-width":7,"autorun":"false","warning":"true","classes":"","fig-cap":"","read-only":"false","dpi":72,"output":"true","comment":"","message":"true","out-width":"700px","fig-height":5,"out-height":""},"code":"  ggplot(\n    mario,\n    aes(x = cond, y = total_pr)\n  ) + \n   #add code here"},{"id":8,"options":{"label":"unnamed-chunk-8","results":"markup","context":"interactive","fig-width":7,"autorun":"false","warning":"true","classes":"","fig-cap":"","read-only":"false","dpi":72,"output":"true","comment":"","message":"true","out-width":"700px","fig-height":5,"out-height":""},"code":"  ggplot(\n    mario,\n    aes(x = total_pr, y = cond, fill = cond, color = cond)\n  ) + \n   #add code here"}];
 
 </script>
 <script type="module">
@@ -1264,8 +1264,8 @@ Important
 <p>In this mini analysis we work with the data from the <strong>openintro</strong> package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:</p>
 <table class="table">
 <colgroup>
-<col style="width: 9%">
-<col style="width: 90%">
+<col style="width: 18%">
+<col style="width: 81%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1432,10 +1432,11 @@ Solution
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond)) <span class="sc">+</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    mario,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1463,10 +1464,11 @@ Solution
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">fill =</span> ship_sp)) <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    mario,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond, <span class="at">fill =</span> ship_sp)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1480,10 +1482,11 @@ Solution
 </div>
 <p>The code above uses <code>fill</code> to color the segments of the boxplot by another categorical variable. Below, we change <code>fill</code> to <code>color</code>. What happens? Why?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">color =</span> ship_sp)) <span class="sc">+</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    mario,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond, <span class="at">color =</span> ship_sp)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1533,10 +1536,11 @@ Solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">fill =</span> ship_sp)) <span class="sc">+</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    mario,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond, <span class="at">fill =</span> ship_sp)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1574,10 +1578,11 @@ Solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">y =</span> total_pr)) <span class="sc">+</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    mario,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond, <span class="at">y =</span> total_pr)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1595,10 +1600,11 @@ Solution
 <h3 class="anchored" data-anchor-id="violin-plot">Violin plot</h3>
 <p>A violin plot is a lot like a box plot, but also shows us information about the density of the quantitative variable. Below, we have a violin plot that again shows the relationship between the condition (<code>cond</code>) of the Mario game, and the total price (<code>total_pr</code>) of the game (cost + shipping). Describe the relationship below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond , <span class="at">y =</span> total_pr)) <span class="sc">+</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    mario,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> cond, <span class="at">y =</span> total_pr)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1645,10 +1651,11 @@ Solution
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> total_pr , <span class="at">y =</span> cond, <span class="at">fill =</span> cond, <span class="at">color =</span> cond)) <span class="sc">+</span> </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    mario,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> total_pr, <span class="at">y =</span> cond, <span class="at">fill =</span> cond, <span class="at">color =</span> cond)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Picking joint bandwidth of 2.68</code></pre>
 </div>
