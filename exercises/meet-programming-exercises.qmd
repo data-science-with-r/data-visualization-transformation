@@ -44,7 +44,8 @@ Code goes in interactive code chunks that have a *Run Code* button, narrative go
 However, some questions come with complete code that you don't need to edit, but still need to run to view the output.
 These questions will also often invite you to make modifications to explore alternatives.
 
-The final question of each programming exercise will be a **reflection questions**. These questions are designed to help you think about and further engage with the concepts you just performed.
+The final question of each programming exercise will be a **reflection questions**.
+These questions are designed to help you think about and further engage with the concepts you just performed.
 
 ::: callout-tip
 ## Saving Your Work
@@ -157,9 +158,7 @@ These data were extracted from the 1974 Motor Trend US magazine, and comprises f
 **Demo** Run the following code to see the first six lines of data below
 
 ```{webr-r}
-
 head(mtcars)
-
 ```
 
 What is the name of the function used in the above code?
@@ -188,7 +187,7 @@ For now, we just want to practice writing the function to initially explore thes
 **Your Turn** Use the `glimpse()` function on the `mtcars` data set below.
 
 ```{webr-r}
-
+# add code here
 ```
 
 How many rows are in the `mtcars` data set?
@@ -217,16 +216,16 @@ There are **11** columns in the mtcars data set
 **Your Turn**: There are many other functions we can use on data to explore it prior to making data visualizations.
 You are encouraged to explore the help files of the following:
 
-- `tail()`
+-   `tail()`
 
-- `slice()`
+-   `slice()`
 
 After doing so, try to answer answer the following questions!
 
 Use `tail()` to produce the last six lines of the `mtcars` data set.
 
 ```{webr-r}
-
+# add code here
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -240,7 +239,7 @@ tail(mtcars)
 Now, use `slice` to produce the first three lines of the `mtcars` data set.
 
 ```{webr-r}
-
+# add code here
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -253,6 +252,4 @@ slice(mtcars, 1:3)
 
 In the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R.
 
- 
 {{< include _reflection_question.qmd >}}
-
