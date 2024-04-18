@@ -1,7 +1,3 @@
----
-title: ""
----
-
 ## Reflection questions
 
 -   Why do you believe we are studying the content above?
