@@ -18,8 +18,8 @@ However, clicking the arrow ensures that your data are read in and can be used f
 ```{webr-r}
 #| context: setup
 download.file(
-  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/Mariokart.csv",
-  "Mariokart.csv"
+  "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv",
+  "mariokart.csv"
 )
 ```
 
@@ -38,7 +38,7 @@ These data are auction data from Ebay for the game Mario Kart for the Nintendo W
 A key to these data can be found below:
 
 |               |                                                                                                                                                    |
-|-------------|-----------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | variable name | description                                                                                                                                        |
 | id            | Auction ID assigned by Ebay.                                                                                                                       |
 | duration      | Auction length, in days                                                                                                                            |
@@ -337,5 +337,23 @@ Within this geom, set alpha equal to 0.5.
     geom_density_ridges(alpha = 0.5)
 ```
 :::
+
+## Working with `dplyr`
+
+[`dplyr`](https://dplyr.tidyverse.org/) is a grammar of data manipulation that helps you work with data. We are going to explore the following dplyr verbs on the `mario` data set: 
+
+-   `select()`
+-   `filter()`
+-   `mutate()`
+-   `group_by()` & `summarize()`
+
+In this demonstration, we are going to explore if there is a difference in mean total price by if the game was sold with at least 
+
+### 
+
+### `filter()`
+
+The function `filter()` acts on the rows of the data set, and subsets the data set based on a condition. Let's use the `filter()` function 
+
 
 {{< include _reflection_question.qmd >}}

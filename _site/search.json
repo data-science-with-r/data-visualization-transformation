@@ -2224,5 +2224,12 @@
     "title": "Meet the toolkit: Quarto",
     "section": "",
     "text": "gain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
+  },
+  {
+    "objectID": "exercises/mario-data-visualization.html#working-with-dplyr",
+    "href": "exercises/mario-data-visualization.html#working-with-dplyr",
+    "title": "Data visualization and transformation",
+    "section": "Working with dplyr\n",
+    "text": "Working with dplyr\n\ndplyr is a grammar of data manipulation that helps you work with data. We are going to explore the following dplyr verbs on the mario data set:\n\nselect()\nfilter()\nmutate()\n\ngroup_by() & summarize()\n\n\nIn this demonstration, we are going to explore if there is a difference in mean total price by if the game was sold with at least\n\nfilter()\nThe function filter() acts on the rows of the data set, and subsets the data set based on a condition. Let’s use the filter() function"
   }
 ]
