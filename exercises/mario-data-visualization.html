@@ -268,7 +268,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"read-only":"false","out-width":"700px","context":"setup","results":"markup","autorun":"true","label":"unnamed-chunk-1","message":"true","warning":"true","output":"true","comment":"","out-height":"","fig-cap":"","fig-height":5,"classes":"","fig-width":7,"dpi":72},"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/Mariokart.csv\",\n  \"Mariokart.csv\"\n)"},{"id":2,"options":{"context":"interactive","results":"markup","autorun":"false","label":"unnamed-chunk-2","message":"true","fig-height":5,"echo":"false","fig-cap":"","dpi":72,"read-only":"false","out-width":"700px","classes":"","warning":"true","output":"true","comment":"","out-height":"","fig-width":7},"code":"mario <- read.csv(\"mariokart.csv\")"},{"id":3,"options":{"read-only":"false","out-width":"700px","context":"interactive","results":"markup","autorun":"false","label":"unnamed-chunk-3","message":"true","warning":"true","output":"true","comment":"","out-height":"","fig-cap":"","fig-height":5,"classes":"","fig-width":7,"dpi":72},"code":"# add code here"},{"id":4,"options":{"read-only":"false","out-width":"700px","context":"interactive","results":"markup","autorun":"false","label":"unnamed-chunk-4","message":"true","warning":"true","output":"true","comment":"","out-height":"","fig-cap":"","fig-height":5,"classes":"","fig-width":7,"dpi":72},"code":"  ggplot(\n    mario,\n    aes(x = cond)\n  ) + \n  # add code here"},{"id":5,"options":{"read-only":"false","out-width":"700px","context":"interactive","results":"markup","autorun":"false","label":"unnamed-chunk-5","message":"true","warning":"true","output":"true","comment":"","out-height":"","fig-cap":"","fig-height":5,"classes":"","fig-width":7,"dpi":72},"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = # add code here)) +\n    geom_bar()"},{"id":6,"options":{"read-only":"false","out-width":"700px","context":"interactive","results":"markup","autorun":"false","label":"unnamed-chunk-6","message":"true","warning":"true","output":"true","comment":"","out-height":"","fig-cap":"","fig-height":5,"classes":"","fig-width":7,"dpi":72},"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = ship_sp)\n  ) +\n    geom_bar(position = #add code here)"},{"id":7,"options":{"read-only":"false","out-width":"700px","context":"interactive","results":"markup","autorun":"false","label":"unnamed-chunk-7","message":"true","warning":"true","output":"true","comment":"","out-height":"","fig-cap":"","fig-height":5,"classes":"","fig-width":7,"dpi":72},"code":"  ggplot(\n    mario,\n    aes(x = cond, y = total_pr)\n  ) + \n   #add code here"},{"id":8,"options":{"read-only":"false","out-width":"700px","context":"interactive","results":"markup","autorun":"false","label":"unnamed-chunk-8","message":"true","warning":"true","output":"true","comment":"","out-height":"","fig-cap":"","fig-height":5,"classes":"","fig-width":7,"dpi":72},"code":"  ggplot(\n    mario,\n    aes(x = total_pr, y = cond, fill = cond, color = cond)\n  ) + \n   #add code here"}];
+globalThis.qwebrCellDetails = [{"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv\",\n  \"mariokart.csv\"\n)","id":1,"options":{"comment":"","fig-cap":"","context":"setup","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-1","fig-height":5,"autorun":"true","out-width":"700px"}},{"code":"mario <- read.csv(\"mariokart.csv\")","id":2,"options":{"message":"true","output":"true","read-only":"false","fig-width":7,"label":"unnamed-chunk-2","autorun":"false","context":"interactive","dpi":72,"comment":"","results":"markup","warning":"true","out-height":"","out-width":"700px","fig-cap":"","fig-height":5,"classes":"","echo":"false"}},{"code":"# add code here","id":3,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-3","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = cond)\n  ) + \n  # add code here","id":4,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-4","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = # add code here)) +\n    geom_bar()","id":5,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-5","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = ship_sp)\n  ) +\n    geom_bar(position = #add code here)","id":6,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-6","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = cond, y = total_pr)\n  ) + \n   #add code here","id":7,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-7","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = total_pr, y = cond, fill = cond, color = cond)\n  ) + \n   #add code here","id":8,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-8","fig-height":5,"autorun":"false","out-width":"700px"}}];
 
 </script>
 <script type="module">
@@ -1041,6 +1041,11 @@ globalThis.qwebrExecuteCode = async function (
   <li><a href="#violin-plot" id="toc-violin-plot" class="nav-link" data-scroll-target="#violin-plot">Violin plot</a></li>
   <li><a href="#ridge-plots" id="toc-ridge-plots" class="nav-link" data-scroll-target="#ridge-plots">Ridge plots</a></li>
   </ul></li>
+  <li><a href="#working-with-dplyr" id="toc-working-with-dplyr" class="nav-link" data-scroll-target="#working-with-dplyr">Working with <code>dplyr</code></a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter()</code></a></li>
+  </ul></li>
   <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions">Reflection questions</a></li>
   </ul>
 </nav>
@@ -1264,8 +1269,8 @@ Important
 <p>In this mini analysis we work with the data from the <strong>openintro</strong> package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:</p>
 <table class="table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 81%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1670,6 +1675,24 @@ Solution
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="working-with-dplyr" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-dplyr">Working with <code>dplyr</code></h2>
+<p><a href="https://dplyr.tidyverse.org/"><code>dplyr</code></a> is a grammar of data manipulation that helps you work with data. We are going to explore the following dplyr verbs on the <code>mario</code> data set:</p>
+<ul>
+<li><code>select()</code></li>
+<li><code>filter()</code></li>
+<li><code>mutate()</code></li>
+<li><code>group_by()</code> &amp; <code>summarize()</code></li>
+</ul>
+<p>In this demonstration, we are going to explore if there is a difference in mean total price by if the game was sold with at least</p>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section"></h3>
+</section>
+<section id="filter" class="level3">
+<h3 class="anchored" data-anchor-id="filter"><code>filter()</code></h3>
+<p>The function <code>filter()</code> acts on the rows of the data set, and subsets the data set based on a condition. Let’s use the <code>filter()</code> function</p>
 </section>
 </section>
 <section id="reflection-questions" class="level2">
