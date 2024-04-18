@@ -246,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['tidyverse', 'scales', 'ggridges', 'gridExtra'];
+globalThis.qwebrInstallRPackagesList = ['tidyverse', 'scales', 'ggridges', 'ggExtra'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -268,7 +268,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv\",\n  \"mariokart.csv\"\n)","id":1,"options":{"comment":"","fig-cap":"","context":"setup","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-1","fig-height":5,"autorun":"true","out-width":"700px"}},{"code":"mario <- read.csv(\"mariokart.csv\")","id":2,"options":{"message":"true","output":"true","read-only":"false","fig-width":7,"label":"unnamed-chunk-2","autorun":"false","context":"interactive","dpi":72,"comment":"","results":"markup","warning":"true","out-height":"","out-width":"700px","fig-cap":"","fig-height":5,"classes":"","echo":"false"}},{"code":"# add code here","id":3,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-3","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = cond)\n  ) + \n  # add code here","id":4,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-4","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = # add code here)) +\n    geom_bar()","id":5,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-5","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = ship_sp)\n  ) +\n    geom_bar(position = #add code here)","id":6,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-6","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = cond, y = total_pr)\n  ) + \n   #add code here","id":7,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-7","fig-height":5,"autorun":"false","out-width":"700px"}},{"code":"  ggplot(\n    mario,\n    aes(x = total_pr, y = cond, fill = cond, color = cond)\n  ) + \n   #add code here","id":8,"options":{"comment":"","fig-cap":"","context":"interactive","dpi":72,"message":"true","output":"true","warning":"true","results":"markup","read-only":"false","classes":"","out-height":"","fig-width":7,"label":"unnamed-chunk-8","fig-height":5,"autorun":"false","out-width":"700px"}}];
+globalThis.qwebrCellDetails = [{"id":1,"options":{"classes":"","label":"unnamed-chunk-1","autorun":"true","context":"setup","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv\",\n  \"mariokart.csv\"\n)"},{"id":2,"options":{"classes":"","autorun":"false","output":"true","message":"true","out-height":"","results":"markup","comment":"","fig-height":5,"context":"interactive","label":"unnamed-chunk-2","read-only":"false","fig-width":7,"out-width":"700px","echo":"false","warning":"true","fig-cap":"","dpi":72},"code":"mario <- read.csv(\"mariokart.csv\")"},{"id":3,"options":{"classes":"","label":"unnamed-chunk-3","autorun":"false","context":"interactive","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"# add code here"},{"id":4,"options":{"classes":"","label":"unnamed-chunk-4","autorun":"false","context":"interactive","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = cond)\n  ) + \n  # add code here"},{"id":5,"options":{"classes":"","label":"unnamed-chunk-5","autorun":"false","context":"interactive","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = # add code here)) +\n    geom_bar()"},{"id":6,"options":{"classes":"","label":"unnamed-chunk-6","autorun":"false","context":"interactive","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = ship_sp)\n  ) +\n    geom_bar(position = #add code here)"},{"id":7,"options":{"classes":"","label":"unnamed-chunk-7","autorun":"false","context":"interactive","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = cond, y = total_pr)\n  ) + \n   #add code here"},{"id":8,"options":{"classes":"","label":"unnamed-chunk-8","autorun":"false","context":"interactive","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = total_pr, y = cond, fill = cond, color = cond)\n  ) + \n   #add code here"},{"id":9,"options":{"classes":"","label":"unnamed-chunk-9","autorun":"false","context":"interactive","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"# add code here"},{"id":10,"options":{"classes":"","label":"unnamed-chunk-10","autorun":"false","context":"interactive","warning":"true","output":"true","read-only":"false","comment":"","message":"true","out-height":"","results":"markup","out-width":"700px","fig-cap":"","fig-height":5,"dpi":72,"fig-width":7},"code":"#add code"}];
 
 </script>
 <script type="module">
@@ -1043,7 +1043,7 @@ globalThis.qwebrExecuteCode = async function (
   </ul></li>
   <li><a href="#working-with-dplyr" id="toc-working-with-dplyr" class="nav-link" data-scroll-target="#working-with-dplyr">Working with <code>dplyr</code></a>
   <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><code>select()</code></a></li>
   <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><code>filter()</code></a></li>
   </ul></li>
   <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions">Reflection questions</a></li>
@@ -1229,6 +1229,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
+<h1 class="title">Mario games + data visualization</h1>
 <p class="subtitle lead"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation<br><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
 </div>
 
@@ -1686,13 +1687,340 @@ Solution
 <li><code>mutate()</code></li>
 <li><code>group_by()</code> &amp; <code>summarize()</code></li>
 </ul>
-<p>In this demonstration, we are going to explore if there is a difference in mean total price by if the game was sold with at least</p>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
+<p>In this demonstration, we are going to explore if there is a difference in mean total price by if the game was sold with or without the stock photo. Let’s assume that we are only interested in new games.</p>
+<section id="select" class="level3">
+<h3 class="anchored" data-anchor-id="select"><code>select()</code></h3>
+<p>First, let’s use select to only select the columns of the data set we are interested in: <code>total_pr</code>, <code>cond</code>, and <code>stock_photo</code>.</p>
+<div class="cell">
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(total_pr, cond, stock_photo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note, you could also reference the column by position, or subtract out the other columns using either names or position.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">4</span>,<span class="dv">7</span>,<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    cond total_pr stock_photo
+1    new    51.55         yes
+2   used    37.04         yes
+3    new    45.50          no
+4    new    44.00         yes
+5    new    71.00         yes
+6    new    45.00         yes
+7   used    37.02         yes
+8    new    53.99         yes
+9   used    47.00         yes
+10  used    50.00          no
+11   new    54.99         yes
+12   new    56.01         yes
+13   new    48.00         yes
+14   new    56.00         yes
+15  used    43.33         yes
+16  used    46.00         yes
+17   new    46.71         yes
+18   new    46.00         yes
+19   new    55.99         yes
+20  used   326.51          no
+21  used    31.00         yes
+22   new    53.98         yes
+23   new    64.95         yes
+24   new    50.50         yes
+25  used    46.50         yes
+26   new    55.00         yes
+27  used    34.50         yes
+28  used    36.00         yes
+29  used    40.00          no
+30   new    47.00         yes
+31  used    43.00         yes
+32  used    31.00         yes
+33  used    41.99         yes
+34  used    49.49         yes
+35  used    41.00         yes
+36  used    44.78         yes
+37  used    47.00          no
+38  used    44.00          no
+39   new    63.99         yes
+40   new    53.76         yes
+41   new    46.03          no
+42  used    42.25          no
+43  used    46.00          no
+44   new    51.99         yes
+45   new    55.99         yes
+46  used    41.99         yes
+47   new    53.99         yes
+48  used    39.00         yes
+49  used    38.06         yes
+50  used    46.00          no
+51   new    59.88         yes
+52  used    28.98         yes
+53  used    36.00          no
+54   new    51.99         yes
+55  used    43.95         yes
+56  used    32.00         yes
+57  used    40.06          no
+58  used    48.00          no
+59  used    36.00          no
+60  used    31.00          no
+61   new    53.99         yes
+62  used    30.00         yes
+63   new    58.00         yes
+64  used    38.10          no
+65  used   118.50          no
+66  used    61.76         yes
+67   new    53.99         yes
+68  used    40.00         yes
+69  used    64.50          no
+70  used    49.01          no
+71   new    47.00         yes
+72  used    40.10          no
+73   new    41.50          no
+74   new    56.00         yes
+75   new    64.95         yes
+76  used    49.00          no
+77  used    48.00         yes
+78  used    38.00          no
+79  used    45.00         yes
+80  used    41.95         yes
+81  used    43.36         yes
+82   new    54.99         yes
+83  used    45.21         yes
+84  used    65.02          no
+85  used    45.75         yes
+86   new    64.00         yes
+87  used    36.00         yes
+88   new    54.70         yes
+89   new    49.91         yes
+90  used    47.00         yes
+91  used    43.00          no
+92  used    35.99         yes
+93  used    54.49         yes
+94  used    46.00         yes
+95  used    31.06         yes
+96  used    55.60         yes
+97   new    40.10         yes
+98   new    52.59         yes
+99  used    44.00          no
+100 used    38.26          no
+101 used    51.00          no
+102  new    48.99         yes
+103  new    66.44         yes
+104  new    63.50         yes
+105 used    42.00          no
+106  new    47.00         yes
+107 used    55.00          no
+108 used    33.01         yes
+109  new    53.76         yes
+110  new    46.00         yes
+111 used    43.00         yes
+112 used    42.55         yes
+113 used    52.50         yes
+114  new    57.50         yes
+115  new    75.00         yes
+116 used    48.92         yes
+117  new    45.99         yes
+118 used    40.05         yes
+119  new    45.00         yes
+120 used    50.00         yes
+121  new    49.75         yes
+122 used    47.00          no
+123  new    56.00         yes
+124 used    41.00          no
+125  new    46.00          no
+126 used    34.99         yes
+127 used    49.00         yes
+128  new    61.00         yes
+129  new    62.89         yes
+130  new    46.00         yes
+131  new    64.95         yes
+132 used    36.99          no
+133 used    44.00         yes
+134 used    41.35         yes
+135 used    37.00          no
+136  new    58.98         yes
+137 used    39.00         yes
+138 used    40.70          no
+139 used    39.51         yes
+140 used    52.00          no
+141  new    47.70         yes
+142 used    38.76          no
+143  new    54.51         yes</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mario <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">5</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">8</span><span class="sc">:</span><span class="dv">9</span>,<span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    cond total_pr stock_photo
+1    new    51.55         yes
+2   used    37.04         yes
+3    new    45.50          no
+4    new    44.00         yes
+5    new    71.00         yes
+6    new    45.00         yes
+7   used    37.02         yes
+8    new    53.99         yes
+9   used    47.00         yes
+10  used    50.00          no
+11   new    54.99         yes
+12   new    56.01         yes
+13   new    48.00         yes
+14   new    56.00         yes
+15  used    43.33         yes
+16  used    46.00         yes
+17   new    46.71         yes
+18   new    46.00         yes
+19   new    55.99         yes
+20  used   326.51          no
+21  used    31.00         yes
+22   new    53.98         yes
+23   new    64.95         yes
+24   new    50.50         yes
+25  used    46.50         yes
+26   new    55.00         yes
+27  used    34.50         yes
+28  used    36.00         yes
+29  used    40.00          no
+30   new    47.00         yes
+31  used    43.00         yes
+32  used    31.00         yes
+33  used    41.99         yes
+34  used    49.49         yes
+35  used    41.00         yes
+36  used    44.78         yes
+37  used    47.00          no
+38  used    44.00          no
+39   new    63.99         yes
+40   new    53.76         yes
+41   new    46.03          no
+42  used    42.25          no
+43  used    46.00          no
+44   new    51.99         yes
+45   new    55.99         yes
+46  used    41.99         yes
+47   new    53.99         yes
+48  used    39.00         yes
+49  used    38.06         yes
+50  used    46.00          no
+51   new    59.88         yes
+52  used    28.98         yes
+53  used    36.00          no
+54   new    51.99         yes
+55  used    43.95         yes
+56  used    32.00         yes
+57  used    40.06          no
+58  used    48.00          no
+59  used    36.00          no
+60  used    31.00          no
+61   new    53.99         yes
+62  used    30.00         yes
+63   new    58.00         yes
+64  used    38.10          no
+65  used   118.50          no
+66  used    61.76         yes
+67   new    53.99         yes
+68  used    40.00         yes
+69  used    64.50          no
+70  used    49.01          no
+71   new    47.00         yes
+72  used    40.10          no
+73   new    41.50          no
+74   new    56.00         yes
+75   new    64.95         yes
+76  used    49.00          no
+77  used    48.00         yes
+78  used    38.00          no
+79  used    45.00         yes
+80  used    41.95         yes
+81  used    43.36         yes
+82   new    54.99         yes
+83  used    45.21         yes
+84  used    65.02          no
+85  used    45.75         yes
+86   new    64.00         yes
+87  used    36.00         yes
+88   new    54.70         yes
+89   new    49.91         yes
+90  used    47.00         yes
+91  used    43.00          no
+92  used    35.99         yes
+93  used    54.49         yes
+94  used    46.00         yes
+95  used    31.06         yes
+96  used    55.60         yes
+97   new    40.10         yes
+98   new    52.59         yes
+99  used    44.00          no
+100 used    38.26          no
+101 used    51.00          no
+102  new    48.99         yes
+103  new    66.44         yes
+104  new    63.50         yes
+105 used    42.00          no
+106  new    47.00         yes
+107 used    55.00          no
+108 used    33.01         yes
+109  new    53.76         yes
+110  new    46.00         yes
+111 used    43.00         yes
+112 used    42.55         yes
+113 used    52.50         yes
+114  new    57.50         yes
+115  new    75.00         yes
+116 used    48.92         yes
+117  new    45.99         yes
+118 used    40.05         yes
+119  new    45.00         yes
+120 used    50.00         yes
+121  new    49.75         yes
+122 used    47.00          no
+123  new    56.00         yes
+124 used    41.00          no
+125  new    46.00          no
+126 used    34.99         yes
+127 used    49.00         yes
+128  new    61.00         yes
+129  new    62.89         yes
+130  new    46.00         yes
+131  new    64.95         yes
+132 used    36.99          no
+133 used    44.00         yes
+134 used    41.35         yes
+135 used    37.00          no
+136  new    58.98         yes
+137 used    39.00         yes
+138 used    40.70          no
+139 used    39.51         yes
+140 used    52.00          no
+141  new    47.70         yes
+142 used    38.76          no
+143  new    54.51         yes</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="filter" class="level3">
 <h3 class="anchored" data-anchor-id="filter"><code>filter()</code></h3>
-<p>The function <code>filter()</code> acts on the rows of the data set, and subsets the data set based on a condition. Let’s use the <code>filter()</code> function</p>
+<p>The function <code>filter()</code> acts on the rows of the data set, and subsets the data set based on a condition. Let’s add on to our code and use the <code>filter()</code> function to subset the data to only look at new games.</p>
+<div class="cell">
+<div id="qwebr-insertion-location-10"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+</div>
 </section>
 </section>
 <section id="reflection-questions" class="level2">
