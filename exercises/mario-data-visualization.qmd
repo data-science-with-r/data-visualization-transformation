@@ -108,7 +108,7 @@ glimpse(mario)
 
 The variables we'll focus on are the following:
 
--   `total_pr`: total price of game sold plus shipping in usd
+-   `total_pr`: total price of game sold plus shipping in USD
 -   `ship_sp`: Shipping speed or method
     -   `firstClass`
     -   `media`
@@ -344,10 +344,9 @@ Within this geom, set alpha equal to 0.5.
 
 -   `select()`
 -   `filter()`
--   `mutate()`
 -   `group_by()` & `summarize()`
 
-In this demonstration, we are going to explore if there is a difference in mean total price by if the game was sold with or without the stock photo. Let's assume that we are only interested in new games.
+In this demonstration, we are going to explore if there is a difference in mean total price for a used game, if the game was sold with or without the stock photo. Let's assume that we are only interested in new games.
 
 ### `select()`
 
@@ -361,7 +360,6 @@ First, let's use select to only select the columns of the data set we are intere
 ## Solution
 ```{r}
 #| eval: false
-
 mario |>
   select(total_pr, cond, stock_photo)
 ```
@@ -381,11 +379,74 @@ mario |>
 
 ### `filter()`
 
-The function `filter()` acts on the rows of the data set, and subsets the data set based on a condition. Let's add on to our code and use the `filter()` function to subset the data to only look at new games.
+The function `filter()` acts on the rows of the data set, and subsets the data set based on a condition. Let's add on to our code and use the `filter()` function to subset the data to only look at used games.
 
 ```{webr}
-#add code
+mario |>
+  select(total_pr, cond, stock_photo) |>
+  # add code here
 ```
 
+::: {.callout-tip collapse="true"}
+## Solution
+```{r}
+mario |>
+  select(total_pr, cond, stock_photo) |>
+  filter(cond == "used")
+```
+:::
+
+### `group_by()` & `summarize()`
+
+Now that we have a subset of our data set that is relavent to our question of interest, we can calcualte the mean total price using `group_by()` and `summarize()`. Note that `group_by()` groups our data frame together by the specified variable so that we can calculate summary statistics (like the mean), at the group level instead of for the entire data frame using `summarize()`. Report which mean is higher. Is this the result you expected? Why or why not? 
+
+```{webr}
+mario |>
+  select(total_pr, cond, stock_photo) |>
+  filter(cond == "used") |>
+  # add code here
+```
+
+<br>
+
+```{=html}
+<textarea rows="4" cols="50">
+</textarea>
+```
+<br><br>
+
+
+::: {.callout-tip collapse="true"}
+## Solution
+```{r}
+mario |>
+  select(total_pr, cond, stock_photo) |>
+  filter(cond == "used") |>
+  group_by(stock_photo) |>
+  summarize(mean_pr = mean(total_pr))
+```
+
+The mean total price is higher for a game that did not include a stock photo versus games that did. This is not what I expected, and would have expected that including a stock photo would have increased the price. This may be due to other variables in the data set not being accounted for in our calculations. 
+:::
+
+### Extension: `mutate()`
+
+The total price reported in our data set is in US dollars (USD). At the time of writing this exercise, the US exchange rate to Canadian currency (CAD) is 1.37. Suppose we wanted to answer the same question as above, but in CAD instead of USD. We can use `mutate()`to create a new `cad_total_pr` column before taking the mean `cad_total_pr` by stock photo. Recreate your table above, but in CAD. 
+
+```{webr}
+# add code here
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+```{r}
+mario |>
+  select(total_pr, cond, stock_photo) |>
+  mutate(cad_total_pr = total_pr * 1.37) |>
+  filter(cond == "used") |>
+  group_by(stock_photo) |>
+  summarize(mean_pr_cad = mean(cad_total_pr))
+```
+:::
 
 {{< include _reflection_question.qmd >}}
