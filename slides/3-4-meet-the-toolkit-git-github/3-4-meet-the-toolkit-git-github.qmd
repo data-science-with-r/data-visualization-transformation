@@ -10,14 +10,14 @@ format: revealjs
 ::: incremental
 -   understand the importance of version control
 
--   understand how we use Git & GitHub for version control  
+-   understand how we use Git & GitHub for version control
 
 -   set up and configure a personal access token
 
 -   understand how to clone your course project
 :::
 
-# Version control 
+# Version control
 
 ## Versioning - done badly
 
@@ -33,7 +33,6 @@ format: revealjs
 
 ![](images/lego-steps-commit-messages.png){fig-align="center"}
 
-
 ## Git and GitHub {.smaller}
 
 ::: columns
@@ -43,7 +42,6 @@ format: revealjs
 -   It's not the only version control system, but it's a very popular one
 
 -   Git is a version control system -- like "Track Changes" features from Microsoft Word, on steroids
-
 :::
 
 ::: {.column width="35%"}
@@ -52,7 +50,6 @@ format: revealjs
 -   GitHub is the home for your Git-based projects on the internet -- like DropBox but much, much better
 
 -   We will use GitHub as a platform for your course projects
-
 :::
 :::
 
@@ -60,22 +57,24 @@ format: revealjs
 
 [Let's take a tour of]{.hand-blue-large}
 
-
 ![](images/tech.png){fig-align="center"}
 
+<p style="text-align: right;">
 
-<p style="text-align: right;">[Project Repo](https://github.com/data-science-with-r/data-visualization-transformation-project)</p>
+[Project Repo](https://github.com/data-science-with-r/data-visualization-transformation-project)
 
+</p>
 
-## Tour recap 
+## Tour recap
 
 Create a GitHub account
 
 -   Go to [Github](https://github.com/) and walk through the steps for creating an account.
 
--   You’ll need to choose a user name. I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
+-   You’ll need to choose a user name.
+    I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
 
-## Creating a new repository 
+## Creating a new repository
 
 -   [Project Repo](https://github.com/data-science-with-r/data-visualization-transformation-project)
 
@@ -85,17 +84,15 @@ Create a GitHub account
 
 -   We recommend naming your repo the same name as the original
 
-
-
 ## Personal access token
 
 -   Get a personal access token (PAT): `usethis::create_github_token()`
 
--   Copy your PAT 
+-   Copy your PAT
 
 -   Insert PAT to configure Git, GitHub and R `gitcreds::gitcreds_set()`
 
-```
+```         
 > gitcreds::gitcreds_set()
 
 ? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -112,17 +109,17 @@ Create a GitHub account
 
 ![](images/https.png){fig-align="center"}
 
-## Clone repository 
+## Clone repository
 
 ![](images/copy.png){fig-align="center"}
 
 ## Project
 
--   File -> New Project 
+-   File -\> New Project
 
--   Version control -> Git 
+-   Version control -\> Git
 
--   Paste -> Create project 
+-   Paste -\> Create project
 
 ## Version control workflow {.smaller}
 
@@ -136,15 +133,12 @@ Create a GitHub account
 
 ![](images/buttons.png){fig-align="center"}
 
-
 ## Git and GitHub tips
 
 ::: incremental
--   There are many many git commands ... but very few people know them all. 99% of the time you will use git to push, commit, and pull
+-   There are many many git commands ...
+    but very few people know them all.
+    99% of the time you will use git to push, commit, and pull
 
-
--   If you are looking for additional resources for working with git and R, continue reading: [happygitwithr.com](http://happygitwithr.com/). 
+-   If you are looking for additional resources for working with git and R, continue reading: [happygitwithr.com](http://happygitwithr.com/).
 :::
-
-
-
