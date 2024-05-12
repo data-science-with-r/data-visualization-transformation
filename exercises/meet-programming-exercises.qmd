@@ -9,7 +9,7 @@ Programming exercises are designed to provide an opportunity for you to put what
 These exercises feature interactive code chunks using a tool called [WebR](https://docs.r-wasm.org/webr/latest), which allow you to write, edit, and run R code without leaving your browser.
 
 # Components
-
+ 
 ## Code chunks
 
 Interactive code chunks look like the following:
