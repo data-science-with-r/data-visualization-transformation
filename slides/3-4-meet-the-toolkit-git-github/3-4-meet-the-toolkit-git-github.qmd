@@ -5,6 +5,19 @@ format: revealjs
 
 # Learning goals
 
+## Configuring Git
+
+```{r}
+#| eval: false
+#| message: false
+install.packages("usethis")
+
+usethis::use_git_config(
+  user.name = "Your name", 
+  user.email = "Email associated with your GitHub account"
+ )
+```
+
 ## By the end of the course, you will ...
 
 ::: incremental

@@ -1929,7 +1929,7 @@
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#git-and-github",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "Git and GitHub",
-    "text": "Git and GitHub\n\n\n\n\n\n\n\n\nIt’s not the only version control system, but it’s a very popular one\nGit is a version control system – like “Track Changes” features from Microsoft Word, on steroids\n\n\n\n\n\n\n\n\nGitHub is the home for your Git-based projects on the internet – like DropBox but much, much better\nWe will use GitHub as a platform for your course projects"
+    "text": "Git and GitHub\n\n\n\n\n\n\n\nIt’s not the only version control system, but it’s a very popular one\nGit is a version control system – like “Track Changes” features from Microsoft Word, on steroids\n\n\n\n\n\n\n\nGitHub is the home for your Git-based projects on the internet – like DropBox but much, much better\nWe will use GitHub as a platform for your course projects"
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#versioning---done-badly",
@@ -2167,7 +2167,7 @@
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#creating-a-new-repository",
     "title": "Meet the toolkit: Git and GitHub",
     "section": "Creating a new repository",
-    "text": "Creating a new repository\n\nProject Repo\n\n\n\n\n\n\n\nMake sure you are the owner\nWe recommend naming your repo the same name as the original"
+    "text": "Creating a new repository\n\nProject Repo\n\n\n\n\n\n\nMake sure you are the owner\nWe recommend naming your repo the same name as the original"
   },
   {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#personal-access-token",
@@ -2301,5 +2301,12 @@
     "title": "Mario games + data visualization",
     "section": "Extension: mutate()\n",
     "text": "Extension: mutate()\n\nThe total price reported in our data set is in US dollars (USD). At the time of writing this, the US exchange rate to Canadian currency (CAD) is 1.37. Suppose we wanted to answer the same question as above, but in CAD instead of USD. We can use mutate()to create a new cad_total_pr column before taking the mean of each group by stock photo. Recreate your table above, but in CAD.\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\n\n\n\n\n\n\nSolution\n\n\n\n\n\n\nmario |&gt;\n  select(total_pr, cond, stock_photo) |&gt;\n  mutate(cad_total_pr = total_pr * 1.37) |&gt;\n  filter(cond == \"used\") |&gt;\n  group_by(stock_photo) |&gt;\n  summarize(mean_pr_cad = mean(cad_total_pr))\n\n# A tibble: 2 × 2\n  stock_photo mean_pr_cad\n  &lt;chr&gt;             &lt;dbl&gt;\n1 no                 75.0\n2 yes                57.5"
+  },
+  {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#configuring-git",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#configuring-git",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Configuring Git",
+    "text": "Configuring Git\n\ninstall.packages(\"usethis\")\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\"\n )"
   }
 ]
