@@ -1302,6 +1302,13 @@
     "text": "theme()\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) + \n  geom_point() +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nand many more throughout the course…"
   },
   {
+    "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#configuring-git",
+    "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#configuring-git",
+    "title": "Meet the toolkit: Git and GitHub",
+    "section": "Configuring Git",
+    "text": "Configuring Git\n\ninstall.packages(\"usethis\")\n\nusethis::use_git_config(\n  user.name = \"Your name\", \n  user.email = \"Email associated with your GitHub account\"\n )"
+  },
+  {
     "objectID": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#by-the-end-of-the-course-you-will",
     "href": "slides/3-4-meet-the-toolkit-git-github/3-4-meet-the-toolkit-git-github.html#by-the-end-of-the-course-you-will",
     "title": "Meet the toolkit: Git and GitHub",
