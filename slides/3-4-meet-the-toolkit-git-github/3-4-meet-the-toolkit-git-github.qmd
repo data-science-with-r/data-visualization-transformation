@@ -3,7 +3,7 @@ title: "Meet the toolkit: Git and GitHub"
 format: revealjs
 ---
 
-# Learning goals
+# Learning goals  
 
 ## Configuring Git
 
