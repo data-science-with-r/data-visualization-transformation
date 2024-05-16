@@ -5,6 +5,15 @@ webr:
   packages: ['tidyverse' , 'scales' , 'ggridges' , 'ggExtra']
 ---
 
+```{r}
+#| echo: false
+#| include: false
+library(tidyverse) # put in r file to r chunks have packages to use
+library(scales)
+library(ggridges)
+library(gridExtra)
+```
+
 ::: callout-important
 Please reference the `webR-intro` programming exercise for information and instructions on how to interact with the programming exercise below.
 :::
@@ -25,7 +34,7 @@ download.file(
 
 ```{webr-r}
 #| echo: false
-mario <- read.csv("mariokart.csv")
+mario <- read_csv("mariokart.csv", show_col_type = FALSE)
 ```
 
 ```{r}
@@ -38,7 +47,7 @@ These data are auction data from Ebay for the game Mario Kart for the Nintendo W
 A key to these data can be found below:
 
 |               |                                                                                                                                                    |
-|----------------|--------------------------------------------------------|
+|------------------|------------------------------------------------------|
 | variable name | description                                                                                                                                        |
 | id            | Auction ID assigned by Ebay.                                                                                                                       |
 | duration      | Auction length, in days                                                                                                                            |
@@ -55,7 +64,7 @@ A key to these data can be found below:
 
 ### Packages
 
-We'll use **tidyverse** for majority of the analysis and **scales** for pretty plot labels later on.
+We'll use **tidyverse** for the majority of the analysis and **scales** for pretty plot labels later on.
 **ggridges** allows us to make ridge plots, and **gridExtra** allows to arrange plots next to each other.
 These are ready to use for you in this programming exercise!
 
@@ -69,13 +78,6 @@ library(ggridges)
 library(gridExtra)
 ```
 
-```{r}
-#| echo: false
-library(tidyverse) # put in r file to r chunks have packages to use
-library(scales)
-library(ggridges)
-library(gridExtra)
-```
 
 ### Get to know the data
 
@@ -149,7 +151,7 @@ Add the following correct `geom_xx()` to make a barplot of `cond` below.
 ```
 :::
 
-Next, let's fill in the bars by the shipping method each game was shipped with (`ship_sp`).
+Next, let's fill in the bars by the shipping method each game was shipped with `ship_sp`.
 
 ```{webr-r}
   ggplot(
@@ -340,17 +342,19 @@ Within this geom, set alpha equal to 0.5.
 
 ## Working with `dplyr`
 
-[`dplyr`](https://dplyr.tidyverse.org/) is a grammar of data manipulation that helps you work with data. We are going to explore the following dplyr verbs on the `mario` data set: 
+[`dplyr`](https://dplyr.tidyverse.org/) is a grammar of data manipulation that helps you work with data.
+We are going to explore the following dplyr verbs on the `mario` data set:
 
 -   `select()`
 -   `filter()`
--   `group_by()` & `summarize()`
+-   `group_by()` and `summarize()`
 
-In this demonstration, we are going to explore if there is a difference in mean total price for a used game, if the game was sold with or without the stock photo. Let's assume that we are only interested in new games.
+In this demonstration, we are going to explore if there is a difference in mean total price for a used game, if the game was sold with or without the stock photo.
+Let's assume that we are only interested in new games.
 
 ### `select()`
 
-First, let's use select to only select the columns of the data set we are interested in: `total_pr`, `cond`, and `stock_photo`.  
+First, let's use select to only select the columns of the data set we are interested in: `total_pr`, `cond`, and `stock_photo`.
 
 ```{webr}
 # add code here
@@ -358,14 +362,14 @@ First, let's use select to only select the columns of the data set we are intere
 
 ::: {.callout-tip collapse="true"}
 ## Solution
+
 ```{r}
 #| eval: false
 mario |>
   select(total_pr, cond, stock_photo)
 ```
 
-
-Note, you could also reference the column by position, or subtract out the other columns using either names or position. 
+Note, you could also reference the column by position, or subtract out the other columns using either names or position.
 
 ```{r}
 mario |>
@@ -376,10 +380,10 @@ mario |>
 ```
 :::
 
-
 ### `filter()`
 
-The function `filter()` acts on the rows of the data set, and subsets the data set based on a condition. Let's add on to our code and use the `filter()` function to subset the data to only look at used games.
+The function `filter()` acts on the rows of the data set, and subsets the data set based on a condition.
+Let's add on to our code and use the `filter()` function to subset the data to only look at used games.
 
 ```{webr}
 mario |>
@@ -389,6 +393,7 @@ mario |>
 
 ::: {.callout-tip collapse="true"}
 ## Solution
+
 ```{r}
 mario |>
   select(total_pr, cond, stock_photo) |>
@@ -396,9 +401,13 @@ mario |>
 ```
 :::
 
-### `group_by()` & `summarize()`
+### `group_by()` and `summarize()`
 
-Now that we have a subset of our data set that is relavent to our question of interest, we can calcualte the mean total price using `group_by()` and `summarize()`. Note that `group_by()` groups our data frame together by the specified variable so that we can calculate summary statistics (like the mean), at the group level instead of for the entire data frame using `summarize()`. Report which mean is higher. Is this the result you expected? Why or why not? 
+Now that we have a subset of our data set that is relavent to our question of interest, we can calcualte the mean total price using `group_by()` and `summarize()`.
+Note that `group_by()` groups our data frame together by the specified variable so that we can calculate summary statistics (like the mean), at the group level instead of for the entire data frame using `summarize()`.
+Report which mean is higher.
+Is this the result you expected?
+Why or why not?
 
 ```{webr}
 mario |>
@@ -415,9 +424,9 @@ mario |>
 ```
 <br><br>
 
-
 ::: {.callout-tip collapse="true"}
 ## Solution
+
 ```{r}
 mario |>
   select(total_pr, cond, stock_photo) |>
@@ -426,12 +435,18 @@ mario |>
   summarize(mean_pr = mean(total_pr))
 ```
 
-The mean total price is higher for a game that did not include a stock photo versus games that did. This is not what I expected, and would have expected that including a stock photo would have increased the price. This may be due to other variables in the data set not being accounted for in our calculations. 
+The mean total price is higher for a game that did not include a stock photo versus games that did.
+This is not what I expected, and would have expected that including a stock photo would have increased the price.
+This may be due to other variables in the data set not being accounted for in our calculations.
 :::
 
 ### Extension: `mutate()`
 
-The total price reported in our data set is in US dollars (USD). At the time of writing this exercise, the US exchange rate to Canadian currency (CAD) is 1.37. Suppose we wanted to answer the same question as above, but in CAD instead of USD. We can use `mutate()`to create a new `cad_total_pr` column before taking the mean `cad_total_pr` by stock photo. Recreate your table above, but in CAD. 
+The total price reported in our data set is in US dollars (USD).
+At the time of writing this exercise, the US exchange rate to Canadian currency (CAD) is 1.37.
+Suppose we wanted to answer the same question as above, but in CAD instead of USD.
+We can use `mutate()`to create a new `cad_total_pr` column before taking the mean `cad_total_pr` by stock photo.
+Recreate your table above, but in CAD.
 
 ```{webr}
 # add code here
@@ -439,6 +454,7 @@ The total price reported in our data set is in US dollars (USD). At the time of 
 
 ::: {.callout-tip collapse="true"}
 ## Solution
+
 ```{r}
 mario |>
   select(total_pr, cond, stock_photo) |>
