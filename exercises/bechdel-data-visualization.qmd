@@ -5,6 +5,13 @@ webr:
   packages: ['tidyverse', 'scales']
 ---
 
+```{r}
+#| echo: false
+#| include: false
+library(tidyverse) # put in r file to r chunks have packages to use
+library(scales)
+```
+
 ::: callout-important
 Please reference the `webR-intro` programming exercise for information and instructions on how to interact with the programming exercise below.
 :::
@@ -25,12 +32,12 @@ download.file(
 
 ```{webr-r}
 #| echo: false
-bechdel <- read.csv("bechdel.csv")
+bechdel <- read_csv("bechdel.csv", show_col_types = FALSE)
 ```
 
 ```{r}
 #| echo: false
-bechdel <- read.csv("data/bechdel.csv") # put in R file to r chunks have data to use
+bechdel <- read_csv("data/bechdel.csv") # put in R file to r chunks have data to use
 ```
 
 In this mini analysis we work with the data used in the FiveThirtyEight story titled ["The Dollar-And-Cents Case Against Hollywood's Exclusion of Women"](https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/).
@@ -39,20 +46,14 @@ This analysis is about the [Bechdel test](https://en.wikipedia.org/wiki/Bechdel_
 
 ### Packages
 
-We'll use: **tidyverse** for majority of the analysis and **scales** for pretty plot labels later on.
-These are ready to use for you in this programming exercise!
+We'll use: **tidyverse** for the majority of the analysis and **scales** for pretty plot labels later on.
+These are ready for you to use in this programming exercise!
 
 ```{r}
 #| label: load-packages
 #| message: false
 #| warning: false
 library(tidyverse)
-library(scales)
-```
-
-```{r}
-#| echo: false
-library(tidyverse) # put in r file to r chunks have packages to use
 library(scales)
 ```
 
@@ -74,7 +75,7 @@ With your output, confirm that:
 -   There are 7 variables (columns) in the dataset
 
 ::: callout-warning
-If you receive the error [Error: object 'bechdel' not found]{style="color:red;"}, go back and read in your data above.
+If you receive the error [Error: object 'bechdel' not found]{style="color:red;"}, go back and read in your data above with `read_csv()`.
 :::
 
 ```{webr-r}
@@ -258,7 +259,7 @@ Commonly used aesthetic options are:
 -   size
 -   alpha (transparency)
 
-Modify the plot below, so the `color` of the points is based on the variable `binary`, and make the size of your points based on `roi`.
+Modify the plot below so the `color` of the points is based on the variable `binary`, and make the size of your points based on `roi`.
 
 ```{webr-r}
 #| label: plot-aes-color
@@ -299,7 +300,7 @@ ggplot(
 ### Step 4
 
 `alpha` is used within `geom_point()` to change the transparency of the dots.
-alpha ranges between 0 and 1, with lower values equating to more transparent dots.
+`alpha` ranges between 0 and 1, with lower values being more transparent dots.
 Below, make the dots more transparent.
 
 ```{webr-r}
@@ -321,7 +322,7 @@ ggplot(
 
 ### Step 5
 
-Expand on your plot from the previous step by using `[facet_wrap()](https://ggplot2.tidyverse.org/reference/facet_wrap.html)` to display the association between `budget` and `gross` for different values of `clean_test`.
+Expand on your plot from the previous step by using [facet_wrap()](https://ggplot2.tidyverse.org/reference/facet_wrap.html) to display the association between `budget` and `gross` for different values of `clean_test`.
 
 ```{webr-r}
 #| label: plot-facet-wrap
@@ -369,7 +370,7 @@ ggplot(
 Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.
 
 ::: callout-tip
-This is done through the use of the [**scales**](https://scales.r-lib.org/) package, specifically the `[scale_x_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html)` and `[scale_y_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html)` functions.
+This is done through the use of the [**scales**](https://scales.r-lib.org/) package, specifically the [scale_x_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html) and [scale_y_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html) functions.
 :::
 
 ```{webr-r}
@@ -394,7 +395,7 @@ ggplot(
 
 ### Step 7
 
-Expand on your plot from the previous step by using `[facet_grid()](https://ggplot2.tidyverse.org/reference/facet_grid.html)` to display the association between `budget` and `gross` for different combinations of `clean_test` and `binary`.
+Expand on your plot from the previous step by using [facet_grid()](https://ggplot2.tidyverse.org/reference/facet_grid.html) to display the association between `budget` and `gross` for different combinations of `clean_test` and `binary`.
 
 ```{webr-r}
 #| label: plot-facet-grid
@@ -444,7 +445,6 @@ ggplot(
     title = "Gross revenue vs. budget, by Bechdel test result"
   )
 ```
-
 
 This was not a useful update as one of the levels of `clean_test` maps directly to one of the levels of `binary`.
 :::
