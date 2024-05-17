@@ -268,7 +268,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"true","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"setup","label":"unnamed-chunk-1","fig-cap":"","message":"true"},"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/bechdel.csv\",\n  \"bechdel.csv\"\n)"},{"id":2,"options":{"comment":"","read-only":"false","results":"markup","message":"true","warning":"true","autorun":"false","fig-width":7,"fig-height":5,"echo":"false","out-height":"","output":"true","dpi":72,"fig-cap":"","context":"interactive","label":"unnamed-chunk-2","classes":"","out-width":"700px"},"code":"bechdel <- read_csv(\"bechdel.csv\", show_col_types = FALSE)"},{"id":3,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"unnamed-chunk-3","fig-cap":"","message":"true"},"code":"# add code here"},{"id":4,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"unnamed-chunk-4","fig-cap":"","message":"true"},"code":"slice(bechdel, 1:5)"},{"id":5,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-base","fig-cap":"","message":"true"},"code":"ggplot(data = bechdel)"},{"id":6,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-aesthetic-mapping","fig-cap":"","message":"true"},"code":"ggplot(\n  data = bechdel,\n  mapping = aes(x = budget_2013, y = gross_2013)\n)"},{"id":7,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-simplified-call","fig-cap":"","message":"true"},"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n)"},{"id":8,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-point","fig-cap":"","message":"true"},"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  #add code here"},{"id":9,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-point-color","fig-cap":"","message":"true"},"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\")"},{"id":10,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-labs","fig-cap":"","message":"true"},"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\") + \n  #add code here"},{"id":11,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-aes-color","fig-cap":"","message":"true"},"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point() +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )"},{"id":12,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-aes-alpha","fig-cap":"","message":"true"},"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 1) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )"},{"id":13,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-facet-wrap","fig-cap":"","message":"true"},"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~#insert variable name) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )"},{"id":14,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-scales","fig-cap":"","message":"true"},"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~clean_test) +\n  scale_x_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )"},{"id":15,"options":{"results":"markup","warning":"true","read-only":"false","autorun":"false","comment":"","fig-width":7,"fig-height":5,"output":"true","out-height":"","out-width":"700px","dpi":72,"classes":"","context":"interactive","label":"plot-facet-grid","fig-cap":"","message":"true"},"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_grid(#insert variable name1 ~ insert variable name2) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )"}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/bechdel.csv\",\n  \"bechdel.csv\"\n)","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"unnamed-chunk-1","autorun":"true","out-height":"","context":"setup","dpi":72,"fig-height":5,"output":"true"}},{"id":2,"code":"bechdel <- read_csv(\"bechdel.csv\")","options":{"message":"true","fig-cap":"","out-width":"700px","autorun":"false","comment":"","results":"markup","classes":"","warning":"true","read-only":"false","echo":"false","label":"unnamed-chunk-2","output":"true","out-height":"","context":"interactive","dpi":72,"fig-height":5,"fig-width":7}},{"id":3,"code":"# add code here","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"unnamed-chunk-3","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":4,"code":"slice(bechdel, 1:5)","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"unnamed-chunk-4","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":5,"code":"ggplot(data = bechdel)","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-base","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":6,"code":"ggplot(\n  data = bechdel,\n  mapping = aes(x = budget_2013, y = gross_2013)\n)","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-aesthetic-mapping","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":7,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n)","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-simplified-call","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":8,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  #add code here","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-point","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":9,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\")","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-point-color","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":10,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\") + \n  #add code here","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-labs","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":11,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point() +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-aes-color","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":12,"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 1) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-aes-alpha","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":13,"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~#insert variable name) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-facet-wrap","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":14,"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~clean_test) +\n  scale_x_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-scales","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}},{"id":15,"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_grid(#insert variable name1 ~ insert variable name2) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )","options":{"message":"true","classes":"","warning":"true","results":"markup","fig-cap":"","read-only":"false","fig-width":7,"comment":"","out-width":"700px","label":"plot-facet-grid","autorun":"false","out-height":"","context":"interactive","dpi":72,"fig-height":5,"output":"true"}}];
 
 </script>
 <script type="module">
@@ -1265,26 +1265,15 @@ Important
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 1615 Columns: 7
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (3): title, binary, clean_test
-dbl (4): year, gross_2013, budget_2013, roi
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-</div>
+<p>Note: Reading in a tibble also gives you information about the data, such as the column names (e.g., tite), and the variable type (e.g., chr). This is often suppressed after the initial read in by adding <code>show_col_types = FALSE</code> within the <code>read_csv()</code> function after the path to the data, separated by a comma.</p>
 <p>In this mini analysis we work with the data used in the FiveThirtyEight story titled <a href="https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/">“The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”</a>.</p>
 <p>This analysis is about the <a href="https://en.wikipedia.org/wiki/Bechdel_test">Bechdel test</a>, a measure of the representation of women in fiction.</p>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
 <p>We’ll use: <strong>tidyverse</strong> for the majority of the analysis and <strong>scales</strong> for pretty plot labels later on. These are ready for you to use in this programming exercise!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1336,7 +1325,7 @@ Solution
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bechdel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bechdel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,615
 Columns: 7
@@ -1415,7 +1404,7 @@ Solution
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Note that the result is exactly the same.</p>
-<p>The <code>geom_xx()</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point()</code>, which creates a plot where each observation is represented by a point.</p>
+<p>The <code>geom_*()</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point()</code>, which creates a plot where each observation is represented by a point.</p>
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1431,11 +1420,11 @@ Solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
@@ -1493,16 +1482,16 @@ Solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"deepskyblue3"</span>) <span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget"</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"deepskyblue3"</span>) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget"</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
@@ -1545,19 +1534,19 @@ Solution
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
@@ -1598,20 +1587,20 @@ Solution
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>clean_test) <span class="sc">+</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>clean_test) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
@@ -1669,22 +1658,22 @@ Solution
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(clean_test <span class="sc">~</span> binary) <span class="sc">+</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>(<span class="at">scale =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">1000000</span>)) <span class="sc">+</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>(<span class="at">scale =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">1000000</span>)) <span class="sc">+</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  bechdel,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(clean_test <span class="sc">~</span> binary) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>(<span class="at">scale =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">1000000</span>)) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>(<span class="at">scale =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">1000000</span>)) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
