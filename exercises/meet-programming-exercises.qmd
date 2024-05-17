@@ -152,8 +152,11 @@ Try accessing the documentation for `round` with a `?`.
 ## Solution
 
 ```{r}
+#| eval: false
 ?round
 ```
+
+Running the above code will prompt the help file. Help files give information such as a description of the function, arguments, and examples that you can run yourself!
 :::
 
 As you may notice, the first argument and second argument are separated by a `,`.

@@ -34,12 +34,14 @@ download.file(
 
 ```{webr-r}
 #| echo: false
-mario <- read_csv("mariokart.csv", show_col_type = FALSE)
+mario <- read_csv("mariokart.csv")
 ```
 
 ```{r}
 #| echo: false
-mario <- read.csv("data/mariokart.csv") # put in R file to r chunks have data to use
+#| warning: false
+#| message: false
+mario <- read_csv("data/mariokart.csv") # put in R file to r chunks have data to use
 ```
 
 In this mini analysis we work with the data from the **openintro** package in R.
@@ -128,7 +130,7 @@ The variables we'll focus on are the following:
 
 First, let's explore the variable `cond`.
 Specifically, let's investigate how many `new` games were sold versus how many `used` games were sold by creating a barplot.
-Add the following correct `geom_xx()` to make a barplot of `cond` below.
+Add the following correct `geom_*()` to make a barplot of `cond` below.
 
 ```{webr-r}
   ggplot(

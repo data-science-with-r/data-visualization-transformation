@@ -32,13 +32,17 @@ download.file(
 
 ```{webr-r}
 #| echo: false
-bechdel <- read_csv("bechdel.csv", show_col_types = FALSE)
+bechdel <- read_csv("bechdel.csv")
 ```
 
 ```{r}
 #| echo: false
-bechdel <- read_csv("data/bechdel.csv") # put in R file to r chunks have data to use
+#| message: false
+#| warning: false
+bechdel <- read_csv("bechdel.csv") # put in R file to r chunks have data to use
 ```
+
+Note: Reading in a tibble also gives you information about the data, such as the column names (e.g., tite), and the variable type (e.g., chr). This is often suppressed after the initial read in by adding `show_col_types = FALSE` within the `read_csv()` function after the path to the data, separated by a comma. 
 
 In this mini analysis we work with the data used in the FiveThirtyEight story titled ["The Dollar-And-Cents Case Against Hollywood's Exclusion of Women"](https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/).
 
@@ -165,7 +169,7 @@ ggplot(
 
 Note that the result is exactly the same.
 
-The `geom_xx()` function specifies the type of plot we want to use to represent the data.
+The `geom_*()` function specifies the type of plot we want to use to represent the data.
 In the code below, we want to use `geom_point()`, which creates a plot where each observation is represented by a point.
 
 ```{webr-r}
