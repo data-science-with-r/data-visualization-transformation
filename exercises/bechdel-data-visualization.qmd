@@ -28,7 +28,10 @@ download.file(
   "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/bechdel.csv",
   "bechdel.csv"
 )
+
+options(readr.show_progress = FALSE)
 ```
+
 
 ```{webr-r}
 #| echo: false
@@ -39,7 +42,7 @@ bechdel <- read_csv("bechdel.csv")
 #| echo: false
 #| message: false
 #| warning: false
-bechdel <- read_csv("bechdel.csv") # put in R file to r chunks have data to use
+bechdel <- read_csv("data/bechdel.csv") # put in R file to r chunks have data to use
 ```
 
 Note: Reading in a tibble also gives you information about the data, such as the column names (e.g., tite), and the variable type (e.g., chr). This is often suppressed after the initial read in by adding `show_col_types = FALSE` within the `read_csv()` function after the path to the data, separated by a comma. 
