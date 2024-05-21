@@ -30,6 +30,8 @@ download.file(
   "https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv",
   "mariokart.csv"
 )
+
+options(readr.show_progress = FALSE)
 ```
 
 ```{webr-r}
