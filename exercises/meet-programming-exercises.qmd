@@ -48,8 +48,8 @@ Code goes in interactive code chunks that have a *Run Code* button, and narrativ
 However, some questions come with complete code that you don't need to edit, but you still need to run to view the output.
 These questions will also often invite you to make modifications to explore alternatives.
 
-The final question of each programming exercise will be a **reflection question**.
-These questions are designed to help you think about and further engage with the concepts you just performed.
+Each programming exercise will have accompanying **reflection questions** that can be found on Coursera.
+These questions are designed to help you think about concepts you just performed, and engage with other learners!
 
 ::: callout-tip
 ## Saving Your Work
@@ -158,7 +158,8 @@ Try accessing the documentation for `round` with a `?`.
 ?round
 ```
 
-Running the above code will prompt the help file. Help files give information such as a description of the function, arguments, and examples that you can run yourself!
+Running the above code will prompt the help file.
+Help files give information such as a description of the function, arguments, and examples that you can run yourself!
 :::
 
 As you may notice, the first argument and second argument are separated by a `,`.
