@@ -15,7 +15,7 @@ library(gridExtra)
 ```
 
 ::: callout-important
-Please reference the `webR-intro` programming exercise for information and instructions on how to interact with the programming exercise below.
+Please reference the `Meet the toolkit: Programming exercises` for information and instructions on how to interact with the programming exercise below.
 :::
 
 ## Getting started
