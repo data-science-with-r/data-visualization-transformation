@@ -8,6 +8,8 @@ webr:
 Programming exercises are designed to provide an opportunity for you to put what you learn in the videos and readings.
 These exercises feature interactive code chunks using a tool called [WebR](https://docs.r-wasm.org/webr/latest), which allow you to write, edit, and run R code without leaving your browser.
 
+When the WEBR STATUS says "Ready!", you can interact with the code chunks!
+
 # Components
 
 ## Code chunks
