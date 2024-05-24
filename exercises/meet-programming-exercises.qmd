@@ -273,5 +273,3 @@ slice(mtcars, 1:3)
 :::
 
 In the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R.
-
-{{< include _reflection_question.qmd >}}

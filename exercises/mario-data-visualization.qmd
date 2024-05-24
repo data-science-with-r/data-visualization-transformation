@@ -469,4 +469,3 @@ mario |>
 ```
 :::
 
-{{< include _reflection_question.qmd >}}
