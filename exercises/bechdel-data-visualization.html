@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data visualization and transformation - Bechdel + data visualization</title>
+<title>Bechdel + data visualization – Data visualization and transformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -268,7 +268,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"autorun":"true","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"setup","classes":"","out-height":"","out-width":"700px","label":"unnamed-chunk-1","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":1,"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/bechdel.csv\",\n  \"bechdel.csv\"\n)\n\noptions(readr.show_progress = FALSE)"},{"options":{"autorun":"false","message":"true","read-only":"false","context":"interactive","fig-width":7,"warning":"true","output":"true","echo":"false","results":"markup","dpi":72,"out-height":"","out-width":"700px","fig-height":5,"classes":"","fig-cap":"","label":"unnamed-chunk-2","comment":""},"id":2,"code":"bechdel <- read_csv(\"bechdel.csv\")"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"unnamed-chunk-3","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":3,"code":"# add code here"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"unnamed-chunk-4","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":4,"code":"slice(bechdel, 1:5)"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-base","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":5,"code":"ggplot(data = bechdel)"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-aesthetic-mapping","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":6,"code":"ggplot(\n  data = bechdel,\n  mapping = aes(x = budget_2013, y = gross_2013)\n)"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-simplified-call","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":7,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n)"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-point","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":8,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  #add code here"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-point-color","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":9,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\")"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-labs","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":10,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\") + \n  #add code here"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-aes-color","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":11,"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point() +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-aes-alpha","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":12,"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 1) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-facet-wrap","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":13,"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~#insert variable name) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-scales","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":14,"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~clean_test) +\n  scale_x_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )"},{"options":{"autorun":"false","warning":"true","results":"markup","output":"true","message":"true","read-only":"false","comment":"","context":"interactive","classes":"","out-height":"","out-width":"700px","label":"plot-facet-grid","fig-width":7,"fig-cap":"","fig-height":5,"dpi":72},"id":15,"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_grid(#insert variable name1 ~ insert variable name2) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )"}];
+globalThis.qwebrCellDetails = [{"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/bechdel.csv\",\n  \"bechdel.csv\"\n)\n\noptions(readr.show_progress = FALSE)","id":1,"options":{"autorun":"true","comment":"","context":"setup","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"unnamed-chunk-1","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"bechdel <- read_csv(\"bechdel.csv\")","id":2,"options":{"label":"unnamed-chunk-2","dpi":72,"output":"true","read-only":"false","warning":"true","fig-cap":"","autorun":"false","comment":"","echo":"false","context":"interactive","fig-width":7,"fig-height":5,"results":"markup","out-width":"700px","classes":"","message":"true","out-height":""}},{"code":"# add code here","id":3,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"unnamed-chunk-3","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"slice(bechdel, 1:5)","id":4,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"unnamed-chunk-4","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(data = bechdel)","id":5,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-base","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  data = bechdel,\n  mapping = aes(x = budget_2013, y = gross_2013)\n)","id":6,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-aesthetic-mapping","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n)","id":7,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-simplified-call","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  #add code here","id":8,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-point","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\")","id":9,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-point-color","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\") + \n  #add code here","id":10,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-labs","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point() +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","id":11,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-aes-color","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 1) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","id":12,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-aes-alpha","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~#insert variable name) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","id":13,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-facet-wrap","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~clean_test) +\n  scale_x_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","id":14,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-scales","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}},{"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_grid(#insert variable name1 ~ insert variable name2) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )","id":15,"options":{"autorun":"false","comment":"","context":"interactive","classes":"","dpi":72,"fig-cap":"","output":"true","read-only":"false","message":"true","warning":"true","label":"plot-facet-grid","results":"markup","out-width":"700px","fig-height":5,"fig-width":7,"out-height":""}}];
 
 </script>
 <script type="module">
@@ -1001,7 +1001,7 @@ globalThis.qwebrExecuteCode = async function (
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -1012,7 +1012,7 @@ globalThis.qwebrExecuteCode = async function (
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <a href="https://github.com/data-science-with-r" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -1730,18 +1730,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1773,7 +1762,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1781,7 +1792,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

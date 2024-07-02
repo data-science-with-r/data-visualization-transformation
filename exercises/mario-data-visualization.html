@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data visualization and transformation - Mario games + data visualization</title>
+<title>Mario games + data visualization – Data visualization and transformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -268,7 +268,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"true","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-1","out-height":"","context":"setup","fig-cap":"","fig-width":7},"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv\",\n  \"mariokart.csv\"\n)\n\noptions(readr.show_progress = FALSE)"},{"id":2,"options":{"fig-height":5,"message":"true","read-only":"false","out-height":"","fig-cap":"","comment":"","warning":"true","autorun":"false","echo":"false","classes":"","out-width":"700px","results":"markup","label":"unnamed-chunk-2","output":"true","context":"interactive","dpi":72,"fig-width":7},"code":"mario <- read_csv(\"mariokart.csv\")"},{"id":3,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-3","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"# add code here"},{"id":4,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-4","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = cond)\n  ) + \n  # add code here"},{"id":5,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-5","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = # add code here)) +\n    geom_bar()"},{"id":6,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-6","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = ship_sp)\n  ) +\n    geom_bar(position = #add code here)"},{"id":7,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-7","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = cond, y = total_pr)\n  ) + \n   #add code here"},{"id":8,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-8","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"  ggplot(\n    mario,\n    aes(x = total_pr, y = cond, fill = cond, color = cond)\n  ) + \n   #add code here"},{"id":9,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-9","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"# add code here"},{"id":10,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-10","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"mario |>\n  select(total_pr, cond, stock_photo) |>\n  # add code here"},{"id":11,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-11","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"mario |>\n  select(total_pr, cond, stock_photo) |>\n  filter(cond == \"used\") |>\n  # add code here"},{"id":12,"options":{"fig-height":5,"warning":"true","comment":"","autorun":"false","output":"true","read-only":"false","classes":"","message":"true","out-width":"700px","dpi":72,"results":"markup","label":"unnamed-chunk-12","out-height":"","context":"interactive","fig-cap":"","fig-width":7},"code":"# add code here"}];
+globalThis.qwebrCellDetails = [{"options":{"autorun":"true","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"setup","output":"true","comment":"","label":"unnamed-chunk-1","classes":"","out-width":"700px"},"id":1,"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/mariokart.csv\",\n  \"mariokart.csv\"\n)\n\noptions(readr.show_progress = FALSE)"},{"options":{"message":"true","results":"markup","out-height":"","context":"interactive","label":"unnamed-chunk-2","classes":"","autorun":"false","fig-height":5,"out-width":"700px","warning":"true","dpi":72,"read-only":"false","fig-cap":"","output":"true","echo":"false","comment":"","fig-width":7},"id":2,"code":"mario <- read_csv(\"mariokart.csv\")"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-3","classes":"","out-width":"700px"},"id":3,"code":"# add code here"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-4","classes":"","out-width":"700px"},"id":4,"code":"  ggplot(\n    mario,\n    aes(x = cond)\n  ) + \n  # add code here"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-5","classes":"","out-width":"700px"},"id":5,"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = # add code here)) +\n    geom_bar()"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-6","classes":"","out-width":"700px"},"id":6,"code":"  ggplot(\n    mario,\n    aes(x = cond, fill = ship_sp)\n  ) +\n    geom_bar(position = #add code here)"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-7","classes":"","out-width":"700px"},"id":7,"code":"  ggplot(\n    mario,\n    aes(x = cond, y = total_pr)\n  ) + \n   #add code here"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-8","classes":"","out-width":"700px"},"id":8,"code":"  ggplot(\n    mario,\n    aes(x = total_pr, y = cond, fill = cond, color = cond)\n  ) + \n   #add code here"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-9","classes":"","out-width":"700px"},"id":9,"code":"# add code here"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-10","classes":"","out-width":"700px"},"id":10,"code":"mario |>\n  select(total_pr, cond, stock_photo) |>\n  # add code here"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-11","classes":"","out-width":"700px"},"id":11,"code":"mario |>\n  select(total_pr, cond, stock_photo) |>\n  filter(cond == \"used\") |>\n  # add code here"},{"options":{"autorun":"false","fig-height":5,"message":"true","warning":"true","dpi":72,"results":"markup","read-only":"false","out-height":"","fig-cap":"","fig-width":7,"context":"interactive","output":"true","comment":"","label":"unnamed-chunk-12","classes":"","out-width":"700px"},"id":12,"code":"# add code here"}];
 
 </script>
 <script type="module">
@@ -1001,7 +1001,7 @@ globalThis.qwebrExecuteCode = async function (
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -1012,7 +1012,7 @@ globalThis.qwebrExecuteCode = async function (
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <a href="https://github.com/data-science-with-r" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -1269,7 +1269,7 @@ Important
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>In this mini analysis we work with the data from the <strong>openintro</strong> package in R. These data are auction data from Ebay for the game Mario Kart for the Nintendo Wii, collected in October 2009. A key to these data can be found below:</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 25%">
 <col style="width: 75%">
@@ -1917,18 +1917,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1960,7 +1949,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1968,7 +1979,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

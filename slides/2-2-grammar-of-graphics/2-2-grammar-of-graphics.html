@@ -10,10 +10,10 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.554">
+  <meta name="generator" content="quarto-1.5.53">
 
   <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation - Grammar of graphics</title>
+  <title>Data visualization and transformation – Grammar of graphics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -426,8 +426,7 @@
 <p><img data-src="images/grammar-of-graphics.png" class="quarto-figure quarto-figure-left" width="300"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="layers" class="slide level2">
 <h2>Layers</h2>
@@ -485,8 +484,7 @@
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="shape" class="slide level2">
 <h2>Shape</h2>
@@ -511,8 +509,7 @@
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="color-and-shape" class="slide level2">
 <h2>Color and shape</h2>
@@ -537,8 +534,7 @@
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="size" class="slide level2">
 <h2>Size</h2>
@@ -564,8 +560,7 @@
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="alpha" class="slide level2">
 <h2>Alpha</h2>
@@ -592,8 +587,7 @@
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="mapping-vs.-setting" class="slide level2 smaller">
 <h2>Mapping vs.&nbsp;setting</h2>
@@ -639,8 +633,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="mapping-vs.-setting-1" class="slide level2">
 <h2>Mapping vs.&nbsp;setting</h2>
@@ -670,8 +663,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section></section>
 <section>
 <section id="layer-3-geoms" class="title-slide slide level1 section-break center">
@@ -774,8 +766,7 @@
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="faceting---how-1" class="slide level2">
 <h2>Faceting - how</h2>
@@ -797,8 +788,7 @@
 </figure>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="faceting-by-two-variables" class="slide level2">
 <h2>Faceting by two variables</h2>
@@ -831,8 +821,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="faceting-by-one-variable" class="slide level2">
 <h2>Faceting by one variable</h2>
@@ -863,8 +852,7 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</div></div>
 </section></section>
 <section id="layer-5-and-6-statistics-and-coordinates" class="title-slide slide level1 section-break center">
 <h1>Layer 5 and 6:<br>Statistics and Coordinates</h1>
@@ -883,8 +871,7 @@
 <div class="hand-white">
 <p>more on these later…</p>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 
 <section>
@@ -1225,18 +1212,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1268,7 +1244,29 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1276,7 +1274,7 @@
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
