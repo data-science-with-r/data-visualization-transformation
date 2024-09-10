@@ -6,20 +6,20 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-html-68b329da9893e34099c7d8ad5cb9c940.min.css" rel="stylesheet" append-hash="true" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e0edb350c94ea881e40b9fa72a583e16.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.25">
-<meta name="author" content=" Data Science with R">
-<title>Data visualization and transformation – Meet the toolkit: R and RStudio</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
-<style>
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.9">
+
+  <meta name="author" content=" Data Science with R">
+  <title>Data visualization and transformation – Meet the toolkit: R and RStudio</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -44,7 +44,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -97,12 +97,12 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
-<link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-<style type="text/css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-87940a45bf69c2c0f2472824192ef82f.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -300,7 +300,7 @@
   }
 
   </style>
-<style type="text/css">
+  <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -392,8 +392,9 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Meet the toolkit: R and RStudio</h1>
-  <p class="subtitle"><br><br><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Meet the toolkit: R and RStudio</h1>
+  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -403,9 +404,38 @@
 </div>
 </div>
 
-</section><section><section id="learning-goals" class="title-slide slide level1 center"><h1>Learning goals</h1>
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Table of contents</h2>
+<ul>
+<li><a href="#/learning-goals" id="/toc-learning-goals">Learning goals</a>
+<ul>
+<li><a href="#/by-the-end-of-the-course-you-will-be-able-to" id="/toc-by-the-end-of-the-course-you-will-be-able-to">By the end of the course, you will be able to…</a></li>
+<li><a href="#/by-the-end-of-the-course-you-will-be-able-to-1" id="/toc-by-the-end-of-the-course-you-will-be-able-to-1">By the end of the course, you will be able to…</a></li>
+</ul></li>
+<li><a href="#/r-and-rstudio" id="/toc-r-and-rstudio">R and RStudio</a>
+<ul>
 
-</section><section id="by-the-end-of-the-course-you-will-be-able-to" class="slide level2"><h2>By the end of the course, you will be able to…</h2>
+
+<li><a href="#/r-vs.-rstudio" id="/toc-r-vs.-rstudio">R vs.&nbsp;RStudio</a></li>
+<li><a href="#/r-packages" id="/toc-r-packages">R packages</a></li>
+
+<li><a href="#/tour-recap-r-and-rstudio" id="/toc-tour-recap-r-and-rstudio">Tour recap: R and RStudio</a></li>
+<li><a href="#/a-short-list-for-now-of-r-essentials" id="/toc-a-short-list-for-now-of-r-essentials">A short list (for now) of R essentials</a></li>
+<li><a href="#/r-essentials-continued" id="/toc-r-essentials-continued">R essentials (continued)</a></li>
+<li><a href="#/tidyverse" id="/toc-tidyverse">tidyverse</a></li>
+<li><a href="#/acknowledgements" id="/toc-acknowledgements">Acknowledgements</a></li>
+</ul></li>
+</ul>
+</nav>
+</section>
+<section>
+<section id="learning-goals" class="title-slide slide level1 center">
+<h1>Learning goals</h1>
+
+</section>
+<section id="by-the-end-of-the-course-you-will-be-able-to" class="slide level2">
+<h2>By the end of the course, you will be able to…</h2>
 <div>
 <ul>
 <li class="fragment"><p>gain insights from data</p></li>
@@ -414,59 +444,74 @@
 <li class="fragment"><p>gain insights from data, using modern programming tools and techniques, reproducibly with literate programming <strong>and version control</strong></p></li>
 </ul>
 </div>
-</section><section id="by-the-end-of-the-course-you-will-be-able-to-1" class="slide level2"><h2>By the end of the course, you will be able to…</h2>
+</section>
+<section id="by-the-end-of-the-course-you-will-be-able-to-1" class="slide level2">
+<h2>By the end of the course, you will be able to…</h2>
 <ul>
 <li><p>gain insights from data</p></li>
 <li><p><span class="pink-bold">gain insights from data, using modern programming tools and techniques</span></p></li>
 <li><p>gain insights from data, using modern programming tools and techniques, reproducibly with literate programming</p></li>
 <li><p>gain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control</p></li>
-</ul></section></section><section><section id="r-and-rstudio" class="title-slide slide level1 center"><h1>R and RStudio</h1>
+</ul>
+</section></section>
+<section>
+<section id="r-and-rstudio" class="title-slide slide level1 center">
+<h1>R and RStudio</h1>
 
-</section><section id="section" class="slide level2"><h2><img data-src="images/r-logo.png" width="194"></h2>
+</section>
+<section id="section" class="slide level2">
+<h2><img data-src="images/r-logo.png" width="194"></h2>
 <div>
 <ul>
-<li class="fragment">Open-source statistical <strong>programming language</strong>
-</li>
+<li class="fragment">Open-source statistical <strong>programming language</strong></li>
 <li class="fragment">Also an environment for statistical computing and graphics</li>
 </ul>
 </div>
-</section><section id="section-1" class="slide level2"><h2><img data-src="images/rstudio-logo.png" class="quarto-figure quarto-figure-center" width="427"></h2>
+</section>
+<section id="section-1" class="slide level2">
+<h2><img data-src="images/rstudio-logo.png" class="quarto-figure quarto-figure-center" width="427"></h2>
 <div>
 <ul>
-<li class="fragment">Convenient interface for R called an <strong>IDE</strong> (integrated development environment), e.g.&nbsp;<em>“I write R code in the RStudio IDE”</em>
-</li>
+<li class="fragment">Convenient interface for R called an <strong>IDE</strong> (integrated development environment), e.g.&nbsp;<em>“I write R code in the RStudio IDE”</em></li>
 <li class="fragment">Not a requirement for programming with R, but it’s very commonly used by R programmers and data scientists</li>
 </ul>
 </div>
-</section><section id="r-vs.-rstudio" class="slide level2"><h2>R vs.&nbsp;RStudio</h2>
+</section>
+<section id="r-vs.-rstudio" class="slide level2">
+<h2>R vs.&nbsp;RStudio</h2>
 <div class="columns">
 <div class="column" style="text-align: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/car-engine.png" class="quarto-figure quarto-figure-center" width="700"></p>
+<figure>
+<p><img data-src="images/car-engine.png" class="quarto-figure quarto-figure-center" width="700"></p>
 </figure>
 </div>
 <div class="fragment">
 <p>“engine”</p>
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/r-logo.png" class="quarto-figure quarto-figure-center" width="194"></p>
+<figure>
+<p><img data-src="images/r-logo.png" class="quarto-figure quarto-figure-center" width="194"></p>
 </figure>
 </div>
 </div>
 </div><div class="column" style="text-align: center;">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/car-dashboard.png" class="quarto-figure quarto-figure-center" width="700"></p>
+<figure>
+<p><img data-src="images/car-dashboard.png" class="quarto-figure quarto-figure-center" width="700"></p>
 </figure>
 </div>
 <div class="fragment">
 <p>“dashboard”</p>
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/rstudio-logo.png" class="quarto-figure quarto-figure-center" width="427"></p>
+<figure>
+<p><img data-src="images/rstudio-logo.png" class="quarto-figure quarto-figure-center" width="427"></p>
 </figure>
 </div>
 </div>
-</div>
-</div>
-</section><section id="r-packages" class="slide level2"><h2>R packages</h2>
+</div></div>
+</section>
+<section id="r-packages" class="slide level2">
+<h2>R packages</h2>
 <div>
 <ul>
 <li class="fragment"><p><strong>Packages</strong> are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data</p></li>
@@ -475,33 +520,38 @@
 <li class="fragment"><p>We’re going to work with a small (but important) subset of these!</p></li>
 </ul>
 </div>
-</section><section id="section-2" class="slide level2 center"><h2></h2>
+</section>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
 <p><span class="hand-blue-large">Let’s take a tour of</span></p>
 <p><img data-src="images/r-logo.png" width="194"> &nbsp;&nbsp;&nbsp; <span class="hand-blue-large">and</span> &nbsp;&nbsp;&nbsp; <img data-src="images/rstudio-logo.png" width="427"></p>
-</section><section id="tour-recap-r-and-rstudio" class="slide level2"><h2>Tour recap: R and RStudio</h2>
+</section>
+<section id="tour-recap-r-and-rstudio" class="slide level2">
+<h2>Tour recap: R and RStudio</h2>
 <p><br></p>
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/tour-r-rstudio.png" class="quarto-figure quarto-figure-center"></p>
+<figure>
+<p><img data-src="images/tour-r-rstudio.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section><section id="a-short-list-for-now-of-r-essentials" class="slide level2"><h2>A short list (for now) of R essentials</h2>
+</section>
+<section id="a-short-list-for-now-of-r-essentials" class="slide level2">
+<h2>A short list (for now) of R essentials</h2>
 <ul>
 <li>Functions are (most often) verbs, followed by what they will be applied to in parentheses:</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">do_this</span>(to_this)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">do_this</span>(to_this)</span>
 <span id="cb1-2"><a></a><span class="fu">do_that</span>(to_this, to_that, with_those)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="fragment">
 <ul>
-<li>Packages are installed with the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function and loaded with the <code>library</code> function, once per session:</li>
+<li>Packages are installed with the <code>install.packages()</code> function and loaded with the <code>library</code> function, once per session:</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="st">"package_name"</span>)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">install.packages</span>(<span class="st">"package_name"</span>)</span>
 <span id="cb2-2"><a></a><span class="fu">library</span>(package_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section><section id="r-essentials-continued" class="slide level2"><h2>R essentials (continued)</h2>
+</section>
+<section id="r-essentials-continued" class="slide level2">
+<h2>R essentials (continued)</h2>
 <ul>
 <li>Columns (variables) in data frames are accessed with <code>$</code>:</li>
 </ul>
@@ -510,14 +560,15 @@
 </div>
 <div class="fragment">
 <ul>
-<li>Object documentation can be accessed with <code>?</code>
-</li>
+<li>Object documentation can be accessed with <code>?</code></li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>?mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</section><section id="tidyverse" class="slide level2"><h2>tidyverse</h2>
+</section>
+<section id="tidyverse" class="slide level2">
+<h2>tidyverse</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><img data-src="images/tidyverse.png"></p>
@@ -531,16 +582,14 @@
 <li class="fragment"><p>All packages share an underlying philosophy and a common grammar</p></li>
 </ul>
 </div>
-</div>
-</div>
-</section><section id="acknowledgements" class="slide level2"><h2>Acknowledgements</h2>
+</div></div>
+</section>
+<section id="acknowledgements" class="slide level2">
+<h2>Acknowledgements</h2>
 <ul>
-<li>Photo of car engine: Image by <a href="https://pixabay.com/users/photoman-115455">Davgood Kirshot</a> from <a href="https://pixabay.com/photos/car-engine-prius-c-motor-vehicle-231213">Pixabay</a>
-</li>
-<li>Photo of car dashboard: Image by <a href="https://pixabay.com/users/variousphotography-1860391">VariousPhotography</a> from <a href="https://pixabay.com/photos/car-speedometer-vehicle-dashboard-2370636">Pixabay</a>
-</li>
-<li>Number of R packages: <a href="https://cran.r-project.org/web/packages/">CRAN contributed packages</a>
-</li>
+<li>Photo of car engine: Image by <a href="https://pixabay.com/users/photoman-115455">Davgood Kirshot</a> from <a href="https://pixabay.com/photos/car-engine-prius-c-motor-vehicle-231213">Pixabay</a></li>
+<li>Photo of car dashboard: Image by <a href="https://pixabay.com/users/variousphotography-1860391">VariousPhotography</a> from <a href="https://pixabay.com/photos/car-speedometer-vehicle-dashboard-2370636">Pixabay</a></li>
+<li>Number of R packages: <a href="https://cran.r-project.org/web/packages/">CRAN contributed packages</a></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -549,10 +598,26 @@
 </div>
 </div>
 </section></section>
-</div>
+    </div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../../site_libs/revealjs/plugin/search/search.js"></script><script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -742,7 +807,9 @@
           RevealZoom
         ]
       });
-    </script><script>
+    </script>
+    
+    <script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -777,7 +844,9 @@
         }
 
       })();
-    </script><script id="quarto-html-after-body" type="application/javascript">
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -964,6 +1033,6 @@
       }
     });
     </script>
-
+    
 
 </body></html>

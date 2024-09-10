@@ -11,11 +11,15 @@ website:
       - href: index.qmd
         text: Home
 
-format:
-  html:
-    theme: cosmo
-    toc: true
-    highlight-style: a11y-dark
+format: html
+
+mainfont: Atkinson Hyperlegible
+theme:
+  light: [flatly, style/dsr.scss]
+  dark: [darkly, style/dsr-dark.scss]
+toc: true
+code-link: true
+highlight-style: github
 
 execute:
   freeze: auto

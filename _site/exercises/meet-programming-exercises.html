@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.25">
+<meta name="generator" content="quarto-1.6.9">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Data visualization and transformation – meet-programming-exercises</title>
+
+
+<title>meet-programming-exercises – Data visualization and transformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -53,6 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
+
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -65,12 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-3d3a3f531f1be4526fdd4068b34a2ee6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-a830fe05c40437511722e23bd7ea26de.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c5b632f0608ed5ae37158fcb1e2b4ebf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -96,8 +103,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+}</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
 <style type="text/css">
 .monaco-editor pre {
   background-color: unset !important;
@@ -261,9 +270,10 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-1","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":"1 + 1"},{"id":2,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-2","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":"2 + 2"},{"id":3,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-3","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":"3 * 5"},{"id":4,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-4","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":"# add code here"},{"id":5,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-5","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":"round(3.22, digits = 0)"},{"id":6,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-6","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":"\nhead(mtcars)"},{"id":7,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-7","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":""},{"id":8,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-8","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":""},{"id":9,"options":{"warning":"true","fig-height":5,"fig-cap":"","label":"unnamed-chunk-9","out-height":"","fig-width":7,"autorun":"false","dpi":72,"read-only":"false","results":"markup","comment":"","out-width":"700px","output":"true","classes":"","context":"interactive","message":"true"},"code":""}];
+globalThis.qwebrCellDetails = [{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-1","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"1 + 1","id":1},{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-2","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"2 + 2","id":2},{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-3","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"3 * 5","id":3},{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-4","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"# add code here","id":4},{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-5","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"round(3.22, digits = 0)","id":5},{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-6","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"\nhead(mtcars)","id":6},{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-7","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"","id":7},{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-8","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"","id":8},{"options":{"classes":"","autorun":"false","out-width":"700px","results":"markup","dpi":72,"context":"interactive","warning":"true","output":"true","label":"unnamed-chunk-9","message":"true","comment":"","read-only":"false","fig-width":7,"fig-cap":"","fig-height":5,"out-height":""},"code":"","id":9}];
 
-</script><script type="module">
+</script>
+<script type="module">
 // Declare startupMessageQWebR globally
 globalThis.qwebrStartupMessage = document.createElement("p");
 
@@ -356,7 +366,8 @@ function displayStartupMessage(showStartupMessage, showHeaderMessage) {
 }
 
 displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
-</script><script type="module">
+</script>
+<script type="module">
 // Supported Evaluation Types for Context
 globalThis.EvalTypes = Object.freeze({
   Interactive: 'interactive',
@@ -602,7 +613,8 @@ globalThis.createLoadingContainer = function(qwebrCounter) {
 
   return container;
 }
-</script><script type="module">
+</script>
+<script type="module">
 // Function to install a single package
 async function qwebrInstallRPackage(packageName) {
   await mainWebR.evalRVoid(`webr::install('${packageName}');`);
@@ -698,7 +710,8 @@ globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs
 // Stop timer
 const initializeWebRTimerEnd = performance.now();
 
-</script><script type="module">
+</script>
+<script type="module">
 // Function to verify a given JavaScript Object is empty
 globalThis.qwebrIsObjectEmpty = function (arr) {
     return Object.keys(arr).length === 0;
@@ -974,59 +987,68 @@ globalThis.qwebrExecuteCode = async function (
 }
 
 </script>
+
+
 </head>
+
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Data visualization and transformation</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
+  <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
-</div> <!-- /navcollapse -->
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
     <a href="https://github.com/data-science-with-r" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-<li>
-<a href="#components" id="toc-components" class="nav-link active" data-scroll-target="#components">Components</a>
+  <li><a href="#components" id="toc-components" class="nav-link active" data-scroll-target="#components">Components</a>
   <ul class="collapse">
-<li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code chunks</a></li>
+  <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks">Code chunks</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a>
+  </ul></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a>
   <ul class="collapse">
-<li><a href="#calculator" id="toc-calculator" class="nav-link" data-scroll-target="#calculator">Calculator</a></li>
+  <li><a href="#calculator" id="toc-calculator" class="nav-link" data-scroll-target="#calculator">Calculator</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
   <li><a href="#exploring-mtcars" id="toc-exploring-mtcars" class="nav-link" data-scroll-target="#exploring-mtcars">Exploring <code>mtcars</code></a></li>
   <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions">Reflection questions</a></li>
+  </ul></li>
   </ul>
-</li>
-  </ul></nav>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script><script type="module" id="qwebr-monaco-editor-init">
+<main class="content" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
+<script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
@@ -1034,7 +1056,8 @@ globalThis.qwebrExecuteCode = async function (
       'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
     }
   });
-</script><script type="module">
+</script>
+<script type="module">
 // Global dictionary to store Monaco Editor instances
 globalThis.qwebrEditorInstances = {};
 
@@ -1197,7 +1220,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   };
   
 }
-</script><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+</script>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <p class="subtitle lead"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation<br><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
 </div>
 
@@ -1212,24 +1238,31 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   
 
 
-</header><p>Programming exercises are designed to provide an opportunity for you to put what you learn in the videos and readings. These exercises feature interactive code chunks using a tool called <a href="https://docs.r-wasm.org/webr/latest">WebR</a>, which allow you to write, edit, and run R code without leaving your browser.</p>
-<section id="components" class="level1"><h1>Components</h1>
-<section id="code-chunks" class="level2"><h2 class="anchored" data-anchor-id="code-chunks">Code chunks</h2>
+</header>
+
+
+<p>Programming exercises are designed to provide an opportunity for you to put what you learn in the videos and readings. These exercises feature interactive code chunks using a tool called <a href="https://docs.r-wasm.org/webr/latest">WebR</a>, which allow you to write, edit, and run R code without leaving your browser.</p>
+<section id="components" class="level1">
+<h1>Components</h1>
+<section id="code-chunks" class="level2">
+<h2 class="anchored" data-anchor-id="code-chunks">Code chunks</h2>
 <p>Interactive code chunks look like the following:</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Majority of the code chunks in these documents will be interactive, like the one shown above. However, some code chunks will be static and include code that you can’t edit and you are just meant to read and review the output of. These will look like the following:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
 <p>For example, we’ll use the <strong>tidyverse</strong> package in every programming exercise. Therefore, each exercise will start with a static code chunk that loads this package.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="questions" class="level2"><h2 class="anchored" data-anchor-id="questions">Questions</h2>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
 <p>Many of the questions in the programming exercises require you to actively do something – edit existing code, write code from scratch, write a narrative, etc. Code goes in interactive code chunks that have a <em>Run Code</em> button, narrative goes in text boxes.</p>
 <p>However, some questions come with complete code that you don’t need to edit, but still need to run to view the output. These questions will also often invite you to make modifications to explore alternatives.</p>
 <p>The final question of each programming exercise will be a <strong>reflection questions</strong>. These questions are designed to help you think about and further engage with the concepts you just performed.</p>
@@ -1253,26 +1286,24 @@ Saving Your Work
 </ul>
 </div>
 </div>
-</section></section><section id="practice" class="level1"><h1>Practice</h1>
-<section id="calculator" class="level2"><h2 class="anchored" data-anchor-id="calculator">Calculator</h2>
+</section>
+</section>
+<section id="practice" class="level1">
+<h1>Practice</h1>
+<section id="calculator" class="level2">
+<h2 class="anchored" data-anchor-id="calculator">Calculator</h2>
 <p>First, let’s get started by using R as a calculator.</p>
 <p>In the interactive code chunk below, perform the following calculations by typing the code and then clicking <em>Run Code</em>.</p>
 <ul>
-<li>
-<p>Run code: Run the code below as is.</p>
+<li><p>Run code: Run the code below as is.</p>
 <div id="qwebr-insertion-location-2"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</li>
-<li>
-<p>Modify code: Modify the code below to multiply 3 by 6 instead of 3 by 5.</p>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><p>Modify code: Modify the code below to multiply 3 by 6 instead of 3 by 5.</p>
 <div id="qwebr-insertion-location-3"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</li>
-<li>
-<p>Write code: Use the code chunk below to calculate 10 divided by 2 (<code>10 / 2</code>):</p>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
+<li><p>Write code: Use the code chunk below to calculate 10 divided by 2 (<code>10 / 2</code>):</p>
 <div id="qwebr-insertion-location-4"></div>
-<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</li>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -1287,15 +1318,15 @@ Solution
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">2</span> <span class="op">+</span> <span class="fl">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">3</span> <span class="op">*</span> <span class="fl">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 18</code></pre>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">10</span> <span class="op">/</span> <span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -1303,11 +1334,13 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="functions" class="level2"><h2 class="anchored" data-anchor-id="functions">Functions</h2>
-<p>R is a functional language. Functions act as the name of algorithmic details that are used to accomplish a specific task. For example, if I wanted to round the value 3.23, I could accomplish this with the function <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> in R. The number 3.23 is an <code>argument</code> to the function <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code>. An argument is an input to a function. A <code>value</code> is produced as a result.</p>
+</section>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">Functions</h2>
+<p>R is a functional language. Functions act as the name of algorithmic details that are used to accomplish a specific task. For example, if I wanted to round the value 3.23, I could accomplish this with the function <code>round()</code> in R. The number 3.23 is an <code>argument</code> to the function <code>round()</code>. An argument is an input to a function. A <code>value</code> is produced as a result.</p>
 <p>ex.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3.22</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.22</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
@@ -1330,7 +1363,7 @@ Solution
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3.22</span>, digits <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.22</span>, <span class="at">digits =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.2</code></pre>
 </div>
@@ -1353,20 +1386,22 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3.225</span>, <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fl">3.225</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.2</code></pre>
 </div>
 </div>
-</section><section id="exploring-mtcars" class="level2"><h2 class="anchored" data-anchor-id="exploring-mtcars">Exploring <code>mtcars</code>
-</h2>
+</section>
+<section id="exploring-mtcars" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-mtcars">Exploring <code>mtcars</code></h2>
 <p>For the remainder of this activity, we are going to practice using functions on the <code>mtcars</code> data set. These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).</p>
 <p><strong>Demo</strong> Run the following code to see the first six lines of data below</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>What is the name of the function used in the above code? What is the input?</p>
 <p><label>Answer:</label> <br></p>
-<textarea rows="4" cols="50"></textarea><p><br><br></p>
+<textarea rows="4" cols="50"></textarea>
+<p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1384,13 +1419,14 @@ Solution
 </div>
 </div>
 </div>
-<p>We can also get a better sense of the data we are working with by using the <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> function. This allows us to see how many rows and columns we have in our data set, the type of data we are working with, and the data inputs. For now, we just want to practice writing the function to initially explore these data.</p>
-<p><strong>Your Turn</strong> Use the <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> function on the <code>mtcars</code> data set below.</p>
+<p>We can also get a better sense of the data we are working with by using the <code>glimpse()</code> function. This allows us to see how many rows and columns we have in our data set, the type of data we are working with, and the data inputs. For now, we just want to practice writing the function to initially explore these data.</p>
+<p><strong>Your Turn</strong> Use the <code>glimpse()</code> function on the <code>mtcars</code> data set below.</p>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>How many rows are in the <code>mtcars</code> data set? How many columns?</p>
 <p><label>Answer:</label> <br></p>
-<textarea rows="4" cols="50"></textarea><p><br><br></p>
+<textarea rows="4" cols="50"></textarea>
+<p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1404,7 +1440,7 @@ Solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 32
 Columns: 11
@@ -1428,11 +1464,11 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 </div>
 <p><strong>Your Turn</strong>: There are many other functions we can use on data to explore it prior to making data visualizations. You are encouraged to explore the help files of the following:</p>
 <ul>
-<li><p><code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code></p></li>
-<li><p><code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code></p></li>
+<li><p><code>tail()</code></p></li>
+<li><p><code>slice()</code></p></li>
 </ul>
 <p>After doing so, try to answer answer the following questions!</p>
-<p>Use <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> to produce the last six lines of the <code>mtcars</code> data set.</p>
+<p>Use <code>tail()</code> to produce the last six lines of the <code>mtcars</code> data set.</p>
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1448,7 +1484,7 @@ Solution
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                mpg cyl  disp  hp drat    wt qsec vs am gear carb
 Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
@@ -1478,7 +1514,7 @@ Solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice</span>(mtcars, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
@@ -1490,25 +1526,34 @@ Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</code></pre>
 </div>
 </div>
 <p>In the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R.</p>
-</section><section id="reflection-questions" class="level2"><h2 class="anchored" data-anchor-id="reflection-questions">Reflection questions</h2>
+</section>
+<section id="reflection-questions" class="level2">
+<h2 class="anchored" data-anchor-id="reflection-questions">Reflection questions</h2>
 <ul>
 <li>Why do you believe we are studying the content above?</li>
 </ul>
 <p><br></p>
-<textarea rows="8" cols="50"></textarea><p><br><br></p>
+<textarea rows="8" cols="50"></textarea>
+<p><br><br></p>
 <ul>
 <li>List three topics that you feel very confident about from the content above.</li>
 </ul>
 <p><br></p>
-<textarea rows="8" cols="50"></textarea><p><br><br></p>
+<textarea rows="8" cols="50"></textarea>
+<p><br><br></p>
 <ul>
 <li>List three topics that you feel could use more practice (or you are more curious about) from the content above.</li>
 </ul>
 <p><br></p>
-<textarea rows="8" cols="50"></textarea><p><br><br></p>
+<textarea rows="8" cols="50"></textarea>
+<p><br><br></p>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1528,6 +1573,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -2041,6 +2230,8 @@ qwebrInstance.then(
   }
 );
 </script>
+
+
 
 
 </body></html>

@@ -1,0 +1,16 @@
+/*-- scss:defaults --*/
+
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');
+
+/*-- scss:rules --*/
+
+.exercise {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-left: solid 5px #f8f9fb;
+  background-color: #303d4e;
+}

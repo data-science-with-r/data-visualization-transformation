@@ -22,7 +22,7 @@ In a nutshell, it means that the same results should be obtained when the same a
 
 >> In the short term, we want to make sure that
 - Tables and figures are reproducible from the code and data
-- The code should actually does what you think it does
+- The code should actually do what you think it does
 - In addition to what was done, it should be clear why it was done
 
 >> In the long term, we also aim to

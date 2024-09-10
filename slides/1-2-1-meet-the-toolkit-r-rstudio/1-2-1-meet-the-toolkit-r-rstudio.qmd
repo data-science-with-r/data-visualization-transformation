@@ -96,8 +96,7 @@ format: revealjs
 
 -   Functions are (most often) verbs, followed by what they will be applied to in parentheses:
 
-```{r}
-#| eval: false
+```r
 do_this(to_this)
 do_that(to_this, to_that, with_those)
 ```
@@ -106,8 +105,7 @@ do_that(to_this, to_that, with_those)
 
 -   Packages are installed with the `install.packages()` function and loaded with the `library` function, once per session:
 
-```{r}
-#| eval: false
+```r
 install.packages("package_name")
 library(package_name)
 ```
