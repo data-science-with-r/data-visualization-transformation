@@ -5,7 +5,7 @@ format: revealjs
 
 # Learning goals
 
-## By the end of the course, you will be able to…
+## By the end of the course, you will be able to...
 
 -   gain insights from data
 
@@ -20,7 +20,7 @@ format: revealjs
 ## Reproducibility checklist
 
 ::: task
-What does it mean for a data analysis to be “reproducible”?
+What does it mean for a data analysis to be "reproducible"?
 :::
 
 . . .
@@ -54,7 +54,7 @@ What does it mean for a data analysis to be “reproducible”?
 
 ::: incremental
 -   Open-source scientific and technical publishing system
--   Fully reproducible reports – each time you render the analysis is ran from the beginning
+-   Fully reproducible reports -- each time you render the analysis is ran from the beginning
 -   Code goes in chunks narrative goes outside of chunks
 -   A visual editor for a familiar, Google Docs/MS Word-like editing experience
 :::
@@ -75,14 +75,14 @@ What does it mean for a data analysis to be “reproducible”?
 The environment of your Quarto document is separate from the Console!
 :::
 
-Remember this, and expect it to bite you a few times as you’re learning to work with Quarto!
+Remember this, and expect it to bite you a few times as you're learning to work with Quarto!
 
 ## How will we use Quarto?
 
 ::: incremental
 -   Every code along is a Quarto document
 
--   You’ll always have a template Quarto document to start with
+-   You'll always have a template Quarto document to start with
 
 -   The amount of scaffolding in the template will decrease over the semester
 :::

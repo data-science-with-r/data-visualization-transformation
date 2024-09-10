@@ -8,6 +8,8 @@ webr:
 Programming exercises are designed to provide an opportunity for you to put what you learn in the videos and readings.
 These exercises feature interactive code chunks using a tool called [WebR](https://docs.r-wasm.org/webr/latest), which allow you to write, edit, and run R code without leaving your browser.
 
+When the WEBR STATUS says "Ready!", you can interact with the code chunks!
+
 # Components
 
 ## Code chunks
@@ -18,9 +20,10 @@ Interactive code chunks look like the following:
 1 + 1
 ```
 
-Majority of the code chunks in these documents will be interactive, like the one shown above.
-However, some code chunks will be static and include code that you can't edit and you are just meant to read and review the output of.
-These will look like the following:
+The majority of the code chunks in these documents will be interactive, like the one shown above.
+However, some code chunks will be static and include code that you can't edit.
+You should just read and review the output of these.
+They will look like the following:
 
 ```{r}
 1 + 1
@@ -28,6 +31,7 @@ These will look like the following:
 
 For example, we'll use the **tidyverse** package in every programming exercise.
 Therefore, each exercise will start with a static code chunk that loads this package.
+Note that even though this code chunk runs, it does not produce any visible output.
 
 ```{r}
 #| label: load-packages
@@ -39,12 +43,13 @@ library(tidyverse)
 ## Questions
 
 Many of the questions in the programming exercises require you to actively do something -- edit existing code, write code from scratch, write a narrative, etc.
-Code goes in interactive code chunks that have a *Run Code* button, narrative goes in text boxes.
+Code goes in interactive code chunks that have a *Run Code* button, and narrative goes in text boxes.
 
-However, some questions come with complete code that you don't need to edit, but still need to run to view the output.
+However, some questions come with complete code that you don't need to edit, but you still need to run to view the output.
 These questions will also often invite you to make modifications to explore alternatives.
 
-The final question of each programming exercise will be a **reflection questions**. These questions are designed to help you think about and further engage with the concepts you just performed.
+Each programming exercise will have accompanying **reflection questions** that can be found on Coursera.
+These questions are designed to help you think about concepts you just performed, and engage with other learners!
 
 ::: callout-tip
 ## Saving Your Work
@@ -67,6 +72,7 @@ This may be useful if you want to come back and reference your work after you've
 First, let's get started by using R as a calculator.
 
 In the interactive code chunk below, perform the following calculations by typing the code and then clicking *Run Code*.
+Also note that the '1' on the left-hand side is the *line number*, not part of the code.
 
 -   Run code: Run the code below as is.
 
@@ -107,7 +113,7 @@ The number 3.23 is an `argument` to the function `round()`.
 An argument is an input to a function.
 A `value` is produced as a result.
 
-ex.
+For example:
 
 ```{r}
 round(3.22)
@@ -116,13 +122,13 @@ round(3.22)
 Often times, functions can take on multiple arguments.
 Previously, we saw `round(3.225)` produce the value `3`.
 This is because round defaults to producing a value to the nearest whole number.
-However, we can override the default inputing a second argument.
+However, we can override the default inputting a second argument.
 **You are not expected to memorize all arguments of every function you learn during this course**.
-If you have R locally installed, you can run a `?` in front of the function name in your console to pull up a help file that will define the arguments of a function for you.
-These help files can also be found on line.
-For example, here is the help file for round [here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Round)
+You can run a `?` in front of the function name to pull up a help file that will define the arguments of a function for you.
+These help files can also be found online.
+For example, the help file for round [here](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Round)
 
-From the documentation, you can see the second argument of the function `round` is digits.
+From the documentation, you can see the second argument of the function `round` is *digits*.
 
 **Your Turn** Change the 0 to another number, and take note on how this changes the corresponding output when you click [Run Code]{style="color:green;"}.
 
@@ -136,6 +142,24 @@ round(3.22, digits = 0)
 ```{r}
 round(3.22, digits = 1)
 ```
+:::
+
+Try accessing the documentation for `round` with a `?`.
+
+```{webr-r}
+# add code here 
+```
+
+::: {.callout-tip collapse="true"}
+## Solution
+
+```{r}
+#| eval: false
+?round
+```
+
+Running the above code will prompt the help file.
+Help files give information such as a description of the function, arguments, and examples that you can run yourself!
 :::
 
 As you may notice, the first argument and second argument are separated by a `,`.
@@ -152,14 +176,12 @@ round(3.225, 1)
 ## Exploring `mtcars`
 
 For the remainder of this activity, we are going to practice using functions on the `mtcars` data set.
-These data were extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+These data were extracted from the 1974 Motor Trend US magazine, and contains fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
 
 **Demo** Run the following code to see the first six lines of data below
 
 ```{webr-r}
-
 head(mtcars)
-
 ```
 
 What is the name of the function used in the above code?
@@ -178,7 +200,7 @@ What is the input?
 
 The function is named **head**
 
-The argument is the dataset **mtcars**
+The argument is the data set **mtcars**
 :::
 
 We can also get a better sense of the data we are working with by using the `glimpse()` function.
@@ -188,7 +210,7 @@ For now, we just want to practice writing the function to initially explore thes
 **Your Turn** Use the `glimpse()` function on the `mtcars` data set below.
 
 ```{webr-r}
-
+# add code here
 ```
 
 How many rows are in the `mtcars` data set?
@@ -217,16 +239,16 @@ There are **11** columns in the mtcars data set
 **Your Turn**: There are many other functions we can use on data to explore it prior to making data visualizations.
 You are encouraged to explore the help files of the following:
 
-- `tail()`
+-   `tail()`
 
-- `slice()`
+-   `slice()`
 
 After doing so, try to answer answer the following questions!
 
 Use `tail()` to produce the last six lines of the `mtcars` data set.
 
 ```{webr-r}
-
+# add code here
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -240,7 +262,7 @@ tail(mtcars)
 Now, use `slice` to produce the first three lines of the `mtcars` data set.
 
 ```{webr-r}
-
+# add code here
 ```
 
 ::: {.callout-tip collapse="true"}
@@ -252,7 +274,3 @@ slice(mtcars, 1:3)
 :::
 
 In the subsequent lessons, we are going to learn how to manipulate, work with, and plot data using a variety of functions in R.
-
- 
-{{< include _reflection_question.qmd >}}
-

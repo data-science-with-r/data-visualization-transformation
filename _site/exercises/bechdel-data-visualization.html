@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.9">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>bechdel-data-visualization – Data visualization and transformation</title>
+<title>Bechdel + data visualization – Data visualization and transformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +53,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
@@ -76,8 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-c5b632f0608ed5ae37158fcb1e2b4ebf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -103,10 +98,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style type="text/css">
 .monaco-editor pre {
   background-color: unset !important;
@@ -270,10 +263,9 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"true","out-height":"","classes":"","warning":"true","message":"true","context":"setup","read-only":"false","dpi":72,"label":"unnamed-chunk-1"},"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/bechdel.csv\",\n  \"bechdel.csv\"\n)"},{"id":2,"options":{"out-width":"700px","fig-cap":"","autorun":"false","warning":"true","context":"interactive","read-only":"false","results":"markup","comment":"","echo":"false","fig-width":7,"classes":"","label":"unnamed-chunk-2","dpi":72,"message":"true","out-height":"","fig-height":5,"output":"true"},"code":"bechdel <- read.csv(\"bechdel.csv\")"},{"id":3,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"unnamed-chunk-3"},"code":"# add code here"},{"id":4,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"unnamed-chunk-4"},"code":"slice(bechdel, 1:5)"},{"id":5,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-base"},"code":"ggplot(data = bechdel)"},{"id":6,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-aesthetic-mapping"},"code":"ggplot(data = bechdel, \n       mapping = aes(x = budget_2013, y = gross_2013))"},{"id":7,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-simplified-call"},"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013))"},{"id":8,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-point"},"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013)) +\n  #add code here"},{"id":9,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-point-color"},"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013)) +\n  geom_point(color = \"coral\") "},{"id":10,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-labs"},"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013)) +\n  geom_point(color = \"coral\") + \n  #add code here"},{"id":11,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-aes-color"},"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013)) +\n  geom_point() + \n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )"},{"id":12,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-aes-alpha"},"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 1) + \n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )"},{"id":13,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-facet-wrap"},"code":"ggplot(bechdel, \n  aes(x = budget_2013, y = gross_2013,\n    color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_wrap(~#add code here) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )"},{"id":14,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-scales"},"code":"ggplot(bechdel, \n  aes(x = budget_2013, y = gross_2013,\n    color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_wrap(~clean_test) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )"},{"id":15,"options":{"out-width":"700px","fig-cap":"","comment":"","results":"markup","output":"true","fig-height":5,"fig-width":7,"autorun":"false","out-height":"","classes":"","warning":"true","message":"true","context":"interactive","read-only":"false","dpi":72,"label":"plot-facet-grid"},"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_grid(#insert variable name1 ~ insert variable name2) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )"}];
+globalThis.qwebrCellDetails = [{"code":"download.file(\n  \"https://raw.githubusercontent.com/ElijahMeyer3/Coursera/main/data/bechdel.csv\",\n  \"bechdel.csv\"\n)\n\noptions(readr.show_progress = FALSE)","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"true","warning":"true","read-only":"false","label":"unnamed-chunk-1","output":"true","message":"true","fig-cap":"","classes":"","context":"setup"},"id":1},{"code":"bechdel <- read_csv(\"bechdel.csv\")","options":{"out-height":"","out-width":"700px","fig-width":7,"dpi":72,"fig-height":5,"warning":"true","results":"markup","comment":"","context":"interactive","echo":"false","read-only":"false","label":"unnamed-chunk-2","output":"true","message":"true","fig-cap":"","classes":"","autorun":"false"},"id":2},{"code":"# add code here","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"unnamed-chunk-3","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":3},{"code":"slice(bechdel, 1:5)","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"unnamed-chunk-4","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":4},{"code":"ggplot(data = bechdel)","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-base","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":5},{"code":"ggplot(\n  data = bechdel,\n  mapping = aes(x = budget_2013, y = gross_2013)\n)","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-aesthetic-mapping","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":6},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n)","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-simplified-call","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":7},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  #add code here","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-point","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":8},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\")","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-point-color","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":9},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point(color = \"coral\") + \n  #add code here","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-labs","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":10},{"code":"ggplot(\n  bechdel,\n  aes(x = budget_2013, y = gross_2013)\n) +\n  geom_point() +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-aes-color","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":11},{"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 1) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-aes-alpha","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":12},{"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~#insert variable name) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-facet-wrap","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":13},{"code":"ggplot(\n  bechdel,\n  aes(\n    x = budget_2013, y = gross_2013,\n    color = binary, size = roi\n  )\n) +\n  geom_point(alpha = 0.5) +\n  facet_wrap(~clean_test) +\n  scale_x_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1 / 1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\",\n    y = \"Gross revenue (in 2013 $)\",\n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n  )","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-scales","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":14},{"code":"ggplot(bechdel, \n       aes(x = budget_2013, y = gross_2013,\n           color = binary, size = roi)) +\n  geom_point(alpha = 0.5) + \n  facet_grid(#insert variable name1 ~ insert variable name2) +\n  scale_x_continuous(labels = label_dollar(scale = 1/1000000)) +\n  scale_y_continuous(labels = label_dollar(scale = 1/1000000)) +\n  labs(\n    x = \"Budget (in 2013 $)\", \n    y = \"Gross revenue (in 2013 $)\", \n    title = \"Gross revenue vs. budget, by Bechdel test result\"\n    )","options":{"out-height":"","out-width":"700px","results":"markup","fig-height":5,"fig-width":7,"dpi":72,"comment":"","autorun":"false","warning":"true","read-only":"false","label":"plot-facet-grid","output":"true","message":"true","fig-cap":"","classes":"","context":"interactive"},"id":15}];
 
-</script>
-<script type="module">
+</script><script type="module">
 // Declare startupMessageQWebR globally
 globalThis.qwebrStartupMessage = document.createElement("p");
 
@@ -366,8 +358,7 @@ function displayStartupMessage(showStartupMessage, showHeaderMessage) {
 }
 
 displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
-</script>
-<script type="module">
+</script><script type="module">
 // Supported Evaluation Types for Context
 globalThis.EvalTypes = Object.freeze({
   Interactive: 'interactive',
@@ -613,8 +604,7 @@ globalThis.createLoadingContainer = function(qwebrCounter) {
 
   return container;
 }
-</script>
-<script type="module">
+</script><script type="module">
 // Function to install a single package
 async function qwebrInstallRPackage(packageName) {
   await mainWebR.evalRVoid(`webr::install('${packageName}');`);
@@ -710,8 +700,7 @@ globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs
 // Stop timer
 const initializeWebRTimerEnd = performance.now();
 
-</script>
-<script type="module">
+</script><script type="module">
 // Function to verify a given JavaScript Object is empty
 globalThis.qwebrIsObjectEmpty = function (arr) {
     return Object.keys(arr).length === 0;
@@ -987,16 +976,11 @@ globalThis.qwebrExecuteCode = async function (
 }
 
 </script>
-
-
 </head>
-
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Data visualization and transformation</span>
@@ -1008,53 +992,49 @@ globalThis.qwebrExecuteCode = async function (
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
-          </div> <!-- /navcollapse -->
+</div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
     <a href="https://github.com/data-science-with-r" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+    </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a>
+<li>
+<a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a>
   <ul class="collapse">
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
+<li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
   <li><a href="#get-to-know-the-data" id="toc-get-to-know-the-data" class="nav-link" data-scroll-target="#get-to-know-the-data">Get to know the data</a></li>
-  </ul></li>
+  </ul>
+</li>
   <li><a href="#variables-of-interest" id="toc-variables-of-interest" class="nav-link" data-scroll-target="#variables-of-interest">Variables of interest</a></li>
   <li><a href="#visualizing-data-with-ggplot2" id="toc-visualizing-data-with-ggplot2" class="nav-link" data-scroll-target="#visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code></a></li>
-  <li><a href="#gross-revenue-vs.-budget" id="toc-gross-revenue-vs.-budget" class="nav-link" data-scroll-target="#gross-revenue-vs.-budget">Gross revenue vs.&nbsp;budget</a>
+  <li>
+<a href="#gross-revenue-vs.-budget" id="toc-gross-revenue-vs.-budget" class="nav-link" data-scroll-target="#gross-revenue-vs.-budget">Gross revenue vs.&nbsp;budget</a>
   <ul class="collapse">
-  <li><a href="#step-1" id="toc-step-1" class="nav-link" data-scroll-target="#step-1">Step 1</a></li>
+<li><a href="#step-1" id="toc-step-1" class="nav-link" data-scroll-target="#step-1">Step 1</a></li>
   <li><a href="#step-2" id="toc-step-2" class="nav-link" data-scroll-target="#step-2">Step 2</a></li>
   <li><a href="#step-3" id="toc-step-3" class="nav-link" data-scroll-target="#step-3">Step 3</a></li>
   <li><a href="#step-4" id="toc-step-4" class="nav-link" data-scroll-target="#step-4">Step 4</a></li>
   <li><a href="#step-5" id="toc-step-5" class="nav-link" data-scroll-target="#step-5">Step 5</a></li>
   <li><a href="#step-6" id="toc-step-6" class="nav-link" data-scroll-target="#step-6">Step 6</a></li>
   <li><a href="#step-7" id="toc-step-7" class="nav-link" data-scroll-target="#step-7">Step 7</a></li>
-  </ul></li>
-  <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions">Reflection questions</a></li>
   </ul>
-</nav>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
-<script type="module" id="qwebr-monaco-editor-init">
+<main class="content" id="quarto-document-content"><script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script><script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
@@ -1062,8 +1042,7 @@ globalThis.qwebrExecuteCode = async function (
       'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
     }
   });
-</script>
-<script type="module">
+</script><script type="module">
 // Global dictionary to store Monaco Editor instances
 globalThis.qwebrEditorInstances = {};
 
@@ -1226,10 +1205,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   };
   
 }
-</script>
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+</script><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Bechdel + data visualization</h1>
 <p class="subtitle lead"><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation<br><i class="fa-solid fa-book" aria-label="book"></i> Data Science with R</p>
 </div>
 
@@ -1244,10 +1221,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   
 
 
-</header>
-
-
-<div class="callout callout-style-default callout-important callout-titled">
+</header><div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -1257,24 +1231,23 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please reference the <code>webR-intro</code> programming exercise for information and instructions on how to interact with the programming exercise below.</p>
+<p>Please reference the <code>Meet the toolkit: Programming exercises</code> for information and instructions on how to interact with the programming exercise below.</p>
 </div>
 </div>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
+<section id="getting-started" class="level2"><h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
 <p>Please run the following code by clicking the <span style="color:green;">green arrow</span> just above the code chunk. When reading in the data, nothing will appear after you click the button. However, clicking the arrow ensures that your data can be used for the following programming exercise.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Note: Reading in a tibble also gives you information about the data, such as the column names (e.g., tite), and the variable type (e.g., chr). This is often suppressed after the initial read in by adding <code>show_col_types = FALSE</code> within the <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> function after the path to the data, separated by a comma.</p>
 <p>In this mini analysis we work with the data used in the FiveThirtyEight story titled <a href="https://fivethirtyeight.com/features/the-dollar-and-cents-case-against-hollywoods-exclusion-of-women/">“The Dollar-And-Cents Case Against Hollywood’s Exclusion of Women”</a>.</p>
 <p>This analysis is about the <a href="https://en.wikipedia.org/wiki/Bechdel_test">Bechdel test</a>, a measure of the representation of women in fiction.</p>
-<section id="packages" class="level3">
-<h3 class="anchored" data-anchor-id="packages">Packages</h3>
-<p>We’ll use: <strong>tidyverse</strong> for majority of the analysis and <strong>scales</strong> for pretty plot labels later on. These are ready to use for you in this programming exercise!</p>
+<section id="packages" class="level3"><h3 class="anchored" data-anchor-id="packages">Packages</h3>
+<p>We’ll use: <strong>tidyverse</strong> for the majority of the analysis and <strong>scales</strong> for pretty plot labels later on. These are ready for you to use in this programming exercise!</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1289,10 +1262,8 @@ Note
 <p>This a modified version of the <code>bechdel</code> dataset. It’s been modified to include some new variables derived from existing variables as well as to limit the scope of the data to movies released between 1990 and 2013. A link to the original dataset can be found <a href="https://github.com/fivethirtyeight/data/blob/master/bechdel/movies.csv">here</a></p>
 </div>
 </div>
-</section>
-<section id="get-to-know-the-data" class="level3">
-<h3 class="anchored" data-anchor-id="get-to-know-the-data">Get to know the data</h3>
-<p>We can use the <code>glimpse()</code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
+</section><section id="get-to-know-the-data" class="level3"><h3 class="anchored" data-anchor-id="get-to-know-the-data">Get to know the data</h3>
+<p>We can use the <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> function to get an overview (or “glimpse”) of the data. Write the following code below to accomplish this task.</p>
 <p>With your output, confirm that:</p>
 <ul>
 <li><p>There are 1615 rows</p></li>
@@ -1308,7 +1279,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you receive the error <span style="color:red;">Error: object ‘bechdel’ not found</span>, go back and read in your data above.</p>
+<p>If you receive the error <span style="color:red;">Error: object ‘bechdel’ not found</span>, go back and read in your data above with <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code>.</p>
 </div>
 </div>
 <div id="qwebr-insertion-location-3"></div>
@@ -1326,14 +1297,14 @@ Solution
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bechdel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">bechdel</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,615
 Columns: 7
 $ title       &lt;chr&gt; "21 &amp; Over", "Dredd 3D", "12 Years a Slave", "2 Guns", "42…
-$ year        &lt;int&gt; 2013, 2012, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013…
+$ year        &lt;dbl&gt; 2013, 2012, 2013, 2013, 2013, 2013, 2013, 2013, 2013, 2013…
 $ gross_2013  &lt;dbl&gt; 67878146, 55078343, 211714070, 208105475, 190040426, 18416…
-$ budget_2013 &lt;int&gt; 13000000, 45658735, 20000000, 61000000, 40000000, 22500000…
+$ budget_2013 &lt;dbl&gt; 13000000, 45658735, 20000000, 61000000, 40000000, 22500000…
 $ roi         &lt;dbl&gt; 5.221396, 1.206305, 10.585703, 3.411565, 4.751011, 0.81851…
 $ binary      &lt;chr&gt; "FAIL", "PASS", "FAIL", "FAIL", "FAIL", "FAIL", "FAIL", "P…
 $ clean_test  &lt;chr&gt; "notalk", "ok", "notalk", "notalk", "men", "men", "notalk"…</code></pre>
@@ -1342,13 +1313,12 @@ $ clean_test  &lt;chr&gt; "notalk", "ok", "notalk", "notalk", "men", "men", "not
 </div>
 </div>
 </div>
-<p>We can use <code>slice()</code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
+<p>We can use <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a></code> to look at rows of our data. Run the following code. Change the <code>5</code> to another number to print that many rows!</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>What does each observation (row) in the data set represent?</p>
 <p><br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
+<textarea rows="4" cols="50"></textarea><p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1365,37 +1335,44 @@ Solution
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="variables-of-interest" class="level2">
-<h2 class="anchored" data-anchor-id="variables-of-interest">Variables of interest</h2>
+</section></section><section id="variables-of-interest" class="level2"><h2 class="anchored" data-anchor-id="variables-of-interest">Variables of interest</h2>
 <p>The variables we’ll focus on are the following:</p>
 <ul>
-<li><code>budget_2013</code>: Budget in 2013 inflation adjusted dollars.</li>
-<li><code>gross_2013</code>: Gross (US and international combined) in 2013 inflation adjusted dollars.</li>
-<li><code>roi</code>: Return on investment, calculated as the ratio of the gross to budget.</li>
-<li><code>clean_test</code>: Bechdel test result:
+<li>
+<code>budget_2013</code>: Budget in 2013 inflation adjusted dollars.</li>
+<li>
+<code>gross_2013</code>: Gross (US and international combined) in 2013 inflation adjusted dollars.</li>
+<li>
+<code>roi</code>: Return on investment, calculated as the ratio of the gross to budget.</li>
+<li>
+<code>clean_test</code>: Bechdel test result:
 <ul>
-<li><code>ok</code> = passes test</li>
+<li>
+<code>ok</code> = passes test</li>
 <li><code>dubious</code></li>
-<li><code>men</code> = women only talk about men</li>
-<li><code>notalk</code> = women don’t talk to each other</li>
-<li><code>nowomen</code> = fewer than two women</li>
-</ul></li>
-<li><code>binary</code>: Bechdel Test PASS vs FAIL binary</li>
+<li>
+<code>men</code> = women only talk about men</li>
+<li>
+<code>notalk</code> = women don’t talk to each other</li>
+<li>
+<code>nowomen</code> = fewer than two women</li>
+</ul>
+</li>
+<li>
+<code>binary</code>: Bechdel Test PASS vs FAIL binary</li>
 </ul>
 <p>There are a few other variables in the dataset, but we won’t be using them in this analysis.</p>
-</section>
-<section id="visualizing-data-with-ggplot2" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code></h2>
-<p><strong>ggplot2</strong> is the package and <code>ggplot()</code> is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!</p>
+</section><section id="visualizing-data-with-ggplot2" class="level2"><h2 class="anchored" data-anchor-id="visualizing-data-with-ggplot2">Visualizing data with <code>ggplot2</code>
+</h2>
+<p><strong>ggplot2</strong> is the package and <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> is the function in this package that is used to create a plot. Interact with the code below by either running the code given, or adding code to achieve the expected solution when asked within the code chunk!</p>
 <ul>
-<li><code>ggplot()</code> creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with <code>data = bechdel</code>, and run the following to create our base.</li>
+<li>
+<code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> creates the initial base coordinate system, and we will add layers to that base. We first specify the data set we will use with <code>data = bechdel</code>, and run the following to create our base.</li>
 </ul>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <ul>
-<li>The <code>mapping</code> argument is paired with an aesthetic (<code>aes()</code>), which tells us how the variables in our data set should be mapped to the visual properties of the graph.</li>
+<li>The <code>mapping</code> argument is paired with an aesthetic (<code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code>), which tells us how the variables in our data set should be mapped to the visual properties of the graph.</li>
 </ul>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1405,7 +1382,7 @@ Solution
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Note that the result is exactly the same.</p>
-<p>The <code>geom_xx()</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code>geom_point()</code>, which creates a plot where each observation is represented by a point.</p>
+<p>The <code>geom_*()</code> function specifies the type of plot we want to use to represent the data. In the code below, we want to use <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>, which creates a plot where each observation is represented by a point.</p>
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1421,17 +1398,18 @@ Solution
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013)) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">bechdel</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="bechdel-data-visualization_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1441,11 +1419,8 @@ Solution
 </div>
 <p>Note that this results in a warning as well.</p>
 <p>This warning represents the number of observations that were removed because there were missing data!</p>
-</section>
-<section id="gross-revenue-vs.-budget" class="level2">
-<h2 class="anchored" data-anchor-id="gross-revenue-vs.-budget">Gross revenue vs.&nbsp;budget</h2>
-<section id="step-1" class="level3">
-<h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
+</section><section id="gross-revenue-vs.-budget" class="level2"><h2 class="anchored" data-anchor-id="gross-revenue-vs.-budget">Gross revenue vs.&nbsp;budget</h2>
+<section id="step-1" class="level3"><h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
 <p>The following code changes the color of all points to coral. Explore different colors by changing “coral” to different colors!</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1462,9 +1437,7 @@ Tip
 </div>
 <div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="step-2" class="level3">
-<h3 class="anchored" data-anchor-id="step-2">Step 2</h3>
+</section><section id="step-2" class="level3"><h3 class="anchored" data-anchor-id="step-2">Step 2</h3>
 <p>Add labels for the title and x and y axes using <a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a>. Do this by modifying the existing code below.</p>
 <div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
@@ -1481,22 +1454,23 @@ Solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013))<span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"deepskyblue3"</span>) <span class="sc">+</span> </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget"</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">bechdel</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"deepskyblue3"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Gross revenue vs. budget"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/plot-labels-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="bechdel-data-visualization_files/figure-html/plot-labels-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1504,9 +1478,7 @@ Solution
 </div>
 </div>
 </div>
-</section>
-<section id="step-3" class="level3">
-<h3 class="anchored" data-anchor-id="step-3">Step 3</h3>
+</section><section id="step-3" class="level3"><h3 class="anchored" data-anchor-id="step-3">Step 3</h3>
 <p>An <code>aes</code>thetic is a visual property of one of the objects in your plot. Commonly used aesthetic options are:</p>
 <ul>
 <li>color</li>
@@ -1515,7 +1487,7 @@ Solution
 <li>size</li>
 <li>alpha (transparency)</li>
 </ul>
-<p>Modify the plot below, so the <code>color</code> of the points is based on the variable <code>binary</code>, and make the size of your points based on <code>roi</code>.</p>
+<p>Modify the plot below so the <code>color</code> of the points is based on the variable <code>binary</code>, and make the size of your points based on <code>roi</code>.</p>
 <div id="qwebr-insertion-location-11"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1531,23 +1503,26 @@ Solution
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> binary, <span class="at">size =</span> roi)) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">bechdel</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span>,</span>
+<span>    color <span class="op">=</span> <span class="va">binary</span>, size <span class="op">=</span> <span class="va">roi</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/plot-aes-color-solution-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="bechdel-data-visualization_files/figure-html/plot-aes-color-solution-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1555,16 +1530,12 @@ Solution
 </div>
 </div>
 </div>
-</section>
-<section id="step-4" class="level3">
-<h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
-<p><code>alpha</code> is used within <code>geom_point()</code> to change the transparency of the dots. alpha ranges between 0 and 1, with lower values equating to more transparent dots. Below, make the dots more transparent.</p>
+</section><section id="step-4" class="level3"><h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
+<p><code>alpha</code> is used within <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> to change the transparency of the dots. <code>alpha</code> ranges between 0 and 1, with lower values being more transparent dots. Below, make the dots more transparent.</p>
 <div id="qwebr-insertion-location-12"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="step-5" class="level3">
-<h3 class="anchored" data-anchor-id="step-5">Step 5</h3>
-<p>Expand on your plot from the previous step by using <code>[facet_wrap()](https://ggplot2.tidyverse.org/reference/facet_wrap.html)</code> to display the association between <code>budget</code> and <code>gross</code> for different values of <code>clean_test</code>.</p>
+</section><section id="step-5" class="level3"><h3 class="anchored" data-anchor-id="step-5">Step 5</h3>
+<p>Expand on your plot from the previous step by using <a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a> to display the association between <code>budget</code> and <code>gross</code> for different values of <code>clean_test</code>.</p>
 <div id="qwebr-insertion-location-13"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1580,24 +1551,27 @@ Solution
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bechdel, </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> budget_2013, <span class="at">y =</span> gross_2013,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> binary, <span class="at">size =</span> roi)) <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> clean_test) <span class="sc">+</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Budget (in 2013 $)"</span>, </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Gross revenue (in 2013 $)"</span>, </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">bechdel</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span>,</span>
+<span>    color <span class="op">=</span> <span class="va">binary</span>, size <span class="op">=</span> <span class="va">roi</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">clean_test</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
 (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure class="figure">
-<p><img src="bechdel-data-visualization_files/figure-html/plot-facet-wrap-sol-1.png" class="img-fluid figure-img" width="672"></p>
+<figure class="figure"><p><img src="bechdel-data-visualization_files/figure-html/plot-facet-wrap-sol-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1605,9 +1579,7 @@ Solution
 </div>
 </div>
 </div>
-</section>
-<section id="step-6" class="level3">
-<h3 class="anchored" data-anchor-id="step-6">Step 6</h3>
+</section><section id="step-6" class="level3"><h3 class="anchored" data-anchor-id="step-6">Step 6</h3>
 <p>Below is a demonstration on how to improve your plot from the previous step by making the x and y scales more legible.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1619,21 +1591,18 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is done through the use of the <a href="https://scales.r-lib.org/"><strong>scales</strong></a> package, specifically the <code>[scale_x_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html)</code> and <code>[scale_y_continuous()](https://ggplot2.tidyverse.org/reference/scale_continuous.html)</code> functions.</p>
+<p>This is done through the use of the <a href="https://scales.r-lib.org/"><strong>scales</strong></a> package, specifically the <a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a> and <a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous()</a> functions.</p>
 </div>
 </div>
 <div id="qwebr-insertion-location-14"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-</section>
-<section id="step-7" class="level3">
-<h3 class="anchored" data-anchor-id="step-7">Step 7</h3>
-<p>Expand on your plot from the previous step by using <code>[facet_grid()](https://ggplot2.tidyverse.org/reference/facet_grid.html)</code> to display the association between <code>budget</code> and <code>gross</code> for different combinations of <code>clean_test</code> and <code>binary</code>.</p>
+</section><section id="step-7" class="level3"><h3 class="anchored" data-anchor-id="step-7">Step 7</h3>
+<p>Expand on your plot from the previous step by using <a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a> to display the association between <code>budget</code> and <code>gross</code> for different combinations of <code>clean_test</code> and <code>binary</code>.</p>
 <div id="qwebr-insertion-location-15"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <p>Is this type of facet useful? Why or why not?</p>
 <p><br></p>
-<textarea rows="4" cols="50"></textarea>
-<p><br><br></p>
+<textarea rows="4" cols="50"></textarea><p><br><br></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1646,38 +1615,41 @@ Solution
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span></span>
+<span>  <span class="va">bechdel</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="va">budget_2013</span>, y <span class="op">=</span> <span class="va">gross_2013</span>,</span>
+<span>    color <span class="op">=</span> <span class="va">binary</span>, size <span class="op">=</span> <span class="va">roi</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">clean_test</span> <span class="op">~</span> <span class="va">binary</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/dollar_format.html">label_dollar</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">1000000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://scales.r-lib.org/reference/dollar_format.html">label_dollar</a></span><span class="op">(</span>scale <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="fl">1000000</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="st">"Budget (in 2013 $)"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Gross revenue (in 2013 $)"</span>,</span>
+<span>    title <span class="op">=</span> <span class="st">"Gross revenue vs. budget, by Bechdel test result"</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 15 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="bechdel-data-visualization_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>This was not a useful update as one of the levels of <code>clean_test</code> maps directly to one of the levels of <code>binary</code>.</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="reflection-questions" class="level2">
-<h2 class="anchored" data-anchor-id="reflection-questions">Reflection questions</h2>
-<ul>
-<li>Why do you believe we are studying the content above?</li>
-</ul>
-<p><br></p>
-<textarea rows="8" cols="50"></textarea>
-<p><br><br></p>
-<ul>
-<li>List three topics that you feel very confident about from the content above.</li>
-</ul>
-<p><br></p>
-<textarea rows="8" cols="50"></textarea>
-<p><br><br></p>
-<ul>
-<li>List three topics that you feel could use more practice (or you are more curious about) from the content above.</li>
-</ul>
-<p><br></p>
-<textarea rows="8" cols="50"></textarea>
-<p><br><br></p>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -2354,8 +2326,6 @@ qwebrInstance.then(
   }
 );
 </script>
-
-
 
 
 </body></html>

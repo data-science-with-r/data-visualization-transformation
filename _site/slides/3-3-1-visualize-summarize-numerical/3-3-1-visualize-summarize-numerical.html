@@ -9,17 +9,17 @@
 <link href="../../site_libs/quarto-html/quarto-html-68b329da9893e34099c7d8ad5cb9c940.min.css" rel="stylesheet" append-hash="true" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e0edb350c94ea881e40b9fa72a583e16.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.6.9">
-
-  <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation – Visualizing and summarizing numerical data</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.9">
+<meta name="author" content=" Data Science with R">
+<title>Data visualization and transformation – Visualizing and summarizing numerical data</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +97,12 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-87940a45bf69c2c0f2472824192ef82f.css">
-  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-87940a45bf69c2c0f2472824192ef82f.css">
+<link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -300,7 +300,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -392,9 +392,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Visualizing and summarizing numerical data</h1>
-  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Visualizing and summarizing numerical data</h1>
+  <p class="subtitle"><br><br><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -404,16 +403,17 @@
 </div>
 </div>
 
-</section><section id="TOC">
-<nav role="doc-toc"> 
-<h2 id="toc-title">Table of contents</h2>
+</section><section id="TOC"><nav role="doc-toc"><h2 id="toc-title">Table of contents</h2>
 <ul>
-<li><a href="#/setup" id="/toc-setup">Setup</a>
+<li>
+<a href="#/setup" id="/toc-setup">Setup</a>
 <ul>
 <li><a href="#/packages" id="/toc-packages">Packages</a></li>
 <li><a href="#/data-lending-club" id="/toc-data-lending-club">Data: Lending Club</a></li>
-</ul></li>
-<li><a href="#/distribution-of-a-numerical-variable" id="/toc-distribution-of-a-numerical-variable">Distribution of a numerical variable</a>
+</ul>
+</li>
+<li>
+<a href="#/distribution-of-a-numerical-variable" id="/toc-distribution-of-a-numerical-variable">Distribution of a numerical variable</a>
 <ul>
 <li><a href="#/loan-amount" id="/toc-loan-amount">Loan amount</a></li>
 <li><a href="#/characteristics-of-a-distribution" id="/toc-characteristics-of-a-distribution">Characteristics of a distribution</a></li>
@@ -421,8 +421,10 @@
 <li><a href="#/center" id="/toc-center">Center</a></li>
 <li><a href="#/spread" id="/toc-spread">Spread</a></li>
 <li><a href="#/outliers" id="/toc-outliers">Outliers</a></li>
-</ul></li>
-<li><a href="#/visualizing-numerical-data" id="/toc-visualizing-numerical-data">Visualizing numerical data</a>
+</ul>
+</li>
+<li>
+<a href="#/visualizing-numerical-data" id="/toc-visualizing-numerical-data">Visualizing numerical data</a>
 <ul>
 <li><a href="#/histogram" id="/toc-histogram">Histogram</a></li>
 <li><a href="#/histograms-and-binwidth" id="/toc-histograms-and-binwidth">Histograms and binwidth</a></li>
@@ -431,30 +433,24 @@
 <li><a href="#/box-plot" id="/toc-box-plot">Box plot</a></li>
 <li><a href="#/box-plot-and-outliers" id="/toc-box-plot-and-outliers">Box plot and outliers</a></li>
 <li><a href="#/box-plot-customization" id="/toc-box-plot-customization">Box plot customization</a></li>
-</ul></li>
-<li><a href="#/summarizing-numerical-data" id="/toc-summarizing-numerical-data">Summarizing numerical data</a>
+</ul>
+</li>
+<li>
+<a href="#/summarizing-numerical-data" id="/toc-summarizing-numerical-data">Summarizing numerical data</a>
 <ul>
 <li><a href="#/summarize" id="/toc-summarize"><code>summarize()</code></a></li>
 <li><a href="#/sloppy-summarize" id="/toc-sloppy-summarize">Sloppy <code>summarize()</code></a></li>
-</ul></li>
 </ul>
-</nav>
-</section>
-<section>
-<section id="setup" class="title-slide slide level1 center">
-<h1>Setup</h1>
+</li>
+</ul></nav></section><section><section id="setup" class="title-slide slide level1 center"><h1>Setup</h1>
 
-</section>
-<section id="packages" class="slide level2">
-<h2>Packages</h2>
+</section><section id="packages" class="slide level2"><h2>Packages</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) <span class="co"># for data wrangling and visualization</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(openintro) <span class="co"># for data</span></span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(scales)    <span class="co"># for pretty axis labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="data-lending-club" class="slide level2">
-<h2>Data: Lending Club</h2>
+</section><section id="data-lending-club" class="slide level2"><h2>Data: Lending Club</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a></a>  <span class="fu">select</span>(</span>
@@ -475,94 +471,73 @@ $ homeownership  &lt;fct&gt; MORTGAGE, RENT, RENT, RENT, RENT, O…
 $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div>
-</section></section>
-<section>
-<section id="distribution-of-a-numerical-variable" class="title-slide slide level1 center">
-<h1>Distribution of a numerical variable</h1>
+</section></section><section><section id="distribution-of-a-numerical-variable" class="title-slide slide level1 center"><h1>Distribution of a numerical variable</h1>
 
-</section>
-<section id="loan-amount" class="slide level2 nostretch">
-<h2>Loan amount</h2>
+</section><section id="loan-amount" class="slide level2 nostretch"><h2>Loan amount</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="characteristics-of-a-distribution" class="slide level2">
-<h2>Characteristics of a distribution</h2>
+</section><section id="characteristics-of-a-distribution" class="slide level2"><h2>Characteristics of a distribution</h2>
 <div>
 <ul>
-<li class="fragment"><strong>Shape:</strong> Modality and skewness</li>
-<li class="fragment"><strong>Center:</strong> Generally mean or median depending on whether the distribution is symmetric or skewed, respectively</li>
-<li class="fragment"><strong>Spread:</strong> Generally standard deviation or inter-quartile range (IQR) depending on whether the distribution is symmetric or skewed, respectively</li>
-<li class="fragment"><strong>Outliers:</strong> Whether there are any, where they are located, and if feasible to identify, which observations</li>
+<li class="fragment">
+<strong>Shape:</strong> Modality and skewness</li>
+<li class="fragment">
+<strong>Center:</strong> Generally mean or median depending on whether the distribution is symmetric or skewed, respectively</li>
+<li class="fragment">
+<strong>Spread:</strong> Generally standard deviation or inter-quartile range (IQR) depending on whether the distribution is symmetric or skewed, respectively</li>
+<li class="fragment">
+<strong>Outliers:</strong> Whether there are any, where they are located, and if feasible to identify, which observations</li>
 </ul>
 </div>
-</section>
-<section id="shape" class="slide level2 nostretch">
-<h2>Shape</h2>
+</section><section id="shape" class="slide level2 nostretch"><h2>Shape</h2>
 <p>The distribution of loan amounts in this sample is unimodal and right-skewed distribution.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-5-1.png" width="864"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-5-1.png" width="864"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="center" class="slide level2 nostretch">
-<h2>Center</h2>
+</section><section id="center" class="slide level2 nostretch"><h2>Center</h2>
 <p>Median loan amount in this sample is $14,500.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-6-1.png" width="864"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-6-1.png" width="864"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="spread" class="slide level2 nostretch">
-<h2>Spread</h2>
+</section><section id="spread" class="slide level2 nostretch"><h2>Spread</h2>
 <p>In this sample, the middle 50% of the loan amounts are between $8,000 and $24,000.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-7-1.png" width="864"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-7-1.png" width="864"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="outliers" class="slide level2 nostretch">
-<h2>Outliers</h2>
+</section><section id="outliers" class="slide level2 nostretch"><h2>Outliers</h2>
 <p>There are no clear outliers in the loan amounts in this sample.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-8-1.png" width="864"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-8-1.png" width="864"></p>
 </figure>
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="visualizing-numerical-data" class="title-slide slide level1 section-break center">
-<h1>Visualizing numerical data</h1>
+</section></section><section><section id="visualizing-numerical-data" class="title-slide slide level1 section-break center"><h1>Visualizing numerical data</h1>
 
-</section>
-<section id="histogram" class="slide level2 nostretch">
-<h2>Histogram</h2>
+</section><section id="histogram" class="slide level2 nostretch"><h2>Histogram</h2>
 <ul>
 <li>Helpful for identifying shape (modality and skewness)</li>
 <li>Requires a careful selection of binwidth</li>
@@ -576,15 +551,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="histograms-and-binwidth" class="slide level2">
-<h2>Histograms and binwidth</h2>
+</section><section id="histograms-and-binwidth" class="slide level2"><h2>Histograms and binwidth</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>p_loans <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -598,8 +570,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb7-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -612,8 +583,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb8-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -626,16 +596,13 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb9-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-</section>
-<section id="histogram-customization" class="slide level2 smaller">
-<h2>Histogram customization</h2>
+</section><section id="histogram-customization" class="slide level2 smaller"><h2>Histogram customization</h2>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|2|3-7|8-10|11-13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
@@ -654,15 +621,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-14-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-14-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="density-plot" class="slide level2 nostretch">
-<h2>Density plot</h2>
+</section><section id="density-plot" class="slide level2 nostretch"><h2>Density plot</h2>
 <ul>
 <li>Helpful for identifying shape (modality and skewness)</li>
 <li>Smoothness can be <code>adjust</code>ed</li>
@@ -674,8 +638,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb11-2"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-15-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-15-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -686,16 +649,13 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb12-2"><a></a>  <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-16-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-16-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-</section>
-<section id="box-plot" class="slide level2 nostretch">
-<h2>Box plot</h2>
+</section><section id="box-plot" class="slide level2 nostretch"><h2>Box plot</h2>
 <ul>
 <li>Helpful for identifying min, max, 25th percentile, median (50th percentile), 75th percentile</li>
 <li>Helpful for identifying shape (skewness, but not modality)</li>
@@ -706,29 +666,23 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb13-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-17-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-17-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="box-plot-and-outliers" class="slide level2 nostretch">
-<h2>Box plot and outliers</h2>
+</section><section id="box-plot-and-outliers" class="slide level2 nostretch"><h2>Box plot and outliers</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
 <span id="cb14-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-18-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-18-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="box-plot-customization" class="slide level2 smaller">
-<h2>Box plot customization</h2>
+</section><section id="box-plot-customization" class="slide level2 smaller"><h2>Box plot customization</h2>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="|3-7|8-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
@@ -745,22 +699,17 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-19-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-19-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section></section>
-<section>
-<section id="summarizing-numerical-data" class="title-slide slide level1 center">
-<h1>Summarizing numerical data</h1>
+</section></section><section><section id="summarizing-numerical-data" class="title-slide slide level1 center"><h1>Summarizing numerical data</h1>
 
-</section>
-<section id="summarize" class="slide level2 smaller">
-<h2><code>summarize()</code></h2>
+</section><section id="summarize" class="slide level2 smaller"><h2><code>summarize()</code></h2>
 <ul>
-<li><code>summarize()</code> returns for a summary statistic for all observations in the data:</li>
+<li>
+<code>summarize()</code> returns for a summary statistic for all observations in the data:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>loans <span class="sc">|&gt;</span></span>
@@ -774,7 +723,8 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 <div class="fragment">
 <ul>
-<li><code>summarize()</code> can be used to calculate multiple summary statistics as well:</li>
+<li>
+<code>summarize()</code> can be used to calculate multiple summary statistics as well:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>loans <span class="sc">|&gt;</span></span>
@@ -790,9 +740,8 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div>
 </div>
-</section>
-<section id="sloppy-summarize" class="slide level2 smaller">
-<h2>Sloppy <code>summarize()</code></h2>
+</section><section id="sloppy-summarize" class="slide level2 smaller"><h2>Sloppy <code>summarize()</code>
+</h2>
 <p><code>summarize()</code> will work even if you don’t name your summary statistic, or give it a non-informative/bad name, but I don’t recommend it!</p>
 <div class="columns">
 <div class="column fragment" style="width:25%;">
@@ -845,26 +794,10 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div>
 </div>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../../site_libs/revealjs/plugin/search/search.js"></script><script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -1054,9 +987,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -1091,9 +1022,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1280,6 +1209,6 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
       }
     });
     </script>
-    
+
 
 </body></html>

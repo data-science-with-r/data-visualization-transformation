@@ -1,0 +1,88 @@
+In this course and throughout the specialization, we've learned a variety of techniques to visulaize and transform data in R. In this video, we will introduce the idea of version control, how to implement version control into your workflow.
+
+>> 
+
+To start things off, let's review our learning goals. 
+
+>>
+
+>By the end of the course, you will understand the importance of version control 
+>understand how we use Git & GitHub for version control 
+>set up and configure a personal access token so that RStudio can communicate with GitHub
+>understand how to clone your course project
+
+>>
+
+So what is version control? Version control the process of tracking and managing online documents, allowing you to see what changes you and others are making. There are both good and not so good ways to go about this... 
+
+>> 
+
+Take this cartoon for example where a graduate student is working on some final document... they receive some edits... and save a new document after incorporating those edits. Many itterations of this later... and we have nothing but a mess of files, comments, and suggestions that are near impossible to keep up with... which isn't all that useful for us.
+
+>>
+
+I like to think of good version control as building a lego house... where at each step you record or track what is happening so the process is easier to follow in one place.  If you wanted to quickly see a change someone else made in a file, or revert that file back to a preivous step, it's going to be a lot easier if things are organized. 
+
+>> 
+
+This process becomes better and easier to track if you have short readable messages that describe what has been accomplished at each step. For example, you see step two has the message "build back and front of base", which could be a useful message to others you are working with, or to yourself when coming back to a project. 
+
+And when you are using version control, you get to decide when to make these messages appear. This could be after you've written a paragraph or just finished creating a visualization.  
+
+>>
+
+The version control software that allows us to do this process is called Git. Git is a popular version control software, especially in the statistics and data science community, and can be thought of similar to "Track Changes" in Word, but has much more user-functionality that may be helpful for us. 
+
+We are also going to use GitHub, which is a cloud-based hosting service for all of our Git projects. It is similar to "Dropbox", but also has much more user-functionality that may be helpful. Your course project will be found on GitHub.
+
+>> 
+
+So, let's take a tour of GitHub. In this tour we are going to 
+- walk through how to generate and configure your personal access token with RStudio
+- clone your project
+- demonstrate how to use version control when working on a document 
+
+
+**Go from slides to computer** 
+
+Checklist of tour: 
+
+- Use usethis::create_github_token() to generate token
+- Use gitcreds::gitcreds_set() to configure token 
+- Clone repo 
+- Demo Pull Commit and Push 
+- Show how to publish as website: settings -> pages -> select branch to main (pause video) go back to repo -> grab url -> click url -> have published webpage for cv
+
+**Go from computer to slides** 
+
+Let's recap. The first thing you will need to consider is making a GitHub account. There is a link provided here that has advice for picking a user name, including using your actual name, making your name timeless, and picking a user name you are comfortable showing a future boss. 
+
+>>
+
+Next, in the console, run the following two lines of code to generate and configure your personal access token. As a reminder, create github token generates a token for you to copy, and gitcreds prompts you to paste in your token. 
+
+>>
+
+Once everything is configured ... (insert talk on how to clone using https?)
+
+>>
+
+Now that you have cloned a project and have working documents, you can practice using proper version control workflow. It is always suggested to pull before starting to work on a project. This is especially important if you are working on a project with multiple people, and pulling ensures that your documents are the most up-to-date and match exactly what is in your repository. When you find a good place to save your work, we click commit, stage our changes and write a short informative message before pushing those changes up to your repository. 
+
+>>
+
+All of these Git commands can be found in the environment window under the Git tab.
+
+>>
+
+Clicking the Git tab will reveal where you can push, commit and pull. 
+
+>>
+
+>There are many many git commands to help us with version control, but very few people know them all and often just stick to using pull, commit, and push.
+
+>If you are looking for additional resources for working with Git and R, I encourage you to continue reading Happy Git and gitHub for the useR  
+
+
+
+

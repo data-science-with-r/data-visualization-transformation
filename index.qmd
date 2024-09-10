@@ -26,6 +26,15 @@ listing:
     sort-ui: false
 ---
 
+```{r}
+#| include: false
+# used indirectly by Quarto for code-link
+# this code cell is to get renv to add these packages to the locfile
+# https://github.com/rstudio/renv/issues/1672
+library(xml2)
+library(downlit)
+```
+
 ## Slides
 
 ::: {#slides}

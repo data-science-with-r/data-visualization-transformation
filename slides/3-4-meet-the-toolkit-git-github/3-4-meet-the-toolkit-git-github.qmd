@@ -1,0 +1,157 @@
+---
+title: "Meet the toolkit: Git and GitHub"
+format: revealjs
+---
+
+# Learning goals  
+
+## Configuring Git
+
+```{r}
+#| eval: false
+#| message: false
+install.packages("usethis")
+
+usethis::use_git_config(
+  user.name = "Your name", 
+  user.email = "Email associated with your GitHub account"
+ )
+```
+
+## By the end of the course, you will ...
+
+::: incremental
+-   understand the importance of version control
+
+-   understand how we use Git & GitHub for version control
+
+-   set up and configure a personal access token
+
+-   understand how to clone your course project
+:::
+
+# Version control
+
+## Versioning - done badly
+
+![](images/phd_comics_vc.gif){fig-align="center"}
+
+## Versioning - done better
+
+![](images/lego-steps.png){fig-align="center"}
+
+## Versioning - done even better
+
+### with human readable messages
+
+![](images/lego-steps-commit-messages.png){fig-align="center"}
+
+## Git and GitHub {.smaller}
+
+::: columns
+::: {.column width="35%"}
+![](images/git-logo.png){fig-alt="Git logo" fig-align="center" width="150"}
+
+-   It's not the only version control system, but it's a very popular one
+
+-   Git is a version control system -- like "Track Changes" features from Microsoft Word, on steroids
+:::
+
+::: {.column width="35%"}
+![](images/github-logo.png){fig-alt="GitHub logo" fig-align="center" width="150"}
+
+-   GitHub is the home for your Git-based projects on the internet -- like DropBox but much, much better
+
+-   We will use GitHub as a platform for your course projects
+:::
+:::
+
+##  {.center}
+
+[Let's take a tour of]{.hand-blue-large}
+
+![](images/tech.png){fig-align="center"}
+
+<p style="text-align: right;">
+
+[Project Repo](https://github.com/data-science-with-r/data-visualization-transformation-project)
+
+</p>
+
+## Tour recap
+
+Create a GitHub account
+
+-   Go to [Github](https://github.com/) and walk through the steps for creating an account.
+
+-   You’ll need to choose a user name.
+    I recommend reviewing the user name advice [here](https://happygitwithr.com/github-acct#username-advice) before choosing a username.
+
+## Creating a new repository
+
+-   [Project Repo](https://github.com/data-science-with-r/data-visualization-transformation-project)
+
+![](images/template.png){fig-align="left"}
+
+-   Make sure you are the owner
+
+-   We recommend naming your repo the same name as the original
+
+## Personal access token
+
+-   Get a personal access token (PAT): `usethis::create_github_token()`
+
+-   Copy your PAT
+
+-   Insert PAT to configure Git, GitHub and R `gitcreds::gitcreds_set()`
+
+```         
+> gitcreds::gitcreds_set()
+
+? Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+-> Adding new credentials...
+-> Removing credentials from cache...
+-> Done.
+```
+
+## Clone repository
+
+![](images/code.png){fig-align="center"}
+
+## Clone repository
+
+![](images/https.png){fig-align="center"}
+
+## Clone repository
+
+![](images/copy.png){fig-align="center"}
+
+## Project
+
+-   File -\> New Project
+
+-   Version control -\> Git
+
+-   Paste -\> Create project
+
+## Version control workflow {.smaller}
+
+![](images/pcp-git.png){fig-align="center"}
+
+## Environments window
+
+![](images/git-tab.png){fig-align="center"}
+
+## Environments window
+
+![](images/buttons.png){fig-align="center"}
+
+## Git and GitHub tips
+
+::: incremental
+-   There are many many git commands ...
+    but very few people know them all.
+    99% of the time you will use git to push, commit, and pull
+
+-   If you are looking for additional resources for working with git and R, continue reading: [happygitwithr.com](http://happygitwithr.com/).
+:::
