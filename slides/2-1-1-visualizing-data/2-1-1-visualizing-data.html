@@ -9,17 +9,17 @@
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.53">
-
-  <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation – Visualizing data</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+<meta name="author" content=" Data Science with R">
+<title>Data visualization and transformation – Visualizing data</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +97,12 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
-  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+<link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -300,7 +300,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -392,9 +392,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Visualizing data</h1>
-  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Visualizing data</h1>
+  <p class="subtitle"><br><br><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -404,18 +403,46 @@
 </div>
 </div>
 
-</section>
-<section>
-<section id="what-is-in-a-dataset" class="title-slide slide level1 section-break center">
-<h1>What is in a dataset?</h1>
+</section><section id="TOC"><nav role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+<ul>
+<li>
+<a href="#/what-is-in-a-dataset" id="/toc-what-is-in-a-dataset">What is in a dataset?</a>
+<ul>
+<li><a href="#/dataset-terminology" id="/toc-dataset-terminology">Dataset terminology</a></li>
+<li><a href="#/luke-skywalker" id="/toc-luke-skywalker">Luke Skywalker</a></li>
+<li><a href="#/whats-in-the-star-wars-data" id="/toc-whats-in-the-star-wars-data">What’s in the Star Wars data?</a></li>
+<li><a href="#/get-to-know-the-data" id="/toc-get-to-know-the-data">Get to know the data</a></li>
+<li><a href="#/dimensions-of-the-data" id="/toc-dimensions-of-the-data">Dimensions of the data</a></li>
+</ul>
+</li>
+<li>
+<a href="#/exploratory-data-analysis" id="/toc-exploratory-data-analysis">Exploratory data analysis</a>
+<ul>
+<li><a href="#/what-is-eda" id="/toc-what-is-eda">What is EDA?</a></li>
+<li><a href="#/mass-vs.-height" id="/toc-mass-vs.-height">Mass vs.&nbsp;height</a></li>
+<li><a href="#/jabba" id="/toc-jabba">Jabba!</a></li>
+<li><a href="#/data-visualization" id="/toc-data-visualization">Data visualization</a></li>
+</ul>
+</li>
+<li>
+<a href="#/why-visualize" id="/toc-why-visualize">Why visualize?</a>
+<ul>
+<li><a href="#/anscombes-quartet" id="/toc-anscombes-quartet">Anscombe’s quartet</a></li>
+<li><a href="#/summarizing-anscombes-quartet" id="/toc-summarizing-anscombes-quartet">Summarizing Anscombe’s quartet</a></li>
+<li><a href="#/visualizing-anscombes-quartet" id="/toc-visualizing-anscombes-quartet">Visualizing Anscombe’s quartet</a></li>
+<li><a href="#/age-at-first-kiss" id="/toc-age-at-first-kiss">Age at first kiss</a></li>
+<li><a href="#/facebook-visits" id="/toc-facebook-visits">Facebook visits</a></li>
+</ul>
+</li>
+</ul></nav></section><section><section id="what-is-in-a-dataset" class="title-slide slide level1 section-break center"><h1>What is in a dataset?</h1>
 
-</section>
-<section id="dataset-terminology" class="slide level2">
-<h2>Dataset terminology</h2>
+</section><section id="dataset-terminology" class="slide level2"><h2>Dataset terminology</h2>
 <div>
 <ul>
-<li class="fragment">Each row is an <strong>observation</strong></li>
-<li class="fragment">Each column is a <strong>variable</strong></li>
+<li class="fragment">Each row is an <strong>observation</strong>
+</li>
+<li class="fragment">Each column is a <strong>variable</strong>
+</li>
 </ul>
 </div>
 <div class="fragment">
@@ -442,17 +469,12 @@
 </div>
 </div>
 </div>
-</section>
-<section id="luke-skywalker" class="slide level2">
-<h2>Luke Skywalker</h2>
+</section><section id="luke-skywalker" class="slide level2"><h2>Luke Skywalker</h2>
 <div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/luke-skywalker-data.png" class="quarto-figure quarto-figure-left" width="1280"></p>
+<figure><p><img data-src="images/luke-skywalker-data.png" class="quarto-figure quarto-figure-left" width="1280"></p>
 </figure>
 </div>
-</section>
-<section id="whats-in-the-star-wars-data" class="slide level2">
-<h2>What’s in the Star Wars data?</h2>
+</section><section id="whats-in-the-star-wars-data" class="slide level2"><h2>What’s in the Star Wars data?</h2>
 <p>Take a <code>glimpse()</code> at the data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">glimpse</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -475,9 +497,7 @@ $ vehicles   &lt;list&gt; &lt;"Snowspeeder", "Imperial Speeder Bike…
 $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&gt;…</code></pre>
 </div>
 </div>
-</section>
-<section id="get-to-know-the-data" class="slide level2">
-<h2>Get to know the data</h2>
+</section><section id="get-to-know-the-data" class="slide level2"><h2>Get to know the data</h2>
 <div class="task">
 <p>How many rows and columns does this dataset have? What does each row represent? What does each column represent?</p>
 </div>
@@ -486,14 +506,11 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>?starwars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/starwars-help.png" class="quarto-figure quarto-figure-left" width="697"></p>
+<figure><p><img data-src="images/starwars-help.png" class="quarto-figure quarto-figure-left" width="697"></p>
 </figure>
 </div>
 </div>
-</section>
-<section id="dimensions-of-the-data" class="slide level2">
-<h2>Dimensions of the data</h2>
+</section><section id="dimensions-of-the-data" class="slide level2"><h2>Dimensions of the data</h2>
 <div class="task">
 <p>How many rows and columns does this dataset have?</p>
 </div>
@@ -513,14 +530,9 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="exploratory-data-analysis" class="title-slide slide level1 section-break center">
-<h1>Exploratory data analysis</h1>
+</section></section><section><section id="exploratory-data-analysis" class="title-slide slide level1 section-break center"><h1>Exploratory data analysis</h1>
 
-</section>
-<section id="what-is-eda" class="slide level2">
-<h2>What is EDA?</h2>
+</section><section id="what-is-eda" class="slide level2"><h2>What is EDA?</h2>
 <p>Exploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:</p>
 <div>
 <ul>
@@ -529,32 +541,24 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <li class="fragment">Both of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis</li>
 </ul>
 </div>
-</section>
-<section id="mass-vs.-height" class="slide level2">
-<h2>Mass vs.&nbsp;height</h2>
+</section><section id="mass-vs.-height" class="slide level2"><h2>Mass vs.&nbsp;height</h2>
 <div class="task">
 <p>How would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/mass-height-annotated-1.png" width="672"></p>
+<figure><p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/mass-height-annotated-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="jabba" class="slide level2">
-<h2>Jabba!</h2>
+</section><section id="jabba" class="slide level2"><h2>Jabba!</h2>
 <div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/mass-height-annotated-jabba.png" class="quarto-figure quarto-figure-left" width="1000"></p>
+<figure><p><img data-src="images/mass-height-annotated-jabba.png" class="quarto-figure quarto-figure-left" width="1000"></p>
 </figure>
 </div>
-</section>
-<section id="data-visualization" class="slide level2">
-<h2>Data visualization</h2>
+</section><section id="data-visualization" class="slide level2"><h2>Data visualization</h2>
 <blockquote>
 <p><em>“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey</em></p>
 </blockquote>
@@ -565,14 +569,9 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <li class="fragment">Many approaches/systems within R for making data visualizations – <strong>ggplot2</strong> is one of them, and that’s what we’re going to use</li>
 </ul>
 </div>
-</section></section>
-<section>
-<section id="why-visualize" class="title-slide slide level1 section-break center">
-<h1>Why visualize?</h1>
+</section></section><section><section id="why-visualize" class="title-slide slide level1 section-break center"><h1>Why visualize?</h1>
 
-</section>
-<section id="anscombes-quartet" class="slide level2">
-<h2>Anscombe’s quartet</h2>
+</section><section id="anscombes-quartet" class="slide level2"><h2>Anscombe’s quartet</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(Tmisc)</span>
 <span id="cb12-2"><a></a>quartet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -624,9 +623,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 44  IV  8  6.89</code></pre>
 </div>
 </div>
-</section>
-<section id="summarizing-anscombes-quartet" class="slide level2">
-<h2>Summarizing Anscombe’s quartet</h2>
+</section><section id="summarizing-anscombes-quartet" class="slide level2"><h2>Summarizing Anscombe’s quartet</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>quartet <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a></a>  <span class="fu">group_by</span>(set) <span class="sc">|&gt;</span></span>
@@ -647,24 +644,19 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 4 IV         9   7.50  3.32  2.03 0.817</code></pre>
 </div>
 </div>
-</section>
-<section id="visualizing-anscombes-quartet" class="slide level2">
-<h2>Visualizing Anscombe’s quartet</h2>
+</section><section id="visualizing-anscombes-quartet" class="slide level2"><h2>Visualizing Anscombe’s quartet</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(quartet, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
 <span id="cb16-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb16-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> set, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/quartet-plot-1.png" width="960"></p>
+<figure><p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/quartet-plot-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="age-at-first-kiss" class="slide level2">
-<h2>Age at first kiss</h2>
+</section><section id="age-at-first-kiss" class="slide level2"><h2>Age at first kiss</h2>
 <div class="task">
 <p>A group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.</p>
 <p>Then, examine the plot below. Do you see anything out of the ordinary?</p>
@@ -673,16 +665,13 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/student-survey-kiss-1.png" width="672"></p>
+<figure><p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/student-survey-kiss-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="facebook-visits" class="slide level2">
-<h2>Facebook visits</h2>
+</section><section id="facebook-visits" class="slide level2"><h2>Facebook visits</h2>
 <div class="task">
 <p>Same group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.</p>
 <p>Then, examine the plot below. How are people reporting lower vs.&nbsp;higher values of FB visits?</p>
@@ -691,8 +680,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/student-survey-facebook-1.png" width="672"></p>
+<figure><p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/student-survey-facebook-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -705,26 +693,10 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 </div>
 </div>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../../site_libs/revealjs/plugin/search/search.js"></script><script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -914,9 +886,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -951,9 +921,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1140,6 +1108,6 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
       }
     });
     </script>
-    
+
 
 </body></html>

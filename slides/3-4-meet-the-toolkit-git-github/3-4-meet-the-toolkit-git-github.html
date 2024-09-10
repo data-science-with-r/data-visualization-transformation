@@ -9,17 +9,17 @@
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.53">
-
-  <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation – Meet the toolkit: Git and GitHub</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+<meta name="author" content=" Data Science with R">
+<title>Data visualization and transformation – Meet the toolkit: Git and GitHub</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +97,12 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
-  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+<link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -300,7 +300,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -392,9 +392,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Meet the toolkit: Git and GitHub</h1>
-  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Meet the toolkit: Git and GitHub</h1>
+  <p class="subtitle"><br><br><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -404,14 +403,44 @@
 </div>
 </div>
 
-</section>
-<section>
-<section id="learning-goals" class="title-slide slide level1 center">
-<h1>Learning goals</h1>
+</section><section id="TOC"><nav role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+<ul>
+<li>
+<a href="#/learning-goals" id="/toc-learning-goals">Learning goals</a>
+<ul>
+<li><a href="#/configuring-git" id="/toc-configuring-git">Configuring Git</a></li>
+<li><a href="#/by-the-end-of-the-course-you-will" id="/toc-by-the-end-of-the-course-you-will">By the end of the course, you will …</a></li>
+</ul>
+</li>
+<li>
+<a href="#/version-control" id="/toc-version-control">Version control</a>
+<ul>
+<li><a href="#/versioning---done-badly" id="/toc-versioning---done-badly">Versioning - done badly</a></li>
+<li><a href="#/versioning---done-better" id="/toc-versioning---done-better">Versioning - done better</a></li>
+<li>
+<a href="#/versioning---done-even-better" id="/toc-versioning---done-even-better">Versioning - done even better</a>
+<ul>
+<li><a href="#/versioning---done-even-better" id="/toc-with-human-readable-messages">with human readable messages</a></li>
+</ul>
+</li>
+<li><a href="#/git-and-github" id="/toc-git-and-github">Git and GitHub</a></li>
 
-</section>
-<section id="configuring-git" class="slide level2">
-<h2>Configuring Git</h2>
+<li><a href="#/tour-recap" id="/toc-tour-recap">Tour recap</a></li>
+<li><a href="#/creating-a-new-repository" id="/toc-creating-a-new-repository">Creating a new repository</a></li>
+<li><a href="#/personal-access-token" id="/toc-personal-access-token">Personal access token</a></li>
+<li><a href="#/clone-repository" id="/toc-clone-repository">Clone repository</a></li>
+<li><a href="#/clone-repository-1" id="/toc-clone-repository-1">Clone repository</a></li>
+<li><a href="#/clone-repository-2" id="/toc-clone-repository-2">Clone repository</a></li>
+<li><a href="#/project" id="/toc-project">Project</a></li>
+<li><a href="#/version-control-workflow" id="/toc-version-control-workflow">Version control workflow</a></li>
+<li><a href="#/environments-window" id="/toc-environments-window">Environments window</a></li>
+<li><a href="#/environments-window-1" id="/toc-environments-window-1">Environments window</a></li>
+<li><a href="#/git-and-github-tips" id="/toc-git-and-github-tips">Git and GitHub tips</a></li>
+</ul>
+</li>
+</ul></nav></section><section><section id="learning-goals" class="title-slide slide level1 center"><h1>Learning goals</h1>
+
+</section><section id="configuring-git" class="slide level2"><h2>Configuring Git</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">install.packages</span>(<span class="st">"usethis"</span>)</span>
 <span id="cb1-2"><a></a></span>
@@ -420,9 +449,7 @@
 <span id="cb1-5"><a></a>  <span class="at">user.email =</span> <span class="st">"Email associated with your GitHub account"</span></span>
 <span id="cb1-6"><a></a> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="by-the-end-of-the-course-you-will" class="slide level2">
-<h2>By the end of the course, you will …</h2>
+</section><section id="by-the-end-of-the-course-you-will" class="slide level2"><h2>By the end of the course, you will …</h2>
 <div>
 <ul>
 <li class="fragment"><p>understand the importance of version control</p></li>
@@ -431,44 +458,29 @@
 <li class="fragment"><p>understand how to clone your course project</p></li>
 </ul>
 </div>
-</section></section>
-<section>
-<section id="version-control" class="title-slide slide level1 center">
-<h1>Version control</h1>
+</section></section><section><section id="version-control" class="title-slide slide level1 center"><h1>Version control</h1>
 
-</section>
-<section id="versioning---done-badly" class="slide level2">
-<h2>Versioning - done badly</h2>
+</section><section id="versioning---done-badly" class="slide level2"><h2>Versioning - done badly</h2>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/phd_comics_vc.gif" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/phd_comics_vc.gif" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="versioning---done-better" class="slide level2">
-<h2>Versioning - done better</h2>
+</section><section id="versioning---done-better" class="slide level2"><h2>Versioning - done better</h2>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/lego-steps.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/lego-steps.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="versioning---done-even-better" class="slide level2">
-<h2>Versioning - done even better</h2>
+</section><section id="versioning---done-even-better" class="slide level2"><h2>Versioning - done even better</h2>
 <h3 id="with-human-readable-messages">with human readable messages</h3>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/lego-steps-commit-messages.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/lego-steps-commit-messages.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="git-and-github" class="slide level2 smaller">
-<h2>Git and GitHub</h2>
+</section><section id="git-and-github" class="slide level2 smaller"><h2>Git and GitHub</h2>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/git-logo.png" class="quarto-figure quarto-figure-center" alt="Git logo" width="150"></p>
+<figure><p><img data-src="images/git-logo.png" class="quarto-figure quarto-figure-center" alt="Git logo" width="150"></p>
 </figure>
 </div>
 <ul>
@@ -477,8 +489,7 @@
 </ul>
 </div><div class="column" style="width:35%;">
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/github-logo.png" class="quarto-figure quarto-figure-center" alt="GitHub logo" width="150"></p>
+<figure><p><img data-src="images/github-logo.png" class="quarto-figure quarto-figure-center" alt="GitHub logo" width="150"></p>
 </figure>
 </div>
 <ul>
@@ -486,44 +497,33 @@
 <li><p>We will use GitHub as a platform for your course projects</p></li>
 </ul>
 </div></div>
-</section>
-<section id="section" class="slide level2 center">
-<h2></h2>
+</section><section id="section" class="slide level2 center"><h2></h2>
 <p><span class="hand-blue-large">Let’s take a tour of</span></p>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/tech.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/tech.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 <p style="text-align: right;">
-</p><p><a href="https://github.com/data-science-with-r/data-visualization-transformation-project">Project Repo</a></p>
-<p></p>
-</section>
-<section id="tour-recap" class="slide level2">
-<h2>Tour recap</h2>
+</p>
+<p><a href="https://github.com/data-science-with-r/data-visualization-transformation-project">Project Repo</a></p>
+
+</section><section id="tour-recap" class="slide level2"><h2>Tour recap</h2>
 <p>Create a GitHub account</p>
 <ul>
 <li><p>Go to <a href="https://github.com/">Github</a> and walk through the steps for creating an account.</p></li>
 <li><p>You’ll need to choose a user name. I recommend reviewing the user name advice <a href="https://happygitwithr.com/github-acct#username-advice">here</a> before choosing a username.</p></li>
-</ul>
-</section>
-<section id="creating-a-new-repository" class="slide level2">
-<h2>Creating a new repository</h2>
+</ul></section><section id="creating-a-new-repository" class="slide level2"><h2>Creating a new repository</h2>
 <ul>
 <li><a href="https://github.com/data-science-with-r/data-visualization-transformation-project">Project Repo</a></li>
 </ul>
 <div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/template.png" class="quarto-figure quarto-figure-left"></p>
+<figure><p><img data-src="images/template.png" class="quarto-figure quarto-figure-left"></p>
 </figure>
 </div>
 <ul>
 <li><p>Make sure you are the owner</p></li>
 <li><p>We recommend naming your repo the same name as the original</p></li>
-</ul>
-</section>
-<section id="personal-access-token" class="slide level2">
-<h2>Personal access token</h2>
+</ul></section><section id="personal-access-token" class="slide level2"><h2>Personal access token</h2>
 <ul>
 <li><p>Get a personal access token (PAT): <code>usethis::create_github_token()</code></p></li>
 <li><p>Copy your PAT</p></li>
@@ -535,65 +535,42 @@
 -&gt; Adding new credentials...
 -&gt; Removing credentials from cache...
 -&gt; Done.</code></pre>
-</section>
-<section id="clone-repository" class="slide level2">
-<h2>Clone repository</h2>
+</section><section id="clone-repository" class="slide level2"><h2>Clone repository</h2>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/code.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/code.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="clone-repository-1" class="slide level2">
-<h2>Clone repository</h2>
+</section><section id="clone-repository-1" class="slide level2"><h2>Clone repository</h2>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/https.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/https.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="clone-repository-2" class="slide level2">
-<h2>Clone repository</h2>
+</section><section id="clone-repository-2" class="slide level2"><h2>Clone repository</h2>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/copy.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/copy.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="project" class="slide level2">
-<h2>Project</h2>
+</section><section id="project" class="slide level2"><h2>Project</h2>
 <ul>
 <li><p>File -&gt; New Project</p></li>
 <li><p>Version control -&gt; Git</p></li>
 <li><p>Paste -&gt; Create project</p></li>
-</ul>
-</section>
-<section id="version-control-workflow" class="slide level2 smaller">
-<h2>Version control workflow</h2>
+</ul></section><section id="version-control-workflow" class="slide level2 smaller"><h2>Version control workflow</h2>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/pcp-git.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/pcp-git.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="environments-window" class="slide level2">
-<h2>Environments window</h2>
+</section><section id="environments-window" class="slide level2"><h2>Environments window</h2>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/git-tab.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/git-tab.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="environments-window-1" class="slide level2">
-<h2>Environments window</h2>
+</section><section id="environments-window-1" class="slide level2"><h2>Environments window</h2>
 <div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/buttons.png" class="quarto-figure quarto-figure-center"></p>
+<figure><p><img data-src="images/buttons.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</section>
-<section id="git-and-github-tips" class="slide level2">
-<h2>Git and GitHub tips</h2>
+</section><section id="git-and-github-tips" class="slide level2"><h2>Git and GitHub tips</h2>
 <div>
 <ul>
 <li class="fragment"><p>There are many many git commands … but very few people know them all. 99% of the time you will use git to push, commit, and pull</p></li>
@@ -607,26 +584,10 @@
 </div>
 </div>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../../site_libs/revealjs/plugin/search/search.js"></script><script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -816,9 +777,7 @@
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -853,9 +812,7 @@
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1042,6 +999,6 @@
       }
     });
     </script>
-    
+
 
 </body></html>

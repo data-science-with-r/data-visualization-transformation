@@ -9,17 +9,17 @@
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.53">
-
-  <meta name="author" content=" Data Science with R">
-  <title>Data visualization and transformation – Grammar of graphics</title>
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
-  <style>
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+<meta name="author" content=" Data Science with R">
+<title>Data visualization and transformation – Grammar of graphics</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+<style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -97,12 +97,12 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
-  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-  <style type="text/css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+<link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
 
   .callout {
     margin-top: 1em;
@@ -300,7 +300,7 @@
   }
 
   </style>
-  <style type="text/css">
+<style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
       overflow: auto;
@@ -392,9 +392,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Grammar of graphics</h1>
-  <p class="subtitle"><br><br> <i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Grammar of graphics</h1>
+  <p class="subtitle"><br><br><i class="fa-solid fa-book-open" aria-label="book-open"></i> Data visualization and transformation</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -404,14 +403,64 @@
 </div>
 </div>
 
-</section>
-<section>
-<section id="grammar-of-graphics" class="title-slide slide level1 section-break center">
-<h1>Grammar of graphics</h1>
+</section><section id="TOC"><nav role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+<ul>
+<li>
+<a href="#/grammar-of-graphics" id="/toc-grammar-of-graphics">Grammar of graphics</a>
+<ul>
+<li><a href="#/grammar-of-graphics-1" id="/toc-grammar-of-graphics-1">Grammar of Graphics</a></li>
+<li><a href="#/layers" id="/toc-layers">Layers</a></li>
+</ul>
+</li>
+<li>
+<a href="#/layer-1-data" id="/toc-layer-1-data">Layer 1: Data</a>
+<ul>
+<li><a href="#/data" id="/toc-data">Data</a></li>
+</ul>
+</li>
+<li>
+<a href="#/layer-2-aesthetics" id="/toc-layer-2-aesthetics">Layer 2: Aesthetics</a>
+<ul>
+<li><a href="#/aesthetics" id="/toc-aesthetics">Aesthetics</a></li>
+<li><a href="#/color" id="/toc-color">Color</a></li>
+<li><a href="#/shape" id="/toc-shape">Shape</a></li>
+<li><a href="#/color-and-shape" id="/toc-color-and-shape">Color and shape</a></li>
+<li><a href="#/size" id="/toc-size">Size</a></li>
+<li><a href="#/alpha" id="/toc-alpha">Alpha</a></li>
+<li><a href="#/mapping-vs.-setting" id="/toc-mapping-vs.-setting">Mapping vs.&nbsp;setting</a></li>
+<li><a href="#/mapping-vs.-setting-1" id="/toc-mapping-vs.-setting-1">Mapping vs.&nbsp;setting</a></li>
+</ul>
+</li>
+<li>
+<a href="#/layer-3-geoms" id="/toc-layer-3-geoms">Layer 3: Geoms</a>
+<ul>
+<li><a href="#/geoms" id="/toc-geoms">Geoms</a></li>
+<li><a href="#/geom_point" id="/toc-geom_point"><code>geom_point()</code></a></li>
+<li><a href="#/geom_smooth" id="/toc-geom_smooth"><code>geom_smooth()</code></a></li>
+</ul>
+</li>
+<li>
+<a href="#/layer-4-facets" id="/toc-layer-4-facets">Layer 4: Facets</a>
+<ul>
+<li><a href="#/faceting---what-and-why" id="/toc-faceting---what-and-why">Faceting - what and why</a></li>
+<li><a href="#/faceting---how" id="/toc-faceting---how">Faceting - how</a></li>
+<li><a href="#/faceting---how-1" id="/toc-faceting---how-1">Faceting - how</a></li>
+<li><a href="#/faceting-by-two-variables" id="/toc-faceting-by-two-variables">Faceting by two variables</a></li>
+<li><a href="#/faceting-by-one-variable" id="/toc-faceting-by-one-variable">Faceting by one variable</a></li>
+</ul>
+</li>
+<li><a href="#/layer-5-and-6-statistics-and-coordinates" id="/toc-layer-5-and-6-statistics-and-coordinates">Layer 5 and 6:<br>Statistics and Coordinates</a></li>
+<li>
+<a href="#/layer-7-themes" id="/toc-layer-7-themes">Layer 7: Themes</a>
+<ul>
+<li><a href="#/themes" id="/toc-themes">Themes</a></li>
+<li><a href="#/theme_dark" id="/toc-theme_dark"><code>theme_dark()</code></a></li>
+<li><a href="#/theme" id="/toc-theme"><code>theme()</code></a></li>
+</ul>
+</li>
+</ul></nav></section><section><section id="grammar-of-graphics" class="title-slide slide level1 section-break center"><h1>Grammar of graphics</h1>
 
-</section>
-<section id="grammar-of-graphics-1" class="slide level2">
-<h2>Grammar of Graphics</h2>
+</section><section id="grammar-of-graphics-1" class="slide level2"><h2>Grammar of Graphics</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div>
@@ -422,48 +471,33 @@
 </div>
 </div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-left">
-<figure>
-<p><img data-src="images/grammar-of-graphics.png" class="quarto-figure quarto-figure-left" width="300"></p>
+<figure><p><img data-src="images/grammar-of-graphics.png" class="quarto-figure quarto-figure-left" width="300"></p>
 </figure>
 </div>
 </div></div>
-</section>
-<section id="layers" class="slide level2">
-<h2>Layers</h2>
+</section><section id="layers" class="slide level2"><h2>Layers</h2>
 <p>With ggplot2, you can create a wide variety of plots layer-by-layer:</p>
 
-<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section></section>
-<section>
-<section id="layer-1-data" class="title-slide slide level1 section-break center">
-<h1>Layer 1: Data</h1>
+<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"></section></section><section><section id="layer-1-data" class="title-slide slide level1 section-break center"><h1>Layer 1: Data</h1>
 
-<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-data-1.png" width="768" class="r-stretch"></section>
-<section id="data" class="slide level2">
-<h2>Data</h2>
+<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-data-1.png" width="768" class="r-stretch"></section><section id="data" class="slide level2"><h2>Data</h2>
 <p>Foundation of the plot that gives you the canvas on which you can “paint” your data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">ggplot</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-5-1.png" width="768" class="r-stretch"></section></section>
-<section>
-<section id="layer-2-aesthetics" class="title-slide slide level1 section-break center">
-<h1>Layer 2: Aesthetics</h1>
+<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-5-1.png" width="768" class="r-stretch"></section></section><section><section id="layer-2-aesthetics" class="title-slide slide level1 section-break center"><h1>Layer 2: Aesthetics</h1>
 
-<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-aesthetics-1.png" width="768" class="r-stretch"></section>
-<section id="aesthetics" class="slide level2">
-<h2>Aesthetics</h2>
+<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-aesthetics-1.png" width="768" class="r-stretch"></section><section id="aesthetics" class="slide level2"><h2>Aesthetics</h2>
 <p>Characteristics of plotting characters that can be <em>mapped</em> to a specific variable in the data, e.g.:</p>
 <ul>
 <li><code>color</code></li>
 <li><code>shape</code></li>
 <li><code>size</code></li>
-<li><code>alpha</code> (transparency)</li>
+<li>
+<code>alpha</code> (transparency)</li>
 <li>…</li>
-</ul>
-</section>
-<section id="color" class="slide level2">
-<h2>Color</h2>
+</ul></section><section id="color" class="slide level2"><h2>Color</h2>
 <p>The <code>color</code> aesthetic mapped to <code>species</code>:</p>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -479,15 +513,12 @@
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-7-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-7-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="shape" class="slide level2">
-<h2>Shape</h2>
+</section><section id="shape" class="slide level2"><h2>Shape</h2>
 <p>The <code>shape</code> aesthetic mapped to <code>island</code>:</p>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -504,15 +535,12 @@
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-8-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-8-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="color-and-shape" class="slide level2">
-<h2>Color and shape</h2>
+</section><section id="color-and-shape" class="slide level2"><h2>Color and shape</h2>
 <p>The <code>color</code> and <code>shape</code> aesthetics mapped to <code>species</code>:</p>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -529,15 +557,12 @@
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-9-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-9-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="size" class="slide level2">
-<h2>Size</h2>
+</section><section id="size" class="slide level2"><h2>Size</h2>
 <p>The <code>size</code> aesthetic mapped to <code>body_mass_g</code>:</p>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -555,15 +580,12 @@
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-10-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-10-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="alpha" class="slide level2">
-<h2>Alpha</h2>
+</section><section id="alpha" class="slide level2"><h2>Alpha</h2>
 <p>The <code>alpha</code> aesthetic mapped to <code>flipper_length_mm</code>:</p>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -582,15 +604,12 @@
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-11-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-11-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="mapping-vs.-setting" class="slide level2 smaller">
-<h2>Mapping vs.&nbsp;setting</h2>
+</section><section id="mapping-vs.-setting" class="slide level2 smaller"><h2>Mapping vs.&nbsp;setting</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="mapping">Mapping:</h3>
@@ -606,8 +625,7 @@
 <span id="cb7-9"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/mapping-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/mapping-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -627,16 +645,13 @@
 <span id="cb8-10"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/setting-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/setting-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-</section>
-<section id="mapping-vs.-setting-1" class="slide level2">
-<h2>Mapping vs.&nbsp;setting</h2>
+</section><section id="mapping-vs.-setting-1" class="slide level2"><h2>Mapping vs.&nbsp;setting</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="mapping-1">Mapping:</h3>
@@ -644,8 +659,7 @@
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-14-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-14-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -657,32 +671,25 @@
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-15-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-15-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-</section></section>
-<section>
-<section id="layer-3-geoms" class="title-slide slide level1 section-break center">
-<h1>Layer 3: Geoms</h1>
+</section></section><section><section id="layer-3-geoms" class="title-slide slide level1 section-break center"><h1>Layer 3: Geoms</h1>
 
-<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-geoms-1.png" width="768" class="r-stretch"></section>
-<section id="geoms" class="slide level2">
-<h2>Geoms</h2>
+<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-geoms-1.png" width="768" class="r-stretch"></section><section id="geoms" class="slide level2"><h2>Geoms</h2>
 <p>Visual representations of data points:</p>
 <div>
 <ul>
 <li class="fragment">Short for <em>geom</em>etric objects</li>
-<li class="fragment"><code>geom_*()</code> functions are used to add geoms to a plot</li>
+<li class="fragment">
+<code>geom_*()</code> functions are used to add geoms to a plot</li>
 <li class="fragment">Each geom adds a layer to the plot</li>
 </ul>
 </div>
-</section>
-<section id="geom_point" class="slide level2 nostretch">
-<h2><code>geom_point()</code></h2>
+</section><section id="geom_point" class="slide level2 nostretch"><h2><code>geom_point()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb9-2"><a></a>  penguins, </span>
@@ -691,15 +698,12 @@
 <span id="cb9-5"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-17-1.png" width="576"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-17-1.png" width="576"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="geom_smooth" class="slide level2 nostretch">
-<h2><code>geom_smooth()</code></h2>
+</section><section id="geom_smooth" class="slide level2 nostretch"><h2><code>geom_smooth()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb10-2"><a></a>  penguins,</span>
@@ -709,8 +713,7 @@
 <span id="cb10-6"><a></a>  <span class="fu">geom_smooth</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-18-1.png" width="576"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-18-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -720,18 +723,14 @@
 <p>and many more soon…</p>
 </div>
 </div>
-</section></section>
-<section>
-<section id="layer-4-facets" class="title-slide slide level1 section-break center">
-<h1>Layer 4: Facets</h1>
+</section></section><section><section id="layer-4-facets" class="title-slide slide level1 section-break center"><h1>Layer 4: Facets</h1>
 
-<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-facets-1.png" width="768" class="r-stretch"></section>
-<section id="faceting---what-and-why" class="slide level2 nostretch">
-<h2>Faceting - what and why</h2>
+<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-facets-1.png" width="768" class="r-stretch"></section><section id="faceting---what-and-why" class="slide level2 nostretch"><h2>Faceting - what and why</h2>
 <div>
 <ul>
 <li class="fragment">Smaller plots that each display different subsets of the data</li>
-<li class="fragment">Also referred to as <strong>small multiples</strong></li>
+<li class="fragment">Also referred to as <strong>small multiples</strong>
+</li>
 <li class="fragment">Useful for exploring conditional relationships and large data</li>
 </ul>
 </div>
@@ -739,16 +738,13 @@
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/facet-grid-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/facet-grid-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="faceting---how" class="slide level2">
-<h2>Faceting - how</h2>
+</section><section id="faceting---how" class="slide level2"><h2>Faceting - how</h2>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(</span>
@@ -761,15 +757,12 @@
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-21-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-21-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="faceting---how-1" class="slide level2">
-<h2>Faceting - how</h2>
+</section><section id="faceting---how-1" class="slide level2"><h2>Faceting - how</h2>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(</span>
@@ -783,15 +776,12 @@
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-22-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-22-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div></div>
-</section>
-<section id="faceting-by-two-variables" class="slide level2">
-<h2>Faceting by two variables</h2>
+</section><section id="faceting-by-two-variables" class="slide level2"><h2>Faceting by two variables</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><code>species</code> on rows, <code>island</code> on columns:</p>
@@ -801,8 +791,7 @@
 <span id="cb13-3"><a></a>  <span class="fu">facet_grid</span>(species <span class="sc">~</span> island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-23-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-23-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -815,16 +804,13 @@
 <span id="cb14-3"><a></a>  <span class="fu">facet_grid</span>(island <span class="sc">~</span> species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-24-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-24-1.png" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-</section>
-<section id="faceting-by-one-variable" class="slide level2">
-<h2>Faceting by one variable</h2>
+</section><section id="faceting-by-one-variable" class="slide level2"><h2>Faceting by one variable</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
@@ -833,8 +819,7 @@
 <span id="cb15-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-25-1.png" width="672"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-25-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -846,23 +831,19 @@
 <span id="cb16-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> species, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-26-1.png" width="480"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-26-1.png" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
-</section></section>
-<section id="layer-5-and-6-statistics-and-coordinates" class="title-slide slide level1 section-break center">
-<h1>Layer 5 and 6:<br>Statistics and Coordinates</h1>
+</section></section><section id="layer-5-and-6-statistics-and-coordinates" class="title-slide slide level1 section-break center"><h1>Layer 5 and 6:<br>Statistics and Coordinates</h1>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-stats-coords-1.png" width="768"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-stats-coords-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -872,15 +853,9 @@
 <p>more on these later…</p>
 </div>
 </div></div>
-</section>
+</section><section><section id="layer-7-themes" class="title-slide slide level1 section-break center"><h1>Layer 7: Themes</h1>
 
-<section>
-<section id="layer-7-themes" class="title-slide slide level1 section-break center">
-<h1>Layer 7: Themes</h1>
-
-<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-themes-1.png" width="768" class="r-stretch"></section>
-<section id="themes" class="slide level2">
-<h2>Themes</h2>
+<img data-src="2-2-grammar-of-graphics_files/figure-revealjs/gg-themes-1.png" width="768" class="r-stretch"></section><section id="themes" class="slide level2"><h2>Themes</h2>
 <p>Control the non-data elements of the plot:</p>
 <div>
 <ul>
@@ -888,9 +863,7 @@
 <li class="fragment">Take control of individual theme elements in the <code>theme()</code> function</li>
 </ul>
 </div>
-</section>
-<section id="theme_dark" class="slide level2 nostretch">
-<h2><code>theme_dark()</code></h2>
+</section><section id="theme_dark" class="slide level2 nostretch"><h2><code>theme_dark()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm)) <span class="sc">+</span> </span>
 <span id="cb17-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -899,23 +872,19 @@
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-30-1.png" width="768"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-30-1.png" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="theme" class="slide level2 nostretch">
-<h2><code>theme()</code></h2>
+</section><section id="theme" class="slide level2 nostretch"><h2><code>theme()</code></h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)) <span class="sc">+</span> </span>
 <span id="cb18-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb18-3"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure>
-<p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-31-1.png" width="768"></p>
+<figure><p><img data-src="2-2-grammar-of-graphics_files/figure-revealjs/unnamed-chunk-31-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -932,26 +901,10 @@
 </div>
 </div>
 </section></section>
-    </div>
+</div>
   </div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
-  <!-- reveal.js plugins -->
-  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
-  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
-  <script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../../site_libs/revealjs/plugin/search/search.js"></script><script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -1141,9 +1094,7 @@
           RevealZoom
         ]
       });
-    </script>
-    
-    <script>
+    </script><script>
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
@@ -1178,9 +1129,7 @@
         }
 
       })();
-    </script>
-
-    <script id="quarto-html-after-body" type="application/javascript">
+    </script><script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
         const mode = bsSheetEl.getAttribute("data-mode");
@@ -1367,6 +1316,6 @@
       }
     });
     </script>
-    
+
 
 </body></html>
