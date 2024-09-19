@@ -6,12 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e0edb350c94ea881e40b9fa72a583e16.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.10">
 <meta name="author" content=" Data Science with R">
 <title>Data visualization and transformation – Visualizing and summarizing relationships</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -97,7 +96,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-d2a95947effbb5ed2e87a15cc3d0b0a5.css">
 <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -403,63 +402,7 @@
 </div>
 </div>
 
-</section><section id="TOC"><nav role="doc-toc"><h2 id="toc-title">Table of contents</h2>
-<ul>
-<li>
-<a href="#/setup" id="/toc-setup">Setup</a>
-<ul>
-<li><a href="#/packages" id="/toc-packages">Packages</a></li>
-<li><a href="#/data-houses-in-duke-forest" id="/toc-data-houses-in-duke-forest">Data: Houses in Duke Forest</a></li>
-<li><a href="#/price-vs.-area" id="/toc-price-vs.-area">Price vs.&nbsp;area</a></li>
-</ul>
-</li>
-<li>
-<a href="#/relationship-between-two-numerical-variables" id="/toc-relationship-between-two-numerical-variables">Relationship between two numerical variables</a>
-<ul>
-<li><a href="#/scatterplot" id="/toc-scatterplot">Scatterplot</a></li>
-<li><a href="#/correlation-coefficient" id="/toc-correlation-coefficient">Correlation coefficient</a></li>
-<li><a href="#/characteristics-of-a-relationship" id="/toc-characteristics-of-a-relationship">Characteristics of a relationship</a></li>
-</ul>
-</li>
-<li>
-<a href="#/relationship-between-a-numerical-and-a-categorical-variable" id="/toc-relationship-between-a-numerical-and-a-categorical-variable">Relationship between a numerical and a categorical variable</a>
-<ul>
-<li><a href="#/distribution-of-house-prices" id="/toc-distribution-of-house-prices">Distribution of house prices</a></li>
-<li><a href="#/filled-histograms" id="/toc-filled-histograms">Filled histograms</a></li>
-<li><a href="#/side-by-side-box-plots" id="/toc-side-by-side-box-plots">Side-by-side box plots</a></li>
-<li><a href="#/filled-density-plots" id="/toc-filled-density-plots">Filled density plots</a></li>
-<li><a href="#/violin-plots" id="/toc-violin-plots">Violin plots</a></li>
-<li><a href="#/grouped-summaries" id="/toc-grouped-summaries">Grouped summaries</a></li>
-<li><a href="#/multiple-summary-statistics" id="/toc-multiple-summary-statistics">Multiple summary statistics</a></li>
-</ul>
-</li>
-<li>
-<a href="#/relationship-between-two-categorical-variables" id="/toc-relationship-between-two-categorical-variables">Relationship between two categorical variables</a>
-<ul>
-<li><a href="#/year-built" id="/toc-year-built">Year built</a></li>
-<li><a href="#/year-built-1" id="/toc-year-built-1">Year built</a></li>
-<li><a href="#/stacked-bar-plot-frequencies" id="/toc-stacked-bar-plot-frequencies">Stacked bar plot – frequencies</a></li>
-<li><a href="#/stacked-bar-plot-proportions" id="/toc-stacked-bar-plot-proportions">Stacked bar plot – proportions</a></li>
-<li><a href="#/frequencies" id="/toc-frequencies">Frequencies</a></li>
-<li><a href="#/proportions" id="/toc-proportions">Proportions</a></li>
-</ul>
-</li>
-<li>
-<a href="#/relationships-between-many-variables" id="/toc-relationships-between-many-variables">Relationships between many variables</a>
-<ul>
-<li><a href="#/price-vs.-area-and-cooling---1" id="/toc-price-vs.-area-and-cooling---1">Price vs.&nbsp;area and cooling - 1</a></li>
-<li><a href="#/price-vs.-area-and-cooling---2" id="/toc-price-vs.-area-and-cooling---2">Price vs.&nbsp;area and cooling - 2</a></li>
-<li><a href="#/price-vs.-area-and-cooling---3" id="/toc-price-vs.-area-and-cooling---3">Price vs.&nbsp;area and cooling - 3</a></li>
-<li><a href="#/price-vs.-area-and-cooling---4" id="/toc-price-vs.-area-and-cooling---4">Price vs.&nbsp;area and cooling - 4</a></li>
-<li><a href="#/price-vs.-area-and-cooling---5" id="/toc-price-vs.-area-and-cooling---5">Price vs.&nbsp;area and cooling - 5</a></li>
-<li><a href="#/price-vs.-area-and-cooling---6" id="/toc-price-vs.-area-and-cooling---6">Price vs.&nbsp;area and cooling - 6</a></li>
-<li><a href="#/price-vs.-area-and-cooling---7" id="/toc-price-vs.-area-and-cooling---7">Price vs.&nbsp;area and cooling - 7</a></li>
-<li><a href="#/price-vs.-area-and-cooling---8" id="/toc-price-vs.-area-and-cooling---8">Price vs.&nbsp;area and cooling - 8</a></li>
-<li><a href="#/price-vs.-area-and-cooling---9" id="/toc-price-vs.-area-and-cooling---9">Price vs.&nbsp;area and cooling - 9</a></li>
-<li><a href="#/price-vs.-area-and-cooling" id="/toc-price-vs.-area-and-cooling">Price vs.&nbsp;area and cooling</a></li>
-</ul>
-</li>
-</ul></nav></section><section><section id="setup" class="title-slide slide level1 center"><h1>Setup</h1>
+</section><section><section id="setup" class="title-slide slide level1 center"><h1>Setup</h1>
 
 </section><section id="packages" class="slide level2"><h2>Packages</h2>
 <div class="cell">

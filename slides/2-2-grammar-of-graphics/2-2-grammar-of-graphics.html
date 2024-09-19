@@ -6,12 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e0edb350c94ea881e40b9fa72a583e16.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.10">
 <meta name="author" content=" Data Science with R">
 <title>Data visualization and transformation – Grammar of graphics</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -97,7 +96,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+<link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-d2a95947effbb5ed2e87a15cc3d0b0a5.css">
 <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -403,62 +402,7 @@
 </div>
 </div>
 
-</section><section id="TOC"><nav role="doc-toc"><h2 id="toc-title">Table of contents</h2>
-<ul>
-<li>
-<a href="#/grammar-of-graphics" id="/toc-grammar-of-graphics">Grammar of graphics</a>
-<ul>
-<li><a href="#/grammar-of-graphics-1" id="/toc-grammar-of-graphics-1">Grammar of Graphics</a></li>
-<li><a href="#/layers" id="/toc-layers">Layers</a></li>
-</ul>
-</li>
-<li>
-<a href="#/layer-1-data" id="/toc-layer-1-data">Layer 1: Data</a>
-<ul>
-<li><a href="#/data" id="/toc-data">Data</a></li>
-</ul>
-</li>
-<li>
-<a href="#/layer-2-aesthetics" id="/toc-layer-2-aesthetics">Layer 2: Aesthetics</a>
-<ul>
-<li><a href="#/aesthetics" id="/toc-aesthetics">Aesthetics</a></li>
-<li><a href="#/color" id="/toc-color">Color</a></li>
-<li><a href="#/shape" id="/toc-shape">Shape</a></li>
-<li><a href="#/color-and-shape" id="/toc-color-and-shape">Color and shape</a></li>
-<li><a href="#/size" id="/toc-size">Size</a></li>
-<li><a href="#/alpha" id="/toc-alpha">Alpha</a></li>
-<li><a href="#/mapping-vs.-setting" id="/toc-mapping-vs.-setting">Mapping vs.&nbsp;setting</a></li>
-<li><a href="#/mapping-vs.-setting-1" id="/toc-mapping-vs.-setting-1">Mapping vs.&nbsp;setting</a></li>
-</ul>
-</li>
-<li>
-<a href="#/layer-3-geoms" id="/toc-layer-3-geoms">Layer 3: Geoms</a>
-<ul>
-<li><a href="#/geoms" id="/toc-geoms">Geoms</a></li>
-<li><a href="#/geom_point" id="/toc-geom_point"><code>geom_point()</code></a></li>
-<li><a href="#/geom_smooth" id="/toc-geom_smooth"><code>geom_smooth()</code></a></li>
-</ul>
-</li>
-<li>
-<a href="#/layer-4-facets" id="/toc-layer-4-facets">Layer 4: Facets</a>
-<ul>
-<li><a href="#/faceting---what-and-why" id="/toc-faceting---what-and-why">Faceting - what and why</a></li>
-<li><a href="#/faceting---how" id="/toc-faceting---how">Faceting - how</a></li>
-<li><a href="#/faceting---how-1" id="/toc-faceting---how-1">Faceting - how</a></li>
-<li><a href="#/faceting-by-two-variables" id="/toc-faceting-by-two-variables">Faceting by two variables</a></li>
-<li><a href="#/faceting-by-one-variable" id="/toc-faceting-by-one-variable">Faceting by one variable</a></li>
-</ul>
-</li>
-<li><a href="#/layer-5-and-6-statistics-and-coordinates" id="/toc-layer-5-and-6-statistics-and-coordinates">Layer 5 and 6:<br>Statistics and Coordinates</a></li>
-<li>
-<a href="#/layer-7-themes" id="/toc-layer-7-themes">Layer 7: Themes</a>
-<ul>
-<li><a href="#/themes" id="/toc-themes">Themes</a></li>
-<li><a href="#/theme_dark" id="/toc-theme_dark"><code>theme_dark()</code></a></li>
-<li><a href="#/theme" id="/toc-theme"><code>theme()</code></a></li>
-</ul>
-</li>
-</ul></nav></section><section><section id="grammar-of-graphics" class="title-slide slide level1 section-break center"><h1>Grammar of graphics</h1>
+</section><section><section id="grammar-of-graphics" class="title-slide slide level1 section-break center"><h1>Grammar of graphics</h1>
 
 </section><section id="grammar-of-graphics-1" class="slide level2"><h2>Grammar of Graphics</h2>
 <div class="columns">
@@ -665,7 +609,6 @@
 </div>
 </div>
 </div><div class="column fragment" style="width:50%;">
-<!-- -->
 <h3 id="setting-1">Setting:</h3>
 <p>Determine the size, alpha, etc. of points <strong>not</strong> based on the values of a variable in the data – goes into <code>geom_*()</code>:</p>
 <div class="cell">
