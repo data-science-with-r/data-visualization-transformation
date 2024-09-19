@@ -11,13 +11,14 @@ website:
       - href: index.qmd
         text: Home
 
-format: html
+format:
+  html:
+    toc: true
 
 mainfont: Atkinson Hyperlegible
 theme:
   light: [flatly, style/dsr.scss]
   dark: [darkly, style/dsr-dark.scss]
-toc: true
 code-link: true
 highlight-style: github
 
