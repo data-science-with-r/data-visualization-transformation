@@ -5,3 +5,5 @@
 
 /.quarto/
 *.mov
+
+**/*.quarto_ipynb
