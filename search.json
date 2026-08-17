@@ -721,447 +721,6 @@
     "text": "How will we use Quarto?\n\n\nEvery code along is a Quarto document\nYou’ll always have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
   },
   {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "ggplot2 \\(\\in\\) tidyverse",
-    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\n\nlibrary(tidyverse)\n\n\ngg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson\n\n\n\n\n\n\n\n\n\n\nPackage website: ggplot2.tidyverse.org\n\nStructure of the code for plots can be summarized as\n\nggplot(\n  data = [dataset], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Mass vs. height",
-    "text": "Mass vs. height\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Data: Palmer Penguins",
-    "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex."
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Data",
-    "text": "Data\n\nlibrary(palmerpenguins)\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, …\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen,…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3…\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6…\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650…\n$ sex               &lt;fct&gt; male, female, female, NA, female…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Plot",
-    "text": "Plot"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Code",
-    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species\n  )\n) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )\n\nWarning: Removed 2 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 1",
-    "text": "Step 1\nStart with the penguins data frame\n\n\nggplot(\n  data = penguins\n  )"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 2",
-    "text": "Step 2\nStart with the penguins data frame, map bill depth to the x-axis\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm)\n  )"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 3",
-    "text": "Step 3\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 4",
-    "text": "Step 4\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 5",
-    "text": "Step 5\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 6",
-    "text": "Step 6\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\"\n  )"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 7",
-    "text": "Step 7\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 8",
-    "text": "Step 8\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\"\n  )"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 9",
-    "text": "Step 9\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\"\n  )"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 10",
-    "text": "Step 10\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Step 11",
-    "text": "Step 11\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Plot",
-    "text": "Plot\n\n\nWarning: Removed 2 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Code",
-    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Narrative",
-    "text": "Narrative\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
-  },
-  {
-    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
-    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
-    "title": "Building a plotstep-by-step with ggplot2",
-    "section": "Argument names",
-    "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "By the end of the course, you will be able to…",
-    "text": "By the end of the course, you will be able to…\n\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "By the end of the course, you will be able to…",
-    "text": "By the end of the course, you will be able to…\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "",
-    "text": "Open-source statistical programming language\n\nAlso an environment for statistical computing and graphics"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "",
-    "text": "Convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\n\nNot a requirement for programming with R, but it’s very commonly used by R programmers and data scientists"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "R vs. RStudio",
-    "text": "R vs. RStudio\n\n\n\n\n\n\n\n“engine”\n\n\n\n\n\n\n\n\n\n\n\n“dashboard”"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "R packages",
-    "text": "R packages\n\n\nPackages are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data\nPackages are how the community extends R\nAs of April 2024, there are over 20,000 R packages available on CRAN (the Comprehensive R Archive Network)\nWe’re going to work with a small (but important) subset of these!"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "",
-    "text": "Let’s take a tour of\n     and"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "Tour recap: R and RStudio",
-    "text": "Tour recap: R and RStudio"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "A short list (for now) of R essentials",
-    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n\nPackages are installed with the install.packages() function and loaded with the library function, once per session:\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "R essentials (continued)",
-    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n\n\nObject documentation can be accessed with ?\n\n\n\n?mean"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "tidyverse",
-    "text": "tidyverse\n\n\n\n\n\ntidyverse.org\n\n\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar"
-  },
-  {
-    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
-    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
-    "title": "Meet the toolkit: R and RStudio",
-    "section": "Acknowledgements",
-    "text": "Acknowledgements\n\nPhoto of car engine: Image by Davgood Kirshot from Pixabay\n\nPhoto of car dashboard: Image by VariousPhotography from Pixabay\n\nNumber of R packages: CRAN contributed packages"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-science",
-    "title": "Welcome",
-    "section": "Data science",
-    "text": "Data science\n\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nYou’re going to learn to do this the tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#course-faq",
-    "href": "slides/1-1-welcome/1-1-welcome.html#course-faq",
-    "title": "Welcome",
-    "section": "Course FAQ",
-    "text": "Course FAQ\nQ: What data science background does this course assume?\nA: None. But it does require a willingness to learn and a motivation to work with data.\n\nQ: Will we be doing computing?\nA: Yes.\n\n\nQ: What computing language will we learn?\nA: R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#excel-not",
-    "href": "slides/1-1-welcome/1-1-welcome.html#excel-not",
-    "title": "Welcome",
-    "section": "Excel, not…",
-    "text": "Excel, not…"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#r",
-    "href": "slides/1-1-welcome/1-1-welcome.html#r",
-    "title": "Welcome",
-    "section": "R",
-    "text": "R"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#rstudio",
-    "href": "slides/1-1-welcome/1-1-welcome.html#rstudio",
-    "title": "Welcome",
-    "section": "RStudio",
-    "text": "RStudio"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
-    "title": "Welcome",
-    "section": "Data science life cycle",
-    "text": "Data science life cycle\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#import",
-    "href": "slides/1-1-welcome/1-1-welcome.html#import",
-    "title": "Welcome",
-    "section": "Import",
-    "text": "Import"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
-    "href": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
-    "title": "Welcome",
-    "section": "Tidy -> transform",
-    "text": "Tidy -&gt; transform"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#visualize",
-    "href": "slides/1-1-welcome/1-1-welcome.html#visualize",
-    "title": "Welcome",
-    "section": "Visualize",
-    "text": "Visualize"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#model",
-    "href": "slides/1-1-welcome/1-1-welcome.html#model",
-    "title": "Welcome",
-    "section": "Model",
-    "text": "Model"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand",
-    "title": "Welcome",
-    "section": "Understand",
-    "text": "Understand"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#communicate",
-    "href": "slides/1-1-welcome/1-1-welcome.html#communicate",
-    "title": "Welcome",
-    "section": "Communicate",
-    "text": "Communicate"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-1",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand-1",
-    "title": "Welcome",
-    "section": "Understand",
-    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
-    "href": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
-    "title": "Welcome",
-    "section": "Understand + communicate",
-    "text": "Understand + communicate"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#program",
-    "href": "slides/1-1-welcome/1-1-welcome.html#program",
-    "title": "Welcome",
-    "section": "Program",
-    "text": "Program"
-  },
-  {
-    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
-    "href": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
-    "title": "Welcome",
-    "section": "Data visualization and transformation",
-    "text": "Data visualization and transformation"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
-    "title": "Visualizing data",
-    "section": "Dataset terminology",
-    "text": "Dataset terminology\n\n\nEach row is an observation\n\nEach column is a variable\n\n\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name         height  mass hair_color skin_color eye_color\n   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    \n 1 Luke Skywal…    172    77 blond      fair       blue     \n 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   \n 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      \n 4 Darth Vader     202   136 none       white      yellow   \n 5 Leia Organa     150    49 brown      light      brown    \n 6 Owen Lars       178   120 brown, gr… light      blue     \n 7 Beru Whites…    165    75 brown      light      blue     \n 8 R5-D4            97    32 &lt;NA&gt;       white, red red      \n 9 Biggs Darkl…    183    84 black      light      brown    \n10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray\n# ℹ 77 more rows\n# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,\n#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,\n#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
-    "title": "Visualizing data",
-    "section": "Luke Skywalker",
-    "text": "Luke Skywalker"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
-    "title": "Visualizing data",
-    "section": "What’s in the Star Wars data?",
-    "text": "What’s in the Star Wars data?\nTake a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Da…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 1…\n$ mass       &lt;dbl&gt; 77, 75, 32, 136, 49, 120, 75, 32, 84, 7…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brow…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\",…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"bro…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47…\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", …\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatoo…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Hu…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Bac…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;…"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
-    "title": "Visualizing data",
-    "section": "Get to know the data",
-    "text": "Get to know the data\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n\n?starwars"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
-    "title": "Visualizing data",
-    "section": "Dimensions of the data",
-    "text": "Dimensions of the data\n\nHow many rows and columns does this dataset have?\n\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
-    "title": "Visualizing data",
-    "section": "What is EDA?",
-    "text": "What is EDA?\nExploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:\n\n\nVisualize – this is what we’ll focus on first\nSummarize - this is what we’ll focus on next\nBoth of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
-    "title": "Visualizing data",
-    "section": "Mass vs. height",
-    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
-    "title": "Visualizing data",
-    "section": "Jabba!",
-    "text": "Jabba!"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
-    "title": "Visualizing data",
-    "section": "Data visualization",
-    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\n\nData visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Anscombe’s quartet",
-    "text": "Anscombe’s quartet\n\nlibrary(Tmisc)\nquartet\n\n   set  x     y\n1    I 10  8.04\n2    I  8  6.95\n3    I 13  7.58\n4    I  9  8.81\n5    I 11  8.33\n6    I 14  9.96\n7    I  6  7.24\n8    I  4  4.26\n9    I 12 10.84\n10   I  7  4.82\n11   I  5  5.68\n12  II 10  9.14\n13  II  8  8.14\n14  II 13  8.74\n15  II  9  8.77\n16  II 11  9.26\n17  II 14  8.10\n18  II  6  6.13\n19  II  4  3.10\n20  II 12  9.13\n21  II  7  7.26\n22  II  5  4.74\n23 III 10  7.46\n24 III  8  6.77\n25 III 13 12.74\n26 III  9  7.11\n27 III 11  7.81\n28 III 14  8.84\n29 III  6  6.08\n30 III  4  5.39\n31 III 12  8.15\n32 III  7  6.42\n33 III  5  5.73\n34  IV  8  6.58\n35  IV  8  5.76\n36  IV  8  7.71\n37  IV  8  8.84\n38  IV  8  8.47\n39  IV  8  7.04\n40  IV  8  5.25\n41  IV 19 12.50\n42  IV  8  5.56\n43  IV  8  7.91\n44  IV  8  6.89"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Summarizing Anscombe’s quartet",
-    "text": "Summarizing Anscombe’s quartet\n\nquartet |&gt;\n  group_by(set) |&gt;\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )\n\n# A tibble: 4 × 6\n  set   mean_x mean_y  sd_x  sd_y     r\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 I          9   7.50  3.32  2.03 0.816\n2 II         9   7.50  3.32  2.03 0.816\n3 III        9   7.5   3.32  2.03 0.816\n4 IV         9   7.50  3.32  2.03 0.817"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
-    "title": "Visualizing data",
-    "section": "Visualizing Anscombe’s quartet",
-    "text": "Visualizing Anscombe’s quartet\n\nggplot(quartet, aes(x = x, y = y)) +\n  geom_point() +\n  facet_wrap(~ set, ncol = 4)"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
-    "title": "Visualizing data",
-    "section": "Age at first kiss",
-    "text": "Age at first kiss\n\nA group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. Do you see anything out of the ordinary?"
-  },
-  {
-    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
-    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
-    "title": "Visualizing data",
-    "section": "Facebook visits",
-    "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
-  },
-  {
     "objectID": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
     "href": "slides/3-3-2-visualize-summarize-relationships/3-3-2-visualize-summarize-relationships.html#packages",
     "title": "Visualizing and summarizing relationships",
@@ -1363,6 +922,503 @@
     "title": "Visualizing and summarizing relationships",
     "section": "Price vs. area and cooling",
     "text": "Price vs. area and cooling\n\n\n\n\nThe relationship between area and price of homes in Duke Forest is positive and relatively strong, regardless of cooling type.\nThe relationship appears to be stronger, with a larger correlation coefficient (0.854 vs. 0.459), for homes cooled with central air.\nHowever the large difference in correlation coefficients for these two groups might be due to the three potential outliers in the other group with high areas and low price."
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dataset-terminology",
+    "title": "Visualizing data",
+    "section": "Dataset terminology",
+    "text": "Dataset terminology\n\n\nEach row is an observation\n\nEach column is a variable\n\n\n\n\n\nstarwars\n\n# A tibble: 87 × 14\n   name         height  mass hair_color skin_color eye_color\n   &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;    \n 1 Luke Skywal…    172    77 blond      fair       blue     \n 2 C-3PO           167    75 &lt;NA&gt;       gold       yellow   \n 3 R2-D2            96    32 &lt;NA&gt;       white, bl… red      \n 4 Darth Vader     202   136 none       white      yellow   \n 5 Leia Organa     150    49 brown      light      brown    \n 6 Owen Lars       178   120 brown, gr… light      blue     \n 7 Beru Whites…    165    75 brown      light      blue     \n 8 R5-D4            97    32 &lt;NA&gt;       white, red red      \n 9 Biggs Darkl…    183    84 black      light      brown    \n10 Obi-Wan Ken…    182    77 auburn, w… fair       blue-gray\n# ℹ 77 more rows\n# ℹ 8 more variables: birth_year &lt;dbl&gt;, sex &lt;chr&gt;,\n#   gender &lt;chr&gt;, homeworld &lt;chr&gt;, species &lt;chr&gt;,\n#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#luke-skywalker",
+    "title": "Visualizing data",
+    "section": "Luke Skywalker",
+    "text": "Luke Skywalker"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#whats-in-the-star-wars-data",
+    "title": "Visualizing data",
+    "section": "What’s in the Star Wars data?",
+    "text": "What’s in the Star Wars data?\nTake a glimpse() at the data:\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Da…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 1…\n$ mass       &lt;dbl&gt; 77, 75, 32, 136, 49, 120, 75, 32, 84, 7…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brow…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\",…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"bro…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47…\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", …\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatoo…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Hu…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Bac…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;…"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#get-to-know-the-data",
+    "title": "Visualizing data",
+    "section": "Get to know the data",
+    "text": "Get to know the data\n\nHow many rows and columns does this dataset have? What does each row represent? What does each column represent?\n\n\n\n?starwars"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#dimensions-of-the-data",
+    "title": "Visualizing data",
+    "section": "Dimensions of the data",
+    "text": "Dimensions of the data\n\nHow many rows and columns does this dataset have?\n\n\n\nnrow(starwars) # number of rows\n\n[1] 87\n\nncol(starwars) # number of columns\n\n[1] 14\n\ndim(starwars)  # dimensions (row column)\n\n[1] 87 14"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#what-is-eda",
+    "title": "Visualizing data",
+    "section": "What is EDA?",
+    "text": "What is EDA?\nExploratory data analysis (EDA) is an approach for analyzing data sets to summarize their main characteristics:\n\n\nVisualize – this is what we’ll focus on first\nSummarize - this is what we’ll focus on next\nBoth of these may require data wrangling, manipulation, transformation at (or before) this stage of the analysis"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#mass-vs.-height",
+    "title": "Visualizing data",
+    "section": "Mass vs. height",
+    "text": "Mass vs. height\n\nHow would you describe the relationship between mass and height of Star Wars characters? What other variables would help us understand data points that don’t follow the overall trend? Who is the not so tall but really chubby character?"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#jabba",
+    "title": "Visualizing data",
+    "section": "Jabba!",
+    "text": "Jabba!"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#data-visualization",
+    "title": "Visualizing data",
+    "section": "Data visualization",
+    "text": "Data visualization\n\n“The simple graph has brought more information to the data analyst’s mind than any other device.” — John Tukey\n\n\n\nData visualization, an important part of exploratory data analysis, is the creation and study of the visual representation of data\nMany tools for visualizing data – R is one of them\nMany approaches/systems within R for making data visualizations – ggplot2 is one of them, and that’s what we’re going to use"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Anscombe’s quartet",
+    "text": "Anscombe’s quartet\n\nlibrary(Tmisc)\nquartet\n\n   set  x     y\n1    I 10  8.04\n2    I  8  6.95\n3    I 13  7.58\n4    I  9  8.81\n5    I 11  8.33\n6    I 14  9.96\n7    I  6  7.24\n8    I  4  4.26\n9    I 12 10.84\n10   I  7  4.82\n11   I  5  5.68\n12  II 10  9.14\n13  II  8  8.14\n14  II 13  8.74\n15  II  9  8.77\n16  II 11  9.26\n17  II 14  8.10\n18  II  6  6.13\n19  II  4  3.10\n20  II 12  9.13\n21  II  7  7.26\n22  II  5  4.74\n23 III 10  7.46\n24 III  8  6.77\n25 III 13 12.74\n26 III  9  7.11\n27 III 11  7.81\n28 III 14  8.84\n29 III  6  6.08\n30 III  4  5.39\n31 III 12  8.15\n32 III  7  6.42\n33 III  5  5.73\n34  IV  8  6.58\n35  IV  8  5.76\n36  IV  8  7.71\n37  IV  8  8.84\n38  IV  8  8.47\n39  IV  8  7.04\n40  IV  8  5.25\n41  IV 19 12.50\n42  IV  8  5.56\n43  IV  8  7.91\n44  IV  8  6.89"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#summarizing-anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Summarizing Anscombe’s quartet",
+    "text": "Summarizing Anscombe’s quartet\n\nquartet |&gt;\n  group_by(set) |&gt;\n  summarise(\n    mean_x = mean(x), \n    mean_y = mean(y),\n    sd_x = sd(x),\n    sd_y = sd(y),\n    r = cor(x, y)\n  )\n\n# A tibble: 4 × 6\n  set   mean_x mean_y  sd_x  sd_y     r\n  &lt;fct&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 I          9   7.50  3.32  2.03 0.816\n2 II         9   7.50  3.32  2.03 0.816\n3 III        9   7.5   3.32  2.03 0.816\n4 IV         9   7.50  3.32  2.03 0.817"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#visualizing-anscombes-quartet",
+    "title": "Visualizing data",
+    "section": "Visualizing Anscombe’s quartet",
+    "text": "Visualizing Anscombe’s quartet\n\nggplot(quartet, aes(x = x, y = y)) +\n  geom_point() +\n  facet_wrap(~ set, ncol = 4)"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#age-at-first-kiss",
+    "title": "Visualizing data",
+    "section": "Age at first kiss",
+    "text": "Age at first kiss\n\nA group of college students were asked “How old were you when you had your first kiss?” on a survey. First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. Do you see anything out of the ordinary?"
+  },
+  {
+    "objectID": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
+    "href": "slides/2-1-1-visualizing-data/2-1-1-visualizing-data.html#facebook-visits",
+    "title": "Visualizing data",
+    "section": "Facebook visits",
+    "text": "Facebook visits\n\nSame group of college students were also asked “How many times do you go on Facebook per day?” First, think about how you might expect the distribution of their responses to look.\nThen, examine the plot below. How are people reporting lower vs. higher values of FB visits?"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-science",
+    "title": "Welcome",
+    "section": "Data science",
+    "text": "Data science\n\n\nData science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.\nYou’re going to learn to do this the tidy way – more on that later!\nThis is a course on introduction to data science, with an emphasis on statistical thinking."
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#course-faq",
+    "href": "slides/1-1-welcome/1-1-welcome.html#course-faq",
+    "title": "Welcome",
+    "section": "Course FAQ",
+    "text": "Course FAQ\nQ: What data science background does this course assume?\nA: None. But it does require a willingness to learn and a motivation to work with data.\n\nQ: Will we be doing computing?\nA: Yes.\n\n\nQ: What computing language will we learn?\nA: R.\n\n\nQ: Why not language X?\nA: A great discussion for the course forum!"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#excel-not",
+    "href": "slides/1-1-welcome/1-1-welcome.html#excel-not",
+    "title": "Welcome",
+    "section": "Excel, not…",
+    "text": "Excel, not…"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#r",
+    "href": "slides/1-1-welcome/1-1-welcome.html#r",
+    "title": "Welcome",
+    "section": "R",
+    "text": "R"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#rstudio",
+    "href": "slides/1-1-welcome/1-1-welcome.html#rstudio",
+    "title": "Welcome",
+    "section": "RStudio",
+    "text": "RStudio"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-science-life-cycle-1",
+    "title": "Welcome",
+    "section": "Data science life cycle",
+    "text": "Data science life cycle\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. “R for Data Science.” O’Reilly Media, Inc.”, 2023."
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#import",
+    "href": "slides/1-1-welcome/1-1-welcome.html#import",
+    "title": "Welcome",
+    "section": "Import",
+    "text": "Import"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
+    "href": "slides/1-1-welcome/1-1-welcome.html#tidy---transform",
+    "title": "Welcome",
+    "section": "Tidy -> transform",
+    "text": "Tidy -&gt; transform"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#visualize",
+    "href": "slides/1-1-welcome/1-1-welcome.html#visualize",
+    "title": "Welcome",
+    "section": "Visualize",
+    "text": "Visualize"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#model",
+    "href": "slides/1-1-welcome/1-1-welcome.html#model",
+    "title": "Welcome",
+    "section": "Model",
+    "text": "Model"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#communicate",
+    "href": "slides/1-1-welcome/1-1-welcome.html#communicate",
+    "title": "Welcome",
+    "section": "Communicate",
+    "text": "Communicate"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-1",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-1",
+    "title": "Welcome",
+    "section": "Understand",
+    "text": "Understand\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 5 × 2\n  date             season\n  &lt;chr&gt;            &lt;chr&gt; \n1 23 January 2017  winter\n2 4 March 2017     spring\n3 14 June 2017     summer\n4 1 September 2017 fall  \n5 ...              ..."
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
+    "href": "slides/1-1-welcome/1-1-welcome.html#understand-communicate",
+    "title": "Welcome",
+    "section": "Understand + communicate",
+    "text": "Understand + communicate"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#program",
+    "href": "slides/1-1-welcome/1-1-welcome.html#program",
+    "title": "Welcome",
+    "section": "Program",
+    "text": "Program"
+  },
+  {
+    "objectID": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
+    "href": "slides/1-1-welcome/1-1-welcome.html#data-visualization-and-transformation",
+    "title": "Welcome",
+    "section": "Data visualization and transformation",
+    "text": "Data visualization and transformation"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#by-the-end-of-the-course-you-will-be-able-to-1",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Open-source statistical programming language\n\nAlso an environment for statistical computing and graphics"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-1",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\n\nNot a requirement for programming with R, but it’s very commonly used by R programmers and data scientists"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-vs.-rstudio",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R vs. RStudio",
+    "text": "R vs. RStudio\n\n\n\n\n\n\n\n“engine”\n\n\n\n\n\n\n\n\n\n\n\n“dashboard”"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-packages",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R packages",
+    "text": "R packages\n\n\nPackages are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data\nPackages are how the community extends R\nAs of April 2024, there are over 20,000 R packages available on CRAN (the Comprehensive R Archive Network)\nWe’re going to work with a small (but important) subset of these!"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#section-2",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "",
+    "text": "Let’s take a tour of\n     and"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tour-recap-r-and-rstudio",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "Tour recap: R and RStudio",
+    "text": "Tour recap: R and RStudio"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#a-short-list-for-now-of-r-essentials",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "A short list (for now) of R essentials",
+    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n\nPackages are installed with the install.packages() function and loaded with the library function, once per session:\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#r-essentials-continued",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "R essentials (continued)",
+    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n\n\nObject documentation can be accessed with ?\n\n\n\n?mean"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#tidyverse",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n\n\n\n\ntidyverse.org\n\n\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar"
+  },
+  {
+    "objectID": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
+    "href": "slides/1-2-1-meet-the-toolkit-r-rstudio/1-2-1-meet-the-toolkit-r-rstudio.html#acknowledgements",
+    "title": "Meet the toolkit: R and RStudio",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\nPhoto of car engine: Image by Davgood Kirshot from Pixabay\n\nPhoto of car dashboard: Image by VariousPhotography from Pixabay\n\nNumber of R packages: CRAN contributed packages"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#ggplot2-in-tidyverse",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "ggplot2 \\(\\in\\) tidyverse",
+    "text": "ggplot2 \\(\\in\\) tidyverse\n\n\n\n\n\nggplot2 is tidyverse’s data visualization package\n\nlibrary(tidyverse)\n\n\ngg in ggplot2 stands for Grammar of Graphics, inspired by the book Grammar of Graphics by Leland Wilkinson\n\n\n\n\n\n\n\n\n\n\nPackage website: ggplot2.tidyverse.org\n\nStructure of the code for plots can be summarized as\n\nggplot(\n  data = [dataset], \n  mapping = aes(x = [x-variable], y = [y-variable])\n  ) +\n  geom_xxx() +\n  other options"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#mass-vs.-height",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Mass vs. height",
+    "text": "Mass vs. height\n\nggplot(starwars, aes(x = height, y = mass)) +\n  geom_point() +\n  labs(\n    title = \"Mass vs. height of Starwars characters\",\n    x = \"Height (cm)\", \n    y = \"Weight (kg)\"\n  )\n\nWarning: Removed 28 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data-palmer-penguins",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Data: Palmer Penguins",
+    "text": "Data: Palmer Penguins\nMeasurements for penguin species, island in Palmer Archipelago, size (flipper length, body mass, bill dimensions), and sex."
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#data",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Data",
+    "text": "Data\n\nlibrary(palmerpenguins)\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, …\n$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen,…\n$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3…\n$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6…\n$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181…\n$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650…\n$ sex               &lt;fct&gt; male, female, female, NA, female…\n$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Plot",
+    "text": "Plot"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Code",
+    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm, y = bill_length_mm,\n    color = species\n  )\n) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )\n\nWarning: Removed 2 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 1",
+    "text": "Step 1\nStart with the penguins data frame\n\n\nggplot(\n  data = penguins\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-2",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 2",
+    "text": "Step 2\nStart with the penguins data frame, map bill depth to the x-axis\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm)\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-3",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 3",
+    "text": "Step 3\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-4",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 4",
+    "text": "Step 4\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-5",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 5",
+    "text": "Step 5\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm,\n    color = species\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-6",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 6",
+    "text": "Step 6\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-7",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 7",
+    "text": "Step 7\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-8",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 8",
+    "text": "Step 8\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", \n    y = \"Bill length (mm)\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-9",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 9",
+    "text": "Step 9\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-10",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 10",
+    "text": "Step 10\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  )"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#step-11",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Step 11",
+    "text": "Step 11\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis. Represent each observation with a point and map species to the color of each point. Title the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source. Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.\n\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#plot-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Plot",
+    "text": "Plot\n\n\nWarning: Removed 2 rows containing missing values or values outside\nthe scale range (`geom_point()`)."
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#code-1",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Code",
+    "text": "Code\n\nggplot(\n  data = penguins,\n  mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)\n  ) +\n  geom_point() +\n  labs(\n    title = \"Bill depth and length\",\n    subtitle = \"Dimensions for Adelie, Chinstrap, and Gentoo Penguins\",\n    x = \"Bill depth (mm)\", y = \"Bill length (mm)\",\n    color = \"Species\",\n    caption = \"Source: Palmer Station LTER / palmerpenguins package\"\n  ) +\n  scale_color_viridis_d()"
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#narrative",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Narrative",
+    "text": "Narrative\nStart with the penguins data frame, map bill depth to the x-axis and map bill length to the y-axis.\nRepresent each observation with a point and map species to the color of each point.\nTitle the plot “Bill depth and length”, add the subtitle “Dimensions for Adelie, Chinstrap, and Gentoo Penguins”, label the x and y axes as “Bill depth (mm)” and “Bill length (mm)”, respectively, label the legend “Species”, and add a caption for the data source.\nFinally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness."
+  },
+  {
+    "objectID": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
+    "href": "slides/2-1-2-step-by-step-ggplot2/2-1-2-step-by-step-ggplot2.html#argument-names",
+    "title": "Building a plotstep-by-step with ggplot2",
+    "section": "Argument names",
+    "text": "Argument names\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\nggplot(\n  data = penguins,\n  mapping = aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()\n\n\n\nggplot(\n  penguins,\n  aes(\n    x = bill_depth_mm,\n    y = bill_length_mm\n    )\n  ) +\n  geom_point()"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#by-the-end-of-the-course-you-will-be-able-to",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#by-the-end-of-the-course-you-will-be-able-to",
+    "title": "Meet the toolkit: Quarto",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#reproducibility-checklist",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#reproducibility-checklist",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for a data analysis to be “reproducible”?\n\n\n\nShort-term goals:\n\nTables and figures must be reproducible from the code and data\nThe code should actually do what you think it does\nIn addition to what was done, it should be clear why it was done\n\n\n\nLong-term goals:\n\nThe code should be usable for other data\nThe code should be extendable to do other things"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#toolkit-for-reproducibility",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#toolkit-for-reproducibility",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Toolkit for reproducibility",
+    "text": "Toolkit for reproducibility\n\nScriptability → R\nLiterate programming (code, narrative, output in one place) → Quarto\nVersion control → Git / GitHub"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section",
+    "title": "Meet the toolkit: Quarto",
+    "section": "",
+    "text": "Open-source scientific and technical publishing system\nFully reproducible reports – each time you render the analysis is ran from the beginning\nCode goes in chunks narrative goes outside of chunks\nA visual editor for a familiar, Google Docs/MS Word-like editing experience"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section-1",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section-1",
+    "title": "Meet the toolkit: Quarto",
+    "section": "",
+    "text": "Let’s take a tour of"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#tour-recap-quarto",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#tour-recap-quarto",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Tour recap: Quarto",
+    "text": "Tour recap: Quarto"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#environments",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#environments",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Environments",
+    "text": "Environments\n\n\n\n\n\n\nImportant\n\n\nThe environment of your Quarto document is separate from the Console!\n\n\n\nRemember this, and expect it to bite you a few times as you’re learning to work with Quarto!"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#how-will-we-use-quarto",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#how-will-we-use-quarto",
+    "title": "Meet the toolkit: Quarto",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\n\nEvery code along is a Quarto document\nYou’ll always have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
@@ -2048,14 +2104,14 @@
     "href": "index.html",
     "title": "\n Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and Positron\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and Positron\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": "\n Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and Positron\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\nWelcome\n\n\n\n\nMeet the toolkit: R and Positron\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\nVisualizing data\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\nGrammar of graphics\n\n\n\n\nGrammar of data transformation\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
