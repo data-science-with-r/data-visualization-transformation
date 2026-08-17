@@ -1124,14 +1124,14 @@
     "href": "index.html",
     "title": "\n Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\n\nMeet the toolkit: R and Positron\n\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\n\nVisualizing data\n\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\n\nGrammar of graphics\n\n\n\n\n\nGrammar of data transformation\n\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\n\nMeet the toolkit: R and Positron\n\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\n\nVisualizing data\n\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\n\nGrammar of graphics\n\n\n\n\n\nGrammar of data transformation\n\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#slides",
     "href": "index.html#slides",
     "title": "\n Data visualization and transformation",
     "section": "",
-    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\n\nMeet the toolkit: R and Positron\n\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\n\nVisualizing data\n\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\n\nGrammar of graphics\n\n\n\n\n\nGrammar of data transformation\n\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\n\n\n\nWelcome\n\n\n\n\n\nMeet the toolkit: R and Positron\n\n\n\n\n\nMeet the toolkit: R and RStudio\n\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\n\nMeet the toolkit: Quarto\n\n\n\n\n\nVisualizing data\n\n\n\n\n\nBuilding a plotstep-by-step with ggplot2\n\n\n\n\n\nGrammar of graphics\n\n\n\n\n\nGrammar of data transformation\n\n\n\n\n\nVisualizing and summarizing categorical data\n\n\n\n\n\nVisualizing and summarizing numerical data\n\n\n\n\n\nVisualizing and summarizing relationships\n\n\n\n\n\nMeet the toolkit: Git and GitHub\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html#code-alongs",
@@ -2112,5 +2112,61 @@
     "title": "Diving deeper with Palmer Penguins (Complete)",
     "section": "Multiple variables",
     "text": "Multiple variables\n\n\n\n\n\n\nNote\n\n\n\nAnalyzing the relationship between three or more variables is called multivariate analysis.\n\n\nExercise 12\nFacet the plot you created in the previous exercise by island. Adjust labels accordingly.\n\nggplot(penguins, aes(x = body_mass_g, y = species, color = species)) +\n  geom_boxplot(show.legend = FALSE) +\n  geom_beeswarm(show.legend = FALSE) +\n  facet_wrap(~island, ncol = 1) +\n  labs(\n    x = \"Weight (grams)\",\n    y = \"Species\",\n    title = \"Weights of penguins across species and islands\"\n  )\n\n\n\n\n\n\n\nBefore you continue, let’s turn off all warnings the code chunks generate and resize all figures. We’ll do this by editing the YAML."
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#by-the-end-of-the-course-you-will-be-able-to",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#by-the-end-of-the-course-you-will-be-able-to",
+    "title": "Meet the toolkit: Quarto",
+    "section": "By the end of the course, you will be able to…",
+    "text": "By the end of the course, you will be able to…\n\ngain insights from data\ngain insights from data, using modern programming tools and techniques\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming\ngain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#reproducibility-checklist",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#reproducibility-checklist",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for a data analysis to be “reproducible”?\n\n\n\nShort-term goals:\n\nTables and figures must be reproducible from the code and data\nThe code should actually do what you think it does\nIn addition to what was done, it should be clear why it was done\n\n\n\nLong-term goals:\n\nThe code should be usable for other data\nThe code should be extendable to do other things"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#toolkit-for-reproducibility",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#toolkit-for-reproducibility",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Toolkit for reproducibility",
+    "text": "Toolkit for reproducibility\n\nScriptability → R\nLiterate programming (code, narrative, output in one place) → Quarto\nVersion control → Git / GitHub"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section",
+    "title": "Meet the toolkit: Quarto",
+    "section": "",
+    "text": "Open-source scientific and technical publishing system\nFully reproducible reports – each time you render the analysis is ran from the beginning\nCode goes in chunks narrative goes outside of chunks\nA visual editor for a familiar, Google Docs/MS Word-like editing experience"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section-1",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section-1",
+    "title": "Meet the toolkit: Quarto",
+    "section": "",
+    "text": "Let’s take a tour of"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#tour-recap-quarto",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#tour-recap-quarto",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Tour recap: Quarto",
+    "text": "Tour recap: Quarto"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#environments",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#environments",
+    "title": "Meet the toolkit: Quarto",
+    "section": "Environments",
+    "text": "Environments\n\n\n\n\n\n\nImportant\n\n\nThe environment of your Quarto document is separate from the Console!\n\n\n\nRemember this, and expect it to bite you a few times as you’re learning to work with Quarto!"
+  },
+  {
+    "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#how-will-we-use-quarto",
+    "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#how-will-we-use-quarto",
+    "title": "Meet the toolkit: Quarto",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery code along is a Quarto document\nYou’ll always have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
   }
 ]
