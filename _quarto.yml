@@ -24,5 +24,3 @@ highlight-style: github
 
 execute:
   freeze: auto
-
-editor: visual
