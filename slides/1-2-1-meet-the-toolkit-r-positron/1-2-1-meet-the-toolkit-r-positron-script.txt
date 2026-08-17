@@ -1,0 +1,137 @@
+In this course and throughout the specialization, we'll use a number of modern data science tools. In this video we'll meet two of them, R and Positron.
+
+>>
+
+Before we meet them, let's review our learning goals
+
+>>
+
+By the end of the course, you will be able to…
+
+>> gain insights from data, or to be more specific
+
+>> gain insights from data, using modern programming tools and techniques, or more specifically
+
+>> gain insights from data, using modern programming tools and techniques, reproducibly with literate programming, or even more specifically
+
+>> gain insights from data, using modern programming tools and techniques, reproducibly with literate programming and version control
+
+>>
+
+In this video, though, we'll focus on gaining insights from data, using modern programming tools and techniques 
+
+>>
+
+with R and Positron
+
+>>
+
+So, what's R?
+
+>> R is an open-source statistical programming language
+
+>> It's also an environment for statistical computing and graphics
+
+>>
+
+And, Positron?
+
+>> Positron is a convenient interface for R called an IDE, an integrated development environment. For example, "I write R code in the Positron IDE".
+
+>> Using Positron is mot a requirement for programming with R, but it’s an increasingly commonly used by R programmers and data scientists
+
+>>
+
+A good analogy for R vs. Positron is
+
+>> a car engine
+
+>> vs. dashboard
+
+R is like the engine under the hood, Positron is the dashboard via which you interact with the engine
+
+>>
+
+And R packages
+
+>> Packages are the fundamental units of reproducible R code – they include reusable R functions, documentation of these functions, and sample data
+
+>> They are how the community extends R
+
+>> As of August 2026, there are over 24,000 R packages available on CRAN, the Comprehensive R Archive Network
+
+>> We’re going to work with a small (but important) subset of these!
+
+>>
+
+So, let's take a tour of R and Positron
+
+	- Here is Positron
+	- New folder: meet-positron, as an R project
+	- R console: 
+		- simple arithmetic (2+2)
+		- x <- 2, Variables pane
+		- Spaces around operators -- having room for code to breathe
+		- Let's get into actually doing things with data in R.
+		- Load package with library(palmerpenguins) -- nothing happens, that's ok, lack of a response doesn't mean something is wrong -- when something is wrong you will see an error or a warning or a message. In this case, the package has been loaded. It's just that we haven't asked R to return anything to us, and therefore, it's just saying, I've done what I need to do and I'm ready to accept the next command. And we know that it's ready to accept the next command because we can see that little carriage return and our cursor blinking on the screen. 
+
+		In this particular package, there is a dataframe called penguins. I can type the name of the data frame. I happen to know that this data frame exists, and I can take a look at it this way. It's printed to my screen. It seems like not all of it is fitting in my screen. For example, there's a variable called year that we can't actually see. And generally, when you have a data frame like this, it's nice to be able to see it in sort, sort of like a spreadsheet sheet view. 
+
+		So one other thing I could do is I could type View(penguins), and this will actually open it in the data viewer. When I'm working with data, I like being able to open it in the data viewer and see it. If you have a much larger data set, this operation could be time consuming to do, like, millions and millions of rows or thousands and thousands of columns. But as we're easing into learning, doing data science with R, we are going to be working with not tiny but moderately sized data sets, and it should always be possible to open them here. 
+
+		Once you open things in the viewer, it's possible to filter things, for example, so you can sort of start interacting with your data. You're not changing it, but you're just taking a look at it. It's possible to arrange columns by clicking on their names in alphabetical or numerical order. 
+
+		How do we access one of these columns? So one of these variables in our data frame, it's always the name of the data frame, dollar sign, and then the name of the variable that you're interested in. And when you're programming in Positron, it has some of these helper features for you. It brings up the names of the variables that are in the data frame. So if I forgot that the weight of penguins, for example, is recorded as body_mass_g, I can just go ahead and pick it from there with my arrows and I can take a look at them this way. 
+
+		Rarely is this a good view of my data. I don't want to see the weights of every single penguin. I probably want to do something with these, like maybe figure out what's the average weight of a penguin. Do you have any idea how big they are? So let's try to figure that out.
+
+		Well, when we say average in statistics, we mean the arithmetic mean. And the function in R for calculating the mean is just mean. How would you have known that? You couldn't have.  You might google how do I calculate mean in R, or you might ask AI. Positron has AI functionality built right into it, with the Posit Assistant. I can fire it up and ask "How do I find the mean in R?". There we go, it's the mean function. And we get a bit more guidance and some sample code too.
+
+		Many, maybe not all, but many of these functions are sort of appropriately named. So you might take a guess and Google your way around it.
+
+		In R, once we type the name of the function, we then put parentheses, and inside the parentheses goes what we want to apply the function to -- the body masses of penguins. We get an NA as a response.
+
+		Whenever you have an unexpected result like this, it's good to first check -- did I do something wrong? Reviewing the documentation is a great way to answer this question. To do so, we can type ?mean in the Console -- it's always ? followed by the name of the function you want to see the documentation for. And that pops up in the Help pane.
+
+		In this pane we can see the name of the function, followed by the package it's in, which is shown in curly braces. This function is in the base package -- meaning it's available to all R users without the need to install any additional packages. Beneath the description of what the function does is a list of the arguments -- the first argument is x. It's what we want to take the mean of. But we also see that we have options to find a trimmed mean where we trim the extreme values in our data frame. And also an option called na.rm. It says a logical evaluating to TRUE or FALSE, indicating whether NA values should be stripped before the computation proceeds. And we can see here that the default value for na.rm argument is false. So if we have any NA's in our data frame, any penguins for which we don't have body mass, this argument defines whether we should take them out before we calculate the mean. We very well might want to do that. So let's go ahead and give that a try, adding an argument setting na.rm to TRUE.
+
+		Once again, I could have also consulted AI -- and ask "Why did I get an NA?" Posit Assistant can see your Console, so it can give you a custom answer based on what you previously ran and the result you got. And we end up in the same place! Along with some sample code we can run directly in the Console -- I'll click Allow to do that.
+
+		And now I see that the average body mass of these penguins is roughly 4202 grams. So that's about 4.2 kg or so.
+
+---
+
+>> As a recap
+
+- we can use the R console as a calculator to do simple arithmetic
+- or for object assignment, which then shows up in the environment tab
+- we can load a package with library
+- we can view datas frames in the data viewer with View
+- we can access variables in a data frame with a dollar sign
+- R functions, like mean, are followed by parantheses, in which what the object we want to apply them to go
+- when a function gives an unexpected result, like the NA here, or an error, the best first place to go to is the function documentation, which can be accessed in the help pane or by typing question mark followed by name of function
+- further arguments that go into a function are separated by commas
+
+>> 
+
+Let's review a short list (for now) of R essentials
+
+>> Functions are (most often) verbs, followed by what they will be applied to in parentheses, like do this to that or do this, to this, to that, with those
+
+>> Packages are installed with the install.packages() function and loaded with the library function, once per session
+
+>>
+
+Columns (variables) in data frames are accessed with $, like dataframe dollar sign var_name
+
+>> and object documentation can be accessed with ?, like question mark mean
+
+>>
+
+and finally -- the tidyverse
+
+>> The tidyverse is an opinionated collection of R packages designed for data science
+
+>> All packages share an underlying philosophy and a common grammar
+
+[pause for acknowledgements]
