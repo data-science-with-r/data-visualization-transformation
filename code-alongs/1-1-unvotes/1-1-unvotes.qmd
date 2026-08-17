@@ -18,6 +18,7 @@ library(tidyverse)
 library(scales)
 library(DT)
 library(unvotes)
+library(ggthemes)
 ```
 
 ## Data
@@ -29,8 +30,7 @@ In the chunk below we modify the data by joining the various data frames provide
 #| label: join
 unvotes <- un_votes |>
   inner_join(un_roll_calls, by = "rcid") |>
-  inner_join(un_roll_call_issues, by = "rcid", relationship =
-  "many-to-many")
+  inner_join(un_roll_call_issues, by = "rcid", relationship = "many-to-many")
 ```
 
 # UN voting patterns
@@ -56,6 +56,7 @@ unvotes |>
   geom_smooth(method = "loess", se = FALSE) +
   facet_wrap(~issue) +
   scale_y_continuous(labels = percent) +
+  scale_color_colorblind() +
   labs(
     title = "Percentage of 'Yes' votes in the UN General Assembly",
     subtitle = "1946 to 2019",
@@ -78,9 +79,9 @@ Below is a list of countries in the dataset:
 ```{r}
 #| label: list-countries
 #| echo: false
-unvotes |> 
+unvotes |>
   select(country) |>
-  arrange(country) |> 
+  arrange(country) |>
   distinct() |>
   datatable()
 ```
