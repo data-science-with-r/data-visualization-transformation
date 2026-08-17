@@ -291,8 +291,10 @@ ggplot(
 ggplot(
   bechdel,
   aes(
-    x = budget_2013, y = gross_2013,
-    color = binary, size = roi
+    x = budget_2013,
+    y = gross_2013,
+    color = binary,
+    size = roi
   )
 ) +
   geom_point() +
@@ -315,8 +317,10 @@ Below, make the dots more transparent.
 ggplot(
   bechdel,
   aes(
-    x = budget_2013, y = gross_2013,
-    color = binary, size = roi
+    x = budget_2013,
+    y = gross_2013,
+    color = binary,
+    size = roi
   )
 ) +
   geom_point(alpha = 1) +
@@ -358,8 +362,10 @@ ggplot(
 ggplot(
   bechdel,
   aes(
-    x = budget_2013, y = gross_2013,
-    color = binary, size = roi
+    x = budget_2013,
+    y = gross_2013,
+    color = binary,
+    size = roi
   )
 ) +
   geom_point(alpha = 0.5) +
@@ -385,8 +391,10 @@ This is done through the use of the [**scales**](https://scales.r-lib.org/) pack
 ggplot(
   bechdel,
   aes(
-    x = budget_2013, y = gross_2013,
-    color = binary, size = roi
+    x = budget_2013,
+    y = gross_2013,
+    color = binary,
+    size = roi
   )
 ) +
   geom_point(alpha = 0.5) +
@@ -438,8 +446,10 @@ Why or why not?
 ggplot(
   bechdel,
   aes(
-    x = budget_2013, y = gross_2013,
-    color = binary, size = roi
+    x = budget_2013,
+    y = gross_2013,
+    color = binary,
+    size = roi
   )
 ) +
   geom_point(alpha = 0.5) +
