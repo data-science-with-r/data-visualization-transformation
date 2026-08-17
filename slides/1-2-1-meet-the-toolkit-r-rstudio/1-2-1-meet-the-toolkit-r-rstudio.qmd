@@ -46,7 +46,7 @@ format: revealjs
 ## R vs. RStudio
 
 ::: columns
-::: {.column width="40%" style="text-align: center;"}
+::: {.column style="width: 40%; text-align: center;"}
 ![](images/car-engine.png){fig-align="center" width="700"}
 
 ::: fragment
@@ -56,7 +56,7 @@ format: revealjs
 :::
 :::
 
-::: {.column width="40%" style="text-align: center;"}
+::: {.column style="width: 40%; text-align: center;"}
 ![](images/car-dashboard.png){fig-align="center" width="700"}
 
 ::: fragment
