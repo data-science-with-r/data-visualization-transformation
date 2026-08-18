@@ -106,12 +106,12 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund.
 #| echo: false
 
 travel <- tribble(
-  ~date,              ~season,
-  "23 January 2017",  "winter",
-  "4 March 2017",     "spring",
-  "14 June 2017",     "summer",
-  "1 September 2017", "fall",
-  "...", "..."
+  ~date              , ~season  ,
+  "23 January 2017"  , "winter" ,
+  "4 March 2017"     , "spring" ,
+  "14 June 2017"     , "summer" ,
+  "1 September 2017" , "fall"   ,
+  "..."              , "..."
 )
 travel
 ```

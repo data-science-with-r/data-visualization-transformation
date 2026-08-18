@@ -55,8 +55,7 @@ What does it mean for a data analysis to be "reproducible"?
 ::: incremental
 -   Open-source scientific and technical publishing system
 -   Fully reproducible reports -- each time you render the analysis is ran from the beginning
--   Code goes in chunks narrative goes outside of chunks
--   A visual editor for a familiar, Google Docs/MS Word-like editing experience
+-   Code goes in cells, narrative goes outside of cells
 :::
 
 ##  {.center}
@@ -84,5 +83,5 @@ Remember this, and expect it to bite you a few times as you're learning to work 
 
 -   You'll always have a template Quarto document to start with
 
--   The amount of scaffolding in the template will decrease over the semester
+-   The amount of scaffolding in the template will decrease over the course
 :::
