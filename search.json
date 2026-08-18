@@ -1635,7 +1635,7 @@
     "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section",
     "title": "Meet the toolkit: Quarto",
     "section": "",
-    "text": "Open-source scientific and technical publishing system\nFully reproducible reports – each time you render the analysis is ran from the beginning\nCode goes in chunks narrative goes outside of chunks\nA visual editor for a familiar, Google Docs/MS Word-like editing experience"
+    "text": "Open-source scientific and technical publishing system\nFully reproducible reports – each time you render the analysis is ran from the beginning\nCode goes in cells, narrative goes outside of cells"
   },
   {
     "objectID": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#section-1",
@@ -1663,7 +1663,7 @@
     "href": "slides/1-2-2-meet-the-toolkit-quarto-positron/1-2-2-meet-the-toolkit-quarto-positron.html#how-will-we-use-quarto",
     "title": "Meet the toolkit: Quarto",
     "section": "How will we use Quarto?",
-    "text": "How will we use Quarto?\n\n\nEvery code along is a Quarto document\nYou’ll always have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the semester"
+    "text": "How will we use Quarto?\n\n\nEvery code along is a Quarto document\nYou’ll always have a template Quarto document to start with\nThe amount of scaffolding in the template will decrease over the course"
   },
   {
     "objectID": "slides/3-3-1-visualize-summarize-numerical/3-3-1-visualize-summarize-numerical.html#packages",
