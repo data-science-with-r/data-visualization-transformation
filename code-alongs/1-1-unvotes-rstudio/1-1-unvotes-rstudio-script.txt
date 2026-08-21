@@ -1,0 +1,8 @@
+Steps to get from 1-1-unvotes-rstudio.qmd to the -eov (end-of-video) version:
+
+- Remove the `library(ggthemes)` package load from the setup chunk.
+- In the plotting pipeline, change the set of countries in the `filter()` call from
+  c("United Kingdom", "United States", "Turkey") to
+  c("United Kingdom", "United States", "France").
+- Remove the `scale_color_colorblind()` layer from the ggplot (it is no longer needed
+  once ggthemes is dropped).

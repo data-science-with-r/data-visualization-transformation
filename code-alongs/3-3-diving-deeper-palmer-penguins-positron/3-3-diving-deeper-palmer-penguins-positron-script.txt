@@ -1,0 +1,780 @@
+- Understand the goal and packages before editing: dive deeper into palmerpenguins to see how
+  penguin sizes vary across species, islands, and sexes. Uses tidyverse, palmerpenguins (the
+  data), and a NEW package, ggbeeswarm — a ggplot2 extension that provides the geom_beeswarm
+  geom not included in ggplot2.
+- Replace the `# add code here` placeholder in the first chunk with `glimpse(penguins)`
+  (344 penguins, 8 columns); optionally send output to the console.
+- Univariate analysis — histogram of body mass. Note the two ggplot messages: two rows with
+  missing weights are dropped, and the default `bins = 30` prompts you to choose a binwidth.
+  Choosing a binwidth is "an art and a science" (1000 is too wide, 10 too skinny; ~100 works).
+  The distribution is right skewed with a typical weight around 3,500 g:
+    ggplot(penguins, aes(x = body_mass_g)) +
+      geom_histogram(binwidth = 250)
+- Boxplot of body mass (add the chunk option `#| fig-asp: 0.3`). Compared with the histogram,
+  the boxplot shows the median (~4,000 g), the IQR (box width), and any outliers (none here):
+    ggplot(penguins, aes(x = body_mass_g)) +
+      geom_boxplot()
+- Annotate the two true/false statements about the distribution: mark "left skewed" as
+  **FALSE** (it is right skewed — skewness is visible in both plots) and "unimodal" as
+  **Difficult to determine, FALSE** (modality is only visible in a histogram, not a boxplot;
+  trying different binwidths hints at a possible second peak).
+- Add a density plot in a new code chunk (insert via Cmd+/) to investigate modality further —
+  it also suggests a possible second peak:
+    ggplot(penguins, aes(x = body_mass_g)) +
+      geom_density()
+- Bivariate analysis — histogram filled by species (overlapping fills are hard to read):
+    ggplot(penguins, aes(x = body_mass_g, fill = species)) +
+      geom_histogram(binwidth = 250)
+- Faceted histogram by species; `ncol = 1` stacks the panels so peaks are comparable (Gentoo
+  is offset larger, likely the source of the earlier apparent second mode):
+    ggplot(penguins, aes(x = body_mass_g, fill = species)) +
+      geom_histogram(binwidth = 250) +
+      facet_wrap(~species, ncol = 1)
+- Side-by-side boxplots by species (`y = species`). The color mapping is redundant with the
+  y-axis, so hide the legend with `show.legend = FALSE`:
+    ggplot(penguins, aes(x = body_mass_g, y = species, fill = species)) +
+      geom_boxplot(show.legend = FALSE)
+- Overlaid density plots by species. A density plot's y-axis is computed, so map only x plus
+  fill; `alpha = 0.5` is a *setting* (not a mapping) that makes overlapping curves visible.
+  Keep the legend here since color is the only thing identifying species:
+    ggplot(penguins, aes(x = body_mass_g, fill = species, color = species)) +
+      geom_density(alpha = 0.5)
+- Violin plots by species — like boxplots but showing the (mirrored) density. Build up one
+  aesthetic at a time, running the code and backtracking on errors:
+    ggplot(
+      penguins,
+      aes(x = body_mass_g, y = species, color = species, fill = species)
+    ) +
+      geom_violin(alpha = 0.2, show.legend = FALSE)
+- Jittered points — geom_jitter adds random noise to avoid overplotting (a plain scatterplot
+  with a categorical axis is hard to read). Because the jitter is random, the plot changes on
+  each render, so set a seed for reproducibility:
+    set.seed(1234)
+    ggplot(penguins, aes(x = species, y = body_mass_g)) +
+      geom_jitter(alpha = 0.5)
+- Beeswarm plot (requires the ggbeeswarm package) — jitters more where density is higher,
+  combining scatter and violin ideas. Shape here is a double encoding with color:
+    ggplot(
+      penguins,
+      aes(x = species, y = body_mass_g, color = species, shape = species)
+    ) +
+      geom_beeswarm(show.legend = FALSE)
+- Multiple geoms on one plot — order matters (later layers draw on top). To keep the boxplot
+  from being filled and covering other layers, move aesthetic mappings out of the global
+  ggplot() call and into the individual geoms, leaving only x and y global:
+    ggplot(penguins, aes(x = body_mass_g, y = species, color = species)) +
+      geom_boxplot() +
+      geom_beeswarm()
+  (Watch for leftover aesthetics that silently do nothing — e.g. a shape mapping with no
+  effect — and clean those artifacts up once you're done iterating.)
+- Final faceted plot by island with labels. `facet_wrap(~island, ncol = 1)` stacks panels for
+  comparison; note some islands host only certain species (Biscoe: Gentoo & Adelie; Dream:
+  Chinstrap & Adelie; Torgersen: Adelie only). Hide the redundant legend on both geoms:
+    ggplot(penguins, aes(x = body_mass_g, y = species, color = species)) +
+      geom_boxplot(show.legend = FALSE) +
+      geom_beeswarm(show.legend = FALSE) +
+      facet_wrap(~island, ncol = 1) +
+      labs(
+        x = "Weight (grams)",
+        y = "Species",
+        title = "Weights of penguins across species and islands"
+      )
+- After reading and accepting the repeated "missing weights" warnings, suppress them and set
+  figure sizing. You can turn a warning off per chunk with `#| warning: false`, but to apply
+  it (and consistent figure sizing) everywhere, add YAML options below the title. Individual
+  chunks can still override, e.g. the boxplot uses `#| fig-asp: 0.3`:
+    execute:
+      warning: false
+    fig-width: 6
+    fig-asp: 0.618
+- Note: exercises 13–15 (a single categorical variable, two categorical variables, and a plot
+  using at least three variables) are left for the viewer to complete.
+
+## Complete script from the old video
+
+We've worked with the palmerpenguins dataset before,
+we've barely scratched the surface
+of exploring the penguins data frame.
+In this code alone,
+we're going to dive deeper with
+palmerpenguins and try to answer
+questions like how do sizes
+of penguins vary across species,
+across islands, across sexes,
+and what about other characteristics?
+To do so, we're going to use the tidyverse package
+as usual for data wrangling and visualization.
+We're going to introduce a new package,
+ggbeeswarm as an example of a ggplot2 extension package
+that provides a new geom that is not
+included with ggplot2,
+but that a member of the open source our community has
+developed and now works really
+nicely with other ggplot packages.
+Let's call the beeswarm plot.
+We're going to see that in a second.
+We're also going to use the palmerpenguins package
+because that has our data.
+Let's go ahead and load our packages,
+and then let's take a look at the penguins data frame.
+As usual, we start with a glimpse of penguins.
+I'm going to as usual,
+turn off my output here and say
+that I would like to see my output in console.
+You are welcome to keep it wherever you like seeing
+your output in your quarter document
+or just in your console.
+We can see that we have 344 penguins
+on which we have data.
+We have eight columns of information,
+and we also have a list of all of
+the variables we have available for these penguins.
+Let's start with visualizing
+penguin weights and focusing on a single variable.
+Analyzing a single variable
+is called univariate analysis,
+working with a single variable.
+We want to create a visualization of
+the distribution of weights of penguin.
+Let's pause for a second and think,
+how big are penguins?
+What is the weight that you might expect?
+Note that our weight is recorded in grams.
+So you might want to pause here for a moment and think,
+how big do I expect these penguins to be
+before diving into the rest of the code?
+First, let's make a histogram.
+We start with ggplot.
+The data set, we're going to plot is penguins,
+and we're making a histogram.
+In my aesthetic mappings,
+I set x equal to body mass grams,
+and then I want to make a histogram.
+Here we go. Here's a histogram of weights.
+We can see that the weights of
+these penguins range from roughly
+2,500 to 6,500 grams.
+We also get a warning message that says,
+remove two rows containing
+non-finite outside the scalar range.
+What that means is that there were
+two rows for which we didn't have weight data.
+Those were removed from our dataset prior to plotting.
+We get one other message as well,
+which says that stot bin,
+so the function under the hood,
+that's first of all, binning your data before it can be
+plotted in these bars uses bins equals 30.
+So it divides your data into 30 bins,
+no matter what your data is,
+but ggplot2 is saying you
+should pick a better value with binwidth.
+Looking at these data from 2500-6500,
+what would be a good binwidth?
+Well, let's try something.
+What if we tried 1,000?
+This seems really wide.
+It's really sort of bind our data into
+so few bars that we don't really
+get a sense of the distribution anymore.
+What if I was to try 10,
+and these are very skinny,
+so that's only very few penguins
+at a time in each one of my bins.
+If I want to get a better sense,
+I might try other values.
+Let's try 100.
+This is looking okay.
+I might say 150.
+That's also looking okay.
+At some point, no one could really say,
+120 is better or worse than 150 or 100.
+Choosing an appropriate binwidth
+is really an art in a science,
+and you may want to think about what are
+some cutoff points that make
+sense in the context of my data,
+if the data context is something you're familiar with.
+Or you might take a look to see what could be
+a reasonable binwidth that will
+allow me to make some interpretations.
+Round numbers tend to be nice,
+so I'm going to stick with 100 here.
+But really, we could think of a variety of
+binwidth that would be
+appropriate for this visualization.
+What we can see is that we have
+a right skewed distribution of weights.
+The typical weight is somewhere around 3,500
+and the tail goes much longer on
+the positive end than on the negative end.
+Next, we're asked to make
+a box plot of the same variable.
+I'm going to go ahead and copy my code from before.
+Since it's how I
+visualize the data on my plot that's changing,
+not the aesthetic mapping,
+I would simply change my geom
+to be the geom
+that I want for this particular visualization,
+and the particular geom here is geom_boxplot.
+Compared to a histogram what
+the boxplot shows me a little more
+easily is the median of
+my distribution happens to be around 4,000.
+I was guesstimating around 3,500 based on the histogram.
+But here I'm able to get a more precise answer,
+and I can see a measure of variability,
+the interquartile range,
+which is the width of this box.
+I have a sense of how far my data
+reaches out on the lower end and on the higher end.
+Importantly, that we don't
+have any outliers in this data.
+Now, it says, based on the histogram and the boxplot,
+and I can scroll between the two of
+them using the arrow buttons and my plots pane.
+Determine if each of the following statements about
+the shape of the distribution is true or false.
+The first statement says the distribution of
+penguin weights in the sample is left skewed.
+Skewness can be gleaned both from
+a boxplot and from a histogram.
+In order to be able to talk about skewness,
+what we want to be visualizing in
+our heads is a smooth curve
+being fitted to this histogram.
+You might think about it as a limp spaghetti,
+draping over it or a piece of
+silk fabric draping over it.
+We can see that there's a longer tail to the higher end,
+so that is a right skewed distribution,
+so this statement is false.
+The next prompt says
+the distribution of penguin weights
+in this sample is unimodal
+and modality is something we can glean from a histogram,
+but not from a boxplot.
+The boxplot hides any of that information and makes
+it impossible to glean versus with a histogram,
+we can think about how that silk would drape over
+these peaks or how many apparent peaks
+there are in our visualization.
+Frankly, it's a little bit hard
+to tell if the weights in
+the sample are unimodal or not.
+In order to be able to get a better sense of that,
+we may want to keep playing
+around with a few other binwidths.
+Let's try something a little bit smaller.
+That's not necessarily giving us a whole lot.
+Let's try something a little bit bigger.
+It does appear that we have maybe one peak over
+here and potentially another peak
+right around here as well.
+Therefore, I would say this is either difficult
+to determine or false.
+I am not making a direct call here.
+What this means is maybe I would like to try to visualize
+my data in different ways before I can make a call.
+Another way I could go about doing that is in
+addition to a histogram or a boxplot,
+I could try one other thing.
+Let's go ahead and insert a new code chunk here.
+I'm going to click on "Command+/" to bring in
+my insert anything tool
+and say that I want to insert an R code chunk.
+Let's go ahead and copy the code.
+We know we had working
+before and instead try a density plot.
+With the density plot,
+we can see that there is a peak around here,
+and potentially, there's another peak
+around here as well.
+This might be something we
+might want to investigate further,
+but we're not going to be able to
+get to the bottom of that simply
+by looking at different visualizations
+of the same variable.
+Instead, what we might want to do is bring
+in another variable into our exploration.
+That's where we get to talking
+about the relationship between two variables,
+also called bivariate analysis.
+We're going to stick with looking at weights,
+but we actually want to do so by species.
+First, we may want to make
+a single histogram that
+incorporates both of these variables.
+Let's go ahead and grab the histogram code we had before.
+Let's go ahead and run this real quick.
+Then we want to bring in the species aesthetic mapping.
+One way we can do this is we
+can set that to the fill aesthetic.
+What this does is it allows us to
+fill the bars with
+colors representing each of the species.
+In this case, the red pinkish color
+is the Adelie species,
+the green one is the chinstrap species,
+and the blue one is the gentoo species.
+The problem is that when we have
+a histogram like this that's filled in,
+it's a little bit difficult to see what is
+happening if there are bars overlapping or not.
+Another thing we might want to do is actually
+split the visualizations of
+these three species into their own plots,
+and we can do that by adding a facet.
+I'm going to go ahead and copy
+my code from before and add
+another layer called facet_wrap,
+since I only have one additional
+variable I'm bringing in,
+and I can say I want that to be by species.
+If I want to compare the peaks of
+these weights for each of the species,
+for example, one thing I might want to do is
+stack these plots on top of each
+other as opposed to next to each other.
+I can do that by adding
+a argument to my facet wrap function.
+I will say ncol 1 to
+say I want everything in a single column.
+Now I can see that Adelies and
+Chinstraps have peaks that are closer to each other.
+But Gentoos, the blue one at the bottom has
+a peak that's a little offset from the two of them,
+so they're on average, a little bit bigger.
+That might be the reason for
+that potential second mode I was
+seeing in my original visualization
+of weights on their own.
+Another way of visualizing
+the relationship between a numerical
+and a categorical variable,
+so that's weight and species
+is using side by side boxplots.
+Let's go back up and grab
+the code that we had written to create a boxplot.
+It's a good exercise to get
+used to recycling code you have written before.
+Then, running it again
+to remind yourself exactly what was there,
+and then thinking about, how would I bring
+in the new piece of information here?
+In this case, if we want
+our boxplots to be
+stacked on top of each other by species,
+we could say y equals species.
+Now I have boxplots for each one of my species,
+and I can again see that the median weight for gentoos
+is much bigger than
+the median weights for the chinstrap and Adelie penguins.
+These are just bigger penguins
+in general than the other ones.
+What the boxplot shows me that the histogram didn't,
+are things like what exactly the medians are,
+perhaps an easier way of
+measuring the variability based on
+these width of these boxes
+and also clearly indicating any outliers.
+Among the chinstraps, there are some outliers,
+really tiny penguins and
+really big penguins for those species.
+We can also add some color to this.
+It's redundant, but it might be helpful.
+Let's go ahead and say color equals species as well.
+The nice thing is this brings
+the colors back into our visualization.
+We can do it with color,
+or we can do it with fill,
+depending on which look you prefer.
+But I am here gaining an automatic legend again,
+which can be helpful, but in this case,
+happens to be redundant because
+my y-axis already has that information.
+Given that this is redundant information,
+I could then tell ggplot to
+not show that legend by setting show.legend=FALSE,
+in my geom function.
+Usually we wouldn't want to hide legends,
+if that's the only information for our color mapping.
+But in this case, that mapping is
+obvious because we have the species names on the y-axis,
+so we can safely turn that off.
+Next, it says, use density plots.
+Let's go ahead and copy what we had
+and see what happens if we just do geom_density.
+That did not really work.
+The reason why it did not work
+is that while on the x-axis,
+we have body masses,
+the y-axis of a density plot
+is meant to be the density value.
+That is something ggplot2 should be calculating for us.
+One thing I might recommend
+here is to say, that didn't work,
+so I'm going to backtrack and make
+a univariate plot first,
+so just the density plot,
+and then think about how could I bring
+in the second piece of information.
+I don't want to change the y-axis.
+That's something ggplot 2 is calculating.
+But I could bring in the species information with
+perhaps the fill esthetic. This works.
+It gives me different density curves for
+each of my species.
+However, they're covering each other up.
+I'm not able to see exactly what's happening with
+the Adelies that are stuck behind the Chinstraps.
+I might add an Alpha level that's a little bit smaller,
+saying that we want these curves to be
+transparent, not completely opaque.
+Remember, in this case,
+we're not mapping the Alpha level
+to another variable in our data frame.
+We're just setting a default value for it.
+Now we can see
+the the add curve behind the chin strap curve as well.
+You can keep going with this.
+You can say, maybe you don't want those black outlines,
+so you want to color by species as well.
+This way, you're getting
+both the outline color
+and the fill color to be exactly the same.
+In this case, we wouldn't want
+to turn off the legend because we don't
+have other information that
+tells us which species map to which color,
+so that's something we would want to leave there.
+Violin plots are another way of visualizing
+the relationship between a numerical
+and a categorical variable.
+Let's go ahead and
+copy what we had working for us before.
+Let's see if violin just works. It doesn't.
+Whenever you run into something like this,
+you might want to either try to decipher the error
+itself or go back to first principles and say,
+let me take away
+the various aesthetic mappings that I had.
+Now I'm getting another error as well.
+Then I might say, well,
+let me try another aesthetic mapping that might work.
+Let's try to map species to y.
+Now I'm able to see something just like the box plot.
+Violin plots are similar to box plots.
+But instead of showing the quantile,
+so the 25th percentile,
+the 50th percentile median,
+and the 75th, They actually show the density.
+They're in a way,
+bringing together the density plot information
+with boxplot information together,
+and they're basically mirror images
+on either side of the density plot.
+The presentation is a lot more like a boxplot,
+but I'm actually able to glean
+things about our modality as well.
+Again, if I wanted to,
+I can bring in other aesthetics to this.
+I can say, let's also color by species.
+Let's also fill by species.
+Let's perhaps make things a little bit more transparent.
+In this case, because the legend is a bit redundant,
+we already have the species information on the y-axis,
+I could say show legend equals false.
+The reason why I'm running through
+these options is that I am
+trying a new setting
+or a mapping and running the code again.
+Instead of trying to build up to a complete plot,
+I'm changing one thing at a time, running my code.
+If I'm happy with it, keep going.
+If I'm not happy with it,
+backtrack until I get to a point
+where I'm happy and my code is running without an error,
+and then keep moving forward again.
+Another way we can visualize
+these data is with a jittered scatter plot.
+But before we jitter
+things and talk about what that means,
+let's actually make a scatter plot.
+We've made scatter plots before,
+so let's make one more time here.
+We're going to make a scatter plot of penguins.
+On the x-axis,
+I have body,
+mass, G. Let's say G on point and see what that gets me.
+Right now, if I just
+say make a scatter plot for me with just body mass,
+I'm again getting an error, which tells me,
+I actually need to bring in
+another aesthetic mapping to this.
+Let's go ahead and try what has worked for us before.
+Now I can see that I am actually seeing a scatter plot.
+It usually requires two aesthetic mapping,
+something on the x-axis,
+and something on the y-axis.
+In this case, the thing on the y-axis
+happens to be a categorical variable.
+But t's very difficult to
+see what is going on with these data.
+Even if I was to set
+an Alpha level that's a little bit lower than one,
+where maybe I can start to
+see where the points are a bit denser,
+perhaps around here compared to not so dense here.
+It's still difficult to make sense of.
+Something like geom_jitter,
+is going to basically allow me
+to move these data around a little bit,
+so jitter the data around so
+that I can avoid that overploting.
+I can move things around a little bit as well.
+let's make species our x
+aesthetic and body mass, our y aesthetic.
+that's the same visualization,
+but stretch across the x-axis as opposed to the y-axis.
+what is happening here?
+This doesn't mean that the penguin,
+that's on the higher end of the Gentos is
+more of a Gentoo penguin than perhaps this penguin,
+that's on the lower end.
+All it is is the points are being
+randomly jittered around to avoid over plotting.
+I'd like you to pay attention to
+the plot window now as
+I run this code over and over again.
+We can see that,
+we're seeing roughly the same patterns,
+but the position of the points move around because we're
+adding a random noise every time we jitter the points.
+That means that if I was to render this document,
+so I'm writing a report about the weights of
+penguins and how they are distributed across species,
+and in order to be able to visualize these data properly,
+I am using a geom_jitter,
+and this is what my plot
+looks like the first time around.
+If I render it again,
+the plot is going to change ever so slightly.
+If I render it again,
+the plot is going to change ever so slightly again.
+That might be something I may not want to do.
+Therefore, what we can do is we can say,
+before we do anything that
+adds a bit of randomness to our analysis,
+we can set a seed,
+which basically means that we would want
+the same randomness to be
+applied every time we render the document,
+and doesn't really matter what number you put it.
+It's basically a way of giving
+a random seed for R to get started with
+in calculating random values to be added
+to our body masses and to diger the,
+the points across the x-axis as well.
+This time, every time I run my code,
+I get the exact same jittered version,
+and every time I render my document,
+I'll get the exact same jittered version as well.
+One more plot. Again,
+looking at the same thing,
+but this time we're making bee swarm plots.
+Let's go ahead and copy
+the code that we had working before.
+Let's take a look to see what geom_beeswarm gives us.
+The name of these plots come from,
+they look like the swarming basically around.
+In a way, this is doing a jitter,
+but it's doing it in a particular way where there is
+more of the points that are being jittered around,
+where the density is higher as
+opposed to where the density is lower.
+It's like a helpful way
+of bringing together something that looks like
+a violin plot with
+something that looks like a scatter plot.
+Again, we can add things like color.
+we can decide, I don't need this additional legend.
+make show legend false.
+I can even add things like shape
+as well if I wanted to have
+some sort of double encoding for color and shape.
+Our last way we're going to
+visualize these is by
+using multiple geoms on a single plot.
+It says be deliberate
+about the order of plotting. Let's take a look.
+We said that these bee swarm plots were
+basically like violin plots as well.
+Maybe we can go back up and grab our violin plot code.
+Run that, and then see what happens if
+we add a geom_beeswarm to this as well.
+we can see that we're able to sort
+of visualize the same data using both of these.
+I could probably keep going.
+I could add a geom box plot as well.
+But at some point,
+the order becomes such that my boxes,
+which are now filled in with the color of the species are
+covering up the layers that are underneath them.
+What if I wanted to say,
+I don't want my boxes to be
+colored or filled in with these colors?
+Then instead of defining
+my aesthetic mappings at the global level,
+I would need to bring them down to the local levels.
+I could say for my violin plots,
+I do want my color by species,
+and my fill by species as well.
+Let's get them out of the global layer here.
+I could say that for my bee swarm plots,
+I want the same thing as well,
+but for my box plot,
+I don't want those aesthetic mappings.
+The only aesthetic mappings that
+are common to all three layers
+are body mass on the x-axis and species on the y-axis.
+I get something like this.
+This is not necessarily much better,
+so I can start experimenting.
+Maybe I actually don't want
+my violin plots and see what this gives me.
+Or maybe I want to say,
+I would like to put the box plots in first and
+then add the bee swarm plots on top of those.
+if I'm doing this,
+I might want to say, Oh,
+maybe we should actually go ahead
+and make color the same color by
+species a feature of all of these geoms
+but only the Phil aesthetic
+being applied to the bee swarm plot.
+We can see that this is not giving us any errors.
+But let's try one thing.
+I'm going to go ahead and
+actually remove this aesthetic mapping.
+We're getting exactly the same plot.
+The reason for that is that
+the shapes that we're using for
+plotting these weights do not actually have a physthetic?
+DG plot too is happily ignoring that.
+what happens as you're iteratively
+building up these plots is that
+sometimes you end up with code
+that's actually doing absolutely nothing,
+but also not giving you an error
+or a warning or a message, either.
+it's good practice once you're done with
+your iteration to go
+back and critically look at your code to see,
+are there bits and pieces that I've left here as
+artifacts of things I've tried along
+the way that I actually want to move out.
+All right. Now,
+let's go ahead and bring in one more variable.
+It said, facet the plot that you just created in
+the previous exercise by
+Island and adjust the labels accordingly.
+let's go ahead and grab the plot that we have created.
+We want to facet it by a variable.
+It's a single variable, we're faceting by.
+Let's say facet wrap by Island.
+Now we're able to see the distribution of
+weights of different species
+of penguins across each of the islands.
+We're also seeing that some islands
+have certain species and not the others.
+For example, in Bisco island,
+we have Geno and Adole species versus in dream island,
+we have chin strap and Ali and in Torgerson island
+we only have penguins from Adole species.
+Since this is a plot for
+comparing the body masses across,
+I would say it would make sense to
+actually stack these on a column
+as opposed to a cross rows so that we can see
+how the distributions compare across the islands.
+We can then add labels to our visualization.
+Our x-axis is the weights in grams,
+our y-axis is species and let's maybe give it a title.
+This is weights of penguins across species and islands.
+In addition, I could do things like
+turning off the legend since that's
+redundant information with show legend set
+false for both of the layers of geoms that I have.
+Let's take this opportunity to pause for
+a moment now that we've visualized one,
+two, and three variables at
+a time and render our document.
+When we render our document
+and we're scrolling through it,
+and I'll actually pop it out.
+I'd like you to pay attention
+to the sizes of the figures.
+You can see some of them are really giant,
+and also note that we have a bunch of
+warnings that are being repeated over and over.
+The same warning is being repeated over and over,
+because we have some penguins in the dataset
+that are that we don't have weights for.
+We're getting the same warning for each one.
+While it's never a good idea to ignore warnings.
+Once you've read through a warning and you've decided,
+I'm good with this,
+I am okay with visualizing the data as is.
+You can actually decide
+actually want to turn off that warning.
+If you want to turn off that warning,
+let's go back to our first exercise for a single plot.
+We can add a new code chunk to say warning equals false.
+Let's do that for our second one as well.
+I'm clicking on the line break here.
+I'm adding a new option called warning.
+As soon as I start typing,
+our studio suggests some options for me,
+and then it suggests what
+the values this chunk option can take.
+I want it to be false.
+if I render my document,
+I will see that the warnings have been
+turned off for the histogram,
+and the box plot,
+but for the remaining visualizations there there.
+If I wanted to instead turn
+it off for all of my visualizations,
+I can go up to the very top of my document.
+I'm going to do this.
+I can go up to the very top of my document,
+and I can say that I want to add
+an execution option where warning is set to false,
+and when I render my document,
+that's going to apply to every single one of them.
+I can also give other options.
+For example, I can give an option
+for figure width. Let's call it 6'.
+I can give an option for an aspect ratio.
+We'll choose a visually pleasing aspect ratio that
+will now apply to every single one of our visualizations.
+We can see that they're not taking up as much space now.
+Then if for any given visualization,
+I would like to change things.
+I can go back to it and
+give an individual chunk option, say,
+I would like the aspect ratio for this to be smaller,
+maybe let's call it 0.3. that's
+the aspect ratio between
+the height and the width of the plot.
+If I render my document,
+I can see that I get a much skinnier box plot.
+I will leave this here for the code along video
+for exercises 13, 14 and 15.
+You can pick a single categorical variable,
+two categorical variables,
+and then make another plot that uses
+at least three variables and continue your exploration.

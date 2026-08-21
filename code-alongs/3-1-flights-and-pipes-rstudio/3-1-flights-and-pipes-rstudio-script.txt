@@ -1,0 +1,44 @@
+Steps to get from 3-1-flights-and-pipes-rstudio.qmd to the -eov (end-of-video) version:
+
+- Fill in the two fill-in-the-blank sentences:
+    - Replace "has \_\_\_ rows" with an inline R expression: has `r nrow(flights)` rows.
+    - Replace "Each row represents a \_\_\_." with "Each row represents a flight out of one
+      of three NYC airports in 2013."
+- Replace each `# add code here` placeholder with the corresponding dplyr code:
+    - Column names:            names(flights)
+    - Select two columns:      flights |> select(dep_delay, arr_delay)
+    - Drop a column:           flights |> select(!dep_delay)
+    - Select a range:          flights |> select(year:dep_delay)
+    - Select by pattern:       flights |> select(contains("arr_"))
+    - First 5 rows:            flights |> slice(1:5)
+    - Last 2 rows:             flights |> slice_tail(n = 2)
+    - Sort by dep_delay:       flights |> arrange(dep_delay)
+    - Sort descending:         flights |> arrange(desc(dep_delay))
+    - Most delayed flight:     flights |> arrange(desc(dep_delay)) |>
+                                 slice_head(n = 1) |>
+                                 select(tailnum, carrier, dep_delay)
+    - Filter to RDU:           flights |> filter(dest == "RDU")
+    - RDU + early arrival:     flights |> filter(dest == "RDU" & arr_delay < 0)
+    - Count destinations:      flights |> count(dest, sort = TRUE)
+    - Count by month, sorted:  flights |> count(month) |> arrange(n)
+    - Count month/day:         flights |> count(month, day, sort = TRUE)
+    - Add speed columns:       flights |> mutate(
+                                 air_time_hr = air_time / 60,
+                                 mph = distance / air_time_hr
+                               )
+    - Proportion in July:      flights |> count(month) |>
+                                 mutate(prop = n / sum(n)) |>
+                                 filter(month == 7)
+    - Mean arrival delay:      flights |> summarize(
+                                 mean_arr_delay = mean(arr_delay, na.rm = TRUE)
+                               )
+    - Mean arr delay by month: flights |> group_by(month) |>
+                                 summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE))
+    - Median dep delay/origin: flights |> group_by(origin) |>
+                                 summarize(median_dep_delay = median(dep_delay, na.rm = TRUE))
+- Fill in the short-answer prompts:
+    - Replace "Add your response here." with "Flight took off 43 minutes earlier than it
+      was scheduled."
+    - Replace "Add response here." with a plain-language reading of the pipeline: start
+      with the flights data frame, then filter for rows where destination is RDU or GSO
+      and arrival delay or departure delay is less than 0.

@@ -1,0 +1,62 @@
+Steps to get from 3-3-diving-deeper-palmer-penguins-rstudio.qmd to the -eov (end-of-video) version:
+
+- Add YAML options below the title to suppress warnings and set default figure size:
+    execute:
+      warning: false
+    fig-width: 6
+    fig-asp: 0.618
+- Replace the `# add code here` placeholder in the first chunk with `glimpse(penguins)`.
+- Histogram of body mass:
+    ggplot(penguins, aes(x = body_mass_g)) +
+      geom_histogram(binwidth = 250)
+- Boxplot of body mass (add the chunk option `#| fig-asp: 0.3`):
+    ggplot(penguins, aes(x = body_mass_g)) +
+      geom_boxplot()
+- Annotate the two true/false statements about the distribution: mark "left skewed" as
+  **FALSE** and "unimodal" as **Difficult to determine, FALSE**.
+- Add a density plot in a new code chunk:
+    ggplot(penguins, aes(x = body_mass_g)) +
+      geom_density()
+- Histogram filled by species:
+    ggplot(penguins, aes(x = body_mass_g, fill = species)) +
+      geom_histogram(binwidth = 250)
+- Faceted histogram by species:
+    ggplot(penguins, aes(x = body_mass_g, fill = species)) +
+      geom_histogram(binwidth = 250) +
+      facet_wrap(~species, ncol = 1)
+- Boxplots by species:
+    ggplot(penguins, aes(x = body_mass_g, y = species, fill = species)) +
+      geom_boxplot(show.legend = FALSE)
+- Overlaid density plots by species:
+    ggplot(penguins, aes(x = body_mass_g, fill = species, color = species)) +
+      geom_density(alpha = 0.5)
+- Violin plots by species:
+    ggplot(
+      penguins,
+      aes(x = body_mass_g, y = species, color = species, fill = species)
+    ) +
+      geom_violin(alpha = 0.2, show.legend = FALSE)
+- Jittered points (set a seed for reproducibility):
+    set.seed(1234)
+    ggplot(penguins, aes(x = species, y = body_mass_g)) +
+      geom_jitter(alpha = 0.5)
+- Beeswarm plot (requires the ggbeeswarm package):
+    ggplot(
+      penguins,
+      aes(x = species, y = body_mass_g, color = species, shape = species)
+    ) +
+      geom_beeswarm(show.legend = FALSE)
+- Boxplot with beeswarm overlaid:
+    ggplot(penguins, aes(x = body_mass_g, y = species, color = species)) +
+      geom_boxplot() +
+      geom_beeswarm()
+- Final faceted plot by island with labels:
+    ggplot(penguins, aes(x = body_mass_g, y = species, color = species)) +
+      geom_boxplot(show.legend = FALSE) +
+      geom_beeswarm(show.legend = FALSE) +
+      facet_wrap(~island, ncol = 1) +
+      labs(
+        x = "Weight (grams)",
+        y = "Species",
+        title = "Weights of penguins across species and islands"
+      )

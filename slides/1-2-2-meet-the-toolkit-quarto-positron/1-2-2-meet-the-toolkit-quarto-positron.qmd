@@ -1,5 +1,6 @@
 ---
 title: "Meet the toolkit: Quarto"
+description: Positron
 format: revealjs
 ---
 

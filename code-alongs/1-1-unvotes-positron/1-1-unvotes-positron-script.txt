@@ -1,0 +1,255 @@
+- Render the document first, before making any changes, as good practice. This confirms
+  there are no pre-existing errors so you know the starting document is sound (and if there
+  are errors, they aren't your fault).
+- Understand the document structure before editing: the YAML metadata at the top (just a
+  title here), a first-level "Introduction" heading describing the dataset, a "Packages"
+  section that loads tidyverse (wrangling/visualization), scales (pretty axis labels), DT
+  (an interactive data table for looking up how a country is spelled), and unvotes (bundles
+  UN voting data). A later chunk joins several data frames into a single `unvotes` data
+  frame, and the final chunk produces the visualization (year on x-axis, percent "yes"
+  votes on y-axis, one colored line/point series per country, faceted by issue).
+- Decide where in the pipeline the edit belongs: the change happens in the data-preparation
+  stage (the `filter()` step), not in the plotting (`ggplot`) stage.
+- In the `filter()` call, replace a country with one of your choice; in the video, Turkey is
+  replaced with France:
+  c("United Kingdom", "United States", "Turkey") becomes
+  c("United Kingdom", "United States", "France").
+- Render again to confirm the change propagated through the pipeline into the visualization
+  (the red series now represents France instead of Turkey).
+- Pop output from Viewer to a browser window.
+
+## Complete script from the old video
+
+Hello, and welcome to the first code along.
+Our first code along is called UN Vote.
+So open up your file called UN Votes.
+And let's take a look at what's in there.
+All each of these code alongs are
+going to be structured somewhat similarly.
+An introduction where we say
+a little bit about the dataset
+that we're going to be working with,
+load some packages, load the dataset itself,
+and then we go on to running
+different analyses and talking through it.
+So in this particular analysis,
+we're going to look at how countries vote in
+the United Nations General Assembly and
+how their voting patterns have evolved throughout time.
+And how similarly, or
+differently do they view certain issues?
+We're going to try to answer these questions at a very,
+very high level, and we're
+going to throw a bunch of code at you.
+Really the challenge for this code
+along is to be able to look at a bunch of code
+and try to figure out what is
+the one little update you
+might need to do to get what you need out of it.
+So let's go ahead and
+start by first rendering our document.
+It's always good practice when you open
+a new corto document that has been provided
+to you with some code on hand
+to go ahead and render it before you even touch it.
+This makes sure that there are
+no errors that persist in
+the document before you even get started.
+Because if there are, you know, that's not your fault,
+and you can go back and try to figure that
+out or go to the person who provided
+the corto document for you and ask
+them questions before you even get started.
+We can see that in our quarto document, on top,
+we have this area called Yamel,
+where we have some metadata about our analysis.
+We just have a title for this one,
+and when we render it,
+we can see that it is formatted a particular way.
+The rest of the document looks
+very different between the source code,
+that is the QMD file and the output,
+the HTML file, except when we get to the code chunks.
+So we're going to talk about
+those code chunks in a second.
+So I have a first level heading introduction where we
+talk through a little bit
+about the introduction that I just gave you.
+And then we have a second level heading packages,
+and it has a code chunk in it that
+loads the packages that we're
+going to use for this analysis.
+Remember, I said we're going to
+throw a bunch of code at you, well,
+we're going to throw a bunch of packages at you as well,
+some of which I haven't
+even introduced in the course yet.
+So the first package should be one that's familiar,
+the tidy verse package for
+data wrangling and visualization,
+the scales package for making pretty access labels.
+The DT package creates an interactive data table.
+So if you scroll to the very bottom of your a document.
+At some point, I'm going to
+be asking you to come out with
+a country that you might want to visualize yourself.
+And if you want to check to see how exactly
+that country is spelled in your document, for example,
+Congo tends to be a country that might be
+spelled differently in different resources,
+so you can go ahead and use
+that interactive data table to
+filter for that country so you can
+decide how you need to spell it in your code.
+And finally, the UN votes package is
+a package that bundles information
+on how countries vote in
+the United Nations into
+a data frame that is distributed within this package.
+The package is updated somewhat regularly,
+so this is a recent ish dataset
+that we're going to be working with.
+Here, it says that the data we're using
+originally came from this UN votes package.
+And in the chunk below,
+we modify the data by joining
+various data frames provided in the package.
+Joining data frames is something you're going to
+learn more about in the class.
+But for now, just think about it as I have some data,
+and I have some additional information
+about these countries that I have data on,
+and I want to slop all of that up into
+creating a single data frame called UN votes.
+And then we have another code chunk
+here that if I scroll in my output,
+ultimately produces a visualization.
+And this is the visualization that
+is the point of this code along.
+We can see that in this visualization,
+let me pop this out a little bit,
+and let's go ahead and zoom in on it.
+See that on the x axis, we have a year.
+We have some data over time.
+On the y axis,
+we have percentage of yes votes.
+For each of the countries that are a plotted,
+in this case, the countries that are aplotted are Turkey,
+where I'm originally from United Kingdom,
+where I've lived for a few years,
+and United States, where I'm currently living now.
+These are all represented by
+different colored lines and points.
+We're looking to see what percent
+of the time did they vote
+yes in UN resolutions that are on particular topics.
+The topics are issues,
+as they're referred to in the dataset, are colonialism.
+Rms control and disarmament, economic development,
+human rights, Palestinian conflict,
+and nuclear weapons and nuclear material.
+Something important to note
+is yes doesn't necessarily mean,
+I agree or I disagree.
+We don't know at this point in
+time what the content of
+the resolutions they're voting yes are.
+It could be yes for colonialism
+or yes, for stopping colonialism.
+So we don't have that information, though,
+if you have some political knowledge and
+some understanding of how
+these countries vote today or
+historically have voted in these issues.
+You might be able to get a sense
+of what those resolutions were saying,
+but it's just important to note that
+this is not necessarily the full picture.
+Some of the things we can see is that
+while for arms control and disarmament,
+these three countries seem to be
+voting somewhat in harmony over time.
+On other issues like colonialism or Palestinian conflict,
+the way they have voted have
+changed over the years and diverged from one another.
+And here is the challenge.
+Let's close this up.
+Go back to the code,
+and taking a look at this code,
+that seems to be doing a lot
+of stuff that you haven't yet learned.
+The challenge is to replace
+the country Turkey or one of the other countries,
+if you want, with a country of your choice.
+The goal is to figure out
+without understanding all of the code here,
+is it possible to make
+a modification and get what you need out of this?
+If it is that we want to replace one of the countries,
+the first question you want to ask yourself is,
+where in this pipeline would I be making an adjustment?
+Is it going to be once I start making the plot?
+So starting with GG plot or lower,
+or is it going to be earlier than that
+in the pipeline where I'm preparing my dataset?
+Well, where we're preparing our dataset,
+it appears that we start with
+that join dataset that
+we created in an earlier code chunk,
+and then we are filtering,
+which is a function you haven't learned yet,
+but perhaps can guess what it means.
+For some countries,
+here's another operator you haven't learned yet.
+But it seems to list
+the three countries that we actually have plotted.
+So if I wanted to replace this with another country,
+how would I go about it?
+Let's go ahead and replace
+Turkey with another country
+that happens to pop into my mind.
+And in order to recreate our visualization,
+we go ahead and click Render again.
+When you click Render, if
+the result isn't showing up in this viewer pane,
+but it's popping up as a pop up window.
+You can click on the gear icon next to the Render button.
+And that probably means
+that you have preview in Window selected.
+You can go back and select preview in
+viewer pane if you like seeing
+your input and your output next to each other.
+If you happen to have a much smaller screen,
+you may not prefer this,
+and you may prefer the preview in Window option.
+So I'm going to pop this out one more time,
+so we can zoom in and look at
+the visualization a little bit more closely.
+We can see that, in fact,
+the adjustment that we made to our code has
+propagated through the code itself
+and has made its way onto our visualization.
+We're still using the same three colors, but this time,
+we have the red color
+representing France instead of Turkey,
+and we can see how the voting patterns,
+in this case of France and United Kingdom,
+seem to be much similar,
+for example, when it comes to resolutions on
+the Palestinian conflict compared
+to how Turkey voted on these issues.
+So In this brief code along,
+what we managed to do was to open up a quarto document,
+render our quarto document,
+change how we might view the output in
+a pop up window or in
+the viewer pane next to our document.
+And write some code and create
+your first data visualization with R without really
+learning a whole lot of R. But
+with learning to have the confidence to play
+around with the code that has already been
+provided for you and rendering
+again to see if what you
+expect might happen actually
+happens when you run the code.

@@ -1,0 +1,358 @@
+- Understand the goal before editing: explore how bill sizes (bill depth and bill length)
+  vary across species, and see what happens when species is not taken into account.
+- Note the two packages used: tidyverse (data wrangling and visualization) and
+  palmerpenguins (which provides the `penguins` data set).
+- Render the document first, before making any changes, to confirm it works out of the box.
+- Read and understand the tidyverse startup message before suppressing it:
+    - tidyverse is a meta-package that loads nine packages (dplyr, forcats, ggplot2,
+      lubridate, purrr, readr, stringr, tibble, tidyr).
+    - The conflicts note means `dplyr::filter` masks `stats::filter` and `dplyr::lag` masks
+      `stats::lag`; the masked functions are still reachable via the `package::function`
+      notation (e.g. `stats::filter`). The `conflicted` package can help manage this.
+- Add the chunk option `#| message: false` to the load-packages chunk to suppress that
+  startup message in the rendered output (only after reading and understanding it).
+- Replace the `# add code here` placeholder in the glimpse chunk with `glimpse(penguins)`
+  (344 penguins, 8 columns).
+- Concepts demonstrated around the glimpse chunk:
+    - Code-chunk labels aid navigation between chunks and are named in error messages.
+    - Rendering runs in a separate, reproducible sandbox, so running a single chunk with the
+      play button can fail with "could not find function" if earlier chunks (e.g. the
+      package-loading chunk) haven't been run; use "Run All Chunks Above" first.
+    - Optionally set chunk output to console (gear icon) to keep results out of the document.
+- Fix the variable names in both exercise prompts: use `bill_depth_mm` and
+  `bill_length_mm` (instead of `bill_depth` and `bill_length`).
+- Exercise 1: replace `# add code here` with a scatterplot of bill depth (y) vs. bill length
+  (x) plus a line of best fit. Note "y versus x" puts the first variable on the y-axis; the
+  standard-error band is turned off with `se = FALSE`, and `method = "lm"` gives the linear
+  line of best fit:
+    ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+      geom_point() +
+      geom_smooth(method = "lm", se = FALSE)
+- Exercise 1 interpretation: replace "Add interpretation here." with a note that there is
+  a negative, somewhat weak, and roughly linear relationship between bill depth and bill
+  length (a surprising result).
+- Exercise 2: replace `# add code here` with the same scatterplot colored by species (reuse
+  the working code and add the `color = species` aesthetic):
+    ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+      geom_point() +
+      geom_smooth(method = "lm", se = FALSE)
+- Exercise 2 interpretation: replace "Add interpretation here." with a note that the data
+  form three clusters (one per species) and that within each species the relationship is
+  positive, moderately strong, and linear.
+- Add a closing remark: the second (species-colored) view is more believable, so species
+  should be accounted for. This is Simpson's paradox — a relationship reverses once a
+  confounding variable (species) is included. The lesson is to consider possible confounders
+  and consult domain experts when working with domain-specific data.
+
+## Complete script from the old video
+
+[MUSIC]
+Hello, in this code along, we're going to take a first look at Palmer penguins.
+That's not entirely true,
+we've already looked at Palmer penguins in other course videos.
+However, this is going to be the first time we're actually going to be
+interacting with this data set.
+So I've opened my quarto document titled First Look at Palmer Penguins,
+and let's take a look to see what our plan for this codalong is.
+We want to explore how bill sizes, so that's the bill depth and
+length of the penguin, vary across species.
+And also consider what happens if we don't take species into consideration.
+We're going to work with two packages, the tidyverse package and
+the palmerpenguins package.
+The tidyverse package for all the fantastic functionality it provides for
+data wrangling and visualization, and
+the palmerpenguins package because it has the data set that we need.
+And the data set that we're going to visualize is called penguins.
+So before I get started with anything else, I'm going to go ahead and
+render my quarter document just to make sure that everything works out of the box.
+And let's take a look at what our input versus output looks like.
+This is a good moment to pause and
+talk a little bit about what happens when you load the tidyverse package.
+You can see that in this code chunk labeled load-packages.
+The first thing I'm doing is loading the tidyverse package, and
+when I render my document, I can see a bunch of text being printed.
+So let's go ahead and read what this message is telling us.
+It says, attaching core tidyverse packages.
+Remember, the tidyverse package is a meta package that
+houses nine packages at this point in time.
+dplyr for data wrangling.
+forcats for working with factors.
+ggplot2 for data visualization.
+lubridate for working with dates.
+purrr for iteration.
+readr for reading data into R.
+stringr for working with character strings.
+tibble for the Tidyverse style data frames.
+And tidyr for tidying and reshaping your data.
+Some of these packages you've already heard about,
+some of them are going to come up later on in the course.
+Some of them we're not going to work with a whole lot.
+The neat thing about the tidyverse package is that by loading that alone you get all
+of the functionality of these packages, so you don't have to pause and
+keep thinking, I wonder which function this package was in.
+Was it a data visualization thing or a data wrangling thing?
+And sometimes they will be more obvious than others.
+In addition to that, we also have some information on conflicts.
+So what do conflicts mean in this case?
+It says that the filter function in dplyr masks, so
+you can think of it as like it overwrites in a way, or
+the filter function in the stats package.
+What in the world is the stats package?
+We haven't loaded it.
+So why is it there?
+Well, the stats factor package is part of base r.
+It's distributed with R and it has functions,
+statistical functions that you've been accustomed to using without worrying about
+what package they're in, like mean, and median, and correlation.
+So all these functions that you commonly use are actually provided with the stats
+package.
+However, it also happens to have a function called filter.
+So now when we load dplyr as well, the dplyr filter takes over.
+So going forward, because dplyr is the package that's been
+loaded after the stats package, when I refer to filter,
+it's going to try to use the filter function from dplyr.
+And if I needed to use the stats version,
+then I would give the name of the package :: the name of the function.
+So this notation of package name :: function name is something
+you might come across in documentation you read online.
+Or if you go on stack overflow or ask chat GPT, how do I do so and so?
+It might be something that comes up.
+And basically what it's referring to is state the package name and
+then state the function name.
+We don't necessarily need to do that while we're writing interactive code, but
+if one day you are writing R packages yourself or
+writing code that others run or that gets run in an automated setting,
+this might be the type of thing you pay more attention to at that time.
+And another one like this is the lag function in dplyr that's
+masking the lag function in the stats package.
+So it's not overwriting it in the sense that we no longer have access to these
+filter and lag functions from the stats package, but they're not going to be
+prioritized, and if we want to use them, we'll have to specifically ask for them.
+And then it gives you some information about another package called conflicted
+that could help you resolve these sorts of conflicts.
+We're not going to go there right now, we'll just say thank you for
+letting us know.
+The reason why I wanted to take a little bit of time going through this is this.
+You're going to see this message so many times that it's human nature to
+sort of ignore it after some time, and that is totally fine.
+This is one of those messages where it's important to understand what it does.
+And if you ever find yourself in a situation where r is
+telling you something like I can't find the right filter function or
+something, you might think back to this moment and ask yourself, I wonder if
+it has something to do with the conflict between dplyr and stats versions.
+But otherwise it's probably not the sort of thing that you want to be reading
+every single time.
+It's also probably not the sort of thing that you want printed out as
+part of your final output.
+So code chunk options allow us to hide this sort of information.
+So for this particular code chunk, I'm going to add a new option.
+These options, remember, need to follow the hash pipe.
+This is going to be the message.
+And I want to say that I want to turn messages off, and
+I'm using RStudio's autofill as opposed to typing these myself.
+Soon as I started typing mes, it filled it in for me saying,
+well, one of the code chunk options that start with that is message,
+and the two values it can take are true and false.
+They're true by default, I am turning it to false for this particular code chunk.
+It's like a superpower.
+You can suppress these messages, but
+you want to make sure that you read them first and understand what they say and
+sort of be actively deciding that by suppressing it,
+I am not misleading myself or anyone who might be reading my analysis.
+All right, then it says the data set we will visualize is called penguins.
+Let's glimpse at it.
+So we have a new code chunk here with a code chunk label called glimpse.
+Why do we have these labels by the way?
+One of the nice uses of these labels is that if you go to the bottom
+of your editor in RStudio, you'll be able to see that when
+chunks have labels in them, we actually can navigate within
+our document easily by sort of jumping between these chunks.
+So if I had a really, really lengthy analysis and
+I want to do something like I want to go back to where I calculated something and
+maybe change my code, it's an easy way of navigating.
+Another reason is that if you have an error in your code, so
+let's go ahead and make a mistake, we know by now that if.
+If we want to glimpse at a data frame, we would say glimpse, and
+then give the name of the data frame.
+And if I just render this, I should be able to see the results.
+I have 344 penguins, eight columns about them,
+and here are the variables in this data set.
+But let's go ahead and make a mistake.
+Let's go ahead and forget to close the parenthesis and render again.
+In this Background Jobs pane, we have some information.
+This information is also repeated in my viewer window as well.
+Some of the information is helpful, and some of it, frankly,
+is a little bit cryptic.
+So let's start by reading here, Quitting from lines 25 to 27.
+What is this referring to, 25 to 27?
+It's hard for us to know what it's referring to
+because we're using the visual mode in RStudio right now,
+which doesn't show us the code chunk labels.
+The nice thing is it allows us to do neat things like, you know, use our editor,
+just like we might use something like Google Docs or whatever.
+But if I actually switch over to the source code for a second,
+I can then see the line numbers, and
+25 to 27 refers to this particular code chunk, which hopefully
+we're not surprised by because we knew that we made a mistake there.
+But you may want to keep things in the visual editor.
+That's usually how I use it, and
+that's how you're going to see these code alongs go.
+Here we go.
+We have a little bit of information that might help us identify which code
+chunk it is.
+So if you label your code chunks and you need to troubleshoot, there's an error,
+the error message will mention your code chunk label as well.
+You can imagine if this wasn't an error you made intentionally, but
+an error in a really lengthy document that you're having difficulty sort of
+like pinpointing where to look at, this could be very helpful.
+Let's go ahead and close that parenthesis and
+render our document one more time.
+Now, before we go into the visualization, I'm going to do one more thing.
+What if I click on this little play button here?
+It is so attractive.
+It says come click on me, and it allows me to run the current code chunk.
+It's also really handy because if I have a long quarto document,
+I may not want to constantly render the document with every little thing I do.
+I might just want to run a single code chunk.
+Let's go ahead and run it, and I get an error.
+The document was just rendering.
+We can do that one more time and
+sort of like convince ourselves that my document is working.
+However, when I go to run this code chunk, I get an error.
+So why am I getting this error?
+The reason is that when you render your document, Quarto will run all of
+the code up to that point, including anything that comes before it.
+Which is the code chunk where we load our packages, the package where
+the glimpse function lives, the package where the penguins data frame lives.
+So right now, we're getting an error that says, could not find function "glimpse".
+Whenever you get one of these could not find errors, especially if it's about
+a function, your brain should immediately go to, I may not have loaded the package.
+And in fact, we did not load the package in our working environment right now.
+Our Quarto document, when we render it,
+has a sort of a sandbox separate working environment.
+And the reason for that is that we want the whole document to be reproducible.
+We don't want it to be affected by anything else that might be happening sort
+of in our console, in our current working environment.
+But that also means that anything that's in the cordo document,
+if I want to sort of replicate it in my current working environment,
+I need to make sure that I run all relevant code there as well.
+So a thing that I can do is either explicitly run any code chunks
+that come before it, or I can click on this down arrow that
+says run all chunks above and then run this one as well.
+And now that the package has been loaded in my working environment,
+I actually can see the result of the glimpse function.
+Personally, I am not a fan of my results showing up in my document, so
+I'm going to go ahead and make one more adjustment.
+I am going to click on the gear icon and say I want to see the chunk output in
+console, remove any output that already has been put there and
+let's try running this again.
+And I can see the result in my console.
+Okay, so let's go ahead and start making some visualizations.
+The first question says, create a scatterplot of bill_depth_mm,
+that's the name of the variable, versus bill_length_mms of penguins.
+So when we say something versus something,
+that first one goes on the y axis, and the second one goes on the x axis.
+And then we are to overlay a line of best fit and
+describe the relationship between the two variables.
+Because we're making a plot, we're going to start with ggplot.
+The name of our data set is penguins.
+And then in my aesthetic mappings,
+I'm going to say x is the bill length variable,
+and y is the bill depth variable.
+And then I want to represent my data with point, so I will say geom_point.
+Let's go ahead and run this.
+This is what the visualization looks like.
+It does look like a bit of a blob, to be perfectly honest.
+Sometimes reducing your sort of plotting
+window to have a better aspect ratio might be helpful in trying to figure out
+what the relationship between these two variables would be.
+It also says to overlay a line of best fit.
+So in addition to using points to represent our data,
+we also want to use a line, a line of best fit,
+a smooth line to represent it as well.
+We can do this by adding a new layer, a smooth layer.
+And because it says that we want a line of best fit,
+we don't just want it to be a smooth curve,
+that ggplot2 sort of like decides what the best smooth curve here is.
+But instead we want to set the method to LM linear model we're going
+to say a lot more about linear models later on in the specialization,
+but for now, just know that LM, or
+in other words linear model, refers to the line of best fit.
+So let's go ahead and run that.
+And what do we see?
+Here's our linear model.
+The band around this line is a measure of uncertainty called standard error.
+Another thing we're going to introduce a bit later in the specialization.
+We can actually turn that off for now since we're not going to,
+since that's not going to be part of our discussion.
+And here's the line of best fit.
+So how would we describe the relationship between the depth and
+lengths of bills for these penguins?
+That line is trending downwards,
+which says that there is a negative
+relationship between bill depth and the length.
+The relationship Is somewhat weak, I would say.
+There's a lot of scatter around that line.
+And is it linear?
+It does seem somewhat linear.
+This is surprising, though.
+Why would we expect that as the length of a penguin's
+bill increases, the depth decreases?
+Let's move on to the second question and see what it's asking us to do.
+It says, create a scatter plot of bill depth and bill length of penguins again.
+But this time, we want to color it by species, and
+then we want to overlay a line of best fit as well, and
+then describe the relationship between the two variables for each of the species.
+So I'm going to go ahead and
+cheat in the sense that I know that I have some code that works.
+I'm going to take that and paste it here.
+But I need one more aesthetic mapping.
+Color should be mapped to species.
+And let's go ahead and run this.
+Now, what do we see?
+There happen to be actually three clusters of points, one for each of the species.
+And we can see that within each of the species,
+the relationship between bill depth and bill length is positive.
+So let's go ahead and note that.
+There is a positive relationship
+between bill depth and bill length for
+each of the three species.
+The relationships are moderately strong.
+Within each one of these clusters, there's not a whole lot of scatter anymore,
+and each one of them actually appear linear as well.
+So if we now go back and reflect on the seemingly
+contradictory findings, what might be going on?
+And which one do you believe more?
+Well, personally, it makes sense to me that a physical measurement on a penguin,
+a penguin's bill, its length and its depth would be positively associated.
+If one grows, the other should be growing as well.
+What is happening, though, is that the relationship between these two variables,
+as well as sort of the magnitudes or the sizes of these measurements of bill
+length and bill depth, are pretty different for each one of the species.
+So when we clump everything together,
+we sort of lose the positive relationship that is apparent.
+So which one do we believe more?
+I believe the second one more.
+We should be considering species
+when analyzing the relationship
+between bill depth and
+bill length for penguins.
+This is called Simpson's paradox, where you have a relationship that's
+apparent between two variables, and when you bring a third variable in, often
+referred to as the confounding variable, the relationship changes entirely.
+It is not that we did something wrong in the first question, however.
+It is that we did not consider a variable that is an important factor in this
+relationship.
+How could we have known that it is an important factor.
+You're not expected to know anything about penguin anatomies to be able to learn data
+science.
+However, you are always expected to think about if there may be other
+confounding variables, and make sure that as you analyze your data,
+you bring these other variables in and take a look to see how they change
+your conclusions, if they change your conclusions.
+And the other thing is that if you're working with a domain specific dataset,
+it's always a good idea to consult with someone who is an expert in that domain.
+And I bet if we were to talk to folks who actually study penguins,
+they would tell us that they would expect to see some differences across species,
+and that any analysis we're doing should probably consider species as
+a variable in the analysis.

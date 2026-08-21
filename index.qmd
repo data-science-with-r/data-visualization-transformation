@@ -6,17 +6,30 @@ listing:
   - id: slides
     contents: slides/*/*.qmd
     type: table
-    fields: [title]
+    fields: [title, description]
     filter-ui: false
     sort-ui: false
     sort: [filename]
-  - id: code-alongs
-    contents: code-alongs/*/*.qmd
+    field-display-names:
+      description: "Pathway"
+  - id: code-alongs-positron
+    contents: code-alongs/*/*positron*.qmd
     type: table
-    fields: [title]
+    fields: [title, description]
     filter-ui: false
     sort-ui: false
     sort: [filename]
+    field-display-names:
+      description: "Pathway"
+  - id: code-alongs-rstudio
+    contents: code-alongs/*/*rstudio*.qmd
+    type: table
+    fields: [title, description]
+    filter-ui: false
+    sort-ui: false
+    sort: [filename]
+    field-display-names:
+      description: "Pathway"
   - id: exercises
     contents: exercises/*.qmd
     type: table
@@ -42,7 +55,14 @@ library(downlit)
 
 ## Code alongs
 
-::: {#code-alongs}
+### Positron
+
+::: {#code-alongs-positron}
+:::
+
+### RStudio
+
+::: {#code-alongs-rstudio}
 :::
 
 ## Exercises

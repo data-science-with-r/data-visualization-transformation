@@ -1,0 +1,22 @@
+Steps to get from 2-1-first-look-palmer-penguins-rstudio.qmd to the -eov (end-of-video) version:
+
+- Add the chunk option `#| message: false` to the setup chunk to suppress package
+  startup messages.
+- Replace the `# add code here` placeholder in the glimpse chunk with `glimpse(penguins)`.
+- Fix the variable names in both exercise prompts: use `bill_depth_mm` and
+  `bill_length_mm` (instead of `bill_depth` and `bill_length`).
+- Exercise 1: replace `# add code here` with a scatterplot of bill depth vs. bill length
+  plus a line of best fit:
+    ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+      geom_point() +
+      geom_smooth(method = "lm", se = FALSE)
+- Exercise 1 interpretation: replace "Add interpretation here." with a note that there is
+  a negative, somewhat weak, linear relationship between bill depth and bill length.
+- Exercise 2: replace `# add code here` with the same scatterplot colored by species:
+    ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = species)) +
+      geom_point() +
+      geom_smooth(method = "lm", se = FALSE)
+- Exercise 2 interpretation: replace "Add interpretation here." with a note that within
+  each species the relationship is positive, moderately strong, and linear.
+- Add a closing remark stating that the second (species-colored) view is more believable,
+  i.e. species should be accounted for (Simpson's paradox).

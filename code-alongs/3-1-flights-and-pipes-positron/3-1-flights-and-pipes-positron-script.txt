@@ -1,0 +1,734 @@
+- Understand the goal and data before editing: investigate flight delays using the tidyverse
+  package (wrangling/visualization) and the nycflights13 package, which holds all flights in
+  2013 out of the three NYC airports (LaGuardia, JFK, Newark).
+- Load the packages (via the play button) and `glimpse(flights)` to see the data. Optionally
+  set chunk output to console (gear icon) and rearrange the RStudio panes so the prompt and
+  results sit side by side.
+- Fill in the two fill-in-the-blank sentences. Rather than hard-coding the row count (which
+  invites copy/paste typos and won't update if the data changes), use inline R code so the
+  document stays reproducible:
+    - Replace "has \_\_\_ rows" with an inline R expression: has `r nrow(flights)` rows.
+    - Replace "Each row represents a \_\_\_." with "Each row represents a flight out of one
+      of three NYC airports in 2013."
+- Replace each `# add code here` placeholder with the corresponding dplyr code. Concepts the
+  video emphasizes are noted alongside each:
+    - Column names:            names(flights)   (19 variables; full codebook via ?flights)
+    - Select two columns:      flights |> select(dep_delay, arr_delay)
+    - Drop a column:           flights |> select(!dep_delay)   (! negates; 18 columns remain)
+    - Select a range:          flights |> select(year:dep_delay)   (: is the range operator)
+    - Select by pattern:       flights |> select(contains("arr_"))
+                                 (select helpers: also starts_with(), ends_with())
+    - First 5 rows:            flights |> slice(1:5)
+    - Last 2 rows:             flights |> slice_tail(n = 2)
+                                 (more robust than hard-coding row numbers; press Tab after
+                                  slice to see slice_* variants and their packages)
+    - Sort by dep_delay:       flights |> arrange(dep_delay)
+                                 (min is -43, i.e. took off 43 min early)
+    - Sort descending:         flights |> arrange(desc(dep_delay))
+                                 (max is 1,301 min, almost 22 hours)
+    - Most delayed flight:     flights |> arrange(desc(dep_delay)) |>
+                                 slice_head(n = 1) |>
+                                 select(tailnum, carrier, dep_delay)
+    - Filter to RDU:           flights |> filter(dest == "RDU")
+                                 (filter keeps rows where a condition is TRUE; see the logical
+                                  operators cheat sheet: ==, !=, %in%, <, >=, etc.)
+    - RDU + early arrival:     flights |> filter(dest == "RDU" & arr_delay < 0)
+                                 (4,232 flights)
+    - Count destinations:      flights |> count(dest, sort = TRUE)
+                                 (105 destinations; without sort they're alphabetical, with
+                                  sort = TRUE they're in descending count order)
+    - Count by month, sorted:  flights |> count(month) |> arrange(n)
+                                 (February has the fewest flights)
+    - Count month/day:         flights |> count(month, day, sort = TRUE)
+                                 (most flights on November 27, likely Thanksgiving travel)
+    - Add speed columns:       flights |> mutate(
+                                 air_time_hr = air_time / 60,
+                                 mph = distance / air_time_hr
+                               )
+                                 (relocate() helps view new columns; consolidate the two
+                                  mutates into a single call for readability)
+    - Proportion in July:      flights |> count(month) |>
+                                 mutate(prop = n / sum(n)) |>
+                                 filter(month == 7)
+                                 (8.74% of flights are in July)
+    - Mean arrival delay:      flights |> summarize(
+                                 mean_arr_delay = mean(arr_delay, na.rm = TRUE)
+                               )
+                                 (na.rm = TRUE is needed because of NAs; name the summary
+                                  column rather than leaving the default long name)
+    - Mean arr delay by month: flights |> group_by(month) |>
+                                 summarize(mean_arr_delay = mean(arr_delay, na.rm = TRUE))
+                                 (group_by applies the next step once per group; 12 groups)
+    - Median dep delay/origin: flights |> group_by(origin) |>
+                                 summarize(median_dep_delay = median(dep_delay, na.rm = TRUE))
+- Fill in the short-answer prompts:
+    - Replace "Add your response here." with "Flight took off 43 minutes earlier than it
+      was scheduled."
+    - Replace "Add response here." with a plain-language reading of the pipeline: start
+      with the flights data frame, then filter for rows where destination is RDU or GSO
+      and arrival delay or departure delay is less than 0. (This more complex filter matches
+      6,203 flights.)
+- Concept to note throughout: the pipe operator (|>) takes the result of the previous step
+  and passes it as the first argument to the next function, letting you build a pipeline like
+  building blocks.
+
+## Complete script from the old video
+
+In this code along, we're going
+to work with flights and pipes.
+What do I mean by that?
+Well, if you've ever flown,
+chances are you may have been a
+little bit delayed, but how common is that?
+How common is it for your flight to be delayed?
+Or are there some airlines that
+tend to be more delayed than others?
+We're going to work with the tidyverse package as
+usual for doing our data wrangling and visualization,
+and also use the nycflights13 package which
+has data on all of
+the flights out of New York City airports.
+There are three airports in New York City,
+LaGuardia, John F. Kennedy, and Newark.
+All of the flights from these airports to
+any destination in year 2013.
+Let's go ahead and load these packages.
+Once again, one of them is actually for doing
+our data wrangling and visualization,
+and the other one is for the data.
+I'm loading the packages by clicking on
+the little Play button in
+my Quarto document to run that current chunk.
+Then let's take a look at the flights dataset.
+The function we're going to use that we've
+introduced before as well is glimpse.
+Here we go. We can see
+that our results are printed on our screen.
+In my Quarto document,
+what I'm going to do is I'm actually going to
+change where my results are printed.
+I'm going to close this output and say,
+I would like my chunk output in console.
+I'll say remove any of the existing output.
+Then let's go ahead and run that chunk of code
+to actually see our results in the console
+just because it's a little bit easier to see
+our questions in one place
+and our answers in another place.
+Another thing I'll mention about RStudio is that you
+actually have control over where these panes are located.
+I could go ahead and click on this little icon that has
+four panes on it and say that
+I would like to change the layout of my panes.
+I'm actually going to say,
+I would like to see my console here on the upper right,
+say "Apply" and hit "OK".
+Going forward when I run the code,
+we'll be able to see the results on one side of
+the screen and see our prompt on
+the other side of the screen, which might be nice.
+This may not be your preferred arrangement for things.
+If that's the case, you can change them
+around to whatever you like them to be.
+Let's go ahead and start exploring our flights dataset.
+It says, fill in the blanks,
+the flights data frame has
+so many rows and each row represents something.
+How could we figure out how many rows there are?
+Well, if I take a look at my glimpse output,
+I can see that there are 336,776 flights.
+It's a lot of flights,
+and that's all of the flights out of
+these three airports in that one year.
+One thing I could do is copy
+this number and paste it into here.
+Let's go ahead and actually
+write out what each row represents.
+Each row represents a flight out of one of
+three New York City airports in 2013.
+The thing is one of the things we've done
+here is we looked at the output of the code,
+and then we grabbed
+some information from that output
+and copied and pasted that into our document.
+When you're working in a computational document
+like a Quarto document,
+you actually don't need to do that copy and paste,
+which means that you also
+remove any potential of errors along the way.
+Because if instead of copying and pasting,
+if I was just typing these numbers,
+it would be pretty easy to accidentally
+make a mistake like this and have a typo, for example.
+Instead of hard coding numbers like
+this that we can computationally generate,
+we can actually go back and say,
+is there a way for us to
+embed the code into our document?
+Now, when we ran the glimpse function
+to get a look at all of our data,
+which not only tells us how many rows and
+columns we have but also what all those columns are,
+we were able to grab
+this one piece of information from the output,
+but I can also use a function like
+nrow which will give me exactly that number that I need.
+Now that I know what that function is that gives
+me exactly the number I need, I can say,
+I would like to insert an inline code chunk and in there,
+I would like to write the code nrow(flights).
+I use my insert anything tool to insert this code chunk.
+What's happening here is that I'm
+seeing that the computational language I'm using is R,
+and then I'm giving the code that I want to run in there.
+You can imagine with inline code chunks,
+you don't want to write very extensive code,
+code that would need to span multiple lines or
+anything but something simple like this works nicely.
+When I render my document,
+you can't even tell that there was code underneath it.
+But the neat thing about this approach is
+that if my data was to change at any point,
+or if I do this analysis for 2013 data,
+and then I happen to get data for a more recent year,
+I can still run my code and all of
+these numbers will be updated based on the new data set.
+The next question asks,
+what are the names of the variables in flights?
+In order to get the names of the variables,
+the function that I would use is names,
+and let's do names(flights).
+I can again, do run one code chunk at a time,
+which would print my results in my console,
+or I can say that I want to
+render my document so that I can
+see exactly what that looks like in my complete document.
+We saw that there were 19 variables in this dataset,
+and we can see that they're things
+like each of them should say year 2013,
+but different month and
+day of the flight, their departure time,
+if there was any delays at
+departure or if there was any delays at arrival,
+so on and so forth.
+If you want to see a full description
+of each of the variables,
+we can take a look at the code book.
+Since this dataset is distributed from a package,
+I can do things like
+question mark and the name of the data frame,
+or I can just go to my Help
+menu and just search for flights there.
+Either way, it will bring up this documentation for
+the data frame which has
+the description of each one of my variables.
+Next up, we're going to go through a set of exercises
+where we use one or two functions from the tidyverse,
+specifically from the dplyr package for data wrangling.
+The first question says,
+make a data frame that only contains the variables,
+dep_delay, and arr_delay,
+so departure or arrival delay.
+For each one of these, I start with
+my data frame flights,
+and then I pipe that
+into because I want to select only certain columns,
+I'm going to use the select variable,
+and the names of the variables are dep_delay.
+I can use the auto complete here, arrival delay.
+This will give me a data frame
+with the same number of rows as before,
+but only the columns that I need.
+If I want to instead make a data frame that
+keeps every variable except departure delay,
+instead of listing all of
+the other 18 variables I can take
+a short cut and indicate that
+the only thing I don't want is depth delay.
+In order to do that, once again,
+start with the data frame name
+and then say select(!dep_delay).
+We use exclamation point to negate things
+in R. We're saying everything but departure delay,
+and you can see that
+the result is 18 columns in our dataset,
+still the same number of rows.
+Next, we want to make a data frame that includes
+all variables between year
+through departure delay inclusive.
+That's starting with year through departure delay.
+Oh, I guess I can't see
+my departure delay variable there.
+Maybe I can take a look at it here,
+so it should be year through departure delay.
+Those should be the variables that I want.
+These are all of the variables.
+It says that provide information
+about the departure of each flight.
+We'll start with the flights data frame again,
+and then say, select.
+I want everything from year to departure delay.
+The operator I use for that is the colon operator.
+Here we go. We have a result of six variables,
+still the same number of rows.
+Each one of these actions we're doing with
+a select function is
+operating on the columns and doing nothing on the row,
+so my number of row stays constant.
+Finally, with select, we're going to do one more thing.
+We want to select the variables
+associated with the arrival.
+These are all of the variables that contain
+the string arr_ in the name.
+I could take a look back at the output of names,
+and I could say there's arrival time,
+there's scheduled arrival time and arrival delay,
+and I could write those out one by one,
+but you can imagine that if I had
+a much larger dataset or many more variables to write,
+that's not necessarily going to be handy to do so.
+Instead with the select function,
+I can also use some select helpers.
+I will say, I want to select for
+variables that contains arr_ in their names.
+These are all of those variables.
+There are other select helpers that we can use.
+For example, if I had used starts with,
+I would end up with just arrival time and arrival delay.
+If I had used ends with,
+I end up with nothing because none of these actually end
+with the text string arr_.
+Contains is a neat way of doing.
+It doesn't matter where
+that appears in the variables name.
+As long as that is included in the name,
+I would like to select that.
+So far we've operated on the columns now,
+let's operate on the rows with slice.
+It says, display the first five rows
+of the flight data frame.
+We'll do flights,
+and then slice 1-5.
+Now we keep all of the columns,
+but only the top five rows of our data frame.
+Next, we're asked to display
+the last two rows of the flights data frame.
+In order to do that, I would start with flights.
+Then I could use the same approach,
+I can say slice,
+and then I can figure out myself what
+the indicators for the last two rows are going to be.
+I know that I have this many,
+336,766 rows in my data frame.
+I can say, give me
+everything up to that row and one before that.
+So 336,775-336,776.
+This works. But unfortunately,
+what I've done here is I've once again used the result of
+an output that I had and hard-coded numbers into my code.
+Instead of that, I could try to leverage R to
+find the number of rows for me along the way.
+In order to be able to do that, once I type slice,
+I'm going to click on the tab on my keyboard so that
+RStudio gives me some options
+of variance of the slice function that I can choose from.
+I can see the names of
+the functions and also which package they come from,
+so that can help me limit.
+I know that I'm going to use something from
+the dplyr package and slice tail
+is what we want since
+that's going to give us the last so many rows.
+In this case, we would say
+we would like the last two rows,
+and we can see that we arrive at the same answer.
+But the second way of doing this is a bit more robust.
+If my dataset was to change,
+I would still be able to
+get the last two rows with this code.
+We've operated on the columns
+by selecting or omitting some of them.
+We've operated on the rows
+by selecting or omitting some of them.
+Now we're going to arrange our rows.
+We're not going to be reducing our data frame in any way,
+but we're going to be changing the order.
+For example, the first exercise says,
+let's arrange the data by departure delay so the flights
+with the shortest departure delays
+will be at top of the data frame.
+Once again, starts with flights,
+and then we say arrange departure delay,
+and let's go ahead and run that.
+We can see that the shortest departure delay
+is -43 minutes,
+that means that flight actually took off
+43 minutes earlier than it was scheduled to,
+which is the answer here.
+Flight took off 43 minutes earlier than it was scheduled.
+Next, we're asked to arrange the data by descending
+departure delay so the flights with
+the longest departure delays will be at the top.
+Let's go ahead and copy the code,
+we know is good and working but
+we're going to add another function into this and say,
+we actually want these to be in descending order.
+The flight with the longest departure delay
+is 1,301 minutes.
+How many hours does that make?
+Let's divide that by 60 real quick to get a sense.
+That flight was delayed by almost 22 hours.
+Really, really long departure time.
+Next, we're asked to create
+a data frame that only includes
+the plane tail number and the carrier and
+departure delay for the flight
+with the longest departure delay,
+and so that we can identify
+what the plane tail number for this flight was.
+We know how to get
+the flight with the longest departure delay.
+If we were to use the code we ran before,
+that's going to put the flight with
+the longest departure delay on top.
+We also know how to
+slice our data frame for the very first row.
+I can do this with slice(1),
+or I can do this with
+slice_head(n = 1) to get the top row.
+Then we also know how to select variables.
+It says, we want to select for a tail number,
+carrier, and the departure delay.
+We were able to chain
+the things that we've learned so far,
+the different functions by adding
+the pipe operator in between each one of our lines.
+We're saying start with the flights data frame and
+then arrange in descending order of departure delay,
+and then slice the data frame for
+the top one row and then select these three variables.
+The plane with the tail number is printed here,
+and the carrier shortcode is printed here as well.
+Next, let's move on to filtering.
+We have arranged our rows.
+We've also sliced the data frame
+based on an index number,
+but we can also filter based on a particular condition.
+For example, filter all rows
+where the destination airport is RDU,
+so that is flights,
+and then we want to filter
+for destination is equal to RDU.
+The filter function will
+choose rows based on a condition being true.
+In order to check for that condition,
+we use what we call logical operators in R. I've
+included a little cheat sheet of
+logical operators in this code along as well.
+The double equals basically asks,
+is it exactly equal to?
+We have other options,
+like, is it not equal to?
+Is it one thing or another?
+Or we can also do mathematical operations
+with mathematical operators like less than,
+greater than or equal to,
+so on and so forth, as well.
+In this case, we would articulate this
+as take the flights data frame and then
+filter for rows where destination is equal to RDU.
+We can also filter all rows
+where the destination airport is
+RDU and arrival delay is less than zero.
+Let's go ahead and grab the code
+we know is good and working.
+We can say and arrival delay is less than zero.
+That is 4,232 flights
+from one of the three New York City airports
+to RDU where they were not delayed.
+The arrival delay was less than zero.
+Finally, it says, describe what the code is
+doing in words. Let's take a look.
+Here we're saying, start with
+the flights data frame and then we want to
+filter for something and another thing.
+We can use either a coma operator
+or the M percent to say and.
+We're looking for two conditions to hold.
+The first one says the destination should be in here.
+This in operator allows us to check
+for not for exactly equal to,
+but basically saying either the destination is
+RDU or the destination is GSO, another airport code.
+The other condition we're looking for is
+the arrival delay is less than zero,
+or the departure delay is less than zero.
+To articulate this, we can say,
+start with the flights data frame,
+and then filter for rows
+where destination is RDU or GSO,
+and arrival delay or departure delay is less than zero.
+Let's see how many flights actually fit this bill.
+It looks like there are 6,203
+flights that actually fit this bill.
+Now let's move on to a type of summarization.
+So far, we've taken our data frame,
+and we've either worked with the columns or the rows.
+But ultimately, every single one of
+our results was another data frame
+where each row was a flight.
+Another thing we might want to do with
+dplyr functions is actually summarize our data.
+We're asked to create a frequency table of
+the destination locations for flights from New York.
+Where do flights go from New York?
+Let's go ahead and say we want
+to start with the flights data frame and
+then we want to count
+the different destinations from New York.
+We have a total of 105 different destinations.
+The first one is ABQ.
+I believe that's Albuquerque,
+so on and so forth,
+and we can see that these are in an alphabetical order,
+lots and lots of flights from
+a New York airport to Atlanta, for example.
+If we wanted to see which one was the most common,
+we could add another argument called sort TRUE.
+This basically would give the destinations,
+not in alphabetical order
+of their three letter short codes,
+but instead in descending order of
+magnitude of the number of flights going to that airport.
+Next one says, in which month
+was there the fewest number of
+flights and how many flights were there in that month?
+Let's go ahead and say, first,
+we want to figure out how many flights per month.
+We're going to count the number of
+rows associated with each month.
+Then we're asked which month
+had the fewest number of flights?
+I can look through this output.
+They're all roughly in the 20,000,
+but I can look through this output to try to
+figure out which one is the smallest number,
+or I can let R help me.
+I can pipe this into an arrange and
+say that I want my output to be
+arranged by the value of N. This gives me
+the smallest number on
+top and the largest number on the bottom.
+The smallest number was February,
+had the lowest number of flights out
+of one of the three NYC airports.
+Finally, on which date,
+month and day, was there the largest number of flights?
+In this case, what we want to do is we
+want to not focus on just month or day,
+but we want to focus on a combination of those.
+I can do that with flights.
+Then we want to count the number of
+flights for each combination of month and
+day and then we want to arrange them in descending order,
+so I can say sort = TRUE.
+It looks like the most number of
+flights was on November 27th,
+that is probably associated with Thanksgiving travel.
+So far, we have worked with
+our data frame and gotten results where each row of
+our data frame was
+a single flight and then we've gone into doing a bit of
+summarization where we've taken
+our flight's data frame and
+created frequency tables based
+off of that with the COUNT function.
+Next, we might want to start getting creative.
+What if the variables that are given to us
+are not sufficient for our analysis,
+or we want to transform them
+somehow to get different versions of those variables?
+The mutate function, we'll take in a data frame and
+mutate that data frame to either add a column,
+or overwrite an existing column to change its nature.
+The first exercise says,
+convert airtime minutes in the air, two hours,
+then create a new variable,
+MPH, the miles per hour of the flight.
+Let's go ahead and again,
+start with the flight's data frame,
+and then we want to mutate
+that data frame to create a new variable.
+I will call that variable air_time_hr.
+It says, take the original airtime variable
+and then divide it by 60.
+This is creating a new variable called air_time_hr,
+and I can see that that variable is in my data frame.
+However, I can actually see the values in it because
+it's too far on
+the right side to be printed on my output.
+Whenever I'm mutating a data frame
+and adding new columns,
+a function that I find really handy is
+relocate which will relocate
+any variables you have that may be
+elsewhere in the data frame to
+the very beginning of your data frame.
+Whenever I do that,
+I usually relocate any of
+the variables that were involved in my calculation.
+Now I can see, for example,
+that 227 minutes was indeed translates to 3.78 hours,
+and I can check myself like this along the way.
+We're not going to stop there, though.
+It says, and then calculate another variable MPH,
+which is the miles per hour of the flight.
+First, let's figure out what the distance travel was.
+That's going to be in the distance variable,
+so I can say and then mutate
+again to create a new variable called MPH,
+which is going to be the number of
+miles divided by the air time in hours.
+Then, let's do the relocation as
+well to bring to the beginning of our data frame,
+again, any of the variables that were
+involved in our data pipeline.
+Now I can confirm if I
+agree with the calculated values for MPH.
+One thing we've done here is that sequentially,
+we've written to mutate statements.
+While this is absolutely valid code,
+my recommendation would be after you run
+through your data transformation,
+to pause for a moment and see,
+is there any consolidation that you might make in
+your code that might make it easier to read it later.
+I would say that let's say we're
+creating one variable called air_time,
+another variable called mph,
+and then I will move my closed parenthesis
+to the next line.
+This basically does the exact same thing,
+but makes it a lot more obvious that there's going to
+be two variables that we create along the way.
+Generally, once I'm happy with the code,
+I might actually go ahead and get rid
+of this relocate function so that what
+I'm outputting is in
+the same order as the data that was going into it.
+The next exercise says, first,
+count the number of flights each month and then
+calculate the proportion of flights for each month,
+what proportion of flights take place in July.
+Let's start with our flight's data frame again.
+We know how to count how many flights were in each month.
+But what we're asked to do now is
+not just to report the number but the proportion.
+To calculate the proportion,
+we would take the number and divide it
+by the sum of all of the numbers in this column.
+We can do exactly that,
+and we're going to add a new column.
+That's a mutate.
+Maybe let's call that prop as the new variables name.
+That's going to be the value of n
+divided by the sum of n. I'm actually
+using an additional function in
+my mutate call to do that calculation.
+Then it says, what proportion of
+flights take place in July?
+I can either look at my output here or I can further
+filter my data for
+where month is equal to the seventh month,
+that is July, 8.74% of the flights took place in July.
+I can use in addition to
+doing summarization by counting things.
+I can also use a pipeline to
+calculate summary statistics for my data.
+Let's go ahead and find
+the mean arrival delay for all flights.
+I'm again going to start with the flight's data frame,
+and then I will
+summarize to find the mean arrival delay.
+I'm using the mean function from
+R to find the arrival delay.
+Let's go ahead and run this to see what we get.
+There are a couple of things that are
+peculiar about this output.
+First of all, why is an NA.
+Well, in my column of arrival delays,
+some of the flights might not
+have an arrival delay recorded for them.
+If I go ahead and take a look
+at the help for the mean function,
+I will see that it actually has
+an argument called na.rm that I can use.
+It's set to false by default.
+But if I was to say na.rm = TRUE,
+that gives me the mean of all of
+the arrival delays if I was to
+ignore the ones that were NAs.
+Then another peculiar thing yet again is that the name of
+my column now is
+the exact call that I use to calculate that value.
+When we use the summarized function,
+just like with mutate,
+we can actually name
+the summary column that we're going to obtain,
+and you are welcome to call it whatever you want to.
+But obviously, that's not a great idea.
+We want to name things in a short but informative way.
+I'm going to call it mean_arr_delay for this.
+With summarize, what we've done is we've taken
+our whole data frame and reduced it down to a single row,
+a single value that summarizes
+all of the arrival delays in this data frame.
+But what if we wanted
+the mean arrival delay for each month?
+Let's go ahead and copy this code that we know works for
+calculating a single mean arrival delay
+for all of our data,
+and let's instead say,
+before we go there,
+let's group the data by a month.
+What the group by function does is it groups the data so
+that the next step in
+the data pipeline is applied once per group.
+If I was actually to
+only run the first two lines of this code,
+you will see that my output looks
+exactly like my original data frame.
+However, it has this group attribute to it,
+saying that it's being group by month,
+and there are 12 such groups,
+meaning that when I run
+the whole group by summarized pipeline,
+I'll receive a mean arrival delay per month.
+Finally, what's the median departure delay
+for each airport around NYC?
+That's the origin variable.
+Which airport has the shortest mean departure delay?
+Let's go ahead and copy
+this code that again, we know works.
+However, first of all,
+we're dealing with the median, not mean.
+Let me go ahead and change that
+and I'm going to call my summary statistic median.
+We're also interested in
+departure delay, not arrival delay.
+Let's say that's departure delay
+is what we're interested in,
+and we're not interested in monthly means,
+but instead we're interested in means by origin.
+The variable that I'm going to group
+by is origin as opposed to month.
+You can see that we're able to build these things like
+little building blocks for each line of my pipeline,
+and we're able to take a data frame,
+pass it on to the next function,
+apply another logic to it
+and pass it on to the next function.
+What the pipe operator in between
+each of these steps is doing is taking
+what comes before it and plugging it in
+as the first argument in the next function.
