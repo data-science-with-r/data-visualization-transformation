@@ -1,5 +1,6 @@
 ---
-title: Diving deeper with Palmer Penguins
+title: Diving deeper with Palmer Penguins (Complete)
+description: Positron
 ---
 
 # Introduction

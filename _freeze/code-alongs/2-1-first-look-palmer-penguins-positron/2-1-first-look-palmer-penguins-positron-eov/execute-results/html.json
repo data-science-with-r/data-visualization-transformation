@@ -1,0 +1,15 @@
+{
+  "hash": "9fa17474d0c620c64a44f88fe0ff8e51",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: First look at Palmer Penguins\n---\n\n# Introduction\n\nHow do bill sizes of penguins vary across species?\nAnd what happens if we don't take species into consideration?\n\n## Packages\n\nWe will use the **tidyverse** packages for data wrangling and visualization and the **palmerpenguins** package for the data.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n```\n:::\n\n\n## Data\n\nThe dataset we will visualize is called `penguins`.\nLet's `glimpse()` at it.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nglimpse(penguins)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\nRows: 344\nColumns: 8\n$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…\n$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…\n$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …\n$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …\n$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…\n$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …\n$ sex               <fct> male, female, female, NA, female, male, female, male…\n$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…\n```\n\n\n:::\n:::\n\n\n# Penguin bills\n\n1.  Create a scatterplot of `bill_depth` vs. `bill_length`s of `penguin`s. Overlay a line of best fit. Describe the relationship between the two variables.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# add code here\n```\n:::\n\n\nAdd interpretation here.\n\n2.  Create a scatterplot of `bill_depth` vs. `bill_length`s of `penguin`s, colored by `species`. Overlay a line of best fit. Describe the relationship between the two variables for each of the species.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# add code here\n```\n:::\n\n\nAdd interpretation here.\n\n3.  Reflect on the seemingly contradictory findings from the two visualizations you've created. Which one do you believe more, and why?\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

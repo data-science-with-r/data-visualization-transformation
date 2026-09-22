@@ -1,5 +1,6 @@
 ---
 title: "Visualizing and summarizing numerical data"
+description: RStudio + Positron
 format: 
   revealjs:
     auto-stretch: true
@@ -19,7 +20,7 @@ ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 #| message: false
 library(tidyverse) # for data wrangling and visualization
 library(openintro) # for data
-library(scales)    # for pretty axis labels
+library(scales) # for pretty axis labels
 ```
 
 ## Data: Lending Club
@@ -27,8 +28,14 @@ library(scales)    # for pretty axis labels
 ```{r}
 loans <- loans_full_schema |>
   select(
-    loan_amount, interest_rate, term, grade, 
-    state, annual_income, homeownership, debt_to_income
+    loan_amount,
+    interest_rate,
+    term,
+    grade,
+    state,
+    annual_income,
+    homeownership,
+    debt_to_income
   )
 glimpse(loans)
 ```
@@ -91,7 +98,11 @@ Median loan amount in this sample is $14,500.
 #| echo: false
 #| fig-width: 9
 loan_amount_hist +
-  geom_vline(xintercept = median(loans$loan_amount), color = "pink", linewidth = 2) +
+  geom_vline(
+    xintercept = median(loans$loan_amount),
+    color = "pink",
+    linewidth = 2
+  ) +
   labs(
     x = "Loan amount (USD)",
     y = NULL
@@ -115,23 +126,31 @@ loan_amout_summary <- loans |>
 loan_amount_hist +
   annotate(
     "segment",
-    x = loan_amout_summary$q25, xend = loan_amout_summary$q75,
-    y = 500, yend = 500,
-    color = "pink", linewidth = 2
+    x = loan_amout_summary$q25,
+    xend = loan_amout_summary$q75,
+    y = 500,
+    yend = 500,
+    color = "pink",
+    linewidth = 2
   ) +
   annotate(
     "segment",
-    x = loan_amout_summary$q25, xend = loan_amout_summary$q25,
-    y = 450, yend = 550,
-    color = "pink", linewidth = 2
+    x = loan_amout_summary$q25,
+    xend = loan_amout_summary$q25,
+    y = 450,
+    yend = 550,
+    color = "pink",
+    linewidth = 2
   ) +
   annotate(
     "segment",
-    x = loan_amout_summary$q75, xend = loan_amout_summary$q75,
-    y = 450, yend = 550,
-    color = "pink", linewidth = 2
+    x = loan_amout_summary$q75,
+    xend = loan_amout_summary$q75,
+    y = 450,
+    yend = 550,
+    color = "pink",
+    linewidth = 2
   )
-
 ```
 
 ## Outliers {.nostretch}
@@ -230,7 +249,7 @@ ggplot(loans, aes(x = loan_amount)) +
 ::: {.column width="35%"}
 ```{r}
 #| fig-width: 5
-p_loans+
+p_loans +
   geom_density()
 ```
 :::
@@ -272,7 +291,7 @@ ggplot(loans, aes(x = interest_rate)) +
 ggplot(loans, aes(x = interest_rate)) +
   geom_boxplot() +
   labs(
-    x = "Interest rate", 
+    x = "Interest rate",
     y = NULL,
     title = "Interest rates of Lending Club loans"
   ) +

@@ -1,5 +1,6 @@
 ---
 title: "Building a plot<br>step-by-step with ggplot2"
+description: RStudio + Positron
 format: revealjs
 ---
 
@@ -63,7 +64,7 @@ ggplot(starwars, aes(x = height, y = mass)) +
   geom_point() +
   labs(
     title = "Mass vs. height of Starwars characters",
-    x = "Height (cm)", 
+    x = "Height (cm)",
     y = "Weight (kg)"
   )
 ```
@@ -102,7 +103,8 @@ glimpse(penguins)
 ggplot(
   data = penguins,
   mapping = aes(
-    x = bill_depth_mm, y = bill_length_mm,
+    x = bill_depth_mm,
+    y = bill_length_mm,
     color = species
   )
 ) +
@@ -110,7 +112,7 @@ ggplot(
   labs(
     title = "Bill depth and length",
     subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-    x = "Bill depth (mm)", 
+    x = "Bill depth (mm)",
     y = "Bill length (mm)",
     color = "Species",
     caption = "Source: Palmer Station LTER / palmerpenguins package"
@@ -128,7 +130,7 @@ ggplot(
 #| code-line-numbers: "|1,3|2"
 ggplot(
   data = penguins
-  )
+)
 ```
 
 ## Step 2
@@ -141,7 +143,7 @@ Start with the `penguins` data frame, **map bill depth to the x-axis**
 ggplot(
   data = penguins,
   mapping = aes(x = bill_depth_mm)
-  )
+)
 ```
 
 ## Step 3
@@ -156,8 +158,8 @@ ggplot(
   mapping = aes(
     x = bill_depth_mm,
     y = bill_length_mm
-    )
   )
+)
 ```
 
 ## Step 4
@@ -174,8 +176,8 @@ ggplot(
   mapping = aes(
     x = bill_depth_mm,
     y = bill_length_mm
-    )
-  ) +
+  )
+) +
   geom_point()
 ```
 
@@ -194,8 +196,8 @@ ggplot(
     x = bill_depth_mm,
     y = bill_length_mm,
     color = species
-    )
-  ) +
+  )
+) +
   geom_point()
 ```
 
@@ -212,7 +214,7 @@ Represent each observation with a point and map species to the color of each poi
 ggplot(
   data = penguins,
   mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)
-  ) +
+) +
   geom_point() +
   labs(
     title = "Bill depth and length"
@@ -233,7 +235,7 @@ Title the plot "Bill depth and length", **add the subtitle "Dimensions for Adeli
 ggplot(
   data = penguins,
   mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)
-  ) +
+) +
   geom_point() +
   labs(
     title = "Bill depth and length",
@@ -255,12 +257,12 @@ Title the plot "Bill depth and length", add the subtitle "Dimensions for Adelie,
 ggplot(
   data = penguins,
   mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)
-  ) +
+) +
   geom_point() +
   labs(
     title = "Bill depth and length",
     subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-    x = "Bill depth (mm)", 
+    x = "Bill depth (mm)",
     y = "Bill length (mm)"
   )
 ```
@@ -279,12 +281,13 @@ Title the plot "Bill depth and length", add the subtitle "Dimensions for Adelie,
 ggplot(
   data = penguins,
   mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)
-  ) +
+) +
   geom_point() +
   labs(
     title = "Bill depth and length",
     subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-    x = "Bill depth (mm)", y = "Bill length (mm)",
+    x = "Bill depth (mm)",
+    y = "Bill length (mm)",
     color = "Species"
   )
 ```
@@ -303,12 +306,13 @@ Title the plot "Bill depth and length", add the subtitle "Dimensions for Adelie,
 ggplot(
   data = penguins,
   mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)
-  ) +
+) +
   geom_point() +
   labs(
     title = "Bill depth and length",
     subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-    x = "Bill depth (mm)", y = "Bill length (mm)",
+    x = "Bill depth (mm)",
+    y = "Bill length (mm)",
     color = "Species",
     caption = "Source: Palmer Station LTER / palmerpenguins package"
   )
@@ -330,12 +334,13 @@ Title the plot "Bill depth and length", add the subtitle "Dimensions for Adelie,
 ggplot(
   data = penguins,
   mapping = aes(x = bill_depth_mm, y = bill_length_mm, color = species)
-  ) +
+) +
   geom_point() +
   labs(
     title = "Bill depth and length",
     subtitle = "Dimensions for Adelie, Chinstrap, and Gentoo Penguins",
-    x = "Bill depth (mm)", y = "Bill length (mm)",
+    x = "Bill depth (mm)",
+    y = "Bill length (mm)",
     color = "Species",
     caption = "Source: Palmer Station LTER / palmerpenguins package"
   ) +
@@ -384,8 +389,8 @@ ggplot(
   mapping = aes(
     x = bill_depth_mm,
     y = bill_length_mm
-    )
-  ) +
+  )
+) +
   geom_point()
 ```
 :::
@@ -401,8 +406,8 @@ ggplot(
   aes(
     x = bill_depth_mm,
     y = bill_length_mm
-    )
-  ) +
+  )
+) +
   geom_point()
 ```
 :::

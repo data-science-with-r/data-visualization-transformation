@@ -1,5 +1,6 @@
 ---
 title: "Visualizing and summarizing categorical data"
+description: RStudio + Positron
 format: 
   revealjs:
     auto-stretch: true
@@ -63,8 +64,14 @@ glimpse(loans_full_schema)
 #| code-line-numbers: "|2-5|1|6"
 loans <- loans_full_schema |>
   select(
-    loan_amount, interest_rate, term, grade, 
-    state, annual_income, homeownership, debt_to_income
+    loan_amount,
+    interest_rate,
+    term,
+    grade,
+    state,
+    annual_income,
+    homeownership,
+    debt_to_income
   )
 glimpse(loans)
 ```
@@ -187,7 +194,9 @@ loans |>
   ggplot(aes(y = homeownership, fill = term)) +
   geom_bar(position = "fill") +
   labs(
-    x = "Proportion", y = "Homeownership", fill = "Term",
+    x = "Proportion",
+    y = "Homeownership",
+    fill = "Term",
     title = "Terms of Lending Club loans",
     subtitle = "and homeownership of borrowers"
   ) +

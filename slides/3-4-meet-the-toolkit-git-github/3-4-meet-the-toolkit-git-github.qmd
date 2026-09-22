@@ -1,5 +1,6 @@
 ---
 title: "Meet the toolkit: Git and GitHub"
+description: RStudio + Positron
 format: revealjs
 ---
 
@@ -13,9 +14,9 @@ format: revealjs
 install.packages("usethis")
 
 usethis::use_git_config(
-  user.name = "Your name", 
+  user.name = "Your name",
   user.email = "Email associated with your GitHub account"
- )
+)
 ```
 
 ## By the end of the course, you will ...

@@ -1,5 +1,6 @@
 ---
 title: "Visualizing data"
+description: RStudio + Positron
 format: revealjs
 ---
 
@@ -72,7 +73,7 @@ How many rows and columns does this dataset have?
 
 nrow(starwars) # number of rows
 ncol(starwars) # number of columns
-dim(starwars)  # dimensions (row column)
+dim(starwars) # dimensions (row column)
 ```
 
 # Exploratory data analysis {.section-break}
@@ -104,12 +105,15 @@ Who is the not so tall but really chubby character?
 ggplot(starwars, aes(x = height, y = mass)) +
   geom_point() +
   geom_point(
-    data = starwars |> filter(name == "Jabba Desilijic Tiure"), 
-    size = 5, pch = 1, color = "pink", stroke = 3
+    data = starwars |> filter(name == "Jabba Desilijic Tiure"),
+    size = 5,
+    pch = 1,
+    color = "pink",
+    stroke = 3
   ) +
   labs(
     title = "Mass vs. height of Starwars characters",
-    x = "Height (cm)", 
+    x = "Height (cm)",
     y = "Weight (kg)"
   )
 ```
@@ -147,7 +151,7 @@ quartet
 quartet |>
   group_by(set) |>
   summarise(
-    mean_x = mean(x), 
+    mean_x = mean(x),
     mean_y = mean(y),
     sd_x = sd(x),
     sd_y = sd(y),
@@ -164,7 +168,7 @@ quartet |>
 
 ggplot(quartet, aes(x = x, y = y)) +
   geom_point() +
-  facet_wrap(~ set, ncol = 4)
+  facet_wrap(~set, ncol = 4)
 ```
 
 ## Age at first kiss
@@ -188,8 +192,8 @@ Do you see anything out of the ordinary?
 ggplot(student_survey, aes(x = first_kiss)) +
   geom_histogram(binwidth = 1) +
   labs(
-    title = "How old were you when you had your first kiss?", 
-    x = "Age (years)", 
+    title = "How old were you when you had your first kiss?",
+    x = "Age (years)",
     y = "Count"
   )
 ```
@@ -216,8 +220,8 @@ How are people reporting lower vs. higher values of FB visits?
 ggplot(student_survey, aes(x = fb_visits_per_day)) +
   geom_histogram(binwidth = 1) +
   labs(
-    title = "How many times do you go on Facebook per day?", 
-    x = "Number of times", 
+    title = "How many times do you go on Facebook per day?",
+    x = "Number of times",
     y = "Count"
   )
 ```

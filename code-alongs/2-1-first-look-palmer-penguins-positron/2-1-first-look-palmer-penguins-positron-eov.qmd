@@ -1,5 +1,6 @@
 ---
-title: First look at Palmer Penguins
+title: First look at Palmer Penguins (Complete)
+description: Positron
 ---
 
 # Introduction
