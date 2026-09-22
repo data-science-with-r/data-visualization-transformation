@@ -492,7 +492,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 14</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">dim</span>(starwars)  <span class="co"># dimensions (row column)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">dim</span>(starwars) <span class="co"># dimensions (row column)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 87 14</code></pre>
 </div>
@@ -596,7 +596,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>quartet <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a></a>  <span class="fu">group_by</span>(set) <span class="sc">|&gt;</span></span>
 <span id="cb14-3"><a></a>  <span class="fu">summarise</span>(</span>
-<span id="cb14-4"><a></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x), </span>
+<span id="cb14-4"><a></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x),</span>
 <span id="cb14-5"><a></a>    <span class="at">mean_y =</span> <span class="fu">mean</span>(y),</span>
 <span id="cb14-6"><a></a>    <span class="at">sd_x =</span> <span class="fu">sd</span>(x),</span>
 <span id="cb14-7"><a></a>    <span class="at">sd_y =</span> <span class="fu">sd</span>(y),</span>
@@ -616,7 +616,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(quartet, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
 <span id="cb16-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> set, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>set, <span class="at">ncol =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="2-1-1-visualizing-data_files/figure-revealjs/quartet-plot-1.png" width="960"></p>

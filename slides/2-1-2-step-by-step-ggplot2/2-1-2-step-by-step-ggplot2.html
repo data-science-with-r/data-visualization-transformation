@@ -446,7 +446,7 @@
 <span id="cb3-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb3-3"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb3-4"><a></a>    <span class="at">title =</span> <span class="st">"Mass vs. height of Starwars characters"</span>,</span>
-<span id="cb3-5"><a></a>    <span class="at">x =</span> <span class="st">"Height (cm)"</span>, </span>
+<span id="cb3-5"><a></a>    <span class="at">x =</span> <span class="st">"Height (cm)"</span>,</span>
 <span id="cb3-6"><a></a>    <span class="at">y =</span> <span class="st">"Weight (kg)"</span></span>
 <span id="cb3-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -489,7 +489,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -499,19 +499,20 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 20…</code></pre>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb7-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb7-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb7-4"><a></a>    <span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm,</span>
-<span id="cb7-5"><a></a>    <span class="at">color =</span> species</span>
-<span id="cb7-6"><a></a>  )</span>
-<span id="cb7-7"><a></a>) <span class="sc">+</span></span>
-<span id="cb7-8"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb7-9"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-10"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
-<span id="cb7-11"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb7-12"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, </span>
-<span id="cb7-13"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb7-14"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb7-15"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb7-16"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
+<span id="cb7-5"><a></a>    <span class="at">y =</span> bill_length_mm,</span>
+<span id="cb7-6"><a></a>    <span class="at">color =</span> species</span>
+<span id="cb7-7"><a></a>  )</span>
+<span id="cb7-8"><a></a>) <span class="sc">+</span></span>
+<span id="cb7-9"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-10"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-11"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
+<span id="cb7-12"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
+<span id="cb7-13"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb7-14"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb7-15"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
+<span id="cb7-16"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
+<span id="cb7-17"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing missing values or values outside
 the scale range (`geom_point()`).</code></pre>
@@ -525,11 +526,11 @@ the scale range (`geom_point()`).</code></pre>
 <div class="column">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="|1,3|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb9-2"><a></a>  <span class="at">data =</span> penguins</span>
-<span id="cb9-3"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-3"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-8-1.png" width="576"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -541,11 +542,11 @@ the scale range (`geom_point()`).</code></pre>
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb10-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb10-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm)</span>
-<span id="cb10-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-6-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -559,12 +560,12 @@ the scale range (`geom_point()`).</code></pre>
 <span id="cb11-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
 <span id="cb11-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
 <span id="cb11-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb11-6"><a></a>    )</span>
-<span id="cb11-7"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a></a>  )</span>
+<span id="cb11-7"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-10-1.png" width="576"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-7-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -578,13 +579,13 @@ the scale range (`geom_point()`).</code></pre>
 <span id="cb12-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
 <span id="cb12-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
 <span id="cb12-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb12-6"><a></a>    )</span>
-<span id="cb12-7"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb12-6"><a></a>  )</span>
+<span id="cb12-7"><a></a>) <span class="sc">+</span></span>
 <span id="cb12-8"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-11-1.png" width="576"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-8-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -599,13 +600,13 @@ the scale range (`geom_point()`).</code></pre>
 <span id="cb13-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
 <span id="cb13-5"><a></a>    <span class="at">y =</span> bill_length_mm,</span>
 <span id="cb13-6"><a></a>    <span class="at">color =</span> species</span>
-<span id="cb13-7"><a></a>    )</span>
-<span id="cb13-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb13-7"><a></a>  )</span>
+<span id="cb13-8"><a></a>) <span class="sc">+</span></span>
 <span id="cb13-9"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-12-1.png" width="576"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -617,7 +618,7 @@ the scale range (`geom_point()`).</code></pre>
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="|6,8|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb14-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb14-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb14-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb14-4"><a></a>) <span class="sc">+</span></span>
 <span id="cb14-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb14-6"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb14-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span></span>
@@ -625,7 +626,7 @@ the scale range (`geom_point()`).</code></pre>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-13-1.png" width="576"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-10-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -637,7 +638,7 @@ the scale range (`geom_point()`).</code></pre>
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb15-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb15-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb15-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb15-4"><a></a>) <span class="sc">+</span></span>
 <span id="cb15-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb15-6"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb15-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
@@ -646,7 +647,7 @@ the scale range (`geom_point()`).</code></pre>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-14-1.png" width="672"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-11-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -658,18 +659,18 @@ the scale range (`geom_point()`).</code></pre>
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="9-10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb16-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb16-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb16-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb16-4"><a></a>) <span class="sc">+</span></span>
 <span id="cb16-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb16-6"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb16-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
 <span id="cb16-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb16-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, </span>
+<span id="cb16-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
 <span id="cb16-10"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span></span>
 <span id="cb16-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-15-1.png" width="672"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-12-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -681,18 +682,19 @@ the scale range (`geom_point()`).</code></pre>
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb17-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb17-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb17-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb17-4"><a></a>) <span class="sc">+</span></span>
 <span id="cb17-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb17-6"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb17-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
 <span id="cb17-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb17-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb17-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span></span>
-<span id="cb17-11"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb17-10"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb17-11"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span></span>
+<span id="cb17-12"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-16-1.png" width="672"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-13-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -704,19 +706,20 @@ the scale range (`geom_point()`).</code></pre>
 <div class="sourceCode cell-code" id="cb18" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb18-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb18-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb18-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb18-4"><a></a>) <span class="sc">+</span></span>
 <span id="cb18-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb18-6"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb18-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
 <span id="cb18-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb18-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb18-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb18-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb18-12"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb18-10"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb18-11"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
+<span id="cb18-12"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
+<span id="cb18-13"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-17-1.png" width="672"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-14-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -728,16 +731,17 @@ the scale range (`geom_point()`).</code></pre>
 <div class="sourceCode cell-code" id="cb19" data-code-line-numbers="13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb19-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb19-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb19-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb19-4"><a></a>) <span class="sc">+</span></span>
 <span id="cb19-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb19-6"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb19-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
 <span id="cb19-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb19-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb19-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb19-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb19-12"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb19-13"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb19-10"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb19-11"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
+<span id="cb19-12"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
+<span id="cb19-13"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb19-14"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -754,7 +758,7 @@ the scale range (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+<figure><p><img data-src="2-1-2-step-by-step-ggplot2_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -764,16 +768,17 @@ the scale range (`geom_point()`).</code></pre>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(</span>
 <span id="cb21-2"><a></a>  <span class="at">data =</span> penguins,</span>
 <span id="cb21-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> bill_depth_mm, <span class="at">y =</span> bill_length_mm, <span class="at">color =</span> species)</span>
-<span id="cb21-4"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb21-4"><a></a>) <span class="sc">+</span></span>
 <span id="cb21-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb21-6"><a></a>  <span class="fu">labs</span>(</span>
 <span id="cb21-7"><a></a>    <span class="at">title =</span> <span class="st">"Bill depth and length"</span>,</span>
 <span id="cb21-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"Dimensions for Adelie, Chinstrap, and Gentoo Penguins"</span>,</span>
-<span id="cb21-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>, <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
-<span id="cb21-10"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
-<span id="cb21-11"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
-<span id="cb21-12"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb21-13"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-9"><a></a>    <span class="at">x =</span> <span class="st">"Bill depth (mm)"</span>,</span>
+<span id="cb21-10"><a></a>    <span class="at">y =</span> <span class="st">"Bill length (mm)"</span>,</span>
+<span id="cb21-11"><a></a>    <span class="at">color =</span> <span class="st">"Species"</span>,</span>
+<span id="cb21-12"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Palmer Station LTER / palmerpenguins package"</span></span>
+<span id="cb21-13"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb21-14"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="narrative" class="slide level2"><h2>Narrative</h2>
 <p>Start with the <code>penguins</code> data frame, map bill depth to the x-axis and map bill length to the y-axis.</p>
@@ -790,8 +795,8 @@ the scale range (`geom_point()`).</code></pre>
 <span id="cb22-3"><a></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
 <span id="cb22-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
 <span id="cb22-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb22-6"><a></a>    )</span>
-<span id="cb22-7"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb22-6"><a></a>  )</span>
+<span id="cb22-7"><a></a>) <span class="sc">+</span></span>
 <span id="cb22-8"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -801,8 +806,8 @@ the scale range (`geom_point()`).</code></pre>
 <span id="cb23-3"><a></a>  <span class="fu">aes</span>(</span>
 <span id="cb23-4"><a></a>    <span class="at">x =</span> bill_depth_mm,</span>
 <span id="cb23-5"><a></a>    <span class="at">y =</span> bill_length_mm</span>
-<span id="cb23-6"><a></a>    )</span>
-<span id="cb23-7"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb23-6"><a></a>  )</span>
+<span id="cb23-7"><a></a>) <span class="sc">+</span></span>
 <span id="cb23-8"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div></div>

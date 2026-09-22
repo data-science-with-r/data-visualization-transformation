@@ -506,10 +506,16 @@ $ paid_late_fees                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0,…</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="|2-5|1|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">select</span>(</span>
-<span id="cb3-3"><a></a>    loan_amount, interest_rate, term, grade, </span>
-<span id="cb3-4"><a></a>    state, annual_income, homeownership, debt_to_income</span>
-<span id="cb3-5"><a></a>  )</span>
-<span id="cb3-6"><a></a><span class="fu">glimpse</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a>    loan_amount,</span>
+<span id="cb3-4"><a></a>    interest_rate,</span>
+<span id="cb3-5"><a></a>    term,</span>
+<span id="cb3-6"><a></a>    grade,</span>
+<span id="cb3-7"><a></a>    state,</span>
+<span id="cb3-8"><a></a>    annual_income,</span>
+<span id="cb3-9"><a></a>    homeownership,</span>
+<span id="cb3-10"><a></a>    debt_to_income</span>
+<span id="cb3-11"><a></a>  )</span>
+<span id="cb3-12"><a></a><span class="fu">glimpse</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 10,000
 Columns: 8
@@ -639,7 +645,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell fragment">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: The following aesthetics were dropped during statistical
-transformation: fill
+transformation: fill.
 ℹ This can happen when ggplot fails to infer the correct
   grouping structure in the data.
 ℹ Did you forget to specify a `group` aesthetic or to
@@ -709,11 +715,13 @@ transformation: fill
 <span id="cb11-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> homeownership, <span class="at">fill =</span> term)) <span class="sc">+</span></span>
 <span id="cb11-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
 <span id="cb11-5"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-6"><a></a>    <span class="at">x =</span> <span class="st">"Proportion"</span>, <span class="at">y =</span> <span class="st">"Homeownership"</span>, <span class="at">fill =</span> <span class="st">"Term"</span>,</span>
-<span id="cb11-7"><a></a>    <span class="at">title =</span> <span class="st">"Terms of Lending Club loans"</span>,</span>
-<span id="cb11-8"><a></a>    <span class="at">subtitle =</span> <span class="st">"and homeownership of borrowers"</span></span>
-<span id="cb11-9"><a></a>  ) <span class="sc">+</span></span>
-<span id="cb11-10"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightblue"</span>, <span class="st">"darkgreen"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a></a>    <span class="at">x =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb11-7"><a></a>    <span class="at">y =</span> <span class="st">"Homeownership"</span>,</span>
+<span id="cb11-8"><a></a>    <span class="at">fill =</span> <span class="st">"Term"</span>,</span>
+<span id="cb11-9"><a></a>    <span class="at">title =</span> <span class="st">"Terms of Lending Club loans"</span>,</span>
+<span id="cb11-10"><a></a>    <span class="at">subtitle =</span> <span class="st">"and homeownership of borrowers"</span></span>
+<span id="cb11-11"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb11-12"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightblue"</span>, <span class="st">"darkgreen"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure><p><img data-src="3-2-visualize-summarize-categorical_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>

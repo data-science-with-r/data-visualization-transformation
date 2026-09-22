@@ -408,16 +408,22 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse) <span class="co"># for data wrangling and visualization</span></span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(openintro) <span class="co"># for data</span></span>
-<span id="cb1-3"><a></a><span class="fu">library</span>(scales)    <span class="co"># for pretty axis labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a></a><span class="fu">library</span>(scales) <span class="co"># for pretty axis labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="data-lending-club" class="slide level2"><h2>Data: Lending Club</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>loans <span class="ot">&lt;-</span> loans_full_schema <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a></a>  <span class="fu">select</span>(</span>
-<span id="cb2-3"><a></a>    loan_amount, interest_rate, term, grade, </span>
-<span id="cb2-4"><a></a>    state, annual_income, homeownership, debt_to_income</span>
-<span id="cb2-5"><a></a>  )</span>
-<span id="cb2-6"><a></a><span class="fu">glimpse</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a></a>    loan_amount,</span>
+<span id="cb2-4"><a></a>    interest_rate,</span>
+<span id="cb2-5"><a></a>    term,</span>
+<span id="cb2-6"><a></a>    grade,</span>
+<span id="cb2-7"><a></a>    state,</span>
+<span id="cb2-8"><a></a>    annual_income,</span>
+<span id="cb2-9"><a></a>    homeownership,</span>
+<span id="cb2-10"><a></a>    debt_to_income</span>
+<span id="cb2-11"><a></a>  )</span>
+<span id="cb2-12"><a></a><span class="fu">glimpse</span>(loans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 10,000
 Columns: 8
@@ -437,7 +443,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -460,7 +466,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-5-1.png" width="864"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-4-1.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -470,7 +476,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-6-1.png" width="864"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-5-1.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -480,7 +486,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-7-1.png" width="864"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-6-1.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -490,7 +496,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-8-1.png" width="864"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-7-1.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -506,12 +512,12 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> loan_amount)) <span class="sc">+</span></span>
 <span id="cb4-2"><a></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value with
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value
 `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-8-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -530,7 +536,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb7-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-10-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -543,7 +549,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb8-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -556,7 +562,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb9-4"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -581,7 +587,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-14-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-13-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -594,11 +600,11 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p_loans<span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>p_loans <span class="sc">+</span></span>
 <span id="cb11-2"><a></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-15-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-14-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -609,7 +615,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb12-2"><a></a>  <span class="fu">geom_density</span>(<span class="at">adjust =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-16-1.png" width="480"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-15-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -626,7 +632,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb13-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-17-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-16-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -637,7 +643,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <span id="cb14-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-18-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-17-1.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -648,7 +654,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="|3-7|8-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(loans, <span class="fu">aes</span>(<span class="at">x =</span> interest_rate)) <span class="sc">+</span></span>
 <span id="cb15-2"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb15-3"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-4"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate"</span>, </span>
+<span id="cb15-4"><a></a>    <span class="at">x =</span> <span class="st">"Interest rate"</span>,</span>
 <span id="cb15-5"><a></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
 <span id="cb15-6"><a></a>    <span class="at">title =</span> <span class="st">"Interest rates of Lending Club loans"</span></span>
 <span id="cb15-7"><a></a>  ) <span class="sc">+</span></span>
@@ -659,7 +665,7 @@ $ debt_to_income &lt;dbl&gt; 18.01, 5.04, 21.15, 10.16, 57.96, 6…</code></pre>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-19-1.png" width="576"></p>
+<figure><p><img data-src="3-3-1-visualize-summarize-numerical_files/figure-revealjs/unnamed-chunk-18-1.png" width="576"></p>
 </figure>
 </div>
 </div>
